@@ -3,7 +3,7 @@ const enableImage = false;
 // レーダーチャート用
 let chartObj;
 // ストレージデータ
-let sto = new Storage("ArkNightns");
+let sto = new Storage("ArkNights");
 // ストレージデータが空
 if(sto.isEmpty){
 	// ストレージデータの初期化
