@@ -549,12 +549,12 @@ function showNature(){
 	for(let natureName in nature){
 		// ヘッダ、もしくは改行の追加
 		if(html == ""){
-			html += "<div style='color:gray;'>素質詳細</div>";
+			html += div("素質詳細", {color:"gray"});
 		}else{
 			html += "<br/>";
 		}
 		// 素質の追加
-		html += "<div class='whitelabel' style='display:inline-block;'>" + natureName + "</div><br/>";
+		html += div(natureName, {display:"inline-block"}, {class:"whitelabel"}) + "<br/>";
 		html += nature[natureName].exp;
 	}
 	// HTML反映
@@ -590,12 +590,12 @@ function showSkill(){
 	for(let sname in sdata){
 		// タグ生成
 		html += "<div class='flex'>";
-		html += "<div style='margin:3px;font-weight:bold;'>" + sname + "</div>";
+		html += div(sname, {margin:"3px", fontWeight:"bold"});
 		// スキル特化の設定がされている場合
 		if(sp){
 			// 特化段階の表示
 			if(sp[i] > 0){
-				html += "<div style='margin-left:1em;margin-top:3px;color:yellow;'>スキル特化" + sp[i] + "段階</div>"
+				html += div("スキル特化" + sp[i] + "段階", {marginLeft:"1em", marginTop:"3px", color:"yellow"});
 			}
 		}
 		html += "</div>";
@@ -605,27 +605,23 @@ function showSkill(){
 			html += card("パッシブ");
 		}else{
 			// スキルの回復方法の文字変換
-			let recoverText;
 			switch(sdata[sname].recover){
 				case "auto":
-					recoverText = "自動回復";
+					html += card("自動回復", {backgroundColor:"#00C000"});
 					break;
 				case "attack":
-					recoverText = "攻撃回復";
+					html += card("攻撃回復", {backgroundColor:"#FF0000"});
 					break;
 			}
-			html += card(recoverText);
 			// スキルの発動方法の文字変換
-			let activateText;
 			switch(sdata[sname].activate){
 				case "auto":
-					activateText = "自動発動";
+					html += card("自動発動");
 					break;
 				case "manual":
-					activateText = "手動発動";
+					html += card("手動発動");
 					break;
 			}
-			html += card(activateText);
 		}
 		html += "</div>";
 		// スキルの説明取得
@@ -640,7 +636,7 @@ function showSkill(){
 			}
 		}
 		// スキル説明の反映
-		html += "<div style='margin-left:1em;height:5em;'>" + exp + "</div>";
+		html += div(exp, {marginLeft:"1em", height:"5em"});
 		// ループカウンタのインクリメント
 		i++;
 	}

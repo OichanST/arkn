@@ -98,7 +98,7 @@ function ValueConverter(name, key, val){
 					ret += "<br/>";
 				}
 				// タグを生成して追加
-				ret += "<div class='whitelabel' style='display:inline-block;'>" + subKey + "</div>";
+				ret += div(subKey, {display:"inline-block"}, {class:"whitelabel"});
 			}
 			// 結果を返却
 			return ret;
@@ -137,7 +137,7 @@ function ValueConverter(name, key, val){
 			// 募集タグが無い場合、何もしない　※基本的にはあり得ない
 			if(val.length <= 0)return;
 			// 0番目（近距離or遠距離）のタグを生成
-			ret += "<div class='card center'>" + val[0] + "</div>";
+			ret += div(val[0], null, {class:"card center"});
 			// 他のタグが設定されていない場合、ここで終わり
 			if(val.length <= 1){
 				return ret;
@@ -224,7 +224,7 @@ function ValueConverter(name, key, val){
 					ret += "<br/>";
 				}
 				*/
-				ret += "<div style='margin-left:1em;'>" + sname + "</div>";
+				ret += div(sname, {marginLeft:"1em"});
 			}
 			return ret;
 		// その他
@@ -342,13 +342,13 @@ function compare(){
 
 function toggleRangeBar(){
 	if(ById("setLv").checked){
-		ById('rangeBar').disabled = false;
-		ById('rangeBar').value = 1;
-		ById('nowLv').value = 1;
+		ById("rangeBar").disabled = false;
+		ById("rangeBar").value = 1;
+		ById("nowLv").value = 1;
 	}else{
-		ById('rangeBar').disabled = true;
-		ById('rangeBar').value = 1;
-		ById('nowLv').value = null;
+		ById("rangeBar").disabled = true;
+		ById("rangeBar").value = 1;
+		ById("nowLv").value = null;
 	}
 }
 /**
@@ -532,24 +532,24 @@ function calcLvStat(name){
 	if(promotion == 0){
 		hpMin = data.stat[promotion].min.hp;
 		hpMax = data.stat[promotion].max.hp;
-		atkMin =  data.stat[promotion].min.atk;
-		atkMax =  data.stat[promotion].max.atk;
+		atkMin = data.stat[promotion].min.atk;
+		atkMax = data.stat[promotion].max.atk;
 		defMin = data.stat[promotion].min.def;
 		defMax = data.stat[promotion].max.def;
 	// 昇進１
 	}else if(promotion == 1){
 		hpMin = data.stat[promotion - 1].max.hp;
 		hpMax = data.stat[promotion].hp;
-		atkMin =  data.stat[promotion - 1].max.atk;
-		atkMax =  data.stat[promotion].atk;
+		atkMin = data.stat[promotion - 1].max.atk;
+		atkMax = data.stat[promotion].atk;
 		defMin = data.stat[promotion - 1].max.def;
 		defMax = data.stat[promotion].def;
 	// 昇進２
 	}else{
 		hpMin = data.stat[promotion - 1].hp;
 		hpMax = data.stat[promotion].hp;
-		atkMin =  data.stat[promotion - 1].atk;
-		atkMax =  data.stat[promotion].atk;
+		atkMin = data.stat[promotion - 1].atk;
+		atkMax = data.stat[promotion].atk;
 		defMin = data.stat[promotion - 1].def;
 		defMax = data.stat[promotion].def;
 	}

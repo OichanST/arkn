@@ -36,14 +36,34 @@ function span(val, css){
 /**
  * divタグの作成
  */
-function div(text){
-	return "<div>" + text + "</div>";
+function div(text, css, attr){
+	let ret = Elem("div");
+	ret.innerText = text;
+	if(css){
+		for(let key in css){
+			ret.style[key] = css[key];
+		}
+	}
+	if(attr){
+		for(let key in attr){
+			ret.setAttribute(key, attr[key]);
+		}
+	}
+	return ret.outerHTML;
 }
 /**
  * divタグ(card)の作成
  */
-function card(text){
-	return "<div class='card'>" + text + "</div>";
+function card(text, css){
+	let ret = Elem("div");
+	ret.setAttribute("class", "card");
+	ret.innerText = text;
+	if(css){
+		for(let key in css){
+			ret.style[key] = css[key];
+		}
+	}
+	return ret.outerHTML;
 }
 /**
  * Tableオブジェクトラッパー
