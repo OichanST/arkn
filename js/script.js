@@ -1,5 +1,5 @@
 // イメージ表示
-const enableImage = false;
+const enableImage = true;
 // レーダーチャート用
 let chartObj;
 // ストレージデータ
