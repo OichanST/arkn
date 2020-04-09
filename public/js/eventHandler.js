@@ -301,33 +301,30 @@ function showDetail(name){
 	ById("skillSp").style.display = "none";
 	// 該当のオペレーターのデータ取得
 	const data = operator[name];
-	// イメージ表示が有効化されている場合
-	if(enableImage){
-		// イメージタグ生成
-		const img = Elem("img");
-		
-		let src;
-		
-		if(sto.data[name].promotion == 0){
-			src = data.en;
+	// イメージタグ生成
+	const img = Elem("img");
+	
+	let src;
+	
+	if(sto.data[name].promotion == 0){
+		src = data.en;
+	}else{
+		if(name == "アーミヤ"){
+			src = data.en + "_" + sto.data[name].promotion;
 		}else{
-			if(name == "アーミヤ"){
-				src = data.en + "_" + sto.data[name].promotion;
+			if(sto.data[name].promotion == 2){
+				src = data.en + "_2";
 			}else{
-				if(sto.data[name].promotion == 2){
-					src = data.en + "_2";
-				}else{
-					src = data.en;
-				}
+				src = data.en;
 			}
 		}
-		
-		img.setAttribute("src", "image/" + src + ".png");
-		img.style.width = "9.5em";
-		img.style.height = "295px";
-		ById("img").innerHTML = "";
-		ById("img").appendChild(img);
 	}
+	
+	img.setAttribute("src", "image/" + src + ".png");
+	img.style.width = "9.5em";
+	img.style.height = "295px";
+	ById("img").innerHTML = "";
+	ById("img").appendChild(img);
 	// イメージのオーバレイの色彩設定
 	ById("imageBack").setAttribute("class", "rare" + data.rare);
 	// オペレーター名反映

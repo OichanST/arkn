@@ -31,8 +31,6 @@ function callServer(key, data){
 	execute = key;
 	socket.emit(key, data);
 }
-// イメージ表示
-const enableImage = false;
 // レーダーチャート用
 let chartObj;
 // ストレージデータ
