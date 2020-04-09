@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+		<title>アークナイツ オペレーターデータベース</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="data/operator.json" encoding="UTF-8"></script>
+	<script type="text/javascript" src="js/domWrapper.js" encoding="UTF-8"></script>
+	<script type="text/javascript" src="js/script.js" encoding="UTF-8"></script>
+	<script type="text/javascript" src="js/eventHandler.js" encoding="UTF-8"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+	<body>
+		<div id="loginForm" style="text-align:center;">
+			<div>Enter Your UserId:</div>
+			<div><input type="text" id="userId"></div>
+			<div style="margin-top:1em;"><button type="button" onclick="login();">ログイン</button></div>
+			<div id="loginErr" style="margin-top:1em;display:none;fontWeight:bold;color:red;">Login Failed!</div>
+			<div style="text-align:right;">ゲストログインする場合<a href="javascript:void(0)" onclick="guestLogin();">こちら</a>をクリック</div>
+		</div>
+		<div id="main" style="display:none;">
+			<div class="flex">
+				<div>
+					<form id="f">
+						<div>
+							<label><input type="radio" name="type" value="1" checked onchange="init();"><span>簡易＋詳細</span></label>
+							<label><input type="radio" name="type" value="2" onchange="init();"><span>一覧</span></label>
+						</div>
+						<div class="flex" style="margin-top:4px;">
+							<div class="card center" style="width:4.5em;">フィルタ</div>
+							<div class="card center" style="width:5.5em;">レアリティ</div>
+							<div style="padding-top:4px;">
+								<label><input type="checkbox" name="rare" value="1" onchange="init();" checked><span>1</span></label>
+								<label><input type="checkbox" name="rare" value="2" onchange="init();" checked><span>2</span></label>
+								<label><input type="checkbox" name="rare" value="3" onchange="init();" checked><span>3</span></label>
+								<label><input type="checkbox" name="rare" value="4" onchange="init();" checked><span>4</span></label>
+								<label><input type="checkbox" name="rare" value="5" onchange="init();" checked><span>5</span></label>
+								<label><input type="checkbox" name="rare" value="6" onchange="init();" checked><span>6</span></label>
+							</div>
+							<div class="card center" style="width:3.0em;">職業</div>
+							<div style="padding-top:4px;">
+								<label><input type="checkbox" name="job" value="先鋒" onchange="init();" checked><span>先鋒</span></label>
+								<label><input type="checkbox" name="job" value="前衛" onchange="init();" checked><span>前衛</span></label>
+								<label><input type="checkbox" name="job" value="重装" onchange="init();" checked><span>重装</span></label>
+								<label><input type="checkbox" name="job" value="狙撃" onchange="init();" checked><span>狙撃</span></label>
+								<label><input type="checkbox" name="job" value="術師" onchange="init();" checked><span>術師</span></label>
+								<label><input type="checkbox" name="job" value="医療" onchange="init();" checked><span>医療</span></label>
+								<label><input type="checkbox" name="job" value="特殊" onchange="init();" checked><span>特殊</span></label>
+								<label><input type="checkbox" name="job" value="補助" onchange="init();" checked><span>補助</span></label>
+							</div>
+						</div>
+						<div class="flex">
+							<div class="card center" style="width:4.5em;">ソート</div>
+							<div style="padding-top:4px;">
+								<label><input type="radio" name="sort" value="rare" onchange="init();" checked><span>レアリティ</span></label>
+								<label><input type="radio" name="sort" value="hp" onchange="init();"><span>HP</span></label>
+								<label><input type="radio" name="sort" value="atk" onchange="init();"><span>攻撃力</span></label>
+								<label><input type="radio" name="sort" value="def" onchange="init();"><span>防御力</span></label>
+								<label><input type="radio" name="sort" value="dps" onchange="init();"><span>DPS</span></label>
+								<label><input type="radio" name="sort" value="lv" onchange="init();"><span>Lv</span></label>
+								<label><input type="radio" name="sort" value="pend" onchange="init();"><span>物理耐久</span></label>
+								<label><input type="radio" name="sort" value="aend" onchange="init();"><span>術耐久</span></label>
+							</div>
+						</div>
+						<div class="flex">
+							<div class="card center" style="width:4.5em;">DPS用</div>
+							<div class="card center" style="background-color:#00C000;">敵物理防御</div>
+							<div style="position:relative;width:61px;"><input type="number" id="eneDef" style="width:56px;" min="0" max="9999" value="0" onchange="init();"></div>
+							<div class="card center" style="background-color:#00C000;">敵術耐性</div>
+							<div style="position:relative;width:50px;"><input type="number" id="eneRes" style="width:40px;" min="0" max="99" value="0" onchange="init();"></div>
+							<div class="card center" style="background-color:#00C000;">範囲内敵数</div>
+							<div style="position:relative;width:50px;"><input type="number" id="eneCnt" style="width:32px;" min="1" max="9" value="1" onchange="init();"></div>
+						</div>
+					</form>
+					<div>
+						<table id="listHeader" class="list header" style="width:73.5em;"></table>
+						<div class="listWrapper" style="width:73.4em;height:33.7em;">
+							<table id="operator" class="list body" style="width:100%;"></table>
+						</div>
+						<table id="matrix" class="list" style="margin-top:4px;"></table>
+						<div style="margin-top:4px;">
+							<select id="t1"></select>
+							と
+							<select id="t2"></select>
+							の
+							<select id="tpro">
+								<option value="0">初期</option>
+								<option value="1">昇進１</option>
+								<option value="2">昇進２</option>
+							</select>
+							で
+							<button onclick="compare();">戦力比較</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="skillSp">
+				<div class="closeBtn" onclick="ById('skillSp').style.display = 'none';">×</div>
+				<div id="skillSpBody"></div>
+			</div>
+			<div id="detail">
+				<div id="natureDetail"></div>
+				<div id="skillDetail"></div>
+				<div class="flex" style="height:300px;">
+					<div style="width:154px;">
+						<div id="img" style="position:absolute;"></div>
+						<div id="job" class="center" style="background-color:black;"></div>
+						<div id="rare"></div>
+						<div id="en"></div>
+						<div id="name"></div>
+						<div id="imageBack">&nbsp;</div>
+						<div id="imageBack2">%nbsp;</div>
+					</div>
+					<div>
+						<div id="stat">
+							<div class="flex" style="margin-top:4px;">
+								<div class="label inversion">HP</div><div id="hp" class="minilabel"></div>
+								<div class="label inversion">再配置</div><div id="relocation" class="minilabel"></div>
+							</div>
+							<div class="flex">
+								<div class="label inversion">攻撃力</div><div id="atk" class="minilabel"></div>
+								<div class="label inversion">COST</div><div id="cost" class="minilabel"></div>
+							</div>
+							<div class="flex">
+								<div class="label inversion">防御力</div><div id="def" class="minilabel"></div>
+								<div class="label inversion">ブロック</div><div id="block" class="minilabel"></div>
+							</div>
+							<div class="flex">
+								<div class="label inversion">術耐性</div><div id="res" class="minilabel"></div>
+								<div class="label inversion">攻撃速度</div><div id="speed" class="minilabel"></div>
+							</div>
+							<div class="flex">
+								<div class="label inversion">DPS</div><div id="dps" class="minilabel"></div>
+							</div>
+							<div class="flex">
+								<div class="label inversion">物理耐久</div><div id="pEndurance" class="minilabel"></div>
+							</div>
+							<div class="flex">
+								<div class="label inversion">術耐久</div><div id="aEndurance" class="minilabel"></div>
+							</div>
+						</div>
+					</div>
+					<div style="width:17.0em;">
+						<div style="margin-top:0.1em;margin-left:4px;height:6.0em;">
+							<span>特性<span>
+							<div id="characteristic"></div>
+						</div>
+						<div class="card flexbetween" style="height:4.9em;flex-direction:column;">
+							<div class="flex">
+								<div>素質</div>
+								<div id="nature" style="margin-left:4px;"></div>
+							</div>
+							<div style="width:1em;cursor:pointer;" onclick="showNature();">…</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex">
+					<div>
+						<div class="flex">
+							<div id="rangeWrapper" class="card center flexend" style="flex-direction:column;">
+								<div id="range"></div>
+								<div>攻撃範囲</div>
+							</div>
+							<div id="tag"></div>
+						</div>
+						<div>
+							<span>潜在</span>
+							<div id="potential" class="center"></div>
+						</div>
+						<div>
+							<span>スキル</span>
+							<span style="cursor:pointer;" onclick="showSkill();">＋</span>
+							<div id="skill"></div>
+						</div>
+					</div>
+					<div style="width:725px;">
+						<canvas id="chart" height="180"></canvas>
+					</div>
+				</div>
+			</div>
+			<div id="serverAction" style="display:none;">
+				<button type="button" onclick="loadServer();">サーバーからデータをロード</button>
+				<button type="button" onclick="saveServer();">サーバーにデータを保存</button>
+			</div>
+		</div>
+	</body>
+</html>
