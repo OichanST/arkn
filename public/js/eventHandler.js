@@ -842,11 +842,16 @@ function guestLogin(){
 	makeMatrix();
 }
 function loadServer(){
-	sto.data = serverData;
-	sto.save();
-	init();
-	makeMatrix();
+	if(serverData){
+		sto.data = serverData;
+		sto.save();
+		init();
+		makeMatrix();
+	}else{
+		alert("サーバーにデータがありません。");
+	}
 }
 function saveServer(){
-	callServer("data", JSON.stringify(sto.data));
+	serverData = sto.data;
+	callServer("data", JSON.stringify(serverData));
 }
