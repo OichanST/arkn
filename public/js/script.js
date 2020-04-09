@@ -1,3 +1,5 @@
+"use strict";
+
 const socket = io.connect();
 let execute;
 let serverData;
