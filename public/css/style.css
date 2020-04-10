@@ -33,16 +33,24 @@ input[type=range]::-webkit-slider-thumb{
 	background:yellow;
 	/*box-shadow:2px 0px 1px black;*/
 }
-input[type=range]:disabled::-webkit-slider-thumb{
-	background:#EEEEEE;
+input[type=range].prom0::-webkit-slider-thumb{
+	background:#00CCFF;
+}
+input[type=range].prom1::-webkit-slider-thumb{
+	background:#00FF00;
+}
+input[type=range].prom2::-webkit-slider-thumb{
+	background:#FF9999;
 }
 input[type=range]::-webkit-slider-runnable-track{
-	-webkit-appearance:none;
 	height:26px;
 	background:gray;
 	box-shadow:inset 2px 2px 2px black;
 }
 input[type=number]{
+	border:none;
+	border-bottom:2px solid gray;
+	padding-top:3px;
 	text-align:right;
 	font-size:1.0em;
 	height:20px;
@@ -50,11 +58,31 @@ input[type=number]{
 	margin-top:2px;
 }
 select{
-	font-size:0.9em;
-	height:1.8em;
+	-webkit-appearance:none;
+	border:none;
+	border-bottom:2px solid gray;
+	padding-left:6px;
+	padding-right:6px;
+	font-size:1.0em;
+	height:1.6em;
 }
 img{
 	object-fit:cover;
+}
+button{
+	cursor:pointer;
+	border:none;
+	color:white;
+	font-size:1.0em;
+	background-color:white;
+	text-shadow: 1px  1px 0 gray,
+	            -1px -1px 0 gray,
+                -1px  1px 0 gray,
+                 1px -1px 0 gray,
+                 0px  1px 0 gray,
+                 0px -1px 0 gray,
+                -1px  0px 0 gray,
+                 1px  0px 0 gray;
 }
 
 .rangeSet{
@@ -68,6 +96,10 @@ img{
 	border-left:1px solid black;
 	border-top:1px solid black;
 	border-bottom:1px solid black;
+}
+.list caption{
+	font-weight:1000;
+	text-align:left;
 }
 .list.header{
 	border-radius:8px 8px 0px 0px;
@@ -217,6 +249,10 @@ img{
 	pointer-events:none;
 	background-color:#E0E0E0;
 }
+#operator tr.notHave button{
+	color:#E0E0E0;
+	background-color:#E0E0E0;
+}
 #rare{
 	position:absolute;
 	margin-left:34px;
@@ -235,7 +271,7 @@ img{
 	-webkit-text-stroke:1px black;
 	color:white;
 	position:absolute;
-	top:233px;
+	top:238px;
 	margin-left:6px;
 	z-index:98;
 }
@@ -245,7 +281,7 @@ img{
 	-webkit-text-stroke:1px black;
 	color:white;
 	position:absolute;
-	top:254px;
+	top:260px;
 	margin-left:6px;
 	z-index:98;
 }
@@ -317,7 +353,7 @@ img{
 	position:absolute;
 	z-index:97;
 	width:152px;
-	height:35px;
+	height:46px;
 	top:270px;
 	background-color:black;
 }

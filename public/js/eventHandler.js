@@ -21,9 +21,9 @@ function init(){
 		hrow.addHeader("レアリティ", {width:"6.0em"});
 		hrow.addHeader("オペレーター名", {width:"9.5em"});
 		hrow.addHeader("職業", {width:"2.5em"});
-		hrow.addHeader("昇進", {width:"4.4em"});
+		hrow.addHeader("昇進", {width:"3.8em"});
 		hrow.addHeader("LV", {width:"11.1em"});
-		hrow.addHeader("潜在", {width:"2.2em"});
+		hrow.addHeader("潜在", {width:"2.0em"});
 		hrow.addHeader("信頼度", {width:"11.7em"});
 		hrow.addHeader("スキルレベル");
 	// 一覧
@@ -184,23 +184,28 @@ function init(){
 					sel.appendChild(opt);
 				}
 				sel.setAttribute("value", sto.data[operatorName].promotion);
+				if(data.rare >= 4){
+					sel.style.color = "rgb(" + Math.round(sto.data[operatorName].promotion / 2 * 255) + ",0,0)";
+				}else{
+					sel.style.color = "rgb(" + Math.round(sto.data[operatorName].promotion * 255) + ",0,0)";
+				}
 				sel.addEventListener("change", changePromotion);
-				r.add(sel, {width:"4.4em"});
+				r.add(sel, {textAlign:"center", width:"3.8em"});
 			// レアリティ２以下
 			}else{
 				// 昇進選択不可
-				r.add("&nbsp;", {width:"4.4em"});
+				r.add("&nbsp;", {width:"3.8em"});
 			}
 			// LVスライダーセット
 			r.add(
-				makeRangeSet(
-					sto.data[operatorName].lv,
-					1,
-					calcLvMax(data.rare, sto.data[operatorName].promotion),
-					changeLv,
-					null,
-					38
-				),
+				makeRangeSet({
+					value:sto.data[operatorName].lv,
+					min:1,
+					max:calcLvMax(data.rare, sto.data[operatorName].promotion),
+					func:changeLv,
+					numInputWidth:38,
+					promotion:sto.data[operatorName].promotion
+				}),
 				{width:"11.1em"}
 			);
 			// 潜在選択リスト生成
@@ -223,16 +228,29 @@ function init(){
 				sel.appendChild(opt);
 			}
 			sel.setAttribute("value", sto.data[operatorName].potential);
+			sel.style.color = "rgb(" + Math.round(sto.data[operatorName].potential / 6 * 255) + ",0,0)";
 			sel.addEventListener("change", changePotential);
-			r.add(sel, {width:"2.2em"});
+			r.add(sel, {textAlign:"center",width:"2.0em"});
 			// 信頼度スライダーセット生成
 			r.add(
-				makeRangeSet(sto.data[operatorName].trust, 1, 200, changeTrust),
+				makeRangeSet({
+					value:sto.data[operatorName].trust,
+					min:1,
+					max:200,
+					func:changeTrust
+				}),
 				{width:"11.7em"}
 			);
 			// スキルレベルスライダーセット生成
 			r.add(
-				makeRangeSet(sto.data[operatorName].slv, 1, 7, changeSlv, 60, 31),
+				makeRangeSet({
+					value:sto.data[operatorName].slv,
+					min:1,
+					max:7,
+					func:changeSlv,
+					sliderWidth:60,
+					numInputWidth:31
+				}),
 				{width:"6.3em"}
 			);
 			
@@ -610,6 +628,9 @@ function showSkill(){
 				case "attack":
 					html += card("攻撃回復", {backgroundColor:"#FF0000"});
 					break;
+				case "deffence":
+					html += card("被撃回復", {backgroundColor:"#FFCC00"});
+					break;
 			}
 			// スキルの発動方法の文字変換
 			switch(sdata[sname].activate){
@@ -674,12 +695,14 @@ function hide(){
  */
 function changeHave(){
 	change('have');
+	makeMatrix();
 }
 /**
  * 昇進変更
  */
 function changePromotion(){
 	change('promotion');
+	makeMatrix();
 }
 /**
  * LV変更
@@ -743,13 +766,34 @@ function change(key){
 	sto.save();
 	// 昇進の変更の場合
 	if(key == "promotion"){
+		const selects = r.getElementsByTagName("select");
+		let divide = 1;
+		if(operator[operatorName].rare >= 4){
+			divide = 2;
+		}
+		selects[0].style.color = "rgb(" + Math.round(selects[0].value / divide * 255) + ",0,0)";
 		// 行にある入力を取得
 		const inputs = r.getElementsByTagName("input");
 		// 該当レアリティ、昇進状態による最大Lvを取得
 		const lvMax = calcLvMax(operator[operatorName].rare, sto.data[operatorName].promotion);
 		// Lvの最大値を更新
 		inputs[1].max = lvMax;
+		inputs[1].setAttribute("class", "prom" + sto.data[operatorName].promotion);
 		inputs[2].max = lvMax;
+		inputs[2].style.color = "rgb(" + Math.round((inputs[2].value / inputs[2].max) * 255) + ",0,0)";
+	}else if(key == "lv"){
+		// 行にある入力を取得
+		const inputs = r.getElementsByTagName("input");
+		inputs[2].style.color = "rgb(" + Math.round((inputs[2].value / inputs[2].max) * 255) + ",0,0)";
+	}else if(key == "potential"){
+		const selects = r.getElementsByTagName("select");
+		selects[1].style.color = "rgb(" + Math.round(selects[1].value / 6 * 255) + ",0,0)";
+	}else if(key == "trust"){
+		const inputs = r.getElementsByTagName("input");
+		inputs[4].style.color = "rgb(" + Math.round((inputs[4].value / inputs[4].max) * 255) + ",0,0)";
+	}else if(key == "slv"){
+		const inputs = r.getElementsByTagName("input");
+		inputs[6].style.color = "rgb(" + Math.round((inputs[6].value / inputs[6].max) * 255) + ",0,0)";
 	}
 }
 /**
@@ -787,7 +831,14 @@ function showSkillSp(){
 		nameArea.innerText = sname;
 		div.appendChild(nameArea);
 		// 選択スライダーを生成
-		div.appendChild(makeRangeSet(spData[i], 0, 3, changeSkillSp.bind(null, name), 35, 30));
+		div.appendChild(makeRangeSet({
+			value:spData[i],
+			min:0,
+			max:3,
+			func:changeSkillSp.bind(null, name),
+			sliderWidth:35,
+			numInputWidth:30
+		}));
 		ById("skillSpBody").appendChild(div);
 		i++;
 	}
@@ -845,6 +896,7 @@ function loadServer(){
 		sto.save();
 		init();
 		makeMatrix();
+		alert("サーバーデータをロードしました。");
 	}else{
 		alert("サーバーにデータがありません。");
 	}
@@ -852,4 +904,5 @@ function loadServer(){
 function saveServer(){
 	serverData = sto.data;
 	callServer("data", JSON.stringify(serverData));
+	alert("サーバーにデータをセーブしました。");
 }

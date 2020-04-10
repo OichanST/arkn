@@ -10,7 +10,6 @@ socket.on("disconnect", function(){
 socket.on("result", function(result){
 	switch(execute){
 		case "login":
-			console.log(result);
 			if(result.rowCount == 1){
 				ById("loginForm").style.display = "none";
 				ById("loginErr").style.display = "none";
@@ -141,10 +140,10 @@ function ValueConverter(name, key, val){
 			const t = Elem("TABLE");
 			t.setAttribute("class", "rangeTable");
 			// 攻撃範囲表示用のテーブルを初期生成する
-			for(y = -2; y <= 2; y++){
+			for(let y = -2; y <= 2; y++){
 				const r = Elem("TR");
 				t.appendChild(r);
-				for(x = -2; x <= 5; x++){
+				for(let x = -2; x <= 5; x++){
 					const c = Cell("");
 					c.style.width = "10px";
 					c.style.height = "10px";
@@ -387,7 +386,7 @@ function toggleRangeBar(){
 /**
  * rangeスライダーと選択値を表示するinputのセットを生成
  */
-function makeRangeSet(value, min, max, additionalFunc, sliderWidth, numInputWidth){
+function makeRangeSet(opt){
 	// divタグの生成
 	const div = Elem("div");
 	// CSSclass指定
@@ -395,19 +394,22 @@ function makeRangeSet(value, min, max, additionalFunc, sliderWidth, numInputWidt
 	// rangeスライダーを生成
 	const slider = Elem("input");
 	slider.setAttribute("type", "range");
+	if(opt.promotion != null){
+		slider.setAttribute("class", "prom" + opt.promotion);
+	}
 	// 幅が指定されている場合、幅を適用
-	if(sliderWidth){
-		slider.style.width = sliderWidth + "px";
+	if(opt.sliderWidth){
+		slider.style.width = opt.sliderWidth + "px";
 	}
 	// 最小値、最大値、現在値の設定
-	slider.setAttribute("min", min);
-	slider.setAttribute("max", max);
-	slider.setAttribute("value", value);
+	slider.setAttribute("min", opt.min);
+	slider.setAttribute("max", opt.max);
+	slider.setAttribute("value", opt.value);
 	// 連動させるためのイベント処理の追加
 	slider.addEventListener("input", function(eve){
 		eve.target.nextSibling.value = eve.target.value;
-		if(additionalFunc){
-			additionalFunc();
+		if(opt.func){
+			opt.func();
 		}
 		event.stopPropagation();
 	});
@@ -417,23 +419,24 @@ function makeRangeSet(value, min, max, additionalFunc, sliderWidth, numInputWidt
 	const numInput = Elem("input");
 	numInput.setAttribute("type", "number");
 	// 幅が指定されている場合、幅を適用
-	if(numInputWidth){
-		numInput.style.width = numInputWidth + "px";
+	if(opt.numInputWidth){
+		numInput.style.width = opt.numInputWidth + "px";
 	}else{
 		numInput.style.width = "3.0em";
 	}
 	// 最小値、最大値、現在値の設定
-	numInput.setAttribute("min", min);
-	numInput.setAttribute("max", max);
-	numInput.setAttribute("value", value);
+	numInput.setAttribute("min", opt.min);
+	numInput.setAttribute("max", opt.max);
+	numInput.setAttribute("value", opt.value);
 	// 連動させるためのイベント処理の追加
 	numInput.addEventListener("change", function(eve){
 		eve.target.previousSibling.value = eve.target.value;
-		if(additionalFunc){
-			additionalFunc();
+		if(opt.func){
+			opt.func();
 		}
 		event.stopPropagation();
 	});
+	numInput.style.color = "rgb(" + (opt.value / opt.max * 255) + ",0,0)";
 	// divタグにinputを追加
 	div.appendChild(numInput);
 	// divタグを返却
@@ -783,11 +786,19 @@ function calcDPS(name){
  * マトリクスの生成
  */
 function makeMatrix(){
+
+	const css = {display:"inline-block",width:"22px",textAlign:"right",paddingRight:"2px"};
 	// レアリティ別集計リスト生成
 	const matrix = new Array();
+	const haveMatrix = new Array();
+	const prom1Matrix = new Array();
+	const prom2Matrix = new Array();
 	// リストの初期化
 	for(let i = 0; i < 6; i++){
 		matrix.push({"先鋒":0,"前衛":0,"重装":0,"狙撃":0,"術師":0,"医療":0,"特殊":0,"補助":0});
+		haveMatrix.push({"先鋒":0,"前衛":0,"重装":0,"狙撃":0,"術師":0,"医療":0,"特殊":0,"補助":0});
+		prom1Matrix.push({"先鋒":0,"前衛":0,"重装":0,"狙撃":0,"術師":0,"医療":0,"特殊":0,"補助":0});
+		prom2Matrix.push({"先鋒":0,"前衛":0,"重装":0,"狙撃":0,"術師":0,"医療":0,"特殊":0,"補助":0});
 	}
 	// オペレータループ
 	for(let name in operator){
@@ -795,9 +806,20 @@ function makeMatrix(){
 		const data = operator[name];
 		// レアリティ＋職業別に集計
 		matrix[data.rare - 1][data.job]++;
+		// 所持している場合
+		if(sto.data[name].have){
+			// レアリティ＋職業別に集計
+			haveMatrix[data.rare - 1][data.job]++;
+		}
+		if(sto.data[name].promotion >= 1){
+			prom1Matrix[data.rare - 1][data.job]++;
+		}
+		if(sto.data[name].promotion >= 2){
+			prom2Matrix[data.rare - 1][data.job]++;
+		}
 	}
 	// テーブル生成
-	const t = new Table("matrix").removeAll(true);
+	const t = new Table("matrix").removeAll(true).caption("オペレータ総数/所持数/昇進1済/昇進2済");
 	// ヘッダ行生成
 	const hrow = new Row();
 	// レアリティヘッダ
@@ -810,16 +832,40 @@ function makeMatrix(){
 	t.addHeader(hrow);
 	// 職業別集計値
 	const summary = {"先鋒":0,"前衛":0,"重装":0,"狙撃":0,"術師":0,"医療":0,"特殊":0,"補助":0};
+	const haveSum =  {"先鋒":0,"前衛":0,"重装":0,"狙撃":0,"術師":0,"医療":0,"特殊":0,"補助":0};
+	const prom1Sum = {"先鋒":0,"前衛":0,"重装":0,"狙撃":0,"術師":0,"医療":0,"特殊":0,"補助":0};
+	const prom2Sum = {"先鋒":0,"前衛":0,"重装":0,"狙撃":0,"術師":0,"医療":0,"特殊":0,"補助":0};
 	// 集計データループ
 	for(let i = 0; i < matrix.length; i++){
 		// 行生成
 		const brow = new Row();
 		// レアリティ追加
-		brow.add(i + 1);
+		brow.add(i + 1, {textAlign:"center"});
+		
 		// 各職業の件数追加
 		for(let job in matrix[i]){
 			summary[job] += matrix[i][job];
-			brow.add(matrix[i][job] != 0 ? matrix[i][job] : "", {textAlign:"right"});
+			haveSum[job] += haveMatrix[i][job];
+			prom1Sum[job] += prom1Matrix[i][job];
+			prom2Sum[job] += prom2Matrix[i][job];
+			
+			let txt = "";
+			if(matrix[i][job] != 0){
+				txt =
+				span(matrix[i][job], css) + "/" + 
+				span(haveMatrix[i][job], css);
+				if(i >= 2){
+					 txt += "/" + span(prom1Matrix[i][job], css);
+				}else{
+					txt += "/" + span("-", css);
+				}
+				if(i >= 3){
+					txt += "/" + span(prom2Matrix[i][job], css);
+				}else{
+					txt += "/" + span("-", css);
+				}
+			}
+			brow.add(txt);
 		}
 		// 行追加
 		t.add(brow);
@@ -827,10 +873,15 @@ function makeMatrix(){
 	// 合計行追加
 	const sumrow = new Row();
 	// レアリティ列追加
-	sumrow.add("");
+	sumrow.add("all");
 	// 各職業の合計追加
 	for(let job in summary){
-		sumrow.add(summary[job], {textAlign:"right"});
+		sumrow.add(
+			span(summary[job], css) + "/" + 
+			span(haveSum[job], css) + "/" +
+			span(prom1Sum[job], css) + "/" +
+			span(prom2Sum[job], css)
+		);
 	}
 	// 合計行をテーブルに追加
 	t.add(sumrow);

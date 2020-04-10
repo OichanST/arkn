@@ -116,6 +116,17 @@ function Table(id){
 		th.appendChild(r.get());
 		return this;
 	}
+	this.caption = function(text){
+		let caption;
+		if(t.getElementsByTagName("caption").length > 0){
+			caption = t.getElementsByTagName("caption")[0];
+		}else{
+			caption = Elem("caption");
+		}
+		caption.innerText = text;
+		t.appendChild(caption);
+		return this;
+	}
 	/**
 	 * 行追加
 	 */

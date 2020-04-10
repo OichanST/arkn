@@ -24,12 +24,18 @@
 			<div class="flex">
 				<div>
 					<form id="f">
-						<div>
-							<label><input type="radio" name="type" value="1" checked onchange="init();"><span>簡易＋詳細</span></label>
-							<label><input type="radio" name="type" value="2" onchange="init();"><span>一覧</span></label>
+						<div class="flexbetween">
+							<div>
+								<label><input type="radio" name="type" value="1" checked onchange="init();"><span>簡易＋詳細</span></label>
+								<label><input type="radio" name="type" value="2" onchange="init();"><span>一覧</span></label>
+							</div>
+							<div id="serverAction" style="display:none;">
+								<button type="button" onclick="loadServer();" style="width:120px;">データロード</button>
+								<button type="button" onclick="saveServer();" style="width:120px;">データセーブ</button>
+							</div>
 						</div>
 						<div class="flex" style="margin-top:4px;">
-							<div class="card center" style="width:4.5em;">フィルタ</div>
+							<div class="card center" style="width:4.5em;background-color:#00C000;">フィルタ</div>
 							<div class="card center" style="width:5.5em;">レアリティ</div>
 							<div style="padding-top:4px;">
 								<label><input type="checkbox" name="rare" value="1" onchange="init();" checked><span>1</span></label>
@@ -52,7 +58,7 @@
 							</div>
 						</div>
 						<div class="flex">
-							<div class="card center" style="width:4.5em;">ソート</div>
+							<div class="card center" style="width:4.5em;background-color:#00C000;">ソート</div>
 							<div style="padding-top:4px;">
 								<label><input type="radio" name="sort" value="rare" onchange="init();" checked><span>レアリティ</span></label>
 								<label><input type="radio" name="sort" value="hp" onchange="init();"><span>HP</span></label>
@@ -65,21 +71,23 @@
 							</div>
 						</div>
 						<div class="flex">
-							<div class="card center" style="width:4.5em;">DPS用</div>
-							<div class="card center" style="background-color:#00C000;">敵物理防御</div>
-							<div style="position:relative;width:61px;"><input type="number" id="eneDef" style="width:56px;" min="0" max="9999" value="0" onchange="init();"></div>
-							<div class="card center" style="background-color:#00C000;">敵術耐性</div>
-							<div style="position:relative;width:50px;"><input type="number" id="eneRes" style="width:40px;" min="0" max="99" value="0" onchange="init();"></div>
-							<div class="card center" style="background-color:#00C000;">範囲内敵数</div>
-							<div style="position:relative;width:50px;"><input type="number" id="eneCnt" style="width:32px;" min="1" max="9" value="1" onchange="init();"></div>
+							<div class="card center" style="width:4.5em;background-color:#00C000;">DPS用</div>
+							<div class="card center">敵物理防御</div>
+							<div style="position:relative;width:67px;"><input type="number" id="eneDef" style="font-size:19px;width:62px;height:22px;" min="0" max="9999" value="0" onchange="init();"></div>
+							<div class="card center">敵術耐性</div>
+							<div style="position:relative;width:47px;"><input type="number" id="eneRes" style="font-size:19px;width:42px;height:22px;" min="0" max="99" value="0" onchange="init();"></div>
+							<div class="card center">範囲内敵数</div>
+							<div style="position:relative;width:40px;"><input type="number" id="eneCnt" style="font-size:19px;width:35px;height:22px;" min="1" max="9" value="1" onchange="init();"></div>
 						</div>
 					</form>
 					<div>
-						<table id="listHeader" class="list header" style="width:73.5em;"></table>
-						<div class="listWrapper" style="width:73.4em;height:33.7em;">
+						<table id="listHeader" class="list header" style="width:73.3em;"></table>
+						<div class="listWrapper" style="width:73.2em;height:33.7em;">
 							<table id="operator" class="list body" style="width:100%;"></table>
 						</div>
-						<table id="matrix" class="list" style="margin-top:4px;"></table>
+						<div class="flexbetween">
+							<table id="matrix" class="list" style="margin-top:4px;"></table>
+						</div>
 						<div style="margin-top:4px;">
 							<select id="t1"></select>
 							と
@@ -179,10 +187,6 @@
 						<canvas id="chart" height="180"></canvas>
 					</div>
 				</div>
-			</div>
-			<div id="serverAction" style="display:none;">
-				<button type="button" onclick="loadServer();">サーバーからデータをロード</button>
-				<button type="button" onclick="saveServer();">サーバーにデータを保存</button>
 			</div>
 		</div>
 	</body>
