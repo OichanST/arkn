@@ -557,7 +557,57 @@ const operator = {
 			{atk:27},
 			{cost:-1},
 			{nature:2}
-		]
+		],
+		skill:{
+			"アサルトモード":{
+				exp:"次の通常攻撃時、@cnt回連続で攻撃力の@atk%の物理ダメージを与える",
+				recover:"attack",activate:"auto",
+				effect:[
+					{need:5,cnt:3,atk:105},
+					{need:5,cnt:3,atk:107},
+					{need:5,cnt:3,atk:109},
+					{need:4,cnt:3,atk:113},
+					{need:4,cnt:3,atk:115},
+					{need:4,cnt:3,atk:117},
+					{need:4,cnt:3,atk:121},
+					{need:4,cnt:3,atk:129},
+					{need:4,cnt:3,atk:137},
+					{need:4,cnt:3,atk:145}
+				]
+			},
+			"バーストモード":{
+				exp:"通常攻撃が攻撃力の@atk%での@cnt回連続攻撃になる",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:15,need:45,pers:15,cnt:4,atk:100},
+					{start:15,need:44,pers:15,cnt:4,atk:100},
+					{start:15,need:43,pers:15,cnt:4,atk:100},
+					{start:15,need:42,pers:15,cnt:4,atk:105},
+					{start:15,need:41,pers:15,cnt:4,atk:105},
+					{start:15,need:40,pers:15,cnt:4,atk:105},
+					{start:18,need:39,pers:15,cnt:4,atk:110},
+					{start:20,need:38,pers:15,cnt:4,atk:115},
+					{start:22,need:37,pers:15,cnt:4,atk:120},
+					{start:25,need:35,pers:15,cnt:4,atk:125}
+				]
+			},
+			"オーバーロード":{
+				exp:"通常攻撃が@cnt回連続攻撃にな@text",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:20,need:50,pers:15,cnt:5,text:"る"},
+					{start:20,need:48,pers:15,cnt:5,text:"る"},
+					{start:20,need:46,pers:15,cnt:5,text:"る"},
+					{start:20,need:44,pers:15,cnt:5,text:"り、攻撃間隔がわずかに短縮"},
+					{start:20,need:42,pers:15,cnt:5,text:"り、攻撃間隔がわずかに短縮"},
+					{start:20,need:40,pers:15,cnt:5,text:"り、攻撃間隔がわずかに短縮"},
+					{start:20,need:38,pers:15,cnt:5,text:"り、攻撃間隔がやや短縮"},
+					{start:20,need:36,pers:15,cnt:5,text:"り、攻撃間隔がやや短縮し、攻撃力が@atk%まで上昇",atk:103},
+					{start:20,need:34,pers:15,cnt:5,text:"り、攻撃間隔がやや短縮し、攻撃力が@atk%まで上昇",atk:107},
+					{start:20,need:30,pers:15,cnt:5,text:"り、攻撃間隔が短縮し、攻撃力が@atk%まで上昇",atk:110}
+				]
+			}
+		}
 	},
 	"エイヤフィヤトラ":{
 		en:"Eyjafjalla",
