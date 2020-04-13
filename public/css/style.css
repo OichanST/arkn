@@ -45,6 +45,9 @@ input[type=range].prom1::-webkit-slider-thumb{
 input[type=range].prom2::-webkit-slider-thumb{
 	background:#FF9999;
 }
+.notHave input[type=range]::-webkit-slider-thumb{
+	background:#C0C0C0;
+}
 input[type=range]::-webkit-slider-runnable-track{
 	height:26px;
 	background:gray;
