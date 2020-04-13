@@ -779,15 +779,21 @@ function calcDPS(name){
 		// 保証ダメージによる計算
 		dmg = parseInt(stat.atk * limit);
 	}
+	// 攻撃速度上昇
+	let speedUp = 0;
+	// 攻撃間隔延長
+	let intervalUp = 0;
+	
 	// DPSを計算して返却
-	return Math.round(dmg / data.speed) * atkCnt * eneCnt;
+	return Math.round(dmg * (Math.round((100 + speedUp) / (data.speed - intervalUp)) / 100)) * atkCnt * eneCnt;
+	//return Math.round(dmg / data.speed) * atkCnt * eneCnt;
 }
 /**
  * マトリクスの生成
  */
 function makeMatrix(){
 
-	const css = {display:"inline-block",width:"22px",textAlign:"right",paddingRight:"2px"};
+	const css = {display:"inline-block",width:"19px",textAlign:"right",paddingRight:"2px"};
 	// レアリティ別集計リスト生成
 	const matrix = new Array();
 	const haveMatrix = new Array();
@@ -873,7 +879,7 @@ function makeMatrix(){
 	// 合計行追加
 	const sumrow = new Row();
 	// レアリティ列追加
-	sumrow.add("all");
+	sumrow.add("ALL");
 	// 各職業の合計追加
 	for(let job in summary){
 		sumrow.add(

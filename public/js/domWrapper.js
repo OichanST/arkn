@@ -127,6 +127,9 @@ function Table(id){
 		t.appendChild(caption);
 		return this;
 	}
+	this.size = function(size){
+		t.style.width = size;
+	}
 	/**
 	 * 行追加
 	 */

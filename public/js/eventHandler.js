@@ -13,10 +13,14 @@ function init(){
 	const jobChk = getCheckedValue(f.job);
 	// リストヘッダを初期化して取得
 	const thead = new Table("listHeader").removeAll(true);
+	// オペレーター一覧を初期化して取得
+	const t = new Table("operator").removeAll();
 	// リストヘッダ行生成
 	const hrow = new Row();
 	// 簡易＋詳細
 	if(type == "1"){
+		thead.size("73.3em");
+		ById("wrapper").style.width = "73.2em";
 		hrow.addHeader("所持", {width:"2.9em"});
 		hrow.addHeader("レアリティ", {width:"6.0em"});
 		hrow.addHeader("オペレーター名", {width:"9.5em"});
@@ -28,22 +32,22 @@ function init(){
 		hrow.addHeader("スキルレベル");
 	// 一覧
 	}else if(type == "2"){
+		thead.size("51.3em");
+		ById("wrapper").style.width = "51.2em";
+		thead.size();
 		hrow.addHeader("レアリティ", {width:"6.0em"});
 		hrow.addHeader("オペレーター名", {width:"9.5em"});
 		hrow.addHeader("職業", {width:"2.5em"});
 		hrow.addHeader("昇進", {width:"5.5em"});
-		hrow.addHeader("HP", {width:"3.5em"});
-		hrow.addHeader("攻撃力", {width:"3.5em"});
-		hrow.addHeader("防御力", {width:"3.5em"});
-		hrow.addHeader("術耐性", {width:"3.5em"});
-		hrow.addHeader("ｺｽﾄ", {width:"2.5em"});
-		hrow.addHeader("ﾌﾞﾛｯｸ", {width:"3.0em"});
-		hrow.addHeader();
+		hrow.addHeader("HP", {width:"3.0em"});
+		hrow.addHeader("攻撃力", {width:"3.0em"});
+		hrow.addHeader("防御力", {width:"3.0em"});
+		hrow.addHeader("術耐性", {width:"3.0em"});
+		hrow.addHeader("ｺｽﾄ", {width:"2.0em"});
+		hrow.addHeader("ﾌﾞﾛｯｸ");
 	}
 	// リストヘッダに行追加
 	thead.addHeader(hrow);
-	// オペレーター一覧をクリア
-	const t = new Table("operator").removeAll();
 	// 
 	const t1 = ById("t1");
 	t1.innerHTML = "";
@@ -133,15 +137,15 @@ function init(){
 				sp:new Array(0,0,0)
 			};
 		}
-		// 所持状態取得
-		const haveOperator = sto.data[operatorName].have;
-		// 所持していない場合
-		if(!haveOperator){
-			// 行を非活性化
-			r.attr("class", "notHave");
-		}
 		// 簡易＋詳細
 		if(type == "1"){
+			// 所持状態取得
+			const haveOperator = sto.data[operatorName].have;
+			// 所持していない場合
+			if(!haveOperator){
+				// 行を非活性化
+				r.attr("class", "notHave");
+			}
 			// アーミヤ
 			if(operatorName == "アーミヤ"){
 				// 絶対持っているので所持ボタンを無効化
@@ -272,9 +276,13 @@ function init(){
 			// レアリティセル追加
 			r.add(star(data.rare), {width:"6.0em"}, {rowSpan:rsp});
 			// オペレーター名セル追加
-			r.add(operatorName, {width:"9.5em"}, {rowSpan:rsp});
+			r.add(operatorName, {cursor:"pointer", width:"9.5em"}, {rowSpan:rsp}, function(){
+				new Table("operator").clear();
+				event.target.setAttribute("class", "selected");
+				showDetail(findRow(event.target).getAttribute("name"));
+			});
 			// 職業セル追加
-			r.add(data.job, {width:"2.5em"}, {rowSpan:rsp});
+			r.add(data.job, {textAlign:"center", width:"2.5em"}, {rowSpan:rsp});
 			
 			t.add(detailSet(r, "初期Lv1", data.stat[0], "min"));
 			
@@ -298,20 +306,19 @@ function init(){
 	function detailSet(r, label, data, subKey){
 		r.add(label, {width:"5.5em"});
 		if(subKey){
-			r.add(data[subKey].hp, {textAlign:"right", width:"3.5em"});
-			r.add(data[subKey].atk, {textAlign:"right", width:"3.5em"});
-			r.add(data[subKey].def, {textAlign:"right", width:"3.5em"});
+			r.add(data[subKey].hp, {textAlign:"right", width:"3.0em"});
+			r.add(data[subKey].atk, {textAlign:"right", width:"3.0em"});
+			r.add(data[subKey].def, {textAlign:"right", width:"3.0em"});
 		}else{
-			r.add(data.hp, {textAlign:"right", width:"3.5em"});
-			r.add(data.atk, {textAlign:"right", width:"3.5em"});
-			r.add(data.def, {textAlign:"right", width:"3.5em"});
+			r.add(data.hp, {textAlign:"right", width:"3.0em"});
+			r.add(data.atk, {textAlign:"right", width:"3.0em"});
+			r.add(data.def, {textAlign:"right", width:"3.0em"});
 		}
 		if(subKey == "min" || !subKey){
-			r.add(data.res, {textAlign:"right", width:"3.5em"}, subKey == "min" ? {rowSpan:2} : null);
-			r.add(data.cost, {textAlign:"right", width:"2.5em"}, subKey == "min" ? {rowSpan:2} : null);
-			r.add(data.block, {textAlign:"right", width:"3.0em"}, subKey == "min" ? {rowSpan:2} : null);
+			r.add(data.res, {textAlign:"right", width:"3.0em"}, subKey == "min" ? {rowSpan:2} : null);
+			r.add(data.cost, {textAlign:"right", width:"2.0em"}, subKey == "min" ? {rowSpan:2} : null);
+			r.add(data.block, {textAlign:"right"}, subKey == "min" ? {rowSpan:2} : null);
 		}
-		r.add();
 		return r;
 	}
 }

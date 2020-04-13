@@ -90,6 +90,9 @@ button{
                 -1px  0px 0 gray,
                  1px  0px 0 gray;
 }
+.notHave button{
+	cursor:default;
+}
 
 .rangeSet{
 	position:relative;
@@ -124,6 +127,9 @@ button{
 	border-right:1px solid black;
 	padding-left:0.5em;
 	padding-right:0.5em;
+}
+#matrix td{
+	font-size:14px;
 }
 .list:not(#matrix) thead tr:last-child th,
 .list tbody tr:last-child td{
