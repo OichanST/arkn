@@ -22,7 +22,7 @@ function init(){
 		hrow.addHeader("オペレーター名", {width:"9.5em"});
 		hrow.addHeader("職業", {width:"2.5em"});
 		hrow.addHeader("昇進", {width:"3.8em"});
-		hrow.addHeader("LV", {width:"11.1em"});
+		hrow.addHeader("レベル", {width:"11.1em"});
 		hrow.addHeader("潜在", {width:"2.0em"});
 		hrow.addHeader("信頼度", {width:"11.7em"});
 		hrow.addHeader("スキルレベル");
@@ -96,6 +96,9 @@ function init(){
 					return sto.data[bName].promotion - sto.data[aName].promotion;
 				}
 				return sto.data[bName].lv - sto.data[aName].lv;
+			// 信頼度
+			case "trust":
+				return sto.data[bName].trust - sto.data[aName].trust;
 		}
 		// 上記条件に該当しない場合、データまま
 		return 0;
