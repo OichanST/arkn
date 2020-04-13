@@ -128,9 +128,6 @@ button{
 	padding-left:0.5em;
 	padding-right:0.5em;
 }
-#matrix td{
-	font-size:14px;
-}
 .list:not(#matrix) thead tr:last-child th,
 .list tbody tr:last-child td{
 	border-bottom:none;
@@ -383,4 +380,13 @@ button{
 	border:1px solid black;
 	padding:20px;
 	box-shadow:4px 4px 4px rgba(0,0,0,0.5);
+}
+#matrix td{
+	font-size:14px;
+}
+#loginErr{
+	margin-top:1em;
+	display:none;
+	fontWeight:bold;
+	color:red;
 }

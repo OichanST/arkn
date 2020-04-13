@@ -4,6 +4,7 @@
 		<meta charset="UTF-8"/>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 		<title>アークナイツ オペレーターデータベース</title>
+		<meta name="description" content="アークナイツ（明日方舟）のオペレーターデータベース">
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	</head>
 	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
@@ -17,8 +18,8 @@
 			<div>Enter Your UserId:</div>
 			<div><input type="text" id="userId"></div>
 			<div style="margin-top:1em;"><button type="button" onclick="login();">ログイン</button></div>
-			<div id="loginErr" style="margin-top:1em;display:none;fontWeight:bold;color:red;">Login Failed!</div>
-			<div style="text-align:right;">ゲストログインする場合<a href="javascript:void(0)" onclick="guestLogin();">こちら</a>をクリック</div>
+			<div id="loginErr">Login Failed!</div>
+			<div style="text-align:right;">ゲストログインは<a href="javascript:void(0)" onclick="guestLogin();">こちら</a>をクリック</div>
 		</div>
 		<div id="main" style="display:none;">
 			<div class="flex">
