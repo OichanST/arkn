@@ -14,11 +14,7 @@ const operator = {
 				material:{"初級糖原":9,"初級装置":3},
 				nature:{
 					"万獣の王":{
-						exp:"配置中、味方【先鋒】ユニットの攻撃力、防御力+4%(+2%)",
-						data:[
-							{atk:"4%",def:"4%"},
-							{atk:"6%",def:"6%"}
-						]
+						exp:"配置中、味方【先鋒】ユニットの攻撃力、防御力+4%(+2%)"
 					}
 				}
 			},
@@ -27,16 +23,27 @@ const operator = {
 				material:{"ナノフレーク":4,"上級源岩":6},
 				nature:{
 					"万獣の王":{
-						exp:"配置中、味方【先鋒】ユニットの攻撃力、防御力+8%(+2%)",
-						data:[
-							{atk:"8%",def:"8%"},
-							{atk:"10%",def:"10%"}
-						]
+						exp:"配置中、味方【先鋒】ユニットの攻撃力、防御力+8%(+2%)"
 					},
 					"粉砕":{exp:"隣接4マス内で敵が倒れた時、SP+1"}
 				}
 			}
 		],
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.04;
+				}else{
+					return arg.atk * 1.06;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.08;
+				}else{
+					return arg.atk * 1.1;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -110,11 +117,7 @@ const operator = {
 				material:{"初級装置":5,"初級エステル":5},
 				nature:{
 					"深海の捕食者":{
-						exp:"編成時、味方【アビサル】ユニットの攻撃力+7%(+2%)",
-						data:[
-							{atk:"7%"},
-							{atk:"9%"}
-						]
+						exp:"編成時、味方【アビサル】ユニットの攻撃力+7%(+2%)"
 					}
 				}
 			},
@@ -123,11 +126,7 @@ const operator = {
 				material:{"D32鋼":4,"上級源岩":9},
 				nature:{
 					"深海の捕食者":{
-						exp:"編成時、味方【アビサル】ユニットの攻撃力+14%(+2%)",
-						data:[
-							{atk:"14%"},
-							{atk:"16%"}
-						]
+						exp:"編成時、味方【アビサル】ユニットの攻撃力+14%(+2%)"
 					},
 					"高速復帰":{
 						exp:"自身の再配置時間-10秒",
@@ -138,6 +137,21 @@ const operator = {
 				}
 			}
 		],
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.07;
+				}else{
+					return arg.atk * 1.09;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.14;
+				}else{
+					return arg.atk * 1.16;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -212,8 +226,8 @@ const operator = {
 					"カリスマ":{
 						exp:"攻撃力＋５％(＋２％）、味方全員の再配置時間－５％",
 						data:[
-							{atk:"5%",relocation:"-5%"},
-							{atk:"7%",relocation:"-5%"}
+							{relocation:"-5%"},
+							{relocation:"-5%"}
 						]
 					}
 				}
@@ -224,14 +238,29 @@ const operator = {
 					"カリスマ":{
 						exp:"攻撃力＋１０％(＋２％）、味方全員の再配置時間－１０％",
 						data:[
-							{atk:"10%",relocation:"-10%"},
-							{atk:"12%",relocation:"-10%"}
+							{relocation:"-10%"},
+							{relocation:"-10%"}
 						]
 					},
 					"ホークビジョン":{exp:"攻撃範囲内の敵のステルス効果を無効化する"}
 				}
 			}
 		],
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.05;
+				}else{
+					return arg.atk * 1.07;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.1;
+				}else{
+					return arg.atk * 1.12;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -313,13 +342,25 @@ const operator = {
 					"帯刀格闘術":{
 						exp:"攻撃力＋５％（＋１％）、防御力＋５％（＋１％）、物理回避＋１０％（＋３％）",
 						data:[
-							{atk:"5%",def:"5%",dodge:"10%"},
-							{atk:"6%",def:"6%",dodge:"13%"}
+							{dodge:"10%"},
+							{dodge:"13%"}
 						]
 					}
 				}
 			}
 		],
+		atkUp:function(arg){
+			if(arg.promotion == 2){
+				if(!arg.enhanceNature2){
+					return arg.atk * 1.05;
+				}else{
+					return arg.atk * 1.06;
+				}
+			}
+		},
+		cnt:function(){
+			return 2;
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -411,11 +452,7 @@ const operator = {
 						]
 					},
 					"重装戦略態勢":{
-						exp:"配置中、味方【重装】ユニットの防御力＋６％（＋２％）",
-						data:[
-							{def:"6%"},
-							{def:"8%"}
-						]
+						exp:"配置中、味方【重装】ユニットの防御力＋６％（＋２％）"
 					}
 				}
 			}
@@ -588,10 +625,7 @@ const operator = {
 				hp:1338,atk:437,def:136,res:0,cost:14,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
 					"スピードリロード":{
-						exp:"攻撃速度＋６",
-						data:[
-							{speed:6}
-						]
+						exp:"攻撃速度＋６"
 					}
 				}
 			},
@@ -599,20 +633,38 @@ const operator = {
 				hp:1673,atk:540,def:161,res:0,cost:14,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
 					"スピードリロード":{
-						exp:"攻撃速度＋１２",
-						data:[
-							{speed:12}
-						]
+						exp:"攻撃速度＋１２"
 					},
 					"天使の祝福":{
-						exp:"攻撃力＋６％、最大HP＋１０％<br/>配置中、ランダムな味方１人に同じ効果を付与",
-						data:[
-							{atk:"6%",hp:"10%"}
-						]
+						exp:"攻撃力＋６％、最大HP＋１０％<br/>配置中、ランダムな味方１人に同じ効果を付与"
 					}
 				}
 			}
 		],
+		atkUp:function(arg){
+			if(arg.promotion == 2){
+				if(!arg.enhanceNature2){
+					return arg.atk * 1.06;
+				}else{
+					return arg.atk * 1.08;
+				}
+			}
+		},
+		speedUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return 6;
+				}else{
+					return  9;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return 12;
+				}else{
+					return 15;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{nature:1},
@@ -685,11 +737,7 @@ const operator = {
 				hp:1359,atk:535,def:109,res:15,cost:21,block:1,range:[[0,1],[1,1],[2,1],[1,0],[2,0],[3,0],[0,-1],[1,-1],[2,-1]],
 				nature:{
 					"フレイムブレス":{
-						exp:"配置中、味方【術師】ユニットの攻撃力＋７％（＋２％）",
-						data:[
-							{atk:"7%"},
-							{atk:"9%"}
-						]
+						exp:"配置中、味方【術師】ユニットの攻撃力＋７％（＋２％）"
 					}
 				}
 			},
@@ -697,16 +745,27 @@ const operator = {
 				hp:1743,atk:645,def:122,res:20,cost:21,block:1,range:[[0,1],[1,1],[2,1],[1,0],[2,0],[3,0],[0,-1],[1,-1],[2,-1]],
 				nature:{
 					"フレイムブレス":{
-						exp:"配置中、味方【術師】ユニットの攻撃力＋１４％（＋２％）",
-						data:[
-							{atk:"14%"},
-							{atk:"16%"}
-						]
+						exp:"配置中、味方【術師】ユニットの攻撃力＋１４％（＋２％）"
 					},
 					"カオスフレイム":{exp:"配置後ＳＰが一定の範囲内でランダム回復（７－１６）（１０－２０）"}
 				}
 			}
 		],
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.07;
+				}else{
+					return arg.atk * 1.09;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.14;
+				}else{
+					return arg.atk * 1.16;
+				}
+			}
+		},
 		potential:[
 			
 		]
@@ -738,6 +797,21 @@ const operator = {
 				}
 			}
 		],
+		dmg:function(arg){
+			let debuff;
+			if(arg.promotion == 0){
+				debuff = 15;
+			}else if(arg.promotion == 1){
+				debuff = 27;
+			}else if(arg.promotion == 2){
+				debuff = 40;
+			}
+			// デバフ値を含んだ計算
+			return Math.round(arg.atk * (100 - (arg.eneRes * (100 - debuff) / 100)) / 100);
+		},
+		target:function(arg){
+			return arg.eneCnt;
+		},
 		potential:[
 			{cost:-1},
 			{nature:1},
@@ -770,14 +844,20 @@ const operator = {
 				nature:{
 					"黒き悪魔の加護":{exp:"攻撃範囲内の味方の防御力＋６０"},
 					"法典":{
-						exp:"攻撃速度＋１０",
-						data:[
-							{speed:10}
-						]
+						exp:"攻撃速度＋１０"
 					}
 				}
 			}
 		],
+		speedUp:function(arg){
+			if(arg.promotion == 2){
+				if(!arg.enhanceNature2){
+					return 10;
+				}else{
+					return 13;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{nature:2},
@@ -831,11 +911,7 @@ const operator = {
 				hp:1108,atk:449,def:100,res:20,cost:16,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
 				nature:{
 					"アクセルフィールド":{
-						exp:"配置中、味方全員の攻撃速度＋４（＋１）",
-						data:[
-							{speed:4},
-							{speed:5}
-						]
+						exp:"配置中、味方全員の攻撃速度＋４（＋１）"
 					}
 				}
 			},
@@ -843,16 +919,27 @@ const operator = {
 				hp:1385,atk:542,def:120,res:25,cost:16,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
 				nature:{
 					"アクセルフィールド":{
-						exp:"配置中、味方全員の攻撃速度＋７（＋１）",
-						data:[
-							{speed:7},
-							{speed:8}
-						]
+						exp:"配置中、味方全員の攻撃速度＋７（＋１）"
 					},
 					"ダブルワーク":{exp:"スキル未使用時、味方全員のＨＰが１秒ごとに２０回復（＋５）"}
 				}
 			}
 		],
+		speedUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return 4;
+				}else{
+					return 5;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return 7;
+				}else{
+					return 8;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{nature:2},
@@ -1063,22 +1150,28 @@ const operator = {
 			{
 				hp:2715,atk:713,def:195,res:0,cost:18,block:1,range:[[1,0]],
 				nature:{
-					"テルミットレイピア":{exp:"攻撃時、１０％の確率で防御力を無視"},
-					data:[
-						{penetrate:"10%"}
-					]
+					"テルミットレイピア":{exp:"攻撃時、１０％の確率で防御力を無視"}
 				}
 			},
 			{
 				hp:3620,atk:860,def:235,res:0,cost:18,block:1,range:[[1,0]],
 				nature:{
-					"テルミットレイピア":{exp:"攻撃時、２０％の確率で防御力を無視"},
-					data:[
-						{penetrate:"20%"}
-					]
+					"テルミットレイピア":{exp:"攻撃時、２０％の確率で防御力を無視"}
 				}
 			}
 		],
+		dmg:function(arg){
+			if(arg.promotion == 1){
+				// 10%の確率で防御無視＝期待値は防御力×0.9
+				return arg.atk - (arg.eneDef * 0.9);
+			}else if(arg.promotion == 2){
+				// 20%の確率で防御無視＝期待値は防御力×0.8
+				return arg.atk - (arg.eneDef * 0.8);
+			}else{
+				// 物理防御による計算
+				return arg.atk - eneDef;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -1122,6 +1215,13 @@ const operator = {
 				}
 			}
 		],
+		target:function(arg){
+			if(arg.eneCnt > arg.block){
+				return arg.block;
+			}else{
+				return arg.eneCnt;
+			}
+		},
 		potential:[
 		]
 	},
@@ -1139,10 +1239,7 @@ const operator = {
 				hp:1972,atk:551,def:291,res:0,cost:21,block:2,range:[[1,0]],
 				nature:{
 					"最大ＨＰ上昇":{
-						exp:"最大ＨＰ＋１０％",
-						data:[
-							{hp:"10%"}
-						]
+						exp:"最大ＨＰ＋１０％"
 					}
 				}
 			},
@@ -1150,15 +1247,18 @@ const operator = {
 				hp:2630,atk:725,def:355,res:0,cost:23,block:3,range:[[1,0]],
 				nature:{
 					"深海の蘇生力":{
-						exp:"最大ＨＰ＋１０％（＋２％）、１秒ごとにＨＰが最大の２％（＋０．５％）回復",
-						data:[
-							{hp:"10%"},
-							{hp:"12%"}
-						]
+						exp:"最大ＨＰ＋１０％（＋２％）、１秒ごとにＨＰが最大の２％（＋０．５％）回復"
 					}
 				}
 			}
 		],
+		target:function(arg){
+			if(arg.eneCnt > arg.block){
+				return arg.block;
+			}else{
+				return arg.eneCnt;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -1449,6 +1549,21 @@ const operator = {
 				}
 			}
 		],
+		slipDmg:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return Math.round(30 * (100 - arg.eneRes) / 100);
+				}else{
+					return Math.round(40 * (100 - arg.eneRes) / 100);
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return Math.round(75 * (100 - arg.eneRes) / 100);
+				}else{
+					return Math.round(85 * (100 - arg.eneRes) / 100);
+				}
+			}
+		},
 		potential:[
 			
 		]
@@ -1510,11 +1625,7 @@ const operator = {
 				hp:1204,atk:674,def: 98,res:0,cost:26,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[4,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
 					"弾頭改造":{
-						exp:"通常攻撃あるいはスキル攻撃時、１５％の確率で攻撃力＋６０％",
-						cond:"素質発動時(15%)",
-						data:{
-							atk:"60%"
-						}
+						exp:"通常攻撃あるいはスキル攻撃時、１５％の確率で攻撃力＋６０％"
 					}
 				}
 			},
@@ -1522,15 +1633,26 @@ const operator = {
 				hp:1505,atk:865,def:116,res:0,cost:28,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[4,-1],[1,0],[2,0],[3,0],[4,0],[0,1],[1,1],[2,1],[3,1],[4,1]],
 				nature:{
 					"弾頭改造":{
-						exp:"通常攻撃あるいはスキル攻撃時、３０％の確率で攻撃力＋６０％",
-						cond:"素質発動時(30%)",
-						data:{
-							atk:"60%"
-						}
+						exp:"通常攻撃あるいはスキル攻撃時、３０％の確率で攻撃力＋６０％"
 					}
 				}
 			}
 		],
+		target:function(arg){
+			return arg.eneCnt;
+		},
+		dmg:function(arg){
+			if(arg.promotion == 1){
+				// 物理防御による計算(効果+60%×確率15%)
+				return arg.atk + (arg.atk) * 0.6 * 0.15 - arg.eneDef;
+			}else if(arg.promotion == 2){
+				// 物理防御による計算(効果+60%×確率30%)
+				return arg.atk + (arg.atk) * 0.6 * 0.3  - arg.eneDef;
+			}else{
+				// 物理防御による計算
+				return arg.atk - arg.eneDef;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -1648,6 +1770,31 @@ const operator = {
 				}
 			}
 		],
+		dmg:function(arg){
+			let debuff = 0;
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					debuff = 80;
+				}else{
+					debuff = 95;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					debuff = 160;
+				}else{
+					debuff = 175;
+				}
+			}
+			// デバフ値が物理防御を超えている場合、0になるようにする
+			if(arg.eneDef < debuff){
+				debuff = arg.eneDef;
+			}
+			// デバフ値を含んだ計算
+			return arg.atk - (arg.eneDef - debuff);
+		},
+		target:function(arg){
+			return arg.eneCnt;
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -1753,6 +1900,9 @@ const operator = {
 				}
 			}
 		],
+		target:function(arg){
+			return arg.eneCnt;
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -1775,10 +1925,7 @@ const operator = {
 				hp:1435,atk:385,def:113,res:0,cost:19,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
 					"強化注射":{
-						exp:"すべての医療の攻撃速度＋６",
-						data:[
-							{speed:6}
-						]
+						exp:"すべての医療の攻撃速度＋６"
 					}
 				}
 			},
@@ -1786,14 +1933,26 @@ const operator = {
 				hp:1595,atk:482,def:142,res:0,cost:19,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
 					"強化注射":{
-						exp:"すべての医療の攻撃速度＋１２",
-						data:[
-							{speed:12}
-						]
+						exp:"すべての医療の攻撃速度＋１２"
 					}
 				}
 			}
 		],
+		speedUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return 6;
+				}else{
+					return 8;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return 12;
+				}else{
+					return 14;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -1872,14 +2031,16 @@ const operator = {
 				hp:1280,atk:518,def:104,res:20,cost:15,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
 				nature:{
 					"探究者":{
-						exp:"防御力-35%、攻撃速度+18",
-						data:[
-							{def:"-35%",speed:18}
-						]
+						exp:"防御力-35%、攻撃速度+18"
 					}
 				}
 			}
 		],
+		speedUp:function(arg){
+			if(arg.promotion == 2){
+				return 18;
+			}
+		},
 		potential:[
 		]
 	},
@@ -1940,6 +2101,12 @@ const operator = {
 				}
 			}
 		],
+		dmg:function(arg){
+			return 0;
+		},
+		limitUp:function(arg){
+			return 0;
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -1984,6 +2151,13 @@ const operator = {
 				}
 			}
 		],
+		target:function(arg){
+			if(arg.promotion == 2){
+				if(arg.eneCnt > 2){
+					return 2;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -2015,6 +2189,13 @@ const operator = {
 				}
 			}
 		],
+		limitUp:function(arg){
+			if(arg.promotion == 1){
+				return 0.2;
+			}else if(arg.promotion == 2){
+				return 0.3;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{atk:20},
@@ -2056,6 +2237,13 @@ const operator = {
 				}
 			}
 		],
+		target:function(arg){
+			if(arg.eneCnt > arg.block){
+				return arg.block;
+			}else{
+				return arg.eneCnt;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -2138,6 +2326,9 @@ const operator = {
 				}
 			}
 		],
+		target:function(arg){
+			return arg.eneCnt;
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -2295,11 +2486,11 @@ const operator = {
 				hp:1750,atk:395,def:262,res:0,cost:9,block:1,range:[[1,0]],
 				nature:{
 					"一騎打ち":{
-						exp:"同じ敵を攻撃する度攻撃力＋３％（＋１％）",
+						exp:"同じ敵を攻撃する度攻撃力＋３％（＋１％）、最大５回まで。攻撃対象が変わるとリセット",
 						cond:"同じ敵を攻撃中",
 						data:[
-							{atk:"3%"},
-							{atk:"4%"}
+							{atk:"15%"},
+							{atk:"20%"}
 						]
 					}
 				}
@@ -2308,11 +2499,11 @@ const operator = {
 				hp:2135,atk:488,def:312,res:0,cost:9,block:1,range:[[1,0]],
 				nature:{
 					"一騎打ち":{
-						exp:"同じ敵を攻撃する度攻撃力＋５％（＋１％）",
+						exp:"同じ敵を攻撃する度攻撃力＋５％（＋１％）、最大５回まで。攻撃対象が変わるとリセット",
 						cond:"同じ敵を攻撃中",
 						data:[
-							{atk:"5%"},
-							{atk:"6%"}
+							{atk:"25%"},
+							{atk:"30%"}
 						]
 					}
 				}
@@ -2343,10 +2534,7 @@ const operator = {
 				hp:3470,atk:855,def:156,res:0,cost:17,block:1,range:[[1,0]],
 				nature:{
 					"悪魔の血脈":{
-						exp:"防御力－２０％、最大ＨＰ＋２０％",
-						data:[
-							{def:"-20%",hp:"20%"}
-						]
+						exp:"防御力－２０％、最大ＨＰ＋２０％"
 					}
 				}
 			}
@@ -2373,11 +2561,7 @@ const operator = {
 				hp:1782,atk:515,def:296,res:10,cost:20,block:1,range:[[1,0]],
 				nature:{
 					"連続攻撃":{
-						exp:"通常攻撃時、１０％（＋３％）の確率で２回攻撃",
-						cond:"素質発動時(10%)",
-						data:[
-							{cnt:2}
-						]
+						exp:"通常攻撃時、１０％（＋３％）の確率で２回攻撃"
 					}
 				}
 			},
@@ -2385,15 +2569,18 @@ const operator = {
 				hp:2345,atk:644,def:357,res:15,cost:20,block:1,range:[[1,0]],
 				nature:{
 					"連続攻撃":{
-						exp:"通常攻撃時、２０％（＋３％）の確率で２回攻撃",
-						cond:"素質発動時(20%)",
-						data:[
-							{cnt:2}
-						]
+						exp:"通常攻撃時、２０％（＋３％）の確率で２回攻撃"
 					}
 				}
 			}
 		],
+		cnt:function(arg){
+			if(arg.promotion == 1){
+				return 1.1;
+			}else if(arg.promotion == 2){
+				return 1.2;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -2506,10 +2693,7 @@ const operator = {
 				hp:2173,atk:310,def:503,res:0,cost:19,block:3,range:[],
 				nature:{
 					"防御エキスパート":{
-						exp:"防御力＋６％",
-						data:[
-							{def:"6%"}
-						]
+						exp:"防御力＋６％"
 					}
 				}
 			},
@@ -2517,10 +2701,7 @@ const operator = {
 				hp:3105,atk:365,def:690,res:0,cost:21,block:3,range:[],
 				nature:{
 					"防御エキスパート":{
-						exp:"防御力＋１２％",
-						data:[
-							{def:"12%"}
-						]
+						exp:"防御力＋１２％"
 					}
 				}
 			}
@@ -2588,11 +2769,7 @@ const operator = {
 				hp:1836,atk:348,def:460,res:10,cost:18,block:3,range:[],
 				nature:{
 					"フライパンマスター":{
-						exp:"攻撃時、１０％の確率で次回攻撃時の攻撃力＋１５０％になり、０．５秒間敵をスタン状態にする。",
-						cond:"素質発動時(10%)",
-						data:[
-							{atk:"150%"}
-						]
+						exp:"攻撃時、１０％の確率で次回攻撃時の攻撃力＋１５０％になり、０．５秒間敵をスタン状態にする。"
 					}
 				}
 			},
@@ -2600,15 +2777,23 @@ const operator = {
 				hp:2550,atk:435,def:562,res:10,cost:20,block:3,range:[],
 				nature:{
 					"フライパンマスター":{
-						exp:"攻撃時、１５％の確率で次回攻撃時の攻撃力＋２００％になり、１秒間敵をスタン状態にする。",
-						cond:"素質発動時(15%)",
-						data:[
-							{atk:"200%"}
-						]
+						exp:"攻撃時、１５％の確率で次回攻撃時の攻撃力＋２００％になり、１秒間敵をスタン状態にする。"
 					}
 				}
 			}
 		],
+		dmg:function(arg){
+			if(arg.promotion == 1){
+				// 物理防御による計算(効果+150%×確率10%)
+				return arg.atk + (arg.atk * 1.5 * 0.1)  - arg.eneDef;
+			}else if(arg.promotion == 2){
+				// 物理防御による計算(効果+200%×確率15%)
+				return arg.atk + (arg.atk * 1.5 * 0.15) - arg.eneDef;
+			}else{
+				// 物理防御による計算
+				return arg.atk - arg.eneDef;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -2631,10 +2816,7 @@ const operator = {
 				hp:1108,atk:389,def:130,res:0,cost:12,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
 					"スピードリロード":{
-						exp:"自身の攻撃速度＋６",
-						data:[
-							{speed:6}
-						]
+						exp:"自身の攻撃速度＋６"
 					}
 				}
 			},
@@ -2642,14 +2824,18 @@ const operator = {
 				hp:1320,atk:475,def:154,res:0,cost:12,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
 					"スピードリロード":{
-						exp:"自身の攻撃速度＋１２",
-						data:[
-							{speed:12}
-						]
+						exp:"自身の攻撃速度＋１２"
 					}
 				}
 			}
 		],
+		speedUp:function(arg){
+			if(arg.promotion == 1){
+				return 6;
+			}else if(arg.promotion == 2){
+				return 12;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -2726,6 +2912,9 @@ const operator = {
 				}
 			}
 		],
+		target:function(arg){
+			return arg.eneCnt;
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -2821,6 +3010,9 @@ const operator = {
 				}
 			}
 		],
+		target:function(arg){
+			return arg.eneCnt;
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -2945,6 +3137,21 @@ const operator = {
 				}
 			}
 		],
+		slipDmg:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return Math.round(arg.atk * 0.03);
+				}else{
+					return Math.round(arg.atk * 0.035);
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return Math.round(arg.atk * 0.05);
+				}else{
+					return Math.round(arg.atk * 0.055);
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -3039,8 +3246,8 @@ const operator = {
 					"高速配置":{
 						exp:"自身の配置コスト－１、コスト１０以下の味方防御力＋６％（＋２％）",
 						data:[
-							{cost:-1,def:"6%"},
-							{cost:-1,def:"8%"}
+							{cost:-1},
+							{cost:-1}
 						]
 					}
 				}
@@ -3087,6 +3294,13 @@ const operator = {
 				}
 			}
 		],
+		target:function(arg){
+			if(arg.eneCnt > arg.block){
+				return arg.block;
+			}else{
+				return arg.eneCnt;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -3152,15 +3366,20 @@ const operator = {
 				hp:1270,atk:355,def:240,res:0,cost:11,block:2,range:[[1,0]],
 				nature:{
 					"攻撃力上昇":{
-						exp:"攻撃力＋４％　※LV55で＋８％",
-						data:[
-							{atk:"4%"},
-							{atk:"8%"}
-						]
+						exp:"攻撃力＋４％　※LV55で＋８％"
 					}
 				}
 			}
 		],
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(arg.lv != 55){
+					return arg.atk * 1.04;
+				}else{
+					return arg.atk * 1.08;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -3213,15 +3432,20 @@ const operator = {
 				hp:1226,atk:445,def:279,res:0,cost:10,block:1,range:[[1,0]],
 				nature:{
 					"攻撃力上昇":{
-						exp:"自身の攻撃力＋４％　※LV55で＋８％",
-						data:[
-							{atk:"4%"},
-							{atk:"8%"}
-						]
+						exp:"自身の攻撃力＋４％　※LV55で＋８％"
 					}
 				}
 			}
 		],
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(arg.lv != 55){
+					return arg.atk * 1.04;
+				}else{
+					return arg.atk * 1.08;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -3244,15 +3468,20 @@ const operator = {
 				hp:2620,atk:673,def:155,res:0,cost:15,block:1,range:[[1,0]],
 				nature:{
 					"攻撃力上昇":{
-						exp:"自身の攻撃力＋４％　※LV55で＋８％",
-						data:[
-							{atk:"4%"},
-							{atk:"8%"}
-						]
+						exp:"自身の攻撃力＋４％　※LV55で＋８％"
 					}
 				}
 			}
 		],
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(arg.lv != 55){
+					return arg.atk * 1.04;
+				}else{
+					return arg.atk * 1.08;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -3275,15 +3504,27 @@ const operator = {
 				hp:1858,atk:495,def:245,res:0,cost:19,block:2,range:[[1,0]],
 				nature:{
 					"ＨＰ・攻撃上昇":{
-						exp:"最大ＨＰ＋３％、攻撃力＋３％　※LV55で＋６％",
-						data:[
-							{hp:"3%",atk:"3%"},
-							{hp:"6%",atk:"6%"}
-						]
+						exp:"最大ＨＰ＋３％、攻撃力＋３％　※LV55で＋６％"
 					}
 				}
 			}
 		],
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(arg.lv != 55){
+					return arg.atk * 1.03;
+				}else{
+					return arg.atk * 1.06;
+				}
+			}
+		},
+		target:function(arg){
+			if(arg.eneCnt > arg.block){
+				return arg.block;
+			}else{
+				return arg.eneCnt;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -3306,15 +3547,22 @@ const operator = {
 				hp:1653,atk:497,def:282,res:10,cost:16,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[3,0],[0,1],[1,1]],
 				nature:{
 					"精密射撃・初級":{
-						exp:"攻撃時、１０％の確率でその攻撃のみ攻撃力が１５０％に上昇　※LV55で２０％",
-						cond:"素質発動時(10%)",
-						data:{
-							atk:"150%"
-						}
+						exp:"攻撃時、１０％の確率でその攻撃のみ攻撃力が１５０％に上昇　※LV55で２０％"
 					}
 				}
 			}
 		],
+		dmg:function(arg){
+			if(arg.promotion == 1){
+				if(arg.lv != 55){
+				 	// 10%の確率で150%に上昇
+					return arg.atk * (1 + 1.5 * 0.1);
+				}else{
+				 	// 20%の確率で150%に上昇
+					return arg.atk * (1 + 1.5 * 0.2);
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -3337,11 +3585,7 @@ const operator = {
 				hp:2035,atk:295,def:490,res:0,cost:18,block:3,range:[],
 				nature:{
 					"防御力上昇":{
-						exp:"防御力＋５％　※LV55で＋１０％",
-						data:[
-							{def:"5%"},
-							{def:"10%"}
-						]
+						exp:"防御力＋５％　※LV55で＋１０％"
 					}
 				}
 			}
@@ -3368,11 +3612,7 @@ const operator = {
 				hp:2130,atk:305,def:475,res:0,cost:18,block:3,range:[],
 				nature:{
 					"最大ＨＰ上昇":{
-						exp:"最大ＨＰ＋６％　※LV55で＋１２％",
-						data:[
-							{hp:"6%"},
-							{hp:"12%"}
-						]
+						exp:"最大ＨＰ＋６％　※LV55で＋１２％"
 					}
 				}
 			}
@@ -3435,6 +3675,27 @@ const operator = {
 				}
 			}
 		],
+		dmg:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					if(arg.lv != 55){
+					 	// 10%の確率で150%に上昇
+						return arg.atk * (1 + 1.5 * 0.1);
+					}else{
+					 	// 20%の確率で150%に上昇
+						return arg.atk * (1 + 1.5 * 0.2);
+					}
+				}else{
+					if(arg.lv != 55){
+					 	// 10%の確率で160%に上昇
+						return arg.atk * (1 + 1.6 * 0.1);
+					}else{
+					 	// 20%の確率で160%に上昇
+						return arg.atk * (1 + 1.6 * 0.2);
+					}
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -3457,15 +3718,20 @@ const operator = {
 				hp:1080,atk:365,def:134,res:0,cost:11,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
 					"戦略家":{
-						exp:"攻撃速度＋４、遠距離攻撃をしてくる敵を優先攻撃する　※LV55で＋８",
-						data:[
-							{speed:4},
-							{speed:8}
-						]
+						exp:"攻撃速度＋４、遠距離攻撃をしてくる敵を優先攻撃する　※LV55で＋８"
 					}
 				}
 			}
 		],
+		speedUp:function(arg){
+			if(arg.promotion == 1){
+				if(arg.lv != 55){
+					speedUp = 4;
+				}else{
+					speedUp = 8;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -3496,6 +3762,9 @@ const operator = {
 				}
 			}
 		],
+		target:function(arg){
+			return arg.eneCnt;
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -3518,15 +3787,20 @@ const operator = {
 				hp:1100,atk:470,def:90,res:15,cost:18,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
 				nature:{
 					"堅実家":{
-						exp:"攻撃力＋３％、防御力が一番高い敵を優先して攻撃　※LV55で＋６％",
-						data:[
-							{atk:"3%"},
-							{atk:"6%"}
-						]
+						exp:"攻撃力＋３％、防御力が一番高い敵を優先して攻撃　※LV55で＋６％"
 					}
 				}
 			}
 		],
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(arg.lv != 55){
+					return arg.atk * 1.03;
+				}else{
+					return arg.atk * 1.06;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -3554,6 +3828,9 @@ const operator = {
 				}
 			}
 		],
+		target:function(arg){
+			return arg.eneCnt;
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -3576,15 +3853,20 @@ const operator = {
 				hp:1220,atk:345,def:110,res:0,cost:17,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
 					"回復力上昇":{
-						exp:"攻撃力＋４％　※LV55で＋８％",
-						data:[
-							{atk:"4%"},
-							{atk:"8%"}
-						]
+						exp:"攻撃力＋４％　※LV55で＋８％"
 					}
 				}
 			}
 		],
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(arg.lv != 55){
+					return arg.atk * 1.04;
+				}else{
+					return arg.atk * 1.08;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -3632,15 +3914,20 @@ const operator = {
 				hp:935,atk:397,def:83,res:15,cost:12,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
 				nature:{
 					"攻撃速度上昇":{
-						exp:"攻撃速度＋５　LV55で＋９",
-						data:[
-							{speed:5},
-							{speed:9}
-						]
+						exp:"攻撃速度＋５　LV55で＋９"
 					}
 				}
 			}
 		],
+		speedUp:function(arg){
+			if(arg.promotion == 1){
+				if(arg.lv != 55){
+					speedUp = 5;
+				}else{
+					speedUp = 9;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -3678,7 +3965,7 @@ const operator = {
 	},
 	"ノイルホーン":{
 		en:"Noir Corne",
-		rare:2,job:"重装",trust:{def:40},tag:["近距離","初期"],
+		rare:2,job:"重装",relocation:70,speed:1.2,trust:{def:40},tag:["近距離","初期"],
 		characteristic:"敵を３体までブロック",
 		stat:[
 			{
@@ -3687,10 +3974,7 @@ const operator = {
 				res:0,cost:14,block:3,range:[],
 				nature:{
 					"装甲改良":{
-						exp:"最大ＨＰ，防御力＋１２％　※LV30で習得",
-						data:[
-							{hp:"12%",def:"12%"}
-						]
+						exp:"最大ＨＰ，防御力＋１２％　※LV30で習得"
 					}
 				}
 			}
@@ -3774,6 +4058,9 @@ const operator = {
 				}
 			}
 		],
+		target:function(arg){
+			return arg.eneCnt;
+		},
 		potential:[
 			{cost:-1},
 			{atk:12},
