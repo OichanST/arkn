@@ -61,6 +61,18 @@ function init(){
 		// キーをnameとして埋め込みソート用の配列にコピーしたデータを退避する
 		const data = JSON.parse(JSON.stringify(operator[name]));
 		data["name"] = name;
+		// オペレータが追加された場合のストレージデータの追加
+		if(!sto.data[operatorName]){
+			sto.data[operatorName] = {
+				have:false,
+				promotion:0,
+				lv:1,
+				potential:1,
+				trust:0,
+				slv:1,
+				sp:new Array(0,0,0)
+			};
+		}
 		sortedOperator.push(data);
 	}
 	// ソートキーの取得
@@ -125,18 +137,6 @@ function init(){
 		}
 		// 行生成（処理用に属性としてオペレーター名を付与）
 		const r = new Row().attr("name", operatorName);
-		// オペレータが追加された場合のストレージデータの追加
-		if(!sto.data[operatorName]){
-			sto.data[operatorName] = {
-				have:false,
-				promotion:0,
-				lv:1,
-				potential:1,
-				trust:0,
-				slv:1,
-				sp:new Array(0,0,0)
-			};
-		}
 		// 簡易＋詳細
 		if(type == "1"){
 			// 所持状態取得
