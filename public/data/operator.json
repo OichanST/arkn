@@ -3700,10 +3700,10 @@ const operator = {
 				}else{
 					if(arg.lv != 55){
 					 	// 10%の確率で160%に上昇
-						return arg.atk * (1 + 1.6 * 0.1);
+						return arg.atk * (1 + 1.6 * 0.1) - arg.eneDef;
 					}else{
 					 	// 20%の確率で160%に上昇
-						return arg.atk * (1 + 1.6 * 0.2);
+						return arg.atk * (1 + 1.6 * 0.2) - arg.eneDef;
 					}
 				}
 			}
