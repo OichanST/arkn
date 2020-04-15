@@ -45,6 +45,9 @@ input[type=range].prom1::-webkit-slider-thumb{
 input[type=range].prom2::-webkit-slider-thumb{
 	background:#FF9999;
 }
+.notHave input[type=range]::-webkit-slider-thumb{
+	background:#C0C0C0;
+}
 input[type=range]::-webkit-slider-runnable-track{
 	height:26px;
 	background:gray;
@@ -86,6 +89,9 @@ button{
                  0px -1px 0 gray,
                 -1px  0px 0 gray,
                  1px  0px 0 gray;
+}
+.notHave button{
+	cursor:default;
 }
 
 .rangeSet{
@@ -151,7 +157,7 @@ button{
 	padding-bottom:0;
 }
 .minilabel{
-	width:5.5em;
+	width:6.5em;
 	margin:1px;
 	padding-left:4px;
 	padding-top:0;
@@ -374,4 +380,13 @@ button{
 	border:1px solid black;
 	padding:20px;
 	box-shadow:4px 4px 4px rgba(0,0,0,0.5);
+}
+#matrix td{
+	font-size:14px;
+}
+#loginErr{
+	margin-top:1em;
+	display:none;
+	fontWeight:bold;
+	color:red;
 }

@@ -40,11 +40,13 @@ function span(val, css){
 function div(text, css, attr){
 	let ret = Elem("div");
 	ret.innerText = text;
+	// CSSの反映
 	if(css){
 		for(let key in css){
 			ret.style[key] = css[key];
 		}
 	}
+	// 属性の反映
 	if(attr){
 		for(let key in attr){
 			ret.setAttribute(key, attr[key]);
@@ -59,6 +61,7 @@ function card(text, css){
 	let ret = Elem("div");
 	ret.setAttribute("class", "card");
 	ret.innerText = text;
+	// CSSの反映
 	if(css){
 		for(let key in css){
 			ret.style[key] = css[key];
@@ -100,6 +103,9 @@ function Table(id){
 		// 処理が終わったら自身のインスタンスを返却
 		return this;
 	}
+	/**
+	 * クラス定義のクリア
+	 */
 	this.clear = function(){
 		const r = tb.getElementsByTagName("TR");
 		for(let i = 0; i < r.length; i++){
@@ -116,6 +122,9 @@ function Table(id){
 		th.appendChild(r.get());
 		return this;
 	}
+	/**
+	 * 見出し追加
+	 */
 	this.caption = function(text){
 		let caption;
 		if(t.getElementsByTagName("caption").length > 0){
@@ -126,6 +135,12 @@ function Table(id){
 		caption.innerText = text;
 		t.appendChild(caption);
 		return this;
+	}
+	/**
+	 * サイズ調整
+	 */
+	this.size = function(size){
+		t.style.width = size;
 	}
 	/**
 	 * 行追加

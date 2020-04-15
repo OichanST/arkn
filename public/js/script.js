@@ -101,6 +101,8 @@ function ValueConverter(name, key, val){
 			let cost = stat.cost;
 			// コストダウンの発生有無
 			let isCostDown = false;
+			let enhanceNature1 = false;
+			let enhanceNature2 = false;
 			// 潜在データループ
 			for(let i = 1; i < sto.data[name].potential; i++){
 				// 対象の潜在能力取得
@@ -111,13 +113,44 @@ function ValueConverter(name, key, val){
 					isCostDown = true;
 					// コストを減らす　※－で設定されているので加算
 					cost += pt["cost"];
+				}else if(typeof pt["nature"] != "undefined"){
+					if(pt.nature == 1){
+						enhanceNature1 = true;
+					}else if(pt.nature == 2){
+						enhanceNature2 = true;
+					}
 				}
 			}
 			
-			ById("hp").innerHTML = (sto.data[name].trust >= 1 && operator[name].trust.hp) ? span(sta.hp, {color:"red"}) : sta.hp;
-			ById("atk").innerHTML = (sto.data[name].trust >= 1 && operator[name].trust.atk) ? span(sta.atk, {color:"red"}) : sta.atk;
-			ById("def").innerHTML = (sto.data[name].trust >= 1 && operator[name].trust.def) ? span(sta.def, {color:"red"}) : sta.def;
-			ById("cost").innerHTML = isCostDown ? span(cost, {color:"red"}) : cost;
+			const arg = {
+				atk:sta.atk,
+				hp:sta.hp,
+				def:sta.def,
+				lv:sto.data[name].lv,
+				promotion:sto.data[name].promotion,
+				enhanceNature1:enhanceNature1,
+				enhanceNature2:enhanceNature2
+			};
+			let html = (sto.data[name].trust >= 1 && operator[name].trust.hp) ? span(sta.hp, {color:"red"}) : sta.hp;
+			if(operator[name].hpUp && operator[name].hpUp(arg) != null){
+				html += "/" + Math.round(operator[name].hpUp(arg));
+			}
+			ById("hp").innerHTML = html;
+			html = (sto.data[name].trust >= 1 && operator[name].trust.atk) ? span(sta.atk, {color:"red"}) : sta.atk
+			if(operator[name].atkUp && operator[name].atkUp(arg) != null){
+				html += "/" + Math.round(operator[name].atkUp(arg));
+			}
+			ById("atk").innerHTML = html;
+			html = (sto.data[name].trust >= 1 && operator[name].trust.def) ? span(sta.def, {color:"red"}) : sta.def;
+			if(operator[name].defUp && operator[name].defUp(arg) != null){
+				html += "/" + Math.round(operator[name].defUp(arg));
+			}
+			ById("def").innerHTML = html;
+			html = isCostDown ? span(cost, {color:"red"}) : cost;
+			if(operator[name].costDown && operator[name].costDown(arg) != null){
+				html += "/" + (cost + operator[name].costDown(arg));
+			}
+			ById("cost").innerHTML = html;
 			// 何も返却しない　※何か返却すると該当領域に反映されるが、再帰処理の結果反映が行われるため不要
 			return null;
 		// 素質
@@ -562,6 +595,8 @@ function calcLvStat(name){
 	const data = operator[name];
 	// 昇進度の取得
 	const promotion  = sto.data[name].promotion;
+	// 潜在能力の取得
+	const potential = sto.data[name].potential;
 	// 最大LVを割り出す
 	let lvMax = calcLvMax(data.rare, promotion);
 	// 初期
@@ -612,7 +647,7 @@ function calcLvStat(name){
 		}
 	}
 	// 潜在能力による強化
-	for(let i = 1; i < sto.data[name].potential; i++){
+	for(let i = 1; i < potential; i++){
 		
 		const pt = data.potential[i - 1];
 		
@@ -639,11 +674,25 @@ function calcDPS(name){
 	const data = operator[name];
 	// 各最大値、最小値の取得
 	const stat = calcLvStat(name);
-	// 攻撃回数
-	let atkCnt = 1;
-	// チェンのみ２回攻撃になる
-	if(name == "チェン"){
-		atkCnt = 2;
+	// 昇進状態の取得
+	const promotion = sto.data[name].promotion;
+	// 潜在能力の取得
+	const potential = sto.data[name].potential;
+	// LVの取得
+	const lv = sto.data[name].lv;
+	// 潜在能力による素質1or2強化
+	let enhanceNature1 = false;
+	let enhanceNature2 = false;
+	// 潜在能力による強化
+	for(let i = 1; i < potential; i++){
+		const pt = data.potential[i - 1];
+		if(typeof pt["nature"] != "undefined"){
+			if(pt.nature == 1){
+				enhanceNature1 = true;
+			}else if(pt.nature == 2){
+				enhanceNature2 = true;
+			}
+		}
 	}
 	// 敵物理防御を取得
 	let eneDef = ById("eneDef").value;
@@ -661,133 +710,82 @@ function calcDPS(name){
 	}else{
 		eneRes = 0;
 	}
+	// 範囲内の敵数取得
+	let eneCnt = ById("eneCnt").value;
+	if(eneCnt){
+		eneCnt = parseInt(eneCnt);
+	}else{
+		eneCnt = 1;
+	}
+	// 引数を作成
+	const arg = {
+      	atk:stat.atk,
+      	promotion:promotion,
+      	lv:lv,
+      	block:data.stat[promotion].block,
+    	eneDef:eneDef,
+      	eneRes:eneRes,
+      	eneCnt:eneCnt,
+		enhanceNature1:enhanceNature1,
+		enhanceNature2:enhanceNature2
+	};
+	// 素質による攻撃力強化分の計上
+	if(operator[name].atkUp && operator[name].atkUp(arg) != null){
+		stat.atk = operator[name].atkUp(arg);
+	}
+	// 攻撃回数
+	const atkCnt = (operator[name].cnt && operator[name].cnt(arg) != null)
+	               ? operator[name].cnt(arg)
+	               : 1;
 	// ダメージ値
 	let dmg;
-	// ソラは攻撃しない（回復もしない）ので0返却
-	if(name == "ソラ"){
-		return 0;
 	// 術攻撃オペレータの場合
-	}else if(data.job == "術師" || data.job == "補助" || name == "ムース"){
-		// イフリータのデバフ計算
-		if(name == "イフリータ"){
-			let debuff;
-			if(sto.data[name].promotion == 0){
-				debuff = 15;
-			}else if(sto.data[name].promotion == 1){
-				debuff = 27;
-			}else if(sto.data[name].promotion == 2){
-				debuff = 40;
-			}
-			// デバフ値を含んだ計算
-			dmg = Math.round(stat.atk * (100 - (eneRes * (100 - debuff) / 100)) / 100);
-		// イフリータ以外
-		}else{
-			// 術耐性による計算
-			dmg = Math.round(stat.atk * (100 - eneRes) / 100);
-		}
+	if(data.job == "術師" || data.job == "補助" || name == "ムース"){
+		dmg = (operator[name].dmg && operator[name].dmg(arg) != null)
+		      ? operator[name].dmg(arg)
+		      : Math.round(stat.atk * (100 - eneRes) / 100);
 	// 医療オペレータの場合
 	}else if(data.job == "医療"){
 		// 単純に攻撃力で計算
 		dmg = stat.atk;
 	// それ以外＝物理攻撃オペレータの場合
 	}else{
-		// イグゼキューターのデバフ計算
-		if(name == "イグゼキューター"){
-			let debuff;
-			if(sto.data[name].promotion == 1){
-				debuff = 80;
-			}else if(sto.data[name].promotion == 2){
-				debuff = 160;
-			}
-			// 潜在5まで開放されている場合
-			if(sto.data[name].potential >= 5){
-				debuff += 15;
-			}
-			// デバフ値が物理防御を超えている場合、0になるようにする
-			if(eneDef < debuff){
-				debuff = eneDef;
-			}
-			// デバフ値を含んだ計算
-			dmg = stat.atk - (eneDef - debuff);
-		// イグゼキューター以外
-		}else{
-			// 物理防御による計算
-			dmg = stat.atk - eneDef;
-		}
+		dmg = (operator[name].dmg && operator[name].dmg(arg) != null)
+		      ? operator[name].dmg(arg)
+		      : stat.atk - eneDef;
 	}
-	// 範囲内の敵数
-	let eneCnt = 1;
-	// プラマニクス：昇進２の場合
-	if(name == "プラマニクス" && sto.data[name].promotion == 2){
-		// ハーモニクスによる２体同時攻撃を考慮
-		eneCnt = ById("eneCnt").value;
-		if(eneCnt){
-			eneCnt = parseInt(eneCnt);
-		}else{
-			eneCnt = 1;
-		}
-		if(eneCnt > 2){
-			eneCnt = 2;
-		}
-	// 遠隔範囲攻撃（特性で判断）
-	}else if(
-		data.characteristic.indexOf("範囲物理ダメージ") >= 0 ||
-		data.characteristic.indexOf("範囲術ダメージ") >= 0
-	){
-		// 敵の件数取得
-		eneCnt = ById("eneCnt").value;
-		// 数値変換
-		if(eneCnt){
-			eneCnt = parseInt(eneCnt);
-		}else{
-			eneCnt = 1;
-		}
-	// 近接範囲攻撃（特性で判断）
-	}else if(
-		data.characteristic.indexOf("同時に攻撃") >= 0
-	){
-		// 敵の件数取得
-		eneCnt = ById("eneCnt").value;
-		// 数値変換
-		if(eneCnt){
-			eneCnt = parseInt(eneCnt);
-		}else{
-			eneCnt = 1;
-		}
-		// マンティコア以外　※マンティコアはブロック数０なのでブロック数上限ではない
-		if(name != "マンティコア"){
-			// 範囲内の敵の数がブロック数を超えている場合
-			if(eneCnt > data.stat[sto.data[name].promotion].block){
-				// ブロック数までが攻撃対象数
-				eneCnt = data.stat[sto.data[name].promotion].block;
-			}
-		}
-	}
+	// 範囲内の同時攻撃数
+	const target = (operator[name].target && operator[name].target(arg) != null)
+	               ? operator[name].target(arg)
+	               : 1;
 	// 保証ダメージの計算
-	let limit = 0.05;
-	// レッドの場合
-	if(name == "レッド"){
-		// 貫通による保証ダメージの底上げ
-		if(sto.data[name].promotion == 1){
-			limit = 0.2;
-		}else if(sto.data[name].promotion == 2){
-			limit = 0.3;
-		}
-	}
-	// 攻撃時のダメージ値が保証ダメージを超える場合
+	const limit = (operator[name].limitUp && operator[name].limitUp(arg) != null)
+	              ? operator[name].limitUp(arg)
+	              : 0.05;
+	// 攻撃時のダメージ値が保証ダメージ未満の場合
 	if(dmg < stat.atk * limit){
 		// 保証ダメージによる計算
 		dmg = parseInt(stat.atk * limit);
 	}
+	// 攻撃速度上昇
+	const speedUp = (operator[name].speedUp && operator[name].speedUp(arg) != null)
+	                ? operator[name].speedUp(arg)
+	                : 0;
+	// 攻撃間隔延長
+	let intervalUp = 0;
+	// スリップダメージ
+	const slipDmg = (operator[name].slipDmg && operator[name].slipDmg(arg) != null)
+	                ? operator[name].slipDmg(arg)
+	                : 0;
 	// DPSを計算して返却
-	return Math.round(dmg / data.speed) * atkCnt * eneCnt;
+	return Math.round(dmg * (Math.round((100 + speedUp) / (data.speed - intervalUp)) / 100) * atkCnt * target) + slipDmg;
 }
 /**
  * マトリクスの生成
  */
 function makeMatrix(){
 
-	const css = {display:"inline-block",width:"22px",textAlign:"right",paddingRight:"2px"};
+	const css = {display:"inline-block",width:"19px",textAlign:"right",paddingRight:"2px"};
 	// レアリティ別集計リスト生成
 	const matrix = new Array();
 	const haveMatrix = new Array();
@@ -873,7 +871,7 @@ function makeMatrix(){
 	// 合計行追加
 	const sumrow = new Row();
 	// レアリティ列追加
-	sumrow.add("all");
+	sumrow.add("ALL");
 	// 各職業の合計追加
 	for(let job in summary){
 		sumrow.add(
