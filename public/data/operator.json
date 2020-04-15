@@ -433,6 +433,90 @@ const operator = {
 			}
 		}
 	},
+	"ヘラグ":{
+		en:"Hellagur",
+		rare:6,job:"前衛",relocation:70,speed:1.2,trust:{hp:400,atk:70},tag:["近距離","火力","生存"],
+		characteristic:"味方の治療対象にならない<br/>敵を攻撃する度自身のHPを<span class='merit'>30/50/70</span>回復",
+		stat:[
+			{
+				min:{hp:1568,atk:340,def:160},
+				max:{hp:2179,atk:486,def:220},
+				res:0,cost:22,block:1,range:[[1,0]]
+			},
+			{
+				hp:2868,atk:632,def:283,
+				res:0,cost:25,block:1,range:[[1,0]],
+				nature:{
+					"月満ち星隠る":"HPの減少量に応じて攻撃速度が上昇(上昇最大値:HPが60%減少時、攻撃速度+75)"
+				}
+			},
+			{
+				hp:3825,atk:762,def:334,
+				res:0,cost:26,block:1,range:[[1,0]],
+				nature:{
+					"月満ち星隠る":"HPの減少量に応じて攻撃速度が上昇(上昇最大値:HPが70%減少時、攻撃速度+100)",
+					"策その身に宿る":"敵を未ブロック時、1秒ごとにHPが60回復"
+				}
+			},
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:26},
+			{nature:2},
+			{cost:-1}
+		],
+		skill:{
+			"新月":{
+				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇し、@cnt回攻撃",
+				recover:"attack",activate:"auto",
+				effect:[
+					{atk:110,cnt:2},
+					{atk:115,cnt:2},
+					{atk:120,cnt:2},
+					{atk:125,cnt:2},
+					{atk:130,cnt:2},
+					{atk:135,cnt:2},
+					{atk:145,cnt:2},
+					{atk:155,cnt:2},
+					{atk:165,cnt:2},
+					{atk:175,cnt:2}
+				]
+			},
+			"弦月":{
+				exp:"攻撃力+@atk%、通常攻撃が@cnt回攻撃になり、物理回避率@dodge%",
+				recover:"auto",activate:"manual",
+				effect:[
+					{atk:20,cnt:2,dodge:75},
+					{atk:25,cnt:2,dodge:75},
+					{atk:30,cnt:2,dodge:75},
+					{atk:35,cnt:2,dodge:75},
+					{atk:40,cnt:2,dodge:75},
+					{atk:45,cnt:2,dodge:75},
+					{atk:50,cnt:2,dodge:75},
+					{atk:60,cnt:2,dodge:75},
+					{atk:70,cnt:2,dodge:75},
+					{atk:80,cnt:2,dodge:75}
+				]
+			},
+			"満月":{
+				exp:"攻撃力+@atk%、攻撃範囲+@rangeマス、敵最大@target体を同時に攻撃",
+				recover:"auto",activate:"manual",
+				effect:[
+					{atk:40,range:1,target:3},
+					{atk:45,range:1,target:3},
+					{atk:50,range:1,target:3},
+					{atk:55,range:1,target:3},
+					{atk:60,range:1,target:3},
+					{atk:65,range:1,target:3},
+					{atk:70,range:1,target:3},
+					{atk:80,range:2,target:3},
+					{atk:90,range:2,target:3},
+					{atk:100,range:2,target:3}
+				]
+			}
+		}
+	},
 	"ホシグマ":{
 		en:"Hoshiguma",
 		rare:6,job:"重装",relocation:70,speed:1.2,trust:{atk:60,def:60},tag:["近距離","防御","火力"],
@@ -1414,6 +1498,37 @@ const operator = {
 			{cost:-1}
 		]
 	},
+	"アステシア":{
+		en:"Astesia",
+		rare:5,job:"前衛",relocation:70,speed:1.25,trust:{atk:30,def:55},tag:["近距離","火力","防御"],
+		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える",
+		stat:[
+			{
+				min:{hp:1150,atk:283,def:177},
+				max:{hp:1514,atk:411,def:254},
+				res:10,cost:19,block:1,range:[[1,0]]
+			},
+			{
+				hp:1917,atk:534,def:326,res:10,cost:21,block:1,range:[[1,0]],
+				nature:{
+					"天球儀":"配置中、20秒ごとに攻撃速度+3、最大5回まで"
+				}
+			},
+			{
+				hp:2523,atk:660,def:393,res:1,cost:21,block:1,range:[[1,0]],
+				nature:{
+					"天球儀":"配置中、20秒ごとに攻撃速度+3、最大5回まで"
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{def:23},
+			{relocation:-6},
+			{cost:-1}
+		]
+	},
 	"リスカム":{
 		en:"Liskanm",
 		rare:5,job:"重装",relocation:70,speed:1.2,trust:{atk:45,def:45},tag:["近距離","防御","火力"],
@@ -2370,6 +2485,32 @@ const operator = {
 			{cost:-1},
 			{relocation:-4},
 			{atk:24},
+			{nature:1},
+			{cost:-1}
+		]
+	},
+	"テンニンカ":{
+		en:"Myrtle",
+		rare:4,job:"先鋒",relocation:70,speed:1.3,trust:{def:50},tag:["近距離","COST回復","治療"],
+		characteristic:"スキル発動中、ブロック数が0になる",
+		stat:[
+			{
+				min:{hp:658,atk:231,def:138},
+				max:{hp:902,atk:331,def:193},
+				res:0,cost:8,block:1,range:[[1,0]]
+				
+			},
+			{
+				hp:1142,atk:436,def:255,res:0,cost:10,block:1,range:[[1,0]]
+			},
+			{
+				hp:1565,atk:520,def:300,res:0,cost:10,block:1,range:[[1,0]]
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{def:22},
 			{nature:1},
 			{cost:-1}
 		]
