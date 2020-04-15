@@ -258,11 +258,17 @@ function ValueConverter(name, key, val){
 						case "def":
 							ret += "防御力+";
 							break;
+						case "hp":
+							ret += "最大HP+";
+							break;
 						case "relocation":
 							ret += "再配置時間";
 							break;
 						case "cost":
 							ret += "コスト";
+							break;
+						case "speed":
+							ret += "攻撃速度+";
 							break;
 						case "nature":
 							ret += "素質強化";
