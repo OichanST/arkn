@@ -746,7 +746,7 @@ function calcDPS(name){
 	// ダメージ値
 	let dmg;
 	// 術攻撃オペレータの場合
-	if(data.job == "術師" || data.job == "補助" || name == "ムース"){
+	if(data.job == "術師" || data.job == "補助" || name == "ムース" || name == "アステシア"){
 		dmg = (operator[name].dmg && operator[name].dmg(arg) != null)
 		      ? operator[name].dmg(arg)
 		      : Math.round(stat.atk * (100 - eneRes) / 100);

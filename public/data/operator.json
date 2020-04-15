@@ -3562,10 +3562,10 @@ const operator = {
 			if(arg.promotion == 1){
 				if(arg.lv != 55){
 				 	// 10%の確率で150%に上昇
-					return arg.atk * (1 + 1.5 * 0.1);
+					return arg.atk * (1 + 1.5 * 0.1) - arg.eneDef;
 				}else{
 				 	// 20%の確率で150%に上昇
-					return arg.atk * (1 + 1.5 * 0.2);
+					return arg.atk * (1 + 1.5 * 0.2) - arg.eneDef;
 				}
 			}
 		},
@@ -3692,10 +3692,10 @@ const operator = {
 				if(!arg.enhanceNature1){
 					if(arg.lv != 55){
 					 	// 10%の確率で150%に上昇
-						return arg.atk * (1 + 1.5 * 0.1);
+						return arg.atk * (1 + 1.5 * 0.1) - arg.eneDef;
 					}else{
 					 	// 20%の確率で150%に上昇
-						return arg.atk * (1 + 1.5 * 0.2);
+						return arg.atk * (1 + 1.5 * 0.2) - arg.eneDef;
 					}
 				}else{
 					if(arg.lv != 55){
