@@ -638,8 +638,62 @@ const operator = {
 			}
 		],
 		potential:[
-			
-		]
+			{cost:-1},
+			{nature:2},
+			{atk:27},
+			{cost:-1},
+			{nature:1}
+		],
+		skill:{
+			"二重詠唱":{
+				exp:"攻撃速度+@speed、2回目以降スキル使用時、更に攻撃力+@atk%",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:10,need:45,pers:25,speed:30,atk:30},
+					{start:10,need:44,pers:25,speed:32,atk:32},
+					{start:15,need:43,pers:25,speed:35,atk:35},
+					{start:15,need:42,pers:25,speed:38,atk:38},
+					{start:15,need:41,pers:25,speed:40,atk:40},
+					{start:15,need:40,pers:25,speed:42,atk:42},
+					{start:20,need:39,pers:25,speed:45,atk:45},
+					{start:20,need:38,pers:25,speed:50,atk:50},
+					{start:20,need:37,pers:25,speed:55,atk:55},
+					{start:25,need:35,pers:25,speed:60,atk:60}
+				]
+			},
+			"イグニッション":{
+				exp:"次の通常攻撃時、敵に攻撃力の@atk%の術ダメージを与え、攻撃対象の衆院の敵に半分のダメージを与える、更に6秒間術耐性@res%。@charge回チャージ可能",
+				recover:"auto",activate:"auto",
+				effect:[
+					{need:7,atk:240,res:-10,charge:1},
+					{need:7,atk:250,res:-10,charge:1},
+					{need:7,atk:260,res:-10,charge:1},
+					{need:7,atk:275,res:-15,charge:2},
+					{need:7,atk:285,res:-15,charge:2},
+					{need:7,atk:295,res:-15,charge:2},
+					{need:6,atk:310,res:-20,charge:2},
+					{need:6,atk:330,res:-20,charge:3},
+					{need:6,atk:350,res:-20,charge:3},
+					{need:5,atk:370,res:-25,charge:3}
+				]
+			},
+			"イラプション":{
+				exp:"攻撃力+@atk%、攻撃範囲拡大、通常攻撃の感覚が大幅に短縮、ランダムで攻撃範囲内の敵最大@target体を攻撃",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:30,need:80,pers:15,atk:55,target:3},
+					{start:31,need:80,pers:15,atk:60,target:3},
+					{start:32,need:80,pers:15,atk:65,target:3},
+					{start:33,need:80,pers:15,atk:70,target:4},
+					{start:34,need:80,pers:15,atk:75,target:4},
+					{start:35,need:80,pers:15,atk:80,target:4},
+					{start:40,need:80,pers:15,atk:85,target:5},
+					{start:45,need:80,pers:15,atk:100,target:5},
+					{start:50,need:80,pers:15,atk:115,target:5},
+					{start:55,need:80,pers:15,atk:130,target:6}
+				]
+			}
+		}
 	},
 	"イフリータ":{
 		en:"Ifrit",
