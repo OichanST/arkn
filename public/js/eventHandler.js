@@ -581,7 +581,7 @@ function showNature(){
 		}
 		// 素質の追加
 		html += div(natureName, {display:"inline-block"}, {class:"whitelabel"}) + "<br/>";
-		html += nature[natureName].exp;
+		html += nature[natureName];
 	}
 	// HTML反映
 	detail.innerHTML = html;

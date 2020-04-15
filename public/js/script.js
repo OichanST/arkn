@@ -101,6 +101,8 @@ function ValueConverter(name, key, val){
 			let cost = stat.cost;
 			// コストダウンの発生有無
 			let isCostDown = false;
+			let enhanceNature1 = false;
+			let enhanceNature2 = false;
 			// 潜在データループ
 			for(let i = 1; i < sto.data[name].potential; i++){
 				// 対象の潜在能力取得
@@ -111,13 +113,44 @@ function ValueConverter(name, key, val){
 					isCostDown = true;
 					// コストを減らす　※－で設定されているので加算
 					cost += pt["cost"];
+				}else if(typeof pt["nature"] != "undefined"){
+					if(pt.nature == 1){
+						enhanceNature1 = true;
+					}else if(pt.nature == 2){
+						enhanceNature2 = true;
+					}
 				}
 			}
 			
-			ById("hp").innerHTML = (sto.data[name].trust >= 1 && operator[name].trust.hp) ? span(sta.hp, {color:"red"}) : sta.hp;
-			ById("atk").innerHTML = (sto.data[name].trust >= 1 && operator[name].trust.atk) ? span(sta.atk, {color:"red"}) : sta.atk;
-			ById("def").innerHTML = (sto.data[name].trust >= 1 && operator[name].trust.def) ? span(sta.def, {color:"red"}) : sta.def;
-			ById("cost").innerHTML = isCostDown ? span(cost, {color:"red"}) : cost;
+			const arg = {
+				atk:sta.atk,
+				hp:sta.hp,
+				def:sta.def,
+				lv:sto.data[name].lv,
+				promotion:sto.data[name].promotion,
+				enhanceNature1:enhanceNature1,
+				enhanceNature2:enhanceNature2
+			};
+			let html = (sto.data[name].trust >= 1 && operator[name].trust.hp) ? span(sta.hp, {color:"red"}) : sta.hp;
+			if(operator[name].hpUp && operator[name].hpUp(arg) != null){
+				html += "/" + Math.round(operator[name].hpUp(arg));
+			}
+			ById("hp").innerHTML = html;
+			html = (sto.data[name].trust >= 1 && operator[name].trust.atk) ? span(sta.atk, {color:"red"}) : sta.atk
+			if(operator[name].atkUp && operator[name].atkUp(arg) != null){
+				html += "/" + Math.round(operator[name].atkUp(arg));
+			}
+			ById("atk").innerHTML = html;
+			html = (sto.data[name].trust >= 1 && operator[name].trust.def) ? span(sta.def, {color:"red"}) : sta.def;
+			if(operator[name].defUp && operator[name].defUp(arg) != null){
+				html += "/" + Math.round(operator[name].defUp(arg));
+			}
+			ById("def").innerHTML = html;
+			html = isCostDown ? span(cost, {color:"red"}) : cost;
+			if(operator[name].costDown && operator[name].costDown(arg) != null){
+				html += "/" + (cost + operator[name].costDown(arg));
+			}
+			ById("cost").innerHTML = html;
 			// 何も返却しない　※何か返却すると該当領域に反映されるが、再帰処理の結果反映が行われるため不要
 			return null;
 		// 素質
