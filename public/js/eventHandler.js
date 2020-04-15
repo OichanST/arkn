@@ -62,8 +62,8 @@ function init(){
 		const data = JSON.parse(JSON.stringify(operator[name]));
 		data["name"] = name;
 		// オペレータが追加された場合のストレージデータの追加
-		if(!sto.data[operatorName]){
-			sto.data[operatorName] = {
+		if(!sto.data[name]){
+			sto.data[name] = {
 				have:false,
 				promotion:0,
 				lv:1,
