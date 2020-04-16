@@ -24,9 +24,9 @@ function findRow(t){
 /**
  * spanタグの作成
  */
-function span(val, css){
+function span(html, css){
 	const ret = Elem("span");
-	ret.innerText = val;
+	ret.innerHTML = html;
 	if(css){
 		for(let key in css){
 			ret.style[key] = css[key];
@@ -37,9 +37,9 @@ function span(val, css){
 /**
  * divタグの作成
  */
-function div(text, css, attr){
+function div(html, css, attr){
 	let ret = Elem("div");
-	ret.innerText = text;
+	ret.innerHTML = html;
 	// CSSの反映
 	if(css){
 		for(let key in css){
