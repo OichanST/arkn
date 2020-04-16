@@ -69,6 +69,8 @@ window.onclick = function(){
 function ValueConverter(name, key, val){
 	// 戻り値
 	let ret;
+	let enhanceNature1 = false;
+	let enhanceNature2 = false;
 	// 項目による振り分け
 	switch(key){
 		// レアリティ
@@ -101,8 +103,6 @@ function ValueConverter(name, key, val){
 			let cost = stat.cost;
 			// コストダウンの発生有無
 			let isCostDown = false;
-			let enhanceNature1 = false;
-			let enhanceNature2 = false;
 			// 潜在データループ
 			for(let i = 1; i < sto.data[name].potential; i++){
 				// 対象の潜在能力取得
@@ -133,22 +133,38 @@ function ValueConverter(name, key, val){
 			};
 			let html = (sto.data[name].trust >= 1 && operator[name].trust.hp) ? span(sta.hp, {color:"red"}) : sta.hp;
 			if(operator[name].hpUp && operator[name].hpUp(arg) != null){
-				html += "/" + Math.round(operator[name].hpUp(arg));
+				html += "/<span class='merit'>" + Math.round(operator[name].hpUp(arg));
+				if(operator[name].cond){
+					html += "<sup>※</sup>";
+				}
+				html += "</span>";
 			}
 			ById("hp").innerHTML = html;
 			html = (sto.data[name].trust >= 1 && operator[name].trust.atk) ? span(sta.atk, {color:"red"}) : sta.atk
 			if(operator[name].atkUp && operator[name].atkUp(arg) != null){
-				html += "/" + Math.round(operator[name].atkUp(arg));
+				html += "/<span class='merit'>" + Math.round(operator[name].atkUp(arg));
+				if(operator[name].cond){
+					html += "<sup>※</sup>";
+				}
+				html += "</span>";
 			}
 			ById("atk").innerHTML = html;
 			html = (sto.data[name].trust >= 1 && operator[name].trust.def) ? span(sta.def, {color:"red"}) : sta.def;
 			if(operator[name].defUp && operator[name].defUp(arg) != null){
-				html += "/" + Math.round(operator[name].defUp(arg));
+				html += "/<span class='merit'>" + Math.round(operator[name].defUp(arg));
+				if(operator[name].cond){
+					html += "<sup>※</sup>";
+				}
+				html += "</span>";
 			}
 			ById("def").innerHTML = html;
 			html = isCostDown ? span(cost, {color:"red"}) : cost;
 			if(operator[name].costDown && operator[name].costDown(arg) != null){
-				html += "/" + (cost + operator[name].costDown(arg));
+				html += "/<span class='merit'>" + (cost + operator[name].costDown(arg));
+				if(operator[name].cond){
+					html += "<sup>※</sup>";
+				}
+				html += "</span>";
 			}
 			ById("cost").innerHTML = html;
 			// 何も返却しない　※何か返却すると該当領域に反映されるが、再帰処理の結果反映が行われるため不要
@@ -240,6 +256,24 @@ function ValueConverter(name, key, val){
 			}else{
 				return "遅い";
 			}
+		case "res":
+			ret = val;
+			// 潜在データループ
+			for(let i = 1; i < sto.data[name].potential; i++){
+				// 対象の潜在能力取得
+				const pt = operator[name].potential[i - 1];
+				if(typeof pt["res"] != "undefined"){
+					ret += pt.res;
+				}
+			}
+			let a = {
+				promotion:sto.data[name].promotion,
+				res:val
+			};
+			if(operator[name].resUp && operator[name].resUp(a)){
+				ret = operator[name].resUp(a);
+			}
+			return ret;
 		// 潜在
 		case "potential":
 			ret = "";
@@ -273,6 +307,9 @@ function ValueConverter(name, key, val){
 						case "nature":
 							ret += "素質強化";
 							break;
+						case "res":
+							ret += "術耐性+";
+							break;
 					}
 					if(key != "nature"){
 						ret += val[i][key];
@@ -298,6 +335,46 @@ function ValueConverter(name, key, val){
 				ret += div(sname, {marginLeft:"1em"});
 			}
 			return ret;
+		case "cond":
+			// 潜在データループ
+			for(let i = 1; i < sto.data[name].potential; i++){
+				// 対象の潜在能力取得
+				const pt = operator[name].potential[i - 1];
+				if(typeof pt["nature"] != "undefined"){
+					if(pt.nature == 1){
+						enhanceNature1 = true;
+					}else if(pt.nature == 2){
+						enhanceNature2 = true;
+					}
+				}
+			}
+	
+			return val({
+				promotion:sto.data[name].promotion,
+				lv:sto.data[name].lv,
+				enhanceNature1:enhanceNature1,
+				enhanceNature2:enhanceNature2
+			});
+		case "effect":
+			// 潜在データループ
+			for(let i = 1; i < sto.data[name].potential; i++){
+				// 対象の潜在能力取得
+				const pt = operator[name].potential[i - 1];
+				if(typeof pt["nature"] != "undefined"){
+					if(pt.nature == 1){
+						enhanceNature1 = true;
+					}else if(pt.nature == 2){
+						enhanceNature2 = true;
+					}
+				}
+			}
+	
+			return val({
+				promotion:sto.data[name].promotion,
+				lv:sto.data[name].lv,
+				enhanceNature1:enhanceNature1,
+				enhanceNature2:enhanceNature2
+			});
 		// その他
 		default:
 			// 無編集で返却
@@ -675,7 +752,7 @@ function calcLvStat(name){
 /**
  * DPS計算
  */
-function calcDPS(name){
+function calcDPS(name, enableCond){
 	// 該当オペレータのデータ取得
 	const data = operator[name];
 	// 各最大値、最小値の取得
@@ -686,20 +763,6 @@ function calcDPS(name){
 	const potential = sto.data[name].potential;
 	// LVの取得
 	const lv = sto.data[name].lv;
-	// 潜在能力による素質1or2強化
-	let enhanceNature1 = false;
-	let enhanceNature2 = false;
-	// 潜在能力による強化
-	for(let i = 1; i < potential; i++){
-		const pt = data.potential[i - 1];
-		if(typeof pt["nature"] != "undefined"){
-			if(pt.nature == 1){
-				enhanceNature1 = true;
-			}else if(pt.nature == 2){
-				enhanceNature2 = true;
-			}
-		}
-	}
 	// 敵物理防御を取得
 	let eneDef = ById("eneDef").value;
 	// 数値変換
@@ -723,6 +786,20 @@ function calcDPS(name){
 	}else{
 		eneCnt = 1;
 	}
+	// 潜在能力による素質1or2強化
+	let enhanceNature1 = false;
+	let enhanceNature2 = false;
+	// 潜在能力による強化
+	for(let i = 1; i < potential; i++){
+		const pt = data.potential[i - 1];
+		if(typeof pt["nature"] != "undefined"){
+			if(pt.nature == 1){
+				enhanceNature1 = true;
+			}else if(pt.nature == 2){
+				enhanceNature2 = true;
+			}
+		}
+	}
 	// 引数を作成
 	const arg = {
       	atk:stat.atk,
@@ -735,8 +812,17 @@ function calcDPS(name){
 		enhanceNature1:enhanceNature1,
 		enhanceNature2:enhanceNature2
 	};
-	// 素質による攻撃力強化分の計上
-	if(operator[name].atkUp && operator[name].atkUp(arg) != null){
+	// 条件付き計算可否
+	let isCalc = true;
+	// 条件付きの場合
+	if(operator[name].cond && operator[name].cond(arg)){
+		// フラグOFFの場合は条件付きの計算は含まない
+		if(!enableCond){
+			isCalc = false;
+		}
+	}
+	// 素質による攻撃力強化分の計上 ※条件付きの場合考慮しない
+	if(isCalc && operator[name].atkUp && operator[name].atkUp(arg) != null){
 		stat.atk = operator[name].atkUp(arg);
 	}
 	// 攻撃回数
@@ -747,25 +833,33 @@ function calcDPS(name){
 	let dmg;
 	// 術攻撃オペレータの場合
 	if(data.job == "術師" || data.job == "補助" || name == "ムース" || name == "アステシア"){
-		dmg = (operator[name].dmg && operator[name].dmg(arg) != null)
-		      ? operator[name].dmg(arg)
-		      : Math.round(stat.atk * (100 - eneRes) / 100);
+		dmg = (isCalc && operator[name].dmgUp && operator[name].dmgUp(arg) != null)
+		      ? operator[name].dmgUp(arg)
+		      : (
+		        (operator[name].dmgDefault && operator[name].dmgDefault(arg) != null)
+		        ? operator[name].dmgDefault(arg)
+		        :Math.round(stat.atk * (100 - eneRes) / 100)
+		      );
 	// 医療オペレータの場合
 	}else if(data.job == "医療"){
 		// 単純に攻撃力で計算
 		dmg = stat.atk;
 	// それ以外＝物理攻撃オペレータの場合
 	}else{
-		dmg = (operator[name].dmg && operator[name].dmg(arg) != null)
-		      ? operator[name].dmg(arg)
-		      : stat.atk - eneDef;
+		dmg = (isCalc && operator[name].dmgUp && operator[name].dmgUp(arg) != null)
+		      ? operator[name].dmgUp(arg)
+		      : (
+		        (operator[name].dmgDefault && operator[name].dmgDefault(arg) != null)
+		        ? operator[name].dmgDefault(arg)
+		        :stat.atk - eneDef
+		      );
 	}
 	// 範囲内の同時攻撃数
-	const target = (operator[name].target && operator[name].target(arg) != null)
+	const target = (isCalc && operator[name].target && operator[name].target(arg) != null)
 	               ? operator[name].target(arg)
 	               : 1;
 	// 保証ダメージの計算
-	const limit = (operator[name].limitUp && operator[name].limitUp(arg) != null)
+	const limit = (isCalc && operator[name].limitUp && operator[name].limitUp(arg) != null)
 	              ? operator[name].limitUp(arg)
 	              : 0.05;
 	// 攻撃時のダメージ値が保証ダメージ未満の場合
@@ -774,13 +868,13 @@ function calcDPS(name){
 		dmg = parseInt(stat.atk * limit);
 	}
 	// 攻撃速度上昇
-	const speedUp = (operator[name].speedUp && operator[name].speedUp(arg) != null)
+	const speedUp = (isCalc && operator[name].speedUp && operator[name].speedUp(arg) != null)
 	                ? operator[name].speedUp(arg)
 	                : 0;
 	// 攻撃間隔延長
 	let intervalUp = 0;
 	// スリップダメージ
-	const slipDmg = (operator[name].slipDmg && operator[name].slipDmg(arg) != null)
+	const slipDmg = (isCalc && operator[name].slipDmg && operator[name].slipDmg(arg) != null)
 	                ? operator[name].slipDmg(arg)
 	                : 0;
 	// DPSを計算して返却

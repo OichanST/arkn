@@ -390,3 +390,7 @@ button{
 	fontWeight:bold;
 	color:red;
 }
+#cond:not(:empty):before{
+	margin-left:4px;
+	content:"※"
+}

@@ -363,7 +363,7 @@ const operator = {
 				}
 			}
 		},
-		dodgeUp:function(arg){
+		pDodgeUp:function(arg){
 			if(arg.promotion == 2){
 				if(!arg.enhanceNature2){
 					return 10;
@@ -548,7 +548,7 @@ const operator = {
 				}else{
 					return 15;
 				}
-			}else if(arg.promotion2){
+			}else if(arg.promotion == 2){
 				if(!arg.enhanceNature1){
 					return 25;
 				}else{
@@ -559,9 +559,9 @@ const operator = {
 		defUp:function(arg){
 			if(arg.promotion == 2){
 				if(!arg.enhanceNature2){
-					return arg.def * 0.25;
+					return arg.def * 1.25;
 				}else{
-					return arg.def * 0.28;
+					return arg.def * 1.28;
 				}
 			}
 		},
@@ -636,7 +636,7 @@ const operator = {
 			{
 				hp:2268,atk:388,def:487,res:10,cost:20,block:3,range:[],
 				nature:{
-					"ライン製防護服":"配置中、20秒ごとに攻撃力+2%(+1%)、防御力+2%(+1%)、最大5回まで",
+					"ライン製防護服":"配置中、20秒ごとに攻撃力+2%(+1%)、防御力+2%(+1%)、最大5回まで"
 				}
 			},
 			{
@@ -647,6 +647,41 @@ const operator = {
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				return "配置後100秒経過";
+			}
+		},
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.1;
+				}else{
+					return arg.atk * 1.15;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.25;
+				}else{
+					return arg.atk * 1.3;
+				}
+			}
+		},
+		defUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.def * 1.1;
+				}else{
+					return arg.def * 1.15;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.def * 1.25;
+				}else{
+					return arg.def * 1.3;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -944,7 +979,7 @@ const operator = {
 				}
 			}
 		],
-		dmg:function(arg){
+		dmgUp:function(arg){
 			let debuff;
 			if(arg.promotion == 0){
 				debuff = 15;
@@ -1046,6 +1081,9 @@ const operator = {
 		en:"Angelina",
 		rare:6,job:"補助",relocation:70,speed:1.9,trust:{atk:75},tag:["遠距離","減速","火力","支援"],
 		characteristic:"敵に術ダメージを与える<br/>攻撃時、敵を一瞬足止め",
+		effect:function(arg){
+			return "鈍足";
+		},
 		stat:[
 			{
 				min:{hp: 629,atk:228,def: 53},
@@ -1217,15 +1255,15 @@ const operator = {
 				}
 			}
 		],
-		dodgeUp:function(arg){
+		pDodgeUp:function(arg){
 			if(arg.promotion == 1){
-				if(!enhanceNature1){
+				if(!arg.enhanceNature1){
 					return 10;
 				}else{
 					return 15;
 				}
 			}else if(arg.promotion == 2){
-				if(!enhanceNature1){
+				if(!arg.enhanceNature1){
 					return 20;
 				}else{
 					return 25;
@@ -1263,7 +1301,7 @@ const operator = {
 				}
 			}
 		],
-		dodgeUp:function(arg){
+		npDodgeUp:function(arg){
 			if(arg.promotion == 1){
 				if(!enhanceNature1){
 					return 15;
@@ -1304,7 +1342,7 @@ const operator = {
 				}
 			}
 		],
-		dmg:function(arg){
+		dmgUp:function(arg){
 			if(arg.promotion == 1){
 				// 10%の確率で防御無視＝期待値は防御力×0.9
 				return arg.atk - (arg.eneDef * 0.9);
@@ -1347,6 +1385,25 @@ const operator = {
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				return "隣接4マスのうち2マス以上が高台の時";
+			}
+		},
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				return arg.atk * 1.05;
+			}else if(arg.promotion == 2){
+				return arg.atk * 1.1;
+			}
+		},
+		defUp:function(arg){
+			if(arg.promotion == 1){
+				return arg.def * 1.05;
+			}else if(arg.promotion == 2){
+				return arg.def * 1.1;
+			}
+		},
 		target:function(arg){
 			if(arg.eneCnt > arg.block){
 				return arg.block;
@@ -1438,6 +1495,11 @@ const operator = {
 		en:"Lappland",
 		rare:5,job:"前衛",relocate:70,speed:1.3,trust:{atk:75},tag:["近距離","火力","弱化"],
 		characteristic:"８０％の攻撃力で<span class='merit'>遠距離攻撃</span>も行える",
+		effect:function(arg){
+			if(arg.promotion >= 1){
+				return "<span style='font-size:13px'>特殊能力無効化</span>";
+			}
+		},
 		stat:[
 			{
 				min:{hp: 987,atk:285,def:173},
@@ -1490,6 +1552,18 @@ const operator = {
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				return "30体敵を倒す"
+			}
+		},
+		hpUp:function(arg){
+			if(arg.promotion == 1){
+				return arg.hp + 600;
+			}else if(arg.promotion == 2){
+				return arg.hp + 1200;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-10},
@@ -1517,10 +1591,22 @@ const operator = {
 			{
 				hp:2523,atk:660,def:393,res:1,cost:21,block:1,range:[[1,0]],
 				nature:{
-					"天球儀":"配置中、20秒ごとに攻撃速度+3、最大5回まで"
+					"天球儀":"配置中、20秒ごとに攻撃速度+5、最大5回まで"
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				return "配置後100秒経過";
+			}
+		},
+		speedUp:function(arg){
+			if(arg.promotion == 1){
+				return 15;
+			}else if(arg.promotion == 2){
+				return 25;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -1555,7 +1641,7 @@ const operator = {
 		],
 		resUp:function(arg){
 			if(arg.promotion == 2){
-				if(!enhanceNature1){
+				if(!arg.enhanceNature1){
 					return 10;
 				}else{
 					return 13;
@@ -1595,13 +1681,13 @@ const operator = {
 		],
 		guardUp:function(arg){
 			if(arg.promotion == 1){
-				if(!enhanceNature1){
+				if(!arg.enhanceNature1){
 					return 10;
 				}else{
 					return 13;
 				}
 			}else if(arg.promotion == 2){
-				if(!enhanceNature1){
+				if(!arg.enhanceNature1){
 					return 20;
 				}else{
 					return 23;
@@ -1682,6 +1768,11 @@ const operator = {
 		en:"Blue Poison",
 		rare:5,job:"狙撃",relocation:70,speed:1.0,trust:{atk:75},tag:["遠距離","火力"],
 		characteristic:"飛行ユニットを優先して攻撃",
+		effect:function(arg){
+			if(arg.promotion >= 1){
+				return "毒";
+			}
+		},
 		stat:[
 			{
 				min:{hp: 536,atk:178,def: 45},
@@ -1733,16 +1824,36 @@ const operator = {
 			{
 				hp:1271,atk:414,def:139,res:0,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
-					"力溜め":"次回攻撃までの間隔が長いほど攻撃力が上がる(最大2.5秒まで、攻撃力が140%に上昇)"
+					"力溜め":"次回攻撃までの間隔が長いほど攻撃力が上がる(最大2.5秒まで、攻撃力が140%(+10%)に上昇)"
 				}
 			},
 			{
 				hp:1550,atk:505,def:165,res:0,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
-					"力溜め":"次回攻撃までの間隔が長いほど攻撃力が上がる(最大2.5秒まで、攻撃力が180%に上昇)"
+					"力溜め":"次回攻撃までの間隔が長いほど攻撃力が上がる(最大2.5秒まで、攻撃力が180%(+10%)に上昇)"
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				return "攻撃せずに2.5秒経過時";
+			}
+		},
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.4;
+				}else{
+					return arg.atk * 1.5;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.8;
+				}else{
+					return arg.atk * 1.9;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -1777,7 +1888,7 @@ const operator = {
 		target:function(arg){
 			return arg.eneCnt;
 		},
-		dmg:function(arg){
+		dmgUp:function(arg){
 			if(arg.promotion == 1){
 				// 物理防御による計算(効果+60%×確率15%)
 				return arg.atk + (arg.atk) * 0.6 * 0.15 - arg.eneDef;
@@ -1820,6 +1931,25 @@ const operator = {
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				return "敵が正面の1マス以内にいる時";
+			}
+		},
+		dmgUp:function(arg){
+			if(arg.promotion == 1){
+				return (arg.atk - arg.eneDef) * (1 + 0.4 * 0.5);
+			}else if(arg.promotion == 2){
+				return (arg.atk - arg.eneDef) * (1 + 0.8 * 0.5);
+			}
+		},
+		dmgDefault:function(arg){
+			if(arg.promotion == 1){
+				return (arg.atk - arg.eneDef) * (1 + 0.4 * 0.2);
+			}else if(arg.promotion == 2){
+				return (arg.atk - arg.eneDef) * (1 + 0.8 * 0.2);
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -1851,6 +1981,18 @@ const operator = {
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				return "遠距離攻撃ユニット攻撃時";
+			}
+		},
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				return arg.atk * 1.2;
+			}else if(arg.promotion == 2){
+				return arg.atk * 1.4;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -1884,7 +2026,7 @@ const operator = {
 				}
 			}
 		],
-		dmg:function(arg){
+		dmgUp:function(arg){
 			let debuff = 0;
 			if(arg.promotion == 1){
 				if(!arg.enhanceNature1){
@@ -1971,6 +2113,26 @@ const operator = {
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				return "スキル2装着時";
+			}
+		},
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.09;
+				}else{
+					return arg.atk * 1.14;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.15;
+				}else{
+					return arg.atk * 1.2;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -2002,6 +2164,18 @@ const operator = {
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				return "ブロック中の敵攻撃時";
+			}
+		},
+		dmgUp:function(arg){
+			if(arg.promotion == 1){
+				return arg.atk * 1.07 * (100 - arg.eneRes) / 100;
+			}else if(arg.promotion == 2){
+				return arg.atk * 1.15 * (100 - arg.eneRes) / 100;
+			}
+		},
 		target:function(arg){
 			return arg.eneCnt;
 		},
@@ -2116,6 +2290,9 @@ const operator = {
 		en:"Истна",
 		rare:5,job:"補助",relocation:70,speed:1.9,trust:{atk:65},tag:["遠距離","減速","火力"],
 		characteristic:"敵に術ダメージを与える<br/>攻撃時、敵を一瞬足止め",
+		effect:function(arg){
+			return "鈍足";
+		},
 		stat:[
 			{
 				min:{hp: 581,atk:218,def: 46},
@@ -2202,7 +2379,7 @@ const operator = {
 				}
 			}
 		],
-		dmg:function(arg){
+		dmgUp:function(arg){
 			return 0;
 		},
 		limitUp:function(arg){
@@ -2240,6 +2417,18 @@ const operator = {
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				return "HP40%未満の敵攻撃時";
+			}
+		},
+		dmgUp:function(arg){
+			if(arg.promotion == 1){
+				return arg.atk * 1.15 * (100 - arg.eneRes) / 100;
+			}else if(arg.promotion == 2){
+				return arg.atk * 1.3 * (100 - arg.eneRes) / 100;
+			}
+		},
 		target:function(arg){
 			if(arg.promotion == 2){
 				if(arg.eneCnt > 2){
@@ -2316,6 +2505,13 @@ const operator = {
 				}
 			}
 		],
+		pDodgeUp:function(arg){
+			if(arg.promotion == 1){
+				return 20;
+			}else if(arg.promotion == 2){
+				return 40;
+			}
+		},
 		target:function(arg){
 			if(arg.eneCnt > arg.block){
 				return arg.block;
@@ -2344,16 +2540,51 @@ const operator = {
 			{
 				hp:1497,atk:612,def:289,res:0,cost:13,block:2,range:[[1,0],[2,0],[3,0]],
 				nature:{
-					"雪境の狩人":"敵をブロックしていない時、攻撃力と防御力+6%"
+					"雪境の狩人":"敵をブロックしていない時、攻撃力と防御力+6%(+2%)"
 				}
 			},
 			{
 				hp:1970,atk:765,def:340,res:0,cost:13,block:2,range:[[1,0],[2,0],[3,0]],
 				nature:{
-					"雪境の狩人":"敵をブロックしていない時、攻撃力と防御力+12%"
+					"雪境の狩人":"敵をブロックしていない時、攻撃力と防御力+12%(+2%)"
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				return "敵未ブロック時";
+			}
+		},
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.06;
+				}else{
+					return arg.atk * 1.08;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.12;
+				}else{
+					return arg.atk * 1.14;
+				}
+			}
+		},
+		defUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.def * 1.06;
+				}else{
+					return arg.def * 1.08;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.def * 1.12;
+				}else{
+					return arg.def * 1.14;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -2375,16 +2606,42 @@ const operator = {
 			{
 				hp:1385,atk:656,def:284,res:20,cost:20,block:0,range:[[-1,-1],[0,-1],[1,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1]],
 				nature:{
-					"暗殺の毒針":"ステルス状態になり、遠距離攻撃の対象にならなくなる。攻撃時に解除し、攻撃力+25%で攻撃。攻撃後、6秒後にステルス状態になる。"
+					"暗殺の毒針":"ステルス状態になり、遠距離攻撃の対象にならなくなる。攻撃時に解除し、攻撃力+25%(+4%)で攻撃。攻撃後、6秒後にステルス状態になる。"
 				}
 			},
 			{
 				hp:1630,atk:811,def:343,res:30,cost:20,block:0,range:[[-1,-1],[0,-1],[1,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1]],
 				nature:{
-					"暗殺の毒針":"ステルス状態になり、遠距離攻撃の対象にならなくなる。攻撃時に解除し、攻撃力+50%で攻撃。攻撃後、5秒後にステルス状態になる。"
+					"暗殺の毒針":"ステルス状態になり、遠距離攻撃の対象にならなくなる。攻撃時に解除し、攻撃力+50%(+4%)で攻撃。攻撃後、5秒後にステルス状態になる。"
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				return "ステルス状態";
+			}
+		},
+		pDodgeUp:function(arg){
+			return 50;
+		},
+		aDodgeUp:function(arg){
+			return 50;
+		},
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.25;
+				}else{
+					return arg.atk * 1.29;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.5;
+				}else{
+					return arg.atk * 1.54;
+				}
+			}
+		},
 		target:function(arg){
 			return arg.eneCnt;
 		},
@@ -2419,6 +2676,41 @@ const operator = {
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				return "周囲4マスに味方がいない時";
+			}
+		},
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.05;
+				}else{
+					return arg.atk * 1.07;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.11;
+				}else{
+					return arg.atk * 1.13;
+				}
+			}
+		},
+		defUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.def * 1.05;
+				}else{
+					return arg.def * 1.07;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.def * 1.11;
+				}else{
+					return arg.def * 1.13;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -2450,6 +2742,26 @@ const operator = {
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				return "敵を2人以上ブロックしている時";
+			}
+		},
+		defUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.def * 1.08;
+				}else{
+					return arg.def * 1.11;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.def * 1.16;
+				}else{
+					return arg.def * 1.19;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -2538,6 +2850,26 @@ const operator = {
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				return "同じ敵を5回以上攻撃中";
+			}
+		},
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.15;
+				}else{
+					return arg.atk * 1.2;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.25;
+				}else{
+					return arg.atk * 1.3;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -2815,7 +3147,7 @@ const operator = {
 				}
 			}
 		],
-		dmg:function(arg){
+		dmgUp:function(arg){
 			if(arg.promotion == 1){
 				// 物理防御による計算(効果+150%×確率10%)
 				return arg.atk + (arg.atk * 1.5 * 0.1)  - arg.eneDef;
@@ -2886,16 +3218,36 @@ const operator = {
 			{
 				hp:1123,atk:381,def:139,res:0,cost:12,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
-					"対空エキスパート":"飛行している敵を攻撃する時、攻撃力+20%"
+					"対空エキスパート":"飛行している敵を攻撃する時、攻撃力+20%(+5%)"
 				}
 			},
 			{
 				hp:1370,atk:465,def:165,res:0,cost:12,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
-					"対空エキスパート":"飛行している敵を攻撃する時、攻撃力+35%"
+					"対空エキスパート":"飛行している敵を攻撃する時、攻撃力+35%(+5%)"
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				return "飛行敵攻撃時";
+			}
+		},
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.2;
+				}else{
+					return arg.atk * 1.25;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.35;
+				}else{
+					return arg.atk * 1.4;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -2974,6 +3326,11 @@ const operator = {
 		en:"Haze",
 		rare:4,job:"術師",relocation:70,speed:1.6,trust:{atk:60},tag:["遠距離","火力","弱化"],
 		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える",
+		effect:function(arg){
+			if(arg.promotion >= 1){
+				return "術耐性ダウン";
+			}
+		},
 		stat:[
 			{
 				min:{hp: 619,atk:253,def: 42},
@@ -3039,6 +3396,11 @@ const operator = {
 		en:"Greyy",
 		rare:4,job:"術師",relocation:70,speed:2.9,trust:{hp:300},tag:["遠距離","範囲攻撃","減速"],
 		characteristic:"敵に<span class='merit'>範囲術ダメージ</span>を与える",
+		effect:function(arg){
+			if(arg.promotion >= 1){
+				return "鈍足";
+			}
+		},
 		stat:[
 			{
 				min:{hp: 595,atk:298,def: 52},
@@ -3079,16 +3441,55 @@ const operator = {
 			{
 				hp:1374,atk:364,def:121,res:0,cost:18,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
-					"戦場の医師":"配置時、15秒間、全てのメディックの攻撃力+5%防御力+50"
+					"戦場の医師":"配置時、15(+2)秒間、全てのメディックの攻撃力+5%(+2%)防御力+50(+20)"
 				}
 			},
 			{
 				hp:1580,atk:450,def:152,res:0,cost:18,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
-					"戦場の医師":"配置時、15秒間、全てのメディックの攻撃力+10%防御力+100"
+					"戦場の医師":"配置時、15(+2)秒間、全てのメディックの攻撃力+10%(+2%)防御力+100(+20)"
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				if(!arg.enhanceNature1){
+					return "配置後15秒間";
+				}else{
+					return "配置後17秒間";
+				}
+			}
+		},
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.05;
+				}else{
+					return arg.atk * 1.07;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.1;
+				}else{
+					return arg.atk * 1.12;
+				}
+			}
+		},
+		defUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.def + 50;
+				}else{
+					return arg.def + 70;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.def + 100;
+				}else{
+					return arg.def + 120;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -3340,15 +3741,23 @@ const operator = {
 			{
 				hp:1720,atk:728,def:325,res:0,cost:12,block:2,range:[[1,0],[2,0],[3,0]],
 				nature:{
-					"聴覚訓練":"物理回避+15%(+4%)"
+					"聴覚訓練":"物理回避+30%(+4%)"
 				}
 			}
 		],
-		dodgeUp:function(arg){
-			if(!enhanceNature1){
-				return 15;
-			}else{
-				return 19;
+		pDodgeUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return 15;
+				}else{
+					return 19;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return 30;
+				}else{
+					return 34;
+				}
 			}
 		},
 		potential:[
@@ -3558,7 +3967,7 @@ const operator = {
 				}
 			}
 		],
-		dmg:function(arg){
+		dmgUp:function(arg){
 			if(arg.promotion == 1){
 				if(arg.lv != 55){
 				 	// 10%の確率で150%に上昇
@@ -3687,7 +4096,7 @@ const operator = {
 				}
 			}
 		],
-		dmg:function(arg){
+		dmgUp:function(arg){
 			if(arg.promotion == 1){
 				if(!arg.enhanceNature1){
 					if(arg.lv != 55){
@@ -3908,6 +4317,9 @@ const operator = {
 		en:"Orchid",
 		rare:3,job:"補助",relocation:70,speed:1.9,trust:{atk:40},tag:["遠距離","減速"],
 		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える<br/>攻撃時、敵を一瞬<span class='merit'>足止め</span>",
+		effect:function(arg){
+			return "鈍足";
+		},
 		stat:[
 			{
 				min:{hp:553,atk:192,def:44},
@@ -4011,6 +4423,16 @@ const operator = {
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.lv == 30){
+				return "※飛行敵攻撃時";
+			}
+		},
+		atkUp:function(arg){
+			if(arg.lv == 30){
+				return arg.atk * 1.5;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{speed:6},
@@ -4033,6 +4455,11 @@ const operator = {
 				}
 			}
 		],
+		aDodgeUp:function(arg){
+			if(arg.lv == 30){
+				return 50;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{hp:50},
@@ -4057,6 +4484,11 @@ const operator = {
 		],
 		target:function(arg){
 			return arg.eneCnt;
+		},
+		pDodgeUp:function(arg){
+			if(arg.lv == 30){
+				return 50;
+			}
 		},
 		potential:[
 			{cost:-1},

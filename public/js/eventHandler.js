@@ -99,7 +99,7 @@ function init(){
 				return bstat.hp - astat.hp;
 			// DPS
 			case "dps":
-				return calcDPS(bName) - calcDPS(aName);
+				return calcDPS(bName, false) - calcDPS(aName, false);
 			// 物理耐久
 			case "pend":
 				return (bstat.hp + bstat.def) - (astat.hp + astat.def);
@@ -361,6 +361,8 @@ function showDetail(name){
 	// 素質、スキルをクリア　※素質なしの場合、クリアしておかないと前に選択されているオペレーターの素質が残る
 	ById("nature").innerHTML = "";
 	ById("skill").innerHTML = "";
+	ById("cond").innerHTML = "";
+	ById("effect").innerHTML = "-";
 	// オペレーターデータループ
 	for(let key in data){
 		// 対応する項目を取得
@@ -382,10 +384,72 @@ function showDetail(name){
 	ById("pEndurance").innerText = stat.hp + stat.def;
 	// 術耐久
 	ById("aEndurance").innerText = Math.round(stat.hp * (100 / (100 - data.stat[sto.data[name].promotion].res)));
+	// 潜在能力による素質1or2強化
+	let enhanceNature1 = false;
+	let enhanceNature2 = false;
+	// 潜在能力による強化
+	for(let i = 1; i < sto.data[name].potential; i++){
+		const pt = data.potential[i - 1];
+		if(typeof pt["nature"] != "undefined"){
+			if(pt.nature == 1){
+				enhanceNature1 = true;
+			}else if(pt.nature == 2){
+				enhanceNature2 = true;
+			}
+		}
+	}
+	// 処理に渡す引数を生成
+	const arg = {
+		lv:sto.data[name].lv,
+		promotion:sto.data[name].promotion,
+		enhanceNature1:enhanceNature1,
+		enhanceNature2:enhanceNature2
+	};
 	// DPS
-	ById("dps").innerText = calcDPS(name);
+	if(data.cond && data.cond(arg)){
+		const nonCondDPS = calcDPS(name, false);
+		const condDPS = calcDPS(name, true);
+		if(nonCondDPS != condDPS){
+			ById("dps").innerHTML = nonCondDPS + "/<span class='merit'>" + condDPS + "<sup>※</sup></span>";
+		}else{
+			ById("dps").innerHTML = nonCondDPS;
+		}
+	}else{
+		ById("dps").innerHTML = calcDPS(name, false);
+	}
+	if(data.guardUp && data.guardUp(arg) != null){
+		ById("guardDisp").style.display = "flex";
+		ById("guard").innerHTML = data.guardUp(arg) + "%";
+	}else{
+		ById("guardDisp").style.display = "none";
+	}
+	if((data.pDodgeUp && data.pDodgeUp(arg) != null) || (data.aDodgeUp && data.aDodgeUp(arg) != null)){
+		ById("dodgeDisp").style.display = "flex";
+		if(
+			(data.pDodgeUp && data.pDodgeUp(arg) != null) ||
+			(data.npDodgeUp && data.npDodgeUp(arg) != null)
+		){
+			if(data.pDodgeUp && data.pDodgeUp(arg) != null){
+				ById("pDodge").innerHTML = data.pDodgeUp(arg) + "%";
+			}else if(data.npDodgeUp && data.npDodgeUp(arg) != null){
+				ById("pDodge").innerHTML = data.npDodgeUp(arg) + "%(近接攻撃のみ)";
+			}
+		}else{
+			ById("pDodge").innerHTML = "0%";
+		}
+		if(data.aDodgeUp && data.aDodgeUp(arg) != null){
+			ById("aDodge").innerHTML = data.aDodgeUp(arg) + "%";
+		}else{
+			ById("aDodge").innerHTML = "0%";
+		}
+	}else{
+		ById("dodgeDisp").style.display = "none";
+	}
 	// 詳細を表示する
 	ById("detail").style.display = "block";
+	
+	/*------------------------------------------------*/
+	
 	// キャンバス取得
 	const ctx = ById("chart").getContext("2d");
 	// 信頼度取得
