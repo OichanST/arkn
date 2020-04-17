@@ -71,6 +71,19 @@ function ValueConverter(name, key, val){
 	let ret;
 	let enhanceNature1 = false;
 	let enhanceNature2 = false;
+	// 潜在データループ
+	for(let i = 1; i < sto.data[name].potential; i++){
+		// 対象の潜在能力取得
+		const pt = operator[name].potential[i - 1];
+		// コストダウン定義がされている場合
+		if(typeof pt["nature"] != "undefined"){
+			if(pt.nature == 1){
+				enhanceNature1 = true;
+			}else if(pt.nature == 2){
+				enhanceNature2 = true;
+			}
+		}
+	}
 	let v;
 	let nv;
 	let arg;
@@ -116,12 +129,6 @@ function ValueConverter(name, key, val){
 					isCostDown = true;
 					// コストを減らす　※－で設定されているので加算
 					cost += pt["cost"];
-				}else if(typeof pt["nature"] != "undefined"){
-					if(pt.nature == 1){
-						enhanceNature1 = true;
-					}else if(pt.nature == 2){
-						enhanceNature2 = true;
-					}
 				}
 			}
 			
@@ -240,6 +247,15 @@ function ValueConverter(name, key, val){
 		// 再配置時間
 		case "relocation":
 			v = val;
+			// 潜在データループ
+			for(let i = 1; i < sto.data[name].potential; i++){
+				// 対象の潜在能力取得
+				const pt = operator[name].potential[i - 1];
+				// 再配置時間短縮が定義されている場合
+				if(typeof pt["relocation"] != "undefined"){
+					v = v + pt.relocation;
+				}
+			}
 			arg = {
 				relocation:v,
 				lv:sto.data[name].lv,
