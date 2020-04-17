@@ -988,6 +988,7 @@ function makeMatrix(){
 	for(let job in matrix[0]){
 		hrow.addHeader(job);
 	}
+	hrow.addHeader("ALL");
 	// ヘッダ行追加
 	t.addHeader(hrow);
 	// 職業別集計値
@@ -1002,12 +1003,25 @@ function makeMatrix(){
 		// レアリティ追加
 		brow.add(i + 1, {textAlign:"center"});
 		
+		const rareSum = {
+			operator:0,
+			have:0,
+			prom1:0,
+			prom2:0
+		};
+		
 		// 各職業の件数追加
 		for(let job in matrix[i]){
+
 			summary[job] += matrix[i][job];
 			haveSum[job] += haveMatrix[i][job];
 			prom1Sum[job] += prom1Matrix[i][job];
 			prom2Sum[job] += prom2Matrix[i][job];
+			
+			rareSum.operator += matrix[i][job];
+			rareSum.have += haveMatrix[i][job];
+			rareSum.prom1 += prom1Matrix[i][job];
+			rareSum.prom2 += prom2Matrix[i][job];
 			
 			let txt = "";
 			if(matrix[i][job] != 0){
@@ -1016,17 +1030,26 @@ function makeMatrix(){
 				span(haveMatrix[i][job], css);
 				if(i >= 2){
 					 txt += "/" + span(prom1Matrix[i][job], css);
-				}else{
-					txt += "/" + span("-", css);
 				}
 				if(i >= 3){
 					txt += "/" + span(prom2Matrix[i][job], css);
-				}else{
-					txt += "/" + span("-", css);
 				}
 			}
+			
 			brow.add(txt);
 		}
+		
+		const css2 = JSON.parse(JSON.stringify(css));
+		css2.width = "25px";
+		let txt = span(rareSum.operator, css2) + "/" + span(rareSum.have, css2);
+		if(i >= 2){
+			txt +=  "/" + span(rareSum.prom1, css2);
+		}
+		if(i >= 3){
+			txt += "/" + span(rareSum.prom2, css2);
+		}
+		brow.add(txt);
+		
 		// 行追加
 		t.add(brow);
 	}
@@ -1034,8 +1057,19 @@ function makeMatrix(){
 	const sumrow = new Row();
 	// レアリティ列追加
 	sumrow.add("ALL");
+	const allSum = {
+		operator:0,
+		have:0,
+		prom1:0,
+		prom2:0
+	};
 	// 各職業の合計追加
 	for(let job in summary){
+		allSum.operator += summary[job];
+		allSum.have += haveSum[job];
+		allSum.prom1 += prom1Sum[job];
+		allSum.prom2 += prom2Sum[job];
+		
 		sumrow.add(
 			span(summary[job], css) + "/" + 
 			span(haveSum[job], css) + "/" +
@@ -1043,6 +1077,14 @@ function makeMatrix(){
 			span(prom2Sum[job], css)
 		);
 	}
+	const css2 = JSON.parse(JSON.stringify(css));
+	css2.width = "25px";
+	sumrow.add(
+		span(allSum.operator, css2) + "/" +
+		span(allSum.have, css2) + "/" +
+		span(allSum.prom1, css2) + "/" +
+		span(allSum.prom2, css2)
+	);
 	// 合計行をテーブルに追加
 	t.add(sumrow);
 }

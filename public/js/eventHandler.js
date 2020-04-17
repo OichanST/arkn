@@ -22,21 +22,21 @@ function init(){
 		thead.size("73.3em");
 		ById("wrapper").style.width = "73.2em";
 		hrow.addHeader("所持", {width:"2.9em"});
-		hrow.addHeader("レアリティ", {width:"6.0em"});
-		hrow.addHeader("オペレーター名", {width:"9.5em"});
+		hrow.addHeader("レア度", {width:"6.0em"});
+		hrow.addHeader("コードネーム", {width:"9.5em"});
 		hrow.addHeader("職業", {width:"2.5em"});
 		hrow.addHeader("昇進", {width:"3.8em"});
 		hrow.addHeader("レベル", {width:"11.1em"});
 		hrow.addHeader("潜在", {width:"2.0em"});
 		hrow.addHeader("信頼度", {width:"11.7em"});
-		hrow.addHeader("スキルレベル");
+		hrow.addHeader("スキルRANK");
 	// 一覧
 	}else if(type == "2"){
 		thead.size("51.3em");
 		ById("wrapper").style.width = "51.2em";
 		thead.size();
-		hrow.addHeader("レアリティ", {width:"6.0em"});
-		hrow.addHeader("オペレーター名", {width:"9.5em"});
+		hrow.addHeader("レア度", {width:"6.0em"});
+		hrow.addHeader("コードネーム", {width:"9.5em"});
 		hrow.addHeader("職業", {width:"2.5em"});
 		hrow.addHeader("昇進", {width:"5.5em"});
 		hrow.addHeader("HP", {width:"3.0em"});
@@ -87,7 +87,14 @@ function init(){
 		switch(sortKey){
 			// レアリティ
 			case "rare":
-				return b.rare - a.rare;
+				if(b.rare != a.rare){
+					return b.rare - a.rare;
+				}else{
+					if(sto.data[bName].promotion != sto.data[aName].promotion){
+						return sto.data[bName].promotion - sto.data[aName].promotion;
+					}
+					return sto.data[bName].lv - sto.data[aName].lv;
+				}
 			// 攻撃力
 			case "atk":
 				return bstat.atk - astat.atk;

@@ -37,7 +37,7 @@
 						</div>
 						<div class="flex" style="margin-top:4px;">
 							<div class="card center" style="width:4.5em;background-color:#00C000;">フィルタ</div>
-							<div class="card center" style="width:5.5em;">レアリティ</div>
+							<div class="card center" style="width:4.0em;">レア度</div>
 							<div style="padding-top:4px;">
 								<label><input type="checkbox" name="rare" value="1" onchange="init();" checked><span>1</span></label>
 								<label><input type="checkbox" name="rare" value="2" onchange="init();" checked><span>2</span></label>
@@ -61,7 +61,7 @@
 						<div class="flex">
 							<div class="card center" style="width:4.5em;background-color:#00C000;">ソート</div>
 							<div style="padding-top:4px;">
-								<label><input type="radio" name="sort" value="rare" onchange="init();" checked><span>レアリティ</span></label>
+								<label><input type="radio" name="sort" value="rare" onchange="init();" checked><span>レア度</span></label>
 								<label><input type="radio" name="sort" value="hp" onchange="init();"><span>HP</span></label>
 								<label><input type="radio" name="sort" value="atk" onchange="init();"><span>攻撃力</span></label>
 								<label><input type="radio" name="sort" value="def" onchange="init();"><span>防御力</span></label>
@@ -103,7 +103,7 @@
 						<div class="flexbetween">
 							<table id="matrix" class="list" style="margin-top:4px;"></table>
 						</div>
-						<div style="margin-top:4px;">
+						<div style="margin-top:4px;display:none;">
 							<select id="t1"></select>
 							と
 							<select id="t2"></select>
