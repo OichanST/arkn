@@ -977,6 +977,24 @@ function changeSkillSp(name){
 		i++;
 	}
 }
+function checkNum(){
+	const val = event.target.value;
+	if(isNaN(parseInt(val, 10))){
+		ById("errMessage").innerText = "数値で入力して下さい";
+		ById("errMessage").style.display = "block";
+		return false;
+	}
+	const iVal = parseInt(val, 10);
+	const min = event.target.min;
+	const max = event.target.max;
+	if(iVal < min || max < iVal){
+		ById("errMessage").innerText = min + "～" + max + "の間で指定して下さい";
+		ById("errMessage").style.display = "block";
+		return false;
+	}
+	ById("errMessage").style.display = "none";
+	return true;
+}
 function enterLogin(){
 	if(event.keyCode == 13){
 		login();
