@@ -79,7 +79,15 @@
 							<div class="card center">敵術耐性</div>
 							<div style="position:relative;width:47px;"><input type="number" id="eneRes" style="font-size:19px;width:42px;height:22px;" min="0" max="99" value="0" onchange="init();"></div>
 							<div class="card center">範囲内敵数</div>
-							<div style="position:relative;width:40px;"><input type="number" id="eneCnt" style="font-size:19px;width:35px;height:22px;" min="1" max="9" value="1" onchange="init();"></div>
+							<div style="position:relative;width:30px;">
+								<select id="eneCnt" value="1" onchange="init();" style="font-size:19px;width:25px;">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select>
+							</div>
 						</div>
 					</form>
 					<div>
