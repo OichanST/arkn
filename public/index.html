@@ -16,7 +16,7 @@
 	<body>
 		<div id="loginForm" style="text-align:center;">
 			<div>Enter Your UserId:</div>
-			<div><input type="text" id="userId"></div>
+			<div><input type="text" id="userId" onkeydown="enterLogin();"></div>
 			<div style="margin-top:1em;"><button type="button" onclick="login();">ログイン</button></div>
 			<div id="loginErr">Login Failed!</div>
 			<div style="text-align:right;">ゲストログインは<a href="javascript:void(0)" onclick="guestLogin();">こちら</a>をクリック</div>

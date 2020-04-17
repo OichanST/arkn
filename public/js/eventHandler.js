@@ -954,6 +954,11 @@ function changeSkillSp(name){
 		i++;
 	}
 }
+function enterLogin(){
+	if(event.keyCode == 13){
+		login();
+	}
+}
 function login(){
 	callServer("login", ById("userId").value);
 }
