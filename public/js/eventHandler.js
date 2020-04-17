@@ -380,16 +380,16 @@ function showDetail(name){
 	}
 	// 各最大値、最小値の取得
 	const stat = calcLvStat(name);
-	// 物理耐久
-	ById("pEndurance").innerText = stat.hp + stat.def;
-	// 術耐久
-	ById("aEndurance").innerText = Math.round(stat.hp * (100 / (100 - data.stat[sto.data[name].promotion].res)));
 	// 潜在能力による素質1or2強化
 	let enhanceNature1 = false;
 	let enhanceNature2 = false;
+	let resAdd = 0;
 	// 潜在能力による強化
 	for(let i = 1; i < sto.data[name].potential; i++){
 		const pt = data.potential[i - 1];
+		if(typeof pt["res"] != "undefined"){
+			resAdd += pt.res;
+		}
 		if(typeof pt["nature"] != "undefined"){
 			if(pt.nature == 1){
 				enhanceNature1 = true;
@@ -400,11 +400,34 @@ function showDetail(name){
 	}
 	// 処理に渡す引数を生成
 	const arg = {
+		hp:stat.hp,
+		atk:stat.atk,
+		def:stat.def,
 		lv:sto.data[name].lv,
 		promotion:sto.data[name].promotion,
 		enhanceNature1:enhanceNature1,
 		enhanceNature2:enhanceNature2
 	};
+	let html;
+	// 物理耐久
+	if(data.defUp && data.defUp(arg) != null){
+		html = (stat.hp + stat.def) + "/<span class='merit'>" + Math.round(stat.hp + data.defUp(arg));
+		if(data.cond && data.cond(arg)){
+			html += "<sup>※</sup>";
+		}
+		html += "</span>";
+	}else{
+		html = stat.hp + stat.def;
+	}
+	
+	ById("pEndurance").innerHTML = html;
+	// 術耐久
+	let res = data.stat[sto.data[name].promotion].res + resAdd;
+	arg["res"] = res;
+	if(data.resUp && data.resUp(arg) != null){
+		res = data.resUp(arg);
+	}
+	ById("aEndurance").innerHTML = Math.round(stat.hp * (100 / (100 - res)));
 	// DPS
 	if(data.cond && data.cond(arg)){
 		const nonCondDPS = calcDPS(name, false);

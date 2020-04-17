@@ -71,6 +71,9 @@ function ValueConverter(name, key, val){
 	let ret;
 	let enhanceNature1 = false;
 	let enhanceNature2 = false;
+	let v;
+	let nv;
+	let arg;
 	// 項目による振り分け
 	switch(key){
 		// レアリティ
@@ -122,7 +125,7 @@ function ValueConverter(name, key, val){
 				}
 			}
 			
-			const arg = {
+			arg = {
 				atk:sta.atk,
 				hp:sta.hp,
 				def:sta.def,
@@ -158,7 +161,7 @@ function ValueConverter(name, key, val){
 				html += "</span>";
 			}
 			ById("def").innerHTML = html;
-			html = isCostDown ? span(cost, {color:"red"}) : cost;
+			html = cost;
 			if(operator[name].costDown && operator[name].costDown(arg) != null){
 				html += "/<span class='merit'>" + (cost + operator[name].costDown(arg));
 				if(operator[name].cond){
@@ -236,26 +239,73 @@ function ValueConverter(name, key, val){
 			return ret;
 		// 再配置時間
 		case "relocation":
-			if(val >= 200){
-				return "とても遅い";
-			}else if(val >= 70){
-				return "遅い";
-			}else{
-				return "速い";
+			v = val;
+			arg = {
+				relocation:v,
+				lv:sto.data[name].lv,
+				promotion:sto.data[name].promotion,
+				enhanceNature1:enhanceNature1,
+				enhanceNature2:enhanceNature2
+			};
+			if(
+				operator[name].relocationDown &&
+				operator[name].relocationDown(arg) != null
+			){
+				nv = v + operator[name].relocationDown(arg);
 			}
+			if(v >= 200){
+				ret = "とても遅い(" + v;
+			}else if(v >= 20){
+				ret = "遅い(" + v;
+			}else{
+				ret = "速い(" + v;
+			}
+			if(nv != null){
+				ret += "/<span class='merit'>" + nv;
+				if(operator[name].cond && operator[name].cond(arg) != null){
+					ret += "<sup>※</sup>";
+				}
+				ret += "</span>";
+			}
+			ret += "s)";
+			return ret;
 		// 攻撃速度
 		case "speed":
-			if(val <= 0.9){
-				return "とても速い";
-			}else if(val <= 1){
-				return "速い";
-			}else if(val <= 1.2){
-				return "普通";
-			}else if(val <= 1.6){
-				return "やや遅い"
-			}else{
-				return "遅い";
+			v = val;
+			arg = {
+				speed:v,
+				lv:sto.data[name].lv,
+				promotion:sto.data[name].promotion,
+				enhanceNature1:enhanceNature1,
+				enhanceNature2:enhanceNature2
+			};
+			if(
+				operator[name].speedUp &&
+				operator[name].speedUp(arg) != null
+			){
+				nv = 1 / ((100 + operator[name].speedUp(arg)) / v / 100);
+				nv = Math.round(nv * 100) / 100;
 			}
+			if(v <= 0.9){
+				ret = "とても速い(" + v;
+			}else if(v <= 1){
+				ret = "速い(" + v;
+			}else if(v <= 1.2){
+				ret = "普通(" + v;
+			}else if(v <= 1.6){
+				ret = "やや遅い(" + v;
+			}else{
+				ret = "遅い(" + v;
+			}
+			if(nv != null){
+				ret += "/<span class='merit'>" + nv;
+				if(operator[name].cond && operator[name].cond(arg) != null){
+					ret += "<sup>※</sup>";
+				}
+				ret += "</span>";
+			}
+			ret += "s)";
+			return ret;
 		case "res":
 			ret = val;
 			// 潜在データループ
@@ -266,19 +316,20 @@ function ValueConverter(name, key, val){
 					ret += pt.res;
 				}
 			}
-			let a = {
+			arg = {
 				promotion:sto.data[name].promotion,
 				res:val
 			};
-			if(operator[name].resUp && operator[name].resUp(a)){
-				ret = operator[name].resUp(a);
+			if(operator[name].resUp && operator[name].resUp(arg)){
+				ret = operator[name].resUp(arg);
 			}
 			return ret;
 		// 潜在
 		case "potential":
 			ret = "";
+			ById("potentialValue").innerText = sto.data[name].potential;
 			for(let i = 0; i < val.length; i++){
-				if(ret != ""){
+				if(i > 0){
 					ret += "<br/>";
 				}
 				if(sto.data[name].potential - 1 <= i){
@@ -327,11 +378,6 @@ function ValueConverter(name, key, val){
 		case "skill":
 			ret = "";
 			for(let sname in val){
-				/*
-				if(ret != ""){
-					ret += "<br/>";
-				}
-				*/
 				ret += div(sname, {marginLeft:"1em"});
 			}
 			return ret;

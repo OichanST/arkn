@@ -127,7 +127,7 @@
 						<div id="stat">
 							<div class="flex" style="margin-top:4px;">
 								<div class="label inversion">HP</div><div id="hp" class="minilabel"></div>
-								<div class="label inversion">再配置</div><div id="relocation" class="minilabel"></div>
+								<div class="label inversion">再配置</div><div id="relocation" class="minilabel" style="width:12em;"></div>
 							</div>
 							<div class="flex">
 								<div class="label inversion">攻撃力</div><div id="atk" class="minilabel"></div>
@@ -139,7 +139,7 @@
 							</div>
 							<div class="flex">
 								<div class="label inversion">術耐性</div><div id="res" class="minilabel"></div>
-								<div class="label inversion">攻撃速度</div><div id="speed" class="minilabel"></div>
+								<div class="label inversion">攻撃速度</div><div id="speed" class="minilabel" style="width:12em;"></div>
 							</div>
 							<div class="flex">
 								<div class="label inversion">DPS</div><div id="dps" class="minilabel"></div>
@@ -182,9 +182,12 @@
 							</div>
 							<div id="tag"></div>
 						</div>
-						<div>
-							<span>潜在</span>
-							<div id="potential" class="center"></div>
+						<div class="flex">
+							<div style="width:70px;position:relative;">
+								<div id="potentialValue" class="center" style="font-size:50px;position:absolute;width:100%;margin-top:10px;"></div>
+								<div class="center" style="width:100%;margin-top:70px;">潜在</div>
+							</div>
+							<div id="potential" class="center" style="width:190px;"></div>
 						</div>
 						<div>
 							<span>スキル</span>

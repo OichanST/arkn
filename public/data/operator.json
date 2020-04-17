@@ -1497,7 +1497,7 @@ const operator = {
 		characteristic:"８０％の攻撃力で<span class='merit'>遠距離攻撃</span>も行える",
 		effect:function(arg){
 			if(arg.promotion >= 1){
-				return "<span style='font-size:13px'>特殊能力無効化</span>";
+				return "特殊能力無効化";
 			}
 		},
 		stat:[
