@@ -49,7 +49,7 @@ if(sto.isEmpty){
 				have:operatorName == "アーミヤ" ? true : false,
 				promotion:0,
 				lv:1,
-				potential:0,
+				potential:1,
 				trust:0,
 				slv:1,
 				sp:new Array(0,0,0)
