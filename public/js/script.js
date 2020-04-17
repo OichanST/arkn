@@ -710,8 +710,8 @@ function calcLvMax(rare, promotion){
 			switch(promotion){
 				// 初期
 				case 0:
-					// LV最大=60
-					return 60;
+					// LV最大=50
+					return 50;
 				// 昇進1
 				case 1:
 					// LV最大=80
