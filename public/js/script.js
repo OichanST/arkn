@@ -394,7 +394,7 @@ function ValueConverter(name, key, val){
 		case "skill":
 			ret = "";
 			for(let sname in val){
-				ret += div(sname, {marginLeft:"1em"});
+				ret += "<img src='skill/" + sname + ".png' style='margin:0.2em;width:3.9em;'/>";
 			}
 			return ret;
 		case "cond":

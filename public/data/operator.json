@@ -183,7 +183,7 @@ const operator = {
 					{start:15,need:35,pers:35,atk:45,speed:45}
 				]
 			},
-			"怒涛の裂刃":{
+			"波涛の裂刃":{
 				exp:"配置後の@pers秒間、攻撃力+@atk%",
 				passive:true,
 				effect:[

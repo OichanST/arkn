@@ -172,17 +172,24 @@
 							<div id="cond" class="merit"></div>
 						</div>
 					</div>
-					<div style="width:17.0em;">
+					<div style="width:18.0em;">
 						<div style="margin-top:0.1em;margin-left:4px;height:6.0em;">
 							<span>特性<span>
 							<div id="characteristic"></div>
 						</div>
+						<div class="card flex">
+							<div style="width:4.4em;position:relative;">
+								<div class="center" style="position:absolute;width:4.4em;color:#C0C0C0;margin-top:8px;">スキル</div>
+								<div style="cursor:pointer;font-size:1.75em;position:absolute;margin-top:20px;" onclick="showSkill();">＋</div>
+							</div>
+							<div id="skill"></div>
+						</div>
 						<div class="card flexbetween" style="height:4.9em;flex-direction:column;">
 							<div class="flex">
-								<div>素質</div>
+								<div style="width:4.4em;">素質</div>
 								<div id="nature" style="margin-left:4px;"></div>
 							</div>
-							<div style="width:1em;cursor:pointer;" onclick="showNature();">…</div>
+							<div style="font-size:1.1em;cursor:pointer;margin-left:0.4em;" onclick="showNature();">…</div>
 						</div>
 					</div>
 				</div>
@@ -201,11 +208,6 @@
 								<div class="center" style="width:100%;margin-top:70px;">潜在</div>
 							</div>
 							<div id="potential" class="center" style="width:190px;"></div>
-						</div>
-						<div>
-							<span>スキル</span>
-							<span style="cursor:pointer;" onclick="showSkill();">＋</span>
-							<div id="skill"></div>
 						</div>
 					</div>
 					<div style="width:725px;">

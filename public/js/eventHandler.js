@@ -710,7 +710,9 @@ function showSkill(){
 	for(let sname in sdata){
 		// タグ生成
 		html += "<div class='flex'>";
-		html += div(sname, {margin:"3px", fontWeight:"bold"});
+		html += "<div style='text-align:center;'>";
+		html += "<img src='skill/" + sname + ".png' style='width:90px;margin-top:1em;'/>";
+		html += div(sname, {textAlign:"center",margin:"3px",width:"130px"});
 		// スキル特化の設定がされている場合
 		if(sp){
 			// 特化段階の表示
@@ -719,7 +721,8 @@ function showSkill(){
 			}
 		}
 		html += "</div>";
-		html += "<div class='flex'>";
+		html += "<div>";
+		html += "<div class='flex' style='margin-top:1em;'>";
 		// パッシブスキルの場合
 		if(sdata[sname].passive){
 			html += card("パッシブ");
@@ -759,7 +762,9 @@ function showSkill(){
 			}
 		}
 		// スキル説明の反映
-		html += div(exp, {marginLeft:"1em", height:"5em"});
+		html += div(exp, {height:"5em"});
+		html += "</div>";
+		html += "</div>";
 		// ループカウンタのインクリメント
 		i++;
 	}
