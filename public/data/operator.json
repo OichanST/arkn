@@ -1000,7 +1000,30 @@ const operator = {
 			{atk:35},
 			{cost:-1},
 			{nature:2}
-		]
+		],
+		skill:{
+			"猛火":{
+				exp:"攻撃力+@atk%、攻撃速度+@speed",
+				recover:"auto",activate:"manual",
+				effect:[
+					
+				]
+			},
+			"爆炎":{
+				exp:"次の通常攻撃時、敵に攻撃力の@atk%の術ダメージを与え、@time秒間防御力@debuff、やけど状態(継続ダメージを受ける)にする<br/>@charge回チャージ可能",
+				recover:"auto",activate:"auto",
+				effect:[
+				
+				]
+			},
+			"灼獄":{
+				exp:"攻撃範囲内、地面にいる敵全員に1秒ごとに攻撃力の@atk%の術ダメージを与え、術耐性@debuff<br/>自身のHPが1秒ごとに最大値の2%減少",
+				recover:"auto",activate:"manual",
+				effect:[
+				
+				]
+			}
+		}
 	},
 	"シャイニング":{
 		en:"Shining",
@@ -1044,7 +1067,27 @@ const operator = {
 			{def:25},
 			{cost:-1},
 			{nature:1}
-		]
+		],
+		skill:{
+			"信条":{
+				exp:"攻撃力+@atk%、攻撃速度+@speed",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"オートカバー":{
+				exp:"次に味方を回復する時、対象に継続3秒のシールドを付与。シールドは自身の攻撃力の@atk%のダメージを吸収、対象の防御力を@def%上昇<br/>@charge回チャージ可能",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"教導の結界":{
+				exp:"攻撃力+@atk%<br/>攻撃範囲内の味方全員の防御力+@def%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"ナイチンゲール":{
 		en:"Nightingale",
@@ -1074,8 +1117,32 @@ const operator = {
 			}
 		],
 		potential:[
-			
-		]
+			{cost:-1},
+			{relocation:-4},
+			{res:10},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"回復力強化γ":{
+				exp:"攻撃力+@atk%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"アーツシールド":{
+				exp:"次に味方を回復する時、全ての対象に継続3.5秒のシールドを付与。シールドは自身の攻撃力の@atk%の術ダメージを吸収、対象の術耐性を@res上昇<br/>@charge回チャージ可能",
+				recover:"auto",activate:"auto",
+				effect:[
+				]
+			},
+			"聖域":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"アンジェリーナ":{
 		en:"Angelina",
@@ -1125,7 +1192,27 @@ const operator = {
 			{atk:25},
 			{cost:-1},
 			{nature:1}
-		]
+		],
+		skill:{
+			"秘杖・急収束":{
+				exp:"攻撃力+@atk%",
+				recover:"attack",activate:"auto",
+				effect:[
+				]
+			},
+			"秘杖・微粒子":{
+				exp:"通常攻撃の間隔が超大幅に短縮、@atk%の攻撃力で術攻撃を行う<br/>スキル発動中のみ攻撃行動を行う",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"秘杖・反重力":{
+				exp:"敵全員の重量が1ランクダウン、攻撃範囲拡大、攻撃力+@atk%、敵最大@target体を同時に攻撃<br/>スキル発動中のみ攻撃行動を行う",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"マゼラン":{
 		en:"Magallan",
@@ -1163,7 +1250,27 @@ const operator = {
 			{atk:23},
 			{nature:2},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"フリーズモジュール":{
+				exp:"パッシブ:自身とドローンの攻撃範囲内の敵を3秒ごとに0.9秒足止めを付与。スキル発動時、「0.9秒の足止め」が「2.2秒のバインド（移動停止）」に変化する。効果時間終了後配置中のドローンを全て回収",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"レーザーモジュール":{
+				exp:"パッシブ:ドローンが術攻撃を行い、近距離ユニットとして配置可能。スキル発動時、自身とドローンの攻撃速度+100、ドローンが同時攻撃を行う。効果時間終了後配置中のドローンを全て回収",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"アサルトモジュール":{
+				exp:"パッシブ:ドローンが範囲物理攻撃を行い、近距離ユニットとして配置可能。スキル発動時、自身とドローンの攻撃力+@atk%、ドローンの攻撃による爆破範囲が拡大。効果時間終了後配置中の全てのドローンを回収",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"テキサス":{
 		en:"Texas",
@@ -1194,7 +1301,21 @@ const operator = {
 			{atk:24},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"突撃指令γ":{
+				exp:"所持コスト+12",
+				recover:"auto",activate:"auto",
+				effect:[
+				]
+			},
+			"剣雨":{
+				exp:"所持コスト+9<br/>周囲一定範囲内の敵全員に2回連続で攻撃力の@atk%の術ダメージを与え、@stan秒間スタンさせる",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"ズィマー":{
 		en:"Зима",
@@ -1230,7 +1351,21 @@ const operator = {
 			{def:24},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"突撃指令γ":{
+				exp:"所持コスト+12",
+				recover:"auto",activate:"auto",
+				effect:[
+				]
+			},
+			"ウルサスの雄叫び":{
+				exp:"効果時間内所持コストが徐々に増加(合計9)<br/>先鋒ユニット全員の攻撃力、防御力+35%、敵を倒す度所持コスト+1",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"グラニ":{
 		en:"Grani",
@@ -1276,7 +1411,21 @@ const operator = {
 			{cost:-1},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"防御力強化γ":{
+				exp:"防御力+@def%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"引かない！":{
+				exp:"攻撃範囲縮小、攻撃力と防御力+@atk%、ブロック数+1、ブロック中の敵全員を同時に攻撃",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		},
 	},
 	"インドラ":{
 		en:"Indra",
@@ -1317,7 +1466,27 @@ const operator = {
 			}
 		},
 		potential:[
-		]
+			{cost:-1},
+			{relocation:-4},
+			{atk:23},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"砕甲拳":{
+				exp:"次の通常攻撃時、攻撃力+@atk%、敵の防御力を@%無視",
+				recover:"attack",activate:"auto",
+				effect:[
+				]
+			},
+			"裂魂":{
+				exp:"攻撃力+@atk%、通常攻撃が術攻撃になり、与ダメージの@heal%のHPを回復",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+		}
+		
 	},
 	"フランカ":{
 		en:"Franka",relocation:70,speed:1.5,trust:{atk:75,def:25},tag:["近距離","火力","生存"],
@@ -1360,7 +1529,21 @@ const operator = {
 			{atk:30},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"迅速攻撃γ":{
+				exp:"攻撃力+@atk%、攻撃速度+@speed",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"利剣の極致":{
+				exp:"防御力が0になり、攻撃力+@atk%、素質の防御力無視確率が2.5倍まで上昇",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"サベージ":{
 		en:"Savage",
@@ -1412,7 +1595,21 @@ const operator = {
 			}
 		},
 		potential:[
-		]
+		],
+		skill:{
+			"強撃β":{
+				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇",
+				recover:"attack",activate:"auto",
+				effect:[
+				]
+			},
+			"精密起爆":{
+				exp:"前方3マス内の敵最大3体に攻撃力の@atk%の物理ダメージを与える",
+				recover:"attack",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"スペクター":{
 		en:"Specer",
@@ -1455,7 +1652,21 @@ const operator = {
 			{atk:27},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"攻撃力強化γ":{
+				exp:"攻撃力+@atk%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"肉斬骨断":{
+				exp:"攻撃力+@atk%、効果時間内はダメージを受けてもHPが1残る<br/>効果時間終了後10秒間スタンする",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+		}
 	},
 	"スワイヤー":{
 		en:"Swire",
@@ -1489,7 +1700,21 @@ const operator = {
 			{atk:26},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"統括指揮":{
+				exp:"素質の効果範囲が拡大、効果が2倍まで上昇",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"協同作戦":{
+				exp:"攻撃力+@atk%、素質の効果が2.3倍まで上昇",
+				recover:"attack",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"ラップランド":{
 		en:"Lappland",
@@ -1525,7 +1750,21 @@ const operator = {
 			{atk:25},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"影落とす時針":{
+				exp:"攻撃力+@atk%、25%の確率で物理攻撃をガード<br/>退場まで効果継続",
+				recover:"attack",activate:"auto",
+				effect:[
+				]
+			},
+			"狼魂":{
+				exp:"攻撃力+@atk%、通常攻撃が術攻撃になり敵2体を同時に攻撃<br/>攻撃力の100%で遠距離攻撃を行う",
+				recover:"attack",activate:"auto",
+				effect:[
+				]
+			}
+		}
 	},
 	"エンカク":{
 		en:"Flamebringer",
@@ -1570,7 +1809,21 @@ const operator = {
 			{cost:-1},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"血化粧":{
+				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇し、自身のHPを@heal%回復",
+				recover:"attack",activate:"auto",
+				effect:[
+				]
+			},
+			"刃鬼":{
+				exp:"攻撃力+@atk%、攻撃速度+@speed",
+				recover:"attack",activate:"auto",
+				effect:[
+				]
+			}
+		}
 	},
 	"アステシア":{
 		en:"Astesia",
@@ -1613,7 +1866,21 @@ const operator = {
 			{def:23},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"星座の守護":{
+				exp:"攻撃力+@atk%、防御力+@def%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"星輝剣":{
+				exp:"攻撃力+@atk%、防御力+@def%、ブロック数+1、ブロック中の敵全員を同時に攻撃",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"リスカム":{
 		en:"Liskanm",
@@ -1654,7 +1921,21 @@ const operator = {
 			{def:27},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"チャージガード":{
+				exp:"次に受けるダメージをガード、8秒間防御力+@def%",
+				recover:"damage",activate:"auto",
+				effect:[
+				]
+			},
+			"カウンターアーク":{
+				exp:"通常攻撃の間隔が延長し、攻撃力+@atk%、通常攻撃時敵最大3体に術ダメージを与え、10%の確率で1秒間スタンさせる<br/>効果時間終了後5秒間スタンする",
+				recover:"damage",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"クロワッサン":{
 		en:"Croissant",
@@ -1700,7 +1981,21 @@ const operator = {
 			{def:26},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"防御態勢":{
+				exp:"防御力+@def%、素質の効果が130%まで上昇",
+				recover:"auto",activate:"auto",
+				effect:[
+				]
+			},
+			"テスラハンマー":{
+				exp:"周囲一定範囲内の敵を相当の力で突き飛ばし、攻撃力の280%の物理ダメージを与え、2.5秒間スタンさせる",
+				recover:"attack",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"二アール":{
 		en:"Nearl",
@@ -1731,7 +2026,21 @@ const operator = {
 			{def:25},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"応急処置":{
+				exp:"次の通常攻撃時、周囲一定範囲内にいるHPが50%以下の味方1人に、攻撃力@atk%回復<br/>1回チャージ可能",
+				recover:"auto",activate:"auto",
+				effect:[
+				]
+			},
+			"救護態勢":{
+				exp:"攻撃力+@atk%、攻撃しなくなり回復行動のみ行う",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"ヴァルカン":{
 		en:"Vulcan",
@@ -1762,7 +2071,21 @@ const operator = {
 			{hp:250},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"鉄壁の構え":{
+				exp:"ブロック数+1、防御力+@def%、素質の効果の上、HPが1秒ごとに更に最大値の2%回復",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"猛攻の構え":{
+				exp:"ブロック数-1、通常攻撃の間隔がわずかに延長し、攻撃力+@atk%、攻撃する度HPが最大値の5%回復、ブロック中の敵全員を同時に攻撃",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"アズリウス":{
 		en:"Blue Poison",
@@ -1860,7 +2183,21 @@ const operator = {
 			{atk:23},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"攻撃力強化γ":{
+				exp:"攻撃力+@atk%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"ペガサスアイ":{
+				exp:"攻撃速度がわずかに低下、攻撃力+@atk%、攻撃範囲拡大<br/>退場まで効果持続",
+				recover:"auto",activate:"auto",
+				effect:[
+				]
+			}
+		}
 	},
 	"メテオリーテ":{
 		en:"Meteorite",relocation:70,speed:2.8,trust:{atk:85},tag:["遠距離","範囲攻撃","弱化"],
@@ -1906,7 +2243,21 @@ const operator = {
 			{atk:35},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"散弾装填":{
+				exp:"次の通常攻撃時、爆破範囲が拡大、攻撃力の@atk%の物理ダメージを与える",
+				recover:"attack",activate:"auto",
+				effect:[
+				]
+			},
+			"榴弾装填":{
+				exp:"榴弾を発射し、爆破範囲内の敵全員に攻撃力の@atk%の物理ダメージを与え、10秒間防御力-170%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"プロヴァンス":{
 		en:"Provence",
@@ -1956,7 +2307,21 @@ const operator = {
 			{atk:30},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"ウルフアイ":{
+				exp:"攻撃対象のHPが20%減少する度その対象を攻撃時のみ攻撃力+@atk%",
+				passive:true,
+				effect:[
+				]
+			},
+			"鮮血の匂い":{
+				exp:"攻撃力+@atk%、ただしHPが80%以上の敵を攻撃しなくなる",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"ファイヤーウォッチ":{
 		en:"Firewatch",
@@ -1999,7 +2364,21 @@ const operator = {
 			{atk:35},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"カモフラージュ":{
+				exp:"攻撃力+@atk%、ステルス状態になる(敵の遠距離攻撃の対象にならない)",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"爆撃要請":{
+				exp:"攻撃範囲内のランダムな位置に爆弾を@cnt個投下(敵がいる位置を優先する)<br/>爆弾は一個につき周囲一定範囲内の敵全員に攻撃力の@atk%の物理ダメージを与える",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"イグゼキューター":{
 		en:"Executor",
@@ -2088,7 +2467,27 @@ const operator = {
 			{atk:30},
 			{cost:-1},
 			{nature:1}
-		]
+		],
+		skill:{
+			"戦術詠唱γ":{
+				exp:"攻撃速度+@speed",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"ソウルブースト":{
+				exp:"通常攻撃が攻撃力の@atk%での@cnt回連続攻撃になり、ランダムで範囲内の敵を攻撃する<br/>効果時間終了後10秒間スタンする",
+				recover:"auto",activate:"auto",
+				effect:[
+				]
+			},
+			"キメラ":{
+				exp:"攻撃力+@atk%、最大HP+@hp%、攻撃範囲が拡大し、防御力と術耐性を無視して攻撃する<br/>効果時間終了後強制退場",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"ナイトメア":{
 		en:"Nightmare",
@@ -2139,7 +2538,21 @@ const operator = {
 			{atk:26},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"ソウルドレイン":{
+				exp:"通常攻撃時、攻撃範囲内の味方最大1人のHPをダメージの50%分回復する",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"ナイトシャドウ":{
+				exp:"攻撃範囲内の敵最大3体に次の状態を付与：<br/>5秒間、移動速度-60%、移動距離に応じて防御力、術耐性無視の固定ダメージを受ける",
+				recover:"auto",activate:"auto",
+				effect:[
+				]
+			}
+		}
 	},
 	"スカイフレア":{
 		en:"Skyfire",relocation:70,speed:2.9,trust:{atk:90},tag:["遠距離","範囲攻撃","牽制"],
@@ -2185,7 +2598,21 @@ const operator = {
 			{atk:33},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"攻撃力強化γ":{
+				exp:"攻撃力+@atk%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"メテオフレイム":{
+				exp:"通常攻撃の間隔が延長し、隕石を召喚する<br/>隕石は衝突まで時間がかかるが、衝突後広範囲の敵に攻撃力@atk%分の術ダメージを与え、@stan秒スタンさせる",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"サイレンス":{
 		en:"Silence",
@@ -2231,7 +2658,21 @@ const operator = {
 			{atk:24},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"回復力強化γ":{
+				exp:"攻撃力+@atk%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"医療ドローン":{
+				exp:"医療ドローン1機が配置可能になる(上限1機)<br/>ドローンは配置後10秒間周囲の味方を回復し、効果終了後消滅する",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ワルファリン":{
 		en:"Warfarin",
@@ -2257,8 +2698,26 @@ const operator = {
 			}
 		],
 		potential:[
-			
-		]
+			{cost:-1},
+			{relocation:-4},
+			{atk:27},
+			{relocation:-6},
+			{cost:-1}
+		],
+		skill:{
+			"救急包帯法":{
+				exp:"HP50%以下の味方を回復する時、通常回復の上、更に対象のHPを最大値の13%回復<br/>@charge回チャージ可能",
+				recover:"attack",activate:"auto",
+				effect:[
+				]
+			},
+			"不安定血漿":{
+				exp:"自身と攻撃範囲内ランダムな味方1人に次の効果を付与：<br/>15秒間、攻撃力+@atk%、１秒ごとにHPが最大値の3%減少",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"フィリオプシス":{
 		en:"Ptilopsis",
@@ -2354,7 +2813,21 @@ const operator = {
 			{res:8},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"攪乱装置":{
+				exp:"機械川獺の物理回避、術回避+15%",
+				passive:true,
+				effect:[
+				]
+			},
+			"ミーボ起爆":{
+				exp:"配置中の機械川獺を全て起爆、機械川獺の周囲一定範囲内の敵全員にメイヤーの攻撃力の@atk%の術ダメージを与え、@stan秒間スタンさせる<br/>機械川獺は再配置可能",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"ソラ":{
 		en:"Sora",
@@ -2391,7 +2864,21 @@ const operator = {
 			{hp:140},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"すやすやナンバー":{
+				exp:"攻撃範囲拡大、攻撃範囲内の敵全員が眠り状態(スタン+無敵)になる<br/>素質の効果が60%まで上昇",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"ファイトソング":{
+				exp:"攻撃範囲内の自身以外の味方の攻撃力に自身の攻撃力の@atk%を加算",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"プラマニクス":{
 		en:"Pramanix",
@@ -2442,7 +2929,21 @@ const operator = {
 			{res:8},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"木霊せし聖音":{
+				exp:"敵最大2体を同時に攻撃<br/>攻撃範囲内の敵全員の攻撃速度+@speed",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"カランドの威圧":{
+				exp:"攻撃範囲内の敵全員の防御力+@def%、術耐性-23%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"レッド":{
 		en:"Projekt Red",
@@ -2480,7 +2981,21 @@ const operator = {
 			{relocation:-2},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"処刑の構え":{
+				passive:true,
+				exp:"配置後攻撃力+@atk%、物理回避と術回避+20%",
+				effect:[
+				]
+			},
+			"郡狼":{
+				passive:true,
+				exp:"配置後周囲一定範囲内の敵全員に攻撃力の@atk%の物理ダメージを与え、1秒間スタンさせる",
+				effect:[
+				]
+			}
+		}
 	},
 	"エフイーター":{
 		en:"FEater",
@@ -2525,7 +3040,21 @@ const operator = {
 			{speed:8},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"鉄意六合拳":{
+				exp:"次の通常攻撃時、敵を攻撃方向に相当の力で突き飛ばし、4秒間移動速度-18%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"崩拳":{
+				exp:"前方直線上一番近い敵に向かって突進し、攻撃対象とその周囲の敵全員を相当の力で突き飛ばし、攻撃力の@atk%のダメージを与え、4秒間移動速度-18%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"クリフハート":{
 		en:"Cliffheart",
@@ -2591,7 +3120,21 @@ const operator = {
 			{speed:8},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"ワイヤーシックル":{
+				exp:"次の通常攻撃時、敵を相当の力で引き寄せ、攻撃力の@atk%の術ダメージを与える",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"アレストチェーン":{
+				exp:"前方一定範囲内の敵最大2体を相当の力で引き寄せ、攻撃力の@atk%の防御力、術耐性無視ダメージを与え、@stan秒スタンさせる",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"マンティコア":{
 		en:"Manticore",
@@ -2651,7 +3194,21 @@ const operator = {
 			{atk:30},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"アジトキシン":{
+				passive:true,
+				exp:"攻撃した敵を3.5秒間移動速度-31%",
+				effect:[
+				]
+			},
+			"スコーピオンテール":{
+				exp:"通常攻撃の間隔が延長し、攻撃力+50%、攻撃した敵を@stan秒間スタンさせる",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"スカベンジャー":{
 		en:"Scavenger",
@@ -2717,7 +3274,21 @@ const operator = {
 			{atk:25},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"突撃指令β":{
+				exp:"所持コスト+9",
+				recover:"auto",activate:"auto",
+				effect:[
+				]
+			},
+			"突撃指令・攻撃":{
+				exp:"所持コスト+11<br/>攻撃力+@atk%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"クーリエ":{
 		en:"Courier",
@@ -2768,7 +3339,21 @@ const operator = {
 			{def:23},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"突撃指令β":{
+				exp:"所持コスト+9",
+				recover:"auto",activate:"auto",
+				effect:[
+				]
+			},
+			"突撃指令・防御":{
+				exp:"所持コスト+3<br/>効果時間内所持コストが徐々に増加(合計8)<br/>防御力+@def%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"ヴィグナ":{
 		en:"Vigna",
@@ -2799,7 +3384,21 @@ const operator = {
 			{atk:24},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"攻撃力強化β":{
+				exp:"攻撃力+@atk%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"ハンマリング・オン":{
+				exp:"通常攻撃力の間隔がわずかに延長し、攻撃力+@atk%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"テンニンカ":{
 		en:"Myrtle",
@@ -2825,7 +3424,21 @@ const operator = {
 			{def:22},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"支援指令β":{
+				exp:"攻撃しなくなり、効果時間内所持コストが徐々に増加(合計14)",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"？？？":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ビーハンター":{
 		en:"Beehunter",
@@ -2876,7 +3489,21 @@ const operator = {
 			{hp:180},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"ウィービング":{
+				passive:true,
+				exp:"物理回避+30%",
+				effect:[
+				]
+			},
+			"ラッシュ":{
+				exp:"通常攻撃の間隔をかなり短縮",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"マトイマル":{
 		en:"Matoimaru",
@@ -2918,7 +3545,21 @@ const operator = {
 			{hp:180},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"HP回復β":{
+				exp:"自身のHPが最大値の@heal%回復",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			},
+			"悪鬼の力":{
+				exp:"防御力が0になり、攻撃力+@atk%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"ムース":{
 		en:"Mousse",
@@ -2956,7 +3597,21 @@ const operator = {
 			{atk:26},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"ひっかき！":{
+				exp:"次の通常攻撃時、攻撃力+@atk%、攻撃した敵を5秒間攻撃力-20%",
+				recover:"attack",activate:"auto",
+				effect:[
+				]
+			},
+			"ねこのいかり":{
+				exp:"攻撃力、防御力@atk%",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"エステル":{
 		en:"Estelle",
@@ -2987,7 +3642,21 @@ const operator = {
 			{hp:200},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ドーベルマン":{
 		en:"Dobermann",
@@ -3018,7 +3687,21 @@ const operator = {
 			{hp:150},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"フロストリーフ":{
 		en:"Frostleaf",
@@ -3046,7 +3729,21 @@ const operator = {
 			{speed:8},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"クオーラ":{
 		en:"Cuora",
@@ -3084,7 +3781,21 @@ const operator = {
 			{def:27},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"マッターホルン":{
 		en:"Matterhorn",
@@ -3122,7 +3833,21 @@ const operator = {
 			{hp:250},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"グム":{
 		en:"Гум",
@@ -3165,7 +3890,21 @@ const operator = {
 			{atk:21},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ジェシカ":{
 		en:"Jessica",
@@ -3203,7 +3942,21 @@ const operator = {
 			{atk:23},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"メテオ":{
 		en:"Meteor",
@@ -3254,7 +4007,21 @@ const operator = {
 			{atk:23},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"シラユキ":{
 		en:"ShiraYuki",
@@ -3287,7 +4054,21 @@ const operator = {
 			{atk:30},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ヴァーミル":{
 		en:"Vermeil",
@@ -3320,7 +4101,21 @@ const operator = {
 			{atk:24},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ヘイズ":{
 		en:"Haze",
@@ -3356,7 +4151,21 @@ const operator = {
 			{hp:100},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ギターノ":{
 		en:"Gitano",
@@ -3390,7 +4199,21 @@ const operator = {
 			{atk:27},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"グレイ":{
 		en:"Greyy",
@@ -3426,7 +4249,21 @@ const operator = {
 			{speed:6},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ガヴィル":{
 		en:"Gavial",
@@ -3496,7 +4333,21 @@ const operator = {
 			{atk:23},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ミルラ":{
 		en:"Myrrh",
@@ -3527,7 +4378,21 @@ const operator = {
 			{atk:23},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"パフューマー":{
 		en:"Perfumer",
@@ -3573,7 +4438,21 @@ const operator = {
 			{atk:19},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"アーススピリット":{
 		en:"Earthspirit",
@@ -3601,7 +4480,21 @@ const operator = {
 			{atk:21},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ディピカ":{
 		en:"Deepcolor",
@@ -3632,7 +4525,21 @@ const operator = {
 			{speed:8},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"グラベル":{
 		en:"Gravel",
@@ -3675,7 +4582,21 @@ const operator = {
 			{relocation:-2},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ショウ":{
 		en:"Shaw",
@@ -3720,7 +4641,21 @@ const operator = {
 			{hp:140},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ロープ":{
 		en:"Rope",
@@ -3766,7 +4701,21 @@ const operator = {
 			{def:22},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"バニラ":{
 		en:"Vanilla",
@@ -3800,7 +4749,21 @@ const operator = {
 			{atk:20},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			},
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"フェン":{
 		en:"Fang",
@@ -3830,7 +4793,15 @@ const operator = {
 			{def:20},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"プリュム":{
 		en:"Plume",
@@ -3864,7 +4835,15 @@ const operator = {
 			{atk:21},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"メランサ":{
 		en:"Melantha",
@@ -3898,7 +4877,15 @@ const operator = {
 			{atk:25},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ポプカル":{
 		en:"Popukar",
@@ -3948,7 +4935,15 @@ const operator = {
 			{atk:23},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ミッドナイト":{
 		en:"Midnight",
@@ -3984,7 +4979,15 @@ const operator = {
 			{atk:22},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ビーグル":{
 		en:"Beagle",
@@ -4018,7 +5021,15 @@ const operator = {
 			{def:28},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"カーディ":{
 		en:"Cardigan",
@@ -4052,7 +5063,15 @@ const operator = {
 			{hp:200},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"スポット":{
 		en:"Spot",
@@ -4077,7 +5096,15 @@ const operator = {
 			{def:24},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"クルース":{
 		en:"Kroos",
@@ -4123,7 +5150,15 @@ const operator = {
 			{atk:21},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"アドナキエル":{
 		en:"Adnachiel",
@@ -4157,7 +5192,15 @@ const operator = {
 			{atk:23},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"カタパルト":{
 		en:"Catapult",
@@ -4190,7 +5233,15 @@ const operator = {
 			{atk:27},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"スチュワード":{
 		en:"Steward",
@@ -4224,7 +5275,15 @@ const operator = {
 			{atk:23},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ラヴァ":{
 		en:"Lava",
@@ -4252,7 +5311,15 @@ const operator = {
 			{speed:8},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ハイビスカス":{
 		en:"Hibiscus",
@@ -4286,7 +5353,15 @@ const operator = {
 			{atk:18},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"アンセル":{
 		en:"Ansel",
@@ -4311,7 +5386,15 @@ const operator = {
 			{atk:20},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"オーキッド":{
 		en:"Orchid",
@@ -4348,7 +5431,15 @@ const operator = {
 			{atk:19},
 			{relocation:-6},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"":{
+				exp:"",
+				recover:"",activate:"",
+				effect:[
+				]
+			}
+		}
 	},
 	"ヤトウ":{
 		en:"Yato",

@@ -712,7 +712,7 @@ function showSkill(){
 		html += "<div class='flex'>";
 		html += "<div style='text-align:center;'>";
 		html += "<img src='skill/" + sname + ".png' style='width:90px;margin-top:1em;'/>";
-		html += div(sname, {textAlign:"center",margin:"3px",width:"130px"});
+		html += div(sname, {textAlign:"center",margin:"3px",width:"150px"});
 		// スキル特化の設定がされている場合
 		if(sp){
 			// 特化段階の表示
