@@ -3644,14 +3644,14 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
+			"攻撃力強化β":{
+				exp:"攻撃力+@atk%",
 				recover:"",activate:"",
 				effect:[
 				]
 			},
-			"":{
-				exp:"",
+			"捨て身の覚悟":{
+				exp:"攻撃力+@atk%、ただし味方の回復対象外になる",
 				recover:"",activate:"",
 				effect:[
 				]
@@ -3689,15 +3689,15 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"強撃β":{
+				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇",
+				recover:"attack",activate:"auto",
 				effect:[
 				]
 			},
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"鞭撻":{
+				exp:"攻撃力+@atk%、素質の効果が2.2倍まで上昇",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -3731,15 +3731,15 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"降霜の刃":{
+				exp:"次の通常攻撃時、敵に攻撃力の@atk%の物理ダメージを与え、1.5秒間移動速度-25%",
+				recover:"auto",activate:"auto",
 				effect:[
 				]
 			},
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"氷結の刃":{
+				exp:"攻撃速度+@speed<br/>攻撃した敵を1.5秒間移動速度-34%、更に15%の確率でその敵に1.5秒間のバインド（移動停止）を付与",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -3783,15 +3783,15 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"防御力強化β":{
+				exp:"防御力+@def%",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			},
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"シェルガード":{
+				exp:"攻撃しなくなる<br/>ブロック数+1、防御力+@def%、自身のHPが1秒ごとに最大値の1%回復",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -3835,13 +3835,13 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"肉体強化":{
+				exp:"最大HP+@hp%、自身のHPが1秒ごとに20回復",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			},
-			"":{
+			"？":{
 				exp:"",
 				recover:"",activate:"",
 				effect:[
@@ -3892,9 +3892,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"非常食":{
+				exp:"次の通常攻撃時、近くの味方1人に自身の攻撃力の100%のHPを回復<br/>@charge回チャージ可能",
+				recover:"auto",activate:"auto",
 				effect:[
 				]
 			},
@@ -3944,15 +3944,15 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"強撃β":{
+				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇",
+				recover:"attack",activate:"auto",
 				effect:[
 				]
 			},
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"煙幕":{
+				exp:"攻撃力+@atk%、物理回避と術回避+75%",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4009,14 +4009,14 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
+			"装甲砕き":{
+				exp:"次の通常攻撃時、敵に攻撃力の@atk%の物理ダメージを与え、5秒間防御力+@def%",
 				recover:"",activate:"",
 				effect:[
 				]
 			},
-			"":{
-				exp:"",
+			"装甲砕き・拡散":{
+				exp:"攻撃範囲内の敵最大5体に攻撃力の@atk%の物理ダメージを与え、5秒間防御力-30%",
 				recover:"",activate:"",
 				effect:[
 				]
@@ -4056,15 +4056,15 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"ユキケムリ":{
+				exp:"攻撃範囲+2",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			},
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"カザグルマ":{
+				exp:"回転する巨大な手裏剣を打ち、攻撃した敵に1秒ごと攻撃力@atk%の術ダメージを与え、短時間移動速度を24%下げる",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4103,15 +4103,15 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"攻撃力強化β":{
+				exp:"攻撃力+@atk%",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			},
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"デュアルアロー":{
+				exp:"攻撃力+@atk%、通常攻撃時敵2体を同時に攻撃",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4153,15 +4153,15 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"攻撃力強化β":{
+				exp:"攻撃力+@atk%",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			},
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"赤色の瞳":{
+				exp:"最大HP-75%、攻撃力+@atk%、攻撃速度+@speed",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4201,15 +4201,15 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"戦術詠唱β":{
+				exp:"攻撃速度+@speed",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			},
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"運命":{
+				exp:"攻撃力+@atk%、攻撃範囲増加、範囲内にいる敵全員を同時に攻撃<br/>効果時間終了後14秒間攻撃停止",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4251,13 +4251,13 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"戦術詠唱β":{
+				exp:"攻撃速度+@speed",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			},
-			"":{
+			"？":{
 				exp:"",
 				recover:"",activate:"",
 				effect:[
@@ -4335,15 +4335,15 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"回復力促進":{
+				exp:"次に味方を回復する時、対象に4秒の継続回復効果を付与し、1秒ごとにガヴィルの攻撃力の21%(対象のHPが50%以下の時42%)のHPを回復<br/>@charge回チャージ可能",
+				recover:"auto",activate:"auto",
 				effect:[
 				]
 			},
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"回復力促進・広域":{
+				exp:"攻撃範囲内の味方全員に7秒の継続回復効果を付与し、1秒ごとにガヴィルの攻撃力の@atk%(対象のHPが50%以下の時40%)のHPを回復",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4380,15 +4380,15 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"二重治療":{
+				exp:"次に味方を回復する時、味方2人のHPを自身の攻撃力の@atk%を回復<br/>@charge回チャージ可能",
+				recover:"auto",activate:"auto",
 				effect:[
 				]
 			},
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"メディカルゾーン":{
+				exp:"攻撃力+@atk%、効果時間中味方２人を回復可能",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4440,15 +4440,15 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"回復力強化β":{
+				exp:"攻撃力+@atk%",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			},
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"調香":{
+				exp:"攻撃速度-50、攻撃力+@atk%",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4482,15 +4482,15 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"攻撃力強化β":{
+				exp:"攻撃力+@atk%",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			},
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"流砂":{
+				exp:"攻撃しなくなる<br/>攻撃範囲内の敵は1.8秒ごとに1回足止めされる",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4527,13 +4527,13 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"光陰の触":{
+				exp:"全ての触手の攻撃力、防御力+@atk%、1秒ごとにHPが30回復",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			},
-			"":{
+			"？":{
 				exp:"",
 				recover:"",activate:"",
 				effect:[
@@ -4584,15 +4584,15 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"スニークガード":{
+				passive:true,
+				exp:"配置後攻撃力+@def%<br/>この効果は徐々に減少し6秒間で0になる",
 				effect:[
 				]
 			},
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"鼠の縄張り":{
+				passive:true,
+				exp:"配置後最大HP@hp%のシールドを形成し、敵からのダメージを吸収する<br/>シールドのHPは徐々に減少し10秒間で0になる",
 				effect:[
 				]
 			}
@@ -4643,15 +4643,15 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"消火ポンプ":{
+				exp:"次の通常攻撃時、敵を攻撃方向に相当の力で突き飛ばし、攻撃力の@atk%の物理ダメージを与える",
+				recover:"auto",activate:"auto",
 				effect:[
 				]
 			},
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"高圧放水":{
+				exp:"前方2マス内の敵全員を攻撃方向に相当の力で突き飛ばし、攻撃力の@atk%の物理ダメージを与える",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4703,13 +4703,13 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"鉤縄投擲":{
+				exp:"次の通常攻撃時、敵をわずかな力で引き寄せ、攻撃力の@atk%の物理ダメージを与える",
+				recover:"auto",activate:"auto",
 				effect:[
 				]
 			},
-			"":{
+			"？":{
 				exp:"",
 				recover:"",activate:"",
 				effect:[
@@ -4751,15 +4751,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
-				effect:[
-				]
-			},
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"突撃指令・援軍":{
+				exp:"所持コスト+6、攻撃力+@atk%",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4795,9 +4789,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"突撃指令α":{
+				exp:"所持コスト+6",
+				recover:"auto",activate:"auto",
 				effect:[
 				]
 			}
@@ -4837,9 +4831,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"迅速攻撃α":{
+				exp:"攻撃力+@atk%、攻撃速度+@speed",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4879,9 +4873,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"攻撃力強化α":{
+				exp:"攻撃力+@atk%",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4937,9 +4931,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"攻撃力強化α":{
+				exp:"攻撃力+@atk%",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4981,9 +4975,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"エンチャントα":{
+				exp:"攻撃力+@atk%、通常攻撃が術攻撃になる",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -5023,9 +5017,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"防御力強化α":{
+				exp:"防御力+@def%",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -5065,9 +5059,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"HP回復α":{
+				exp:"自身の最大HPが最大値の@heal%回復",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -5098,9 +5092,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"第二態勢・回復":{
+				exp:"攻撃力+@atk%、攻撃しなくなり回復行動のみ行う",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -5152,9 +5146,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"２点・バースト":{
+				exp:"次の通常攻撃時、2回連続で攻撃力の@atk%の物理ダメージを与える",
+				recover:"attack",activate:"auto",
 				effect:[
 				]
 			}
@@ -5194,9 +5188,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"攻撃力強化α":{
+				exp:"攻撃力+@atk%",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -5235,9 +5229,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"爆破範囲拡大α":{
+				exp:"通常攻撃の爆破範囲が150%まで拡大",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -5277,9 +5271,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"強撃α":{
+				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇",
+				recover:"attack",activate:"auto",
 				effect:[
 				]
 			}
@@ -5313,9 +5307,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"戦術詠唱α":{
+				exp:"攻撃速度+@speed",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -5355,9 +5349,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"回復力強化α":{
+				exp:"攻撃力+@atk%",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -5388,9 +5382,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"回復範囲強化":{
+				exp:"攻撃範囲+1、攻撃力+@atk%",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -5433,9 +5427,9 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"迅速攻撃α":{
+				exp:"攻撃力+@atk%、攻撃速度+@speed",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
