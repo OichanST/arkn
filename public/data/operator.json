@@ -2180,7 +2180,11 @@ const operator = {
 			}
 		},
 		potential:[
-			
+			{cost:-1},
+			{relocation:-4},
+			{atk:24},
+			{nature:1},
+			{cost:-1}
 		]
 	},
 	"プラチナ":{
