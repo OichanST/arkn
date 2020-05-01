@@ -255,20 +255,25 @@ function init(){
 				}),
 				{width:"11.7em"}
 			);
-			// スキルレベルスライダーセット生成
-			r.add(
-				makeRangeSet({
-					value:sto.data[operatorName].slv,
-					min:1,
-					max:7,
-					func:changeSlv,
-					sliderWidth:60,
-					numInputWidth:31
-				}),
-				{width:"6.3em"}
-			);
-			
-			r.add("<button onclick='showSkillSp();'>スキル特化</button>");
+			if(data.rare > 2){
+				// スキルレベルスライダーセット生成
+				r.add(
+					makeRangeSet({
+						value:sto.data[operatorName].slv,
+						min:1,
+						max:7,
+						func:changeSlv,
+						sliderWidth:60,
+						numInputWidth:31
+					}),
+					{width:"6.3em"}
+				);
+				
+				r.add("<button onclick='showSkillSp();'>スキル特化</button>");
+			}else{
+				r.add("");
+				r.add("");
+			}
 			// オペレーター一覧に行追加
 			t.add(r);
 		// 一覧
