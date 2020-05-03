@@ -396,7 +396,27 @@ function ValueConverter(name, key, val){
 			let cnt = 0;
 			for(let sname in val){
 				if(sto.data[name].promotion >= cnt){
-					ret += "<img src='skill/" + sname + ".png' style='margin:0.2em;width:3.9em;'/>";
+					let slv = sto.data[name].slv - 1 + sto.data[name].sp[cnt];
+					ret += "<div style='position:relative;width:4.2em;height:4.2em;'>";
+					ret += "<img src='skill/" + sname + ".png' style='position:absolute;margin:0.2em;width:3.9em;";
+					ret += "'/>";
+					if(val[sname].effect[slv]){
+						if(val[sname].effect[slv].start){
+							ret += "<div class='flex' style='width:30px;position:absolute;background-color:rgba(0,0,0,1);font-size:11px;color:white;margin-top:52px;margin-left:4px;box-shadow:-1px -1px 2px black;";
+							ret += "z-index:55'>";
+							ret += "<div><svg width='10' height='10' style='display:inline-block;margin-left:0.3em;'><path d='M0 0 L10 5 L0 10 Z' style='fill:white'></path></svg></div>";
+							ret += "<div style='margin-left:0.1em;margin-right:0.1em;'>" + val[sname].effect[slv].start + "</div>";
+							ret += "</div>";
+						}
+						if(val[sname].effect[slv].need){
+							ret += "<div class='flex' style='width:30px;position:absolute;background-color:rgba(0,0,0,1);font-size:11px;color:white;margin-top:52px;margin-left:36px;box-shadow:-1px -1px 2px black;";
+							ret += "z-index:55'>";
+							ret += "<div><img src='icon/lightning.png' width='12'></div>";
+							ret += "<div style='margin-left:0.1em;margin-right:0.1em;'>" + val[sname].effect[slv].need + "</div>";
+							ret += "</div>";
+						}
+					}
+					ret += "</div>";
 					cnt++;
 				}
 			}

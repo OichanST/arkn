@@ -102,13 +102,13 @@ const operator = {
 					{start:0,need:30,pers:15,atk:260,stan:0.5},
 					{start:0,need:30,pers:16,atk:270,stan:0.5},
 					{start:0,need:30,pers:17,atk:280,stan:0.5},
-					{start:0,need:30,pers:18,atk:290,stan:0.8},
-					{start:0,need:30,pers:19,atk:300,stan:0.8},
-					{start:0,need:30,pers:20,atk:310,stan:0.8},
-					{start:0,need:30,pers:21,atk:320,stan:1.1},
-					{start:0,need:30,pers:22,atk:340,stan:1.2},
-					{start:0,need:30,pers:23,atk:360,stan:1.3},
-					{start:0,need:30,pers:25,atk:380,stan:1.5}
+					{start:5,need:30,pers:18,atk:290,stan:0.8},
+					{start:5,need:30,pers:19,atk:300,stan:0.8},
+					{start:5,need:30,pers:20,atk:310,stan:0.8},
+					{start:10,need:30,pers:21,atk:320,stan:1.1},
+					{start:15,need:30,pers:22,atk:340,stan:1.2},
+					{start:20,need:30,pers:23,atk:360,stan:1.3},
+					{start:25,need:30,pers:25,atk:380,stan:1.5}
 				]
 			}
 		}

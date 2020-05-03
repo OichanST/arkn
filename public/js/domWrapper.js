@@ -60,7 +60,7 @@ function div(html, css, attr){
 function card(text, css){
 	let ret = Elem("div");
 	ret.setAttribute("class", "card");
-	ret.innerText = text;
+	ret.innerHTML = text;
 	// CSSの反映
 	if(css){
 		for(let key in css){
