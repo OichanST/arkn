@@ -2587,15 +2587,35 @@ const operator = {
 		],
 		skill:{
 			"鉄壁の構え":{
-				exp:"ブロック数+1、防御力+@def%、素質の効果の上、HPが1秒ごとに更に最大値の2%回復",
+				exp:"ブロック数+1、防御力+@def%、素質の効果の上、HPが1秒ごとに更に最大値の@heal%回復",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:20,need:50,pers:20,def:60,heal:2},
+					{start:21,need:50,pers:21,def:65,heal:2},
+					{start:22,need:50,pers:22,def:70,heal:2},
+					{start:25,need:50,pers:23,def:75,heal:3},
+					{start:26,need:50,pers:24,def:80,heal:3},
+					{start:27,need:50,pers:25,def:85,heal:3},
+					{start:30,need:50,pers:26,def:90,heal:4},
+					{start:33,need:50,pers:27,def:100,heal:4},
+					{start:37,need:50,pers:28,def:110,heal:4},
+					{start:40,need:50,pers:30,def:120,heal:5}
 				]
 			},
 			"猛攻の構え":{
-				exp:"ブロック数-1、通常攻撃の間隔がわずかに延長し、攻撃力+@atk%、攻撃する度HPが最大値の5%回復、ブロック中の敵全員を同時に攻撃",
+				exp:"ブロック数-1、通常攻撃の間隔がわずかに延長し、攻撃力+@atk%、攻撃する度HPが最大値の@heal%回復、ブロック中の敵全員を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:20,need:50,pers:20,atk:65,heal:5},
+					{start:21,need:50,pers:21,atk:70,heal:5},
+					{start:22,need:50,pers:22,atk:75,heal:5},
+					{start:25,need:50,pers:23,atk:85,heal:6},
+					{start:26,need:50,pers:24,atk:90,heal:6},
+					{start:27,need:50,pers:25,atk:95,heal:6},
+					{start:30,need:50,pers:26,atk:105,heal:7},
+					{start:33,need:50,pers:27,atk:120,heal:8},
+					{start:37,need:50,pers:28,atk:135,heal:9},
+					{start:40,need:50,pers:30,atk:150,heal:10}
 				]
 			}
 		}
@@ -2655,12 +2675,32 @@ const operator = {
 				exp:"次の通常攻撃時、敵2体に攻撃力の@atk%のダメージを与える",
 				recover:"attack",activate:"auto",
 				effect:[
+					{need:4,atk:125},
+					{need:4,atk:130},
+					{need:4,atk:135},
+					{need:3,atk:140},
+					{need:3,atk:145},
+					{need:3,atk:150},
+					{need:3,atk:155},
+					{need:3,atk:170},
+					{need:3,atk:185},
+					{need:2,atk:200}
 				]
 			},
 			"毒液装填":{
-				exp:"攻撃力+@atk%、通常攻撃で敵3体を同時に攻撃",
+				exp:"攻撃力+@atk%、通常攻撃で敵3体を同時に攻撃@add",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:10,need:50,pers:20,atk:10,add:""},
+					{start:10,need:50,pers:21,atk:10,add:""},
+					{start:10,need:50,pers:22,atk:10,add:""},
+					{start:15,need:50,pers:23,atk:20,add:""},
+					{start:15,need:50,pers:24,atk:20,add:""},
+					{start:15,need:50,pers:25,atk:20,add:""},
+					{start:20,need:50,pers:26,atk:30,add:""},
+					{start:21,need:47,pers:27,atk:30,add:"し、うち1体に2回攻撃"},
+					{start:22,need:44,pers:28,atk:40,add:"し、うち1体に2回攻撃"},
+					{start:25,need:40,pers:30,atk:50,add:"し、うち1体に2回攻撃"}
 				]
 			}
 		}
@@ -2720,12 +2760,32 @@ const operator = {
 				exp:"攻撃力+@atk%",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start: 0,need:40,pers:30,atk:30},
+					{start: 0,need:40,pers:30,atk:35},
+					{start: 0,need:40,pers:30,atk:40},
+					{start: 5,need:37,pers:30,atk:45},
+					{start: 5,need:37,pers:30,atk:50},
+					{start: 5,need:37,pers:30,atk:55},
+					{start:10,need:35,pers:30,atk:60},
+					{start:10,need:34,pers:30,atk:75},
+					{start:10,need:33,pers:30,atk:90},
+					{start:15,need:30,pers:30,atk:100}
 				]
 			},
 			"ペガサスアイ":{
 				exp:"攻撃速度がわずかに低下、攻撃力+@atk%、攻撃範囲拡大<br/>退場まで効果持続",
 				recover:"auto",activate:"auto",
 				effect:[
+					{need:70,atk:50},
+					{need:69,atk:53},
+					{need:68,atk:56},
+					{need:67,atk:60},
+					{need:66,atk:63},
+					{need:65,atk:66},
+					{need:63,atk:70},
+					{need:59,atk:80},
+					{need:55,atk:90},
+					{need:50,atk:100}
 				]
 			}
 		}
@@ -2780,12 +2840,32 @@ const operator = {
 				exp:"次の通常攻撃時、爆破範囲が拡大、攻撃力の@atk%の物理ダメージを与える",
 				recover:"attack",activate:"auto",
 				effect:[
+					{need:5,atk:135},
+					{need:5,atk:140},
+					{need:5,atk:145},
+					{need:4,atk:150},
+					{need:4,atk:155},
+					{need:4,atk:160},
+					{need:4,atk:170},
+					{need:4,atk:185},
+					{need:4,atk:200},
+					{need:3,atk:215}
 				]
 			},
 			"榴弾装填":{
-				exp:"榴弾を発射し、爆破範囲内の敵全員に攻撃力の@atk%の物理ダメージを与え、10秒間防御力-170%",
+				exp:"榴弾を発射し、爆破範囲内の敵全員に攻撃力の@atk%の物理ダメージを与え、10秒間防御力@debuff",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:25,atk:180,debuff:-130},
+					{need:25,atk:190,debuff:-130},
+					{need:25,atk:200,debuff:-130},
+					{need:24,atk:210,debuff:-170},
+					{need:24,atk:220,debuff:-170},
+					{need:24,atk:230,debuff:-170},
+					{need:23,atk:240,debuff:-210},
+					{need:22,atk:260,debuff:-250},
+					{need:21,atk:280,debuff:-290},
+					{need:20,atk:300,debuff:-330}
 				]
 			}
 		}
@@ -2844,12 +2924,32 @@ const operator = {
 				exp:"攻撃対象のHPが20%減少する度その対象を攻撃時のみ攻撃力+@atk%",
 				passive:true,
 				effect:[
+					{atk:8},
+					{atk:9},
+					{atk:10},
+					{atk:12},
+					{atk:13},
+					{atk:14},
+					{atk:16},
+					{atk:19},
+					{atk:22},
+					{atk:25}
 				]
 			},
 			"鮮血の匂い":{
 				exp:"攻撃力+@atk%、ただしHPが80%以上の敵を攻撃しなくなる",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:30,pers:20,atk:130},
+					{need:30,pers:20,atk:135},
+					{need:30,pers:20,atk:140},
+					{need:30,pers:25,atk:145},
+					{need:30,pers:25,atk:150},
+					{need:30,pers:25,atk:155},
+					{need:30,pers:30,atk:160},
+					{need:30,pers:31,atk:180},
+					{need:30,pers:32,atk:200},
+					{need:30,pers:35,atk:220}
 				]
 			}
 		}
@@ -2901,12 +3001,32 @@ const operator = {
 				exp:"攻撃力+@atk%、ステルス状態になる(敵の遠距離攻撃の対象にならない)",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:30,pers:25,atk:24},
+					{need:30,pers:26,atk:26},
+					{need:30,pers:27,atk:28},
+					{need:28,pers:30,atk:32},
+					{need:28,pers:31,atk:34},
+					{need:28,pers:32,atk:36},
+					{need:26,pers:35,atk:40},
+					{need:24,pers:40,atk:50},
+					{need:22,pers:45,atk:60},
+					{need:20,pers:50,atk:70}
 				]
 			},
 			"爆撃要請":{
 				exp:"攻撃範囲内のランダムな位置に爆弾を@cnt個投下(敵がいる位置を優先する)<br/>爆弾は一個につき周囲一定範囲内の敵全員に攻撃力の@atk%の物理ダメージを与える",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:10,need:50,cnt:2,atk:180},
+					{start:10,need:50,cnt:2,atk:190},
+					{start:10,need:50,cnt:2,atk:200},
+					{start:15,need:50,cnt:2,atk:210},
+					{start:15,need:50,cnt:2,atk:220},
+					{start:15,need:50,cnt:2,atk:230},
+					{start:20,need:50,cnt:2,atk:240},
+					{start:20,need:50,cnt:3,atk:260},
+					{start:20,need:50,cnt:3,atk:280},
+					{start:30,need:50,cnt:3,atk:300}
 				]
 			}
 		}
@@ -3004,18 +3124,48 @@ const operator = {
 				exp:"攻撃速度+@speed",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start: 0,need:40,pers:30,speed:30},
+					{start: 0,need:40,pers:30,speed:35},
+					{start: 0,need:40,pers:30,speed:40},
+					{start: 5,need:35,pers:30,speed:45},
+					{start: 5,need:35,pers:30,speed:50},
+					{start: 5,need:35,pers:30,speed:55},
+					{start:10,need:32,pers:30,speed:60},
+					{start:10,need:32,pers:30,speed:70},
+					{start:10,need:32,pers:30,speed:80},
+					{start:15,need:30,pers:30,speed:90}
 				]
 			},
 			"ソウルブースト":{
 				exp:"通常攻撃が攻撃力の@atk%での@cnt回連続攻撃になり、ランダムで範囲内の敵を攻撃する<br/>効果時間終了後10秒間スタンする",
 				recover:"auto",activate:"auto",
 				effect:[
+					{need:100,pers:25,atk:33,cnt:6},
+					{need:100,pers:25,atk:35,cnt:6},
+					{need:100,pers:25,atk:37,cnt:6},
+					{need:100,pers:25,atk:39,cnt:7},
+					{need:100,pers:25,atk:41,cnt:7},
+					{need:100,pers:25,atk:43,cnt:7},
+					{need:100,pers:25,atk:45,cnt:7},
+					{need:100,pers:25,atk:50,cnt:8},
+					{need:100,pers:25,atk:55,cnt:8},
+					{need:100,pers:25,atk:60,cnt:8}
 				]
 			},
 			"キメラ":{
 				exp:"攻撃力+@atk%、最大HP+@hp%、攻撃範囲が拡大し、防御力と術耐性を無視して攻撃する<br/>効果時間終了後強制退場",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:120,pers:30,atk:100,hp:25},
+					{need:120,pers:30,atk:110,hp:25},
+					{need:120,pers:30,atk:120,hp:50},
+					{need:120,pers:30,atk:130,hp:50},
+					{need:120,pers:30,atk:140,hp:50},
+					{need:120,pers:30,atk:150,hp:50},
+					{need:120,pers:30,atk:160,hp:75},
+					{need:120,pers:30,atk:180,hp:75},
+					{need:120,pers:30,atk:200,hp:75},
+					{need:120,pers:30,atk:230,hp:100}
 				]
 			}
 		}
@@ -3072,15 +3222,35 @@ const operator = {
 		],
 		skill:{
 			"ソウルドレイン":{
-				exp:"通常攻撃時、攻撃範囲内の味方最大1人のHPをダメージの50%分回復する",
+				exp:"通常攻撃時、攻撃範囲内の味方最大1人のHPをダメージの@heal%分回復する",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:30,need:80,pers:60,heal:40},
+					{start:30,need:80,pers:60,heal:45},
+					{start:30,need:80,pers:60,heal:50},
+					{start:35,need:80,pers:60,heal:55},
+					{start:35,need:80,pers:60,heal:60},
+					{start:35,need:80,pers:60,heal:65},
+					{start:40,need:80,pers:60,heal:70},
+					{start:43,need:80,pers:60,heal:80},
+					{start:46,need:80,pers:60,heal:90},
+					{start:50,need:80,pers:60,heal:100}
 				]
 			},
 			"ナイトシャドウ":{
-				exp:"攻撃範囲内の敵最大3体に次の状態を付与：<br/>5秒間、移動速度-60%、移動距離に応じて防御力、術耐性無視の固定ダメージを受ける",
+				exp:"攻撃範囲内の敵最大@cnt体に次の状態を付与：<br/>@time秒間、移動速度-60%、移動距離に応じて防御力、術耐性無視の固定ダメージを受ける",
 				recover:"auto",activate:"auto",
 				effect:[
+					{need:30,cnt:3,time:5},
+					{need:29,cnt:3,time:5},
+					{need:28,cnt:3,time:5},
+					{need:27,cnt:3,time:6},
+					{need:26,cnt:3,time:6},
+					{need:25,cnt:3,time:6},
+					{need:24,cnt:3,time:7},
+					{need:23,cnt:4,time:8},
+					{need:22,cnt:4,time:9},
+					{need:20,cnt:5,time:10}
 				]
 			}
 		}
@@ -3135,12 +3305,32 @@ const operator = {
 				exp:"攻撃力+@atk%",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start: 0,need:40,pers:30,atk:30},
+					{start: 0,need:40,pers:30,atk:35},
+					{start: 0,need:40,pers:30,atk:40},
+					{start: 5,need:37,pers:30,atk:45},
+					{start: 5,need:37,pers:30,atk:50},
+					{start: 5,need:37,pers:30,atk:55},
+					{start:10,need:35,pers:30,atk:60},
+					{start:10,need:34,pers:30,atk:75},
+					{start:10,need:33,pers:30,atk:90},
+					{start:15,need:30,pers:30,atk:100}
 				]
 			},
 			"メテオフレイム":{
 				exp:"通常攻撃の間隔が延長し、隕石を召喚する<br/>隕石は衝突まで時間がかかるが、衝突後広範囲の敵に攻撃力@atk%分の術ダメージを与え、@stan秒スタンさせる",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:35,pers:25,atk:170,stan:0.1},
+					{need:34,pers:25,atk:175,stan:0.1},
+					{need:33,pers:25,atk:180,stan:0.1},
+					{need:32,pers:28,atk:190,stan:0.15},
+					{need:31,pers:28,atk:195,stan:0.15},
+					{need:30,pers:28,atk:200,stan:0.15},
+					{need:29,pers:31,atk:210,stan:0.3},
+					{need:28,pers:33,atk:220,stan:0.4},
+					{need:27,pers:35,atk:230,stan:0.6},
+					{need:25,pers:40,atk:240,stan:1}
 				]
 			}
 		}
@@ -3195,12 +3385,32 @@ const operator = {
 				exp:"攻撃力+@atk%",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:20,need:40,pers:30,atk:40},
+					{start:20,need:40,pers:30,atk:45},
+					{start:20,need:40,pers:30,atk:50},
+					{start:20,need:35,pers:30,atk:55},
+					{start:20,need:35,pers:30,atk:60},
+					{start:20,need:35,pers:30,atk:65},
+					{start:20,need:32,pers:30,atk:70},
+					{start:20,need:32,pers:30,atk:75},
+					{start:20,need:32,pers:30,atk:80},
+					{start:20,need:30,pers:30,atk:90}
 				]
 			},
 			"医療ドローン":{
 				exp:"医療ドローン1機が配置可能になる(上限1機)<br/>ドローンは配置後10秒間周囲の味方を回復し、効果終了後消滅する",
-				recover:"",activate:"",
+				recover:"auto",activate:"auto",
 				effect:[
+					{need:30},
+					{need:29},
+					{need:28},
+					{need:26},
+					{need:25},
+					{need:24},
+					{need:22},
+					{need:21},
+					{need:20},
+					{need:18}
 				]
 			}
 		}
@@ -3237,15 +3447,35 @@ const operator = {
 		],
 		skill:{
 			"救急包帯法":{
-				exp:"HP50%以下の味方を回復する時、通常回復の上、更に対象のHPを最大値の13%回復<br/>@charge回チャージ可能",
+				exp:"HP50%以下の味方を回復する時、通常回復の上、更に対象のHPを最大値の@heal%回復<br/>@charge回チャージ可能",
 				recover:"attack",activate:"auto",
 				effect:[
+					{need:4,heal:12,charge:2},
+					{need:4,heal:13,charge:2},
+					{need:4,heal:13,charge:2},
+					{need:4,heal:15,charge:2},
+					{need:4,heal:16,charge:2},
+					{need:4,heal:17,charge:2},
+					{need:4,heal:19,charge:3},
+					{need:4,heal:21,charge:3},
+					{need:4,heal:23,charge:3},
+					{need:4,heal:25,charge:4}
 				]
 			},
 			"不安定血漿":{
 				exp:"自身と攻撃範囲内ランダムな味方1人に次の効果を付与：<br/>15秒間、攻撃力+@atk%、１秒ごとにHPが最大値の3%減少",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:35,need:60,atk:30},
+					{start:35,need:60,atk:35},
+					{start:35,need:60,atk:40},
+					{start:40,need:60,atk:45},
+					{start:40,need:60,atk:50},
+					{start:40,need:60,atk:55},
+					{start:45,need:60,atk:60},
+					{start:45,need:60,atk:70},
+					{start:45,need:60,atk:80},
+					{start:50,need:60,atk:90}
 				]
 			}
 		}
