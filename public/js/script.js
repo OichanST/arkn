@@ -393,8 +393,15 @@ function ValueConverter(name, key, val){
 		// スキル
 		case "skill":
 			ret = "";
+			let cnt = 0;
 			for(let sname in val){
-				ret += "<img src='skill/" + sname + ".png' style='margin:0.2em;width:3.9em;'/>";
+				if(sto.data[name].promotion >= cnt){
+					ret += "<img src='skill/" + sname + ".png' style='margin:0.2em;width:3.9em;'/>";
+					cnt++;
+				}
+			}
+			for(let i = cnt; i < 3; i++){
+				ret += "<div style='margin:0.2em;text-align:center;padding-top:1.2em;width:3.6em;height:2.6em;border:2px solid white;'>／</div>";
 			}
 			return ret;
 		case "cond":

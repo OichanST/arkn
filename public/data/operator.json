@@ -5636,7 +5636,8 @@ const operator = {
 			{atk:9},
 			{atk:9},
 			{cost:-1}
-		]
+		],
+		skill:{}
 	},
 	"ノイルホーン":{
 		en:"Noir Corne",
@@ -5668,7 +5669,8 @@ const operator = {
 			{relocation:-5},
 			{hp:45},
 			{cost:-1}
-		]
+		],
+		skill:{}
 	},
 	"レンジャー":{
 		en:"Rangers",
@@ -5700,7 +5702,8 @@ const operator = {
 			{speed:6},
 			{relocation:-5},
 			{cost:-1}
-		]
+		],
+		skill:{}
 	},
 	"ドゥリン":{
 		en:"Durin",
@@ -5727,7 +5730,8 @@ const operator = {
 			{relocation:-5},
 			{hp:50},
 			{cost:-1}
-		]
+		],
+		skill:{}
 	},
 	"12F":{
 		en:"12F",
@@ -5757,7 +5761,8 @@ const operator = {
 			{relocation:-5},
 			{atk:12},
 			{cost:-1}
-		]
+		],
+		skill:{}
 	},
 	"Castle-3":{
 		en:"Castle-3",
@@ -5773,8 +5778,8 @@ const operator = {
 				}
 			}
 		],
-		potential:[
-		]
+		potential:[],
+		skill:{}
 	},
 	"Lancet-2":{
 		en:"Lancet-2",
@@ -5790,7 +5795,7 @@ const operator = {
 				}
 			}
 		],
-		potential:[
-		]
+		potential:[],
+		skill:{}
 	}
 };
