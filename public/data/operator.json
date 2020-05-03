@@ -892,15 +892,52 @@ const operator = {
 		skill:{
 			"強射":{
 				recover:"attack",activate:"auto",
-				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇し、素質の発動率が50%まで上昇"
+				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇し、素質の発動率が@nature%まで上昇",
+				effect:[
+					{need:5,atk:160,nature:50},
+					{need:5,atk:165,nature:50},
+					{need:5,atk:170,nature:50},
+					{need:4,atk:175,nature:60},
+					{need:4,atk:180,nature:60},
+					{need:4,atk:185,nature:60},
+					{need:4,atk:190,nature:70},
+					{need:4,atk:200,nature:73},
+					{need:4,atk:210,nature:76},
+					{need:3,atk:220,nature:80}
+				]
 			},
 			"暮色の慧眼":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃力+@atk%、素質の発動率が45%まで上昇"
+				exp:"攻撃力+@atk%、素質の発動率が@nature%まで上昇",
+				effect:[
+					{start:10,need:40,pers:30,atk:70,nature:35},
+					{start:10,need:39,pers:31,atk:75,nature:35},
+					{start:10,need:38,pers:32,atk:80,nature:35},
+					{start:13,need:37,pers:33,atk:85,nature:40},
+					{start:13,need:36,pers:34,atk:90,nature:40},
+					{start:13,need:35,pers:35,atk:95,nature:45},
+					{start:16,need:34,pers:36,atk:100,nature:45},
+					{start:17,need:33,pers:37,atk:110,nature:45},
+					{start:18,need:32,pers:38,atk:120,nature:45},
+					{start:20,need:30,pers:40,atk:130,nature:50}
+				]
 			},
 			"ターミネート":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃範囲が前方3マスになり、通常攻撃の間隔がわずかに延長。攻撃力+@atk%、素質の発動率が100%まで上昇"
+				exp:"攻撃範囲が前方@rangeマスになり、通常攻撃の間隔がわずかに延長。攻撃力+@atk%、素質の発動率が@nature%まで上昇"
+				,
+				effect:[
+					{start: 5,need:35,pers:15,range:3,atk:100,nature:100},
+					{start: 5,need:34,pers:16,range:3,atk:105,nature:100},
+					{start: 5,need:33,pers:17,range:3,atk:110,nature:100},
+					{start: 7,need:32,pers:18,range:3,atk:120,nature:100},
+					{start: 7,need:31,pers:19,range:3,atk:125,nature:100},
+					{start: 7,need:30,pers:20,range:3,atk:130,nature:100},
+					{start: 9,need:29,pers:21,range:3,atk:140,nature:100},
+					{start:10,need:28,pers:22,range:4,atk:150,nature:100},
+					{start:11,need:27,pers:23,range:4,atk:160,nature:100},
+					{start:12,need:25,pers:25,range:4,atk:180,nature:100}
+				]
 			}
 		}
 	},
@@ -1055,21 +1092,48 @@ const operator = {
 				exp:"攻撃力+@atk%、攻撃速度+@speed",
 				recover:"auto",activate:"manual",
 				effect:[
-					
+					{start: 0,need:50,pers:20,atk:10,speed:45},
+					{start: 0,need:49,pers:20,atk:10,speed:48},
+					{start: 0,need:48,pers:20,atk:10,speed:50},
+					{start:10,need:47,pers:20,atk:10,speed:58},
+					{start:10,need:46,pers:20,atk:10,speed:61},
+					{start:10,need:45,pers:20,atk:10,speed:64},
+					{start:15,need:44,pers:20,atk:20,speed:67},
+					{start:15,need:43,pers:20,atk:20,speed:70},
+					{start:15,need:42,pers:20,atk:20,speed:75},
+					{start:20,need:40,pers:20,atk:20,speed:80}
 				]
 			},
 			"爆炎":{
-				exp:"次の通常攻撃時、敵に攻撃力の@atk%の術ダメージを与え、@time秒間防御力@debuff、やけど状態(継続ダメージを受ける)にする<br/>@charge回チャージ可能",
+				exp:"次の通常攻撃時、敵に攻撃力の@atk%の術ダメージを与え、3秒間防御力@debuff、やけど状態(継続ダメージを受ける)にする<br/>@charge回チャージ可能",
 				recover:"auto",activate:"auto",
 				effect:[
-				
+					{need:9,atk:130,debuff:100,charge:2},
+					{need:9,atk:140,debuff:100,charge:2},
+					{need:9,atk:150,debuff:100,charge:2},
+					{need:8,atk:160,debuff:100,charge:2},
+					{need:8,atk:170,debuff:100,charge:2},
+					{need:8,atk:180,debuff:100,charge:2},
+					{need:8,atk:190,debuff:200,charge:3},
+					{need:7,atk:215,debuff:200,charge:3},
+					{need:7,atk:225,debuff:200,charge:3},
+					{need:7,atk:250,debuff:300,charge:3}
 				]
 			},
 			"灼獄":{
 				exp:"攻撃範囲内、地面にいる敵全員に1秒ごとに攻撃力の@atk%の術ダメージを与え、術耐性@debuff<br/>自身のHPが1秒ごとに最大値の2%減少",
 				recover:"auto",activate:"manual",
 				effect:[
-				
+					{need:40,atk: 75,debuff:7},
+					{need:39,atk: 80,debuff:7},
+					{need:38,atk: 85,debuff:7},
+					{need:36,atk: 90,debuff:7},
+					{need:35,atk: 95,debuff:7},
+					{need:34,atk:100,debuff:7},
+					{need:31,atk:110,debuff:10},
+					{need:30,atk:120,debuff:13},
+					{need:29,atk:130,debuff:16},
+					{need:28,atk:140,debuff:20}
 				]
 			}
 		}
@@ -1122,18 +1186,48 @@ const operator = {
 				exp:"攻撃力+@atk%、攻撃速度+@speed",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start: 0,need:50,pers:20,atk:45,speed:10},
+					{start: 0,need:49,pers:20,atk:48,speed:10},
+					{start: 0,need:48,pers:20,atk:50,speed:10},
+					{start:10,need:47,pers:20,atk:58,speed:10},
+					{start:10,need:46,pers:20,atk:61,speed:10},
+					{start:10,need:45,pers:20,atk:64,speed:10},
+					{start:14,need:44,pers:20,atk:67,speed:20},
+					{start:16,need:43,pers:20,atk:70,speed:20},
+					{start:18,need:42,pers:20,atk:75,speed:20},
+					{start:20,need:40,pers:20,atk:80,speed:20}
 				]
 			},
 			"オートカバー":{
-				exp:"次に味方を回復する時、対象に継続3秒のシールドを付与。シールドは自身の攻撃力の@atk%のダメージを吸収、対象の防御力を@def%上昇<br/>@charge回チャージ可能",
+				exp:"次に味方を回復する時、対象に継続@time秒のシールドを付与。シールドは自身の攻撃力の@atk%のダメージを吸収、対象の防御力を@def%上昇<br/>@charge回チャージ可能",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:8,time:2,atk:20,def:20,charge:1},
+					{need:8,time:2,atk:23,def:20,charge:1},
+					{need:8,time:2,atk:25,def:20,charge:1},
+					{need:7,time:2,atk:28,def:25,charge:1},
+					{need:7,time:2,atk:30,def:25,charge:1},
+					{need:7,time:2,atk:33,def:25,charge:1},
+					{need:7,time:3,atk:35,def:35,charge:2},
+					{need:6,time:3,atk:40,def:35,charge:2},
+					{need:6,time:3,atk:45,def:35,charge:2},
+					{need:5,time:3,atk:50,def:50,charge:3}
 				]
 			},
 			"教導の結界":{
 				exp:"攻撃力+@atk%<br/>攻撃範囲内の味方全員の防御力+@def%",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:100,need:120,pers:60,atk:20,def:30},
+					{start:100,need:120,pers:60,atk:20,def:35},
+					{start:100,need:120,pers:60,atk:20,def:40},
+					{start:100,need:120,pers:60,atk:20,def:45},
+					{start:100,need:120,pers:60,atk:30,def:50},
+					{start:100,need:120,pers:60,atk:30,def:55},
+					{start:100,need:120,pers:60,atk:40,def:60},
+					{start:105,need:120,pers:60,atk:40,def:70},
+					{start:110,need:120,pers:60,atk:40,def:80},
+					{start:115,need:120,pers:60,atk:50,def:100}
 				]
 			}
 		}
@@ -1177,18 +1271,48 @@ const operator = {
 				exp:"攻撃力+@atk%",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:20,need:40,pers:30,atk:40},
+					{start:20,need:40,pers:30,atk:45},
+					{start:20,need:40,pers:30,atk:50},
+					{start:20,need:35,pers:30,atk:55},
+					{start:20,need:35,pers:30,atk:60},
+					{start:20,need:35,pers:30,atk:65},
+					{start:20,need:32,pers:30,atk:70},
+					{start:20,need:32,pers:30,atk:75},
+					{start:20,need:32,pers:30,atk:80},
+					{start:20,need:30,pers:30,atk:90}
 				]
 			},
 			"アーツシールド":{
-				exp:"次に味方を回復する時、全ての対象に継続3.5秒のシールドを付与。シールドは自身の攻撃力の@atk%の術ダメージを吸収、対象の術耐性を@res上昇<br/>@charge回チャージ可能",
+				exp:"次に味方を回復する時、全ての対象に継続@time秒のシールドを付与。シールドは自身の攻撃力の@atk%の術ダメージを吸収、対象の術耐性を@res上昇<br/>@charge回チャージ可能",
 				recover:"auto",activate:"auto",
 				effect:[
+					{need:11,time:  3,atk:40,res:5,charge:1},
+					{need:11,time:  3,atk:43,res:5,charge:1},
+					{need:11,time:  3,atk:46,res:5,charge:1},
+					{need:10,time:3.5,atk:50,res:10,charge:2},
+					{need:10,time:3.5,atk:53,res:10,charge:2},
+					{need:10,time:3.5,atk:56,res:10,charge:2},
+					{need:10,time:  4,atk:60,res:15,charge:2},
+					{need: 9,time:  4,atk:70,res:15,charge:3},
+					{need: 9,time:  4,atk:80,res:15,charge:3},
+					{need: 8,time:  5,atk:90,res:20,charge:3}
 				]
 			},
 			"聖域":{
-				exp:"",
-				recover:"",activate:"",
+				exp:"攻撃範囲拡大、攻撃力+@atk%、攻撃範囲内の味方の術耐性+@res%、術回避+@dodge%",
+				recover:"auto",activate:"manual",
 				effect:[
+					{start:100,need:120,pers:60,atk:30,res: 75,dodge:10},
+					{start:100,need:120,pers:60,atk:30,res: 80,dodge:10},
+					{start:100,need:120,pers:60,atk:30,res: 85,dodge:10},
+					{start:105,need:120,pers:60,atk:40,res: 90,dodge:15},
+					{start:105,need:120,pers:60,atk:40,res: 95,dodge:15},
+					{start:105,need:120,pers:60,atk:40,res:100,dodge:15},
+					{start:110,need:120,pers:60,atk:50,res:105,dodge:20},
+					{start:110,need:120,pers:60,atk:60,res:120,dodge:20},
+					{start:110,need:120,pers:60,atk:70,res:135,dodge:20},
+					{start:115,need:120,pers:60,atk:80,res:150,dodge:25}
 				]
 			}
 		}
@@ -1247,18 +1371,48 @@ const operator = {
 				exp:"攻撃力+@atk%",
 				recover:"attack",activate:"auto",
 				effect:[
+					{need:10,pers:20,atk:40},
+					{need:10,pers:21,atk:45},
+					{need:10,pers:22,atk:50},
+					{need:10,pers:25,atk:60},
+					{need:10,pers:26,atk:65},
+					{need:10,pers:27,atk:70},
+					{need:10,pers:30,atk:80},
+					{need:10,pers:31,atk:90},
+					{need:10,pers:33,atk:100},
+					{need:10,pers:35,atk:110}
 				]
 			},
 			"秘杖・微粒子":{
 				exp:"通常攻撃の間隔が超大幅に短縮、@atk%の攻撃力で術攻撃を行う<br/>スキル発動中のみ攻撃行動を行う",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start: 0,need:20,pers:20,atk:30},
+					{start: 1,need:20,pers:21,atk:30},
+					{start: 2,need:20,pers:22,atk:30},
+					{start: 3,need:20,pers:23,atk:35},
+					{start: 4,need:20,pers:24,atk:35},
+					{start: 5,need:20,pers:25,atk:35},
+					{start: 6,need:20,pers:26,atk:40},
+					{start: 7,need:19,pers:27,atk:40},
+					{start: 8,need:18,pers:28,atk:40},
+					{start:10,need:15,pers:30,atk:45}
 				]
 			},
 			"秘杖・反重力":{
 				exp:"敵全員の重量が1ランクダウン、攻撃範囲拡大、攻撃力+@atk%、敵最大@target体を同時に攻撃<br/>スキル発動中のみ攻撃行動を行う",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start: 0,need:25,pers:10,atk: 75,target:4},
+					{start: 0,need:25,pers:11,atk: 80,target:4},
+					{start: 0,need:25,pers:12,atk: 85,target:4},
+					{start: 3,need:25,pers:14,atk: 90,target:4},
+					{start: 3,need:25,pers:15,atk: 95,target:4},
+					{start: 3,need:25,pers:16,atk:100,target:4},
+					{start: 6,need:25,pers:18,atk:105,target:5},
+					{start: 7,need:25,pers:20,atk:120,target:5},
+					{start: 8,need:25,pers:22,atk:135,target:5},
+					{start:10,need:25,pers:25,atk:150,target:5}
 				]
 			}
 		}
@@ -1302,21 +1456,51 @@ const operator = {
 		],
 		skill:{
 			"フリーズモジュール":{
-				exp:"パッシブ:自身とドローンの攻撃範囲内の敵を3秒ごとに0.9秒足止めを付与。スキル発動時、「0.9秒の足止め」が「2.2秒のバインド（移動停止）」に変化する。効果時間終了後配置中のドローンを全て回収",
+				exp:"パッシブ:自身とドローンの攻撃範囲内の敵を3秒ごとに@slow秒足止めを付与。スキル発動時、「@slow秒の足止め」が「@bind秒のバインド（移動停止）」に変化する。効果時間終了後配置中のドローンを全て回収",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:10,need:30,pers:15,slow:0.7,bind:1.6},
+					{start:11,need:30,pers:15,slow:0.7,bind:1.7},
+					{start:12,need:30,pers:15,slow:0.7,bind:1.8},
+					{start:13,need:30,pers:15,slow:0.8,bind:1.9},
+					{start:14,need:30,pers:15,slow:0.8,bind:2.0},
+					{start:15,need:30,pers:15,slow:0.8,bind:2.1},
+					{start:16,need:30,pers:15,slow:0.9,bind:2.2},
+					{start:17,need:30,pers:15,slow:0.9,bind:2.3},
+					{start:18,need:30,pers:15,slow:0.9,bind:2.4},
+					{start:20,need:30,pers:15,slow:1.0,bind:2.5}
 				]
 			},
 			"レーザーモジュール":{
 				exp:"パッシブ:ドローンが術攻撃を行い、近距離ユニットとして配置可能。スキル発動時、自身とドローンの攻撃速度+100、ドローンが同時攻撃を行う。効果時間終了後配置中のドローンを全て回収",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:25,need:50,pers:15,speed:60},
+					{start:25,need:49,pers:15,speed:65},
+					{start:25,need:48,pers:15,speed:70},
+					{start:25,need:47,pers:15,speed:80},
+					{start:25,need:46,pers:15,speed:85},
+					{start:25,need:45,pers:15,speed:90},
+					{start:25,need:44,pers:15,speed:100},
+					{start:25,need:42,pers:15,speed:115},
+					{start:25,need:40,pers:15,speed:130},
+					{start:25,need:38,pers:15,speed:150}
 				]
 			},
 			"アサルトモジュール":{
 				exp:"パッシブ:ドローンが範囲物理攻撃を行い、近距離ユニットとして配置可能。スキル発動時、自身とドローンの攻撃力+@atk%、ドローンの攻撃による爆破範囲が拡大。効果時間終了後配置中の全てのドローンを回収",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:25,need:50,pers:15,atk:60},
+					{start:25,need:49,pers:15,atk:65},
+					{start:25,need:48,pers:15,atk:70},
+					{start:25,need:47,pers:15,atk:80},
+					{start:25,need:46,pers:15,atk:85},
+					{start:25,need:45,pers:15,atk:90},
+					{start:25,need:44,pers:15,atk:100},
+					{start:25,need:42,pers:15,atk:115},
+					{start:25,need:40,pers:15,atk:130},
+					{start:25,need:38,pers:15,atk:150}
 				]
 			}
 		}
