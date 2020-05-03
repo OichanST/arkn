@@ -717,19 +717,21 @@ function showSkill(){
 		html += "<div class='flex'>";
 		html += "<div style='position:relative;text-align:center;'>";
 		html += "<img src='skill/" + sname + ".png' style='width:90px;margin-top:1em;'/>";
-		if(sdata[sname].effect[slv - 1].start){
-			html += "<div class='flex' style='width:30px;position:absolute;background-color:rgba(0,0,0,1);font-size:11px;color:white;margin-left:72px;margin-top:-14px;box-shadow:-1px -1px 2px black;";
-			html += "z-index:55'>";
-			html += "<div><svg width='10' height='10' style='display:inline-block;margin-left:0.3em;'><path d='M0 0 L10 5 L0 10 Z' style='fill:white'></path></svg></div>";
-			html += "<div style='margin-left:0.1em;margin-right:0.1em;'>" + sdata[sname].effect[slv - 1].start + "</div>";
-			html += "</div>";
-		}
-		if(sdata[sname].effect[slv - 1].need){
-			html += "<div class='flex' style='width:30px;position:absolute;background-color:rgba(0,0,0,1);font-size:11px;color:white;margin-left:106px;margin-top:-14px;box-shadow:-1px -1px 2px black;";
-			html += "z-index:55'>";
-			html += "<div><img src='icon/lightning.png' width='12'></div>";
-			html += "<div style='margin-left:0.1em;margin-right:0.1em;'>" + sdata[sname].effect[slv - 1].need + "</div>";
-			html += "</div>";
+		if(sdata[sname].effect[slv - 1]){
+			if(sdata[sname].effect[slv - 1].start){
+				html += "<div class='flex' style='width:30px;position:absolute;background-color:rgba(0,0,0,1);font-size:11px;color:white;margin-left:72px;margin-top:-14px;box-shadow:-1px -1px 2px black;";
+				html += "z-index:55'>";
+				html += "<div><svg width='10' height='10' style='display:inline-block;margin-left:0.3em;'><path d='M0 0 L10 5 L0 10 Z' style='fill:white'></path></svg></div>";
+				html += "<div style='margin-left:0.1em;margin-right:0.1em;'>" + sdata[sname].effect[slv - 1].start + "</div>";
+				html += "</div>";
+			}
+			if(sdata[sname].effect[slv - 1].need){
+				html += "<div class='flex' style='width:30px;position:absolute;background-color:rgba(0,0,0,1);font-size:11px;color:white;margin-left:106px;margin-top:-14px;box-shadow:-1px -1px 2px black;";
+				html += "z-index:55'>";
+				html += "<div><img src='icon/lightning.png' width='12'></div>";
+				html += "<div style='margin-left:0.1em;margin-right:0.1em;'>" + sdata[sname].effect[slv - 1].need + "</div>";
+				html += "</div>";
+			}
 		}
 		html += div(sname, {textAlign:"center",margin:"3px",width:"150px"});
 		// スキル特化の設定がされている場合

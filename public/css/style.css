@@ -333,6 +333,7 @@ button{
 	background-color:rgba(0,0,0,0.8);
 	padding-left:0.4em;
 	padding-right:0.4em;
+	padding-bottom:0.4em;
 	z-index:99;
 }
 #skillSp{
