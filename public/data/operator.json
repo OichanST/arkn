@@ -1108,32 +1108,32 @@ const operator = {
 				exp:"次の通常攻撃時、敵に攻撃力の@atk%の術ダメージを与え、3秒間防御力@debuff、やけど状態(継続ダメージを受ける)にする<br/>@charge回チャージ可能",
 				recover:"auto",activate:"auto",
 				effect:[
-					{need:9,atk:130,debuff:100,charge:2},
-					{need:9,atk:140,debuff:100,charge:2},
-					{need:9,atk:150,debuff:100,charge:2},
-					{need:8,atk:160,debuff:100,charge:2},
-					{need:8,atk:170,debuff:100,charge:2},
-					{need:8,atk:180,debuff:100,charge:2},
-					{need:8,atk:190,debuff:200,charge:3},
-					{need:7,atk:215,debuff:200,charge:3},
-					{need:7,atk:225,debuff:200,charge:3},
-					{need:7,atk:250,debuff:300,charge:3}
+					{need:9,atk:130,debuff:-100,charge:2},
+					{need:9,atk:140,debuff:-100,charge:2},
+					{need:9,atk:150,debuff:-100,charge:2},
+					{need:8,atk:160,debuff:-100,charge:2},
+					{need:8,atk:170,debuff:-100,charge:2},
+					{need:8,atk:180,debuff:-100,charge:2},
+					{need:8,atk:190,debuff:-200,charge:3},
+					{need:7,atk:215,debuff:-200,charge:3},
+					{need:7,atk:225,debuff:-200,charge:3},
+					{need:7,atk:250,debuff:-300,charge:3}
 				]
 			},
 			"灼獄":{
 				exp:"攻撃範囲内、地面にいる敵全員に1秒ごとに攻撃力の@atk%の術ダメージを与え、術耐性@debuff<br/>自身のHPが1秒ごとに最大値の2%減少",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:40,atk: 75,debuff:7},
-					{need:39,atk: 80,debuff:7},
-					{need:38,atk: 85,debuff:7},
-					{need:36,atk: 90,debuff:7},
-					{need:35,atk: 95,debuff:7},
-					{need:34,atk:100,debuff:7},
-					{need:31,atk:110,debuff:10},
-					{need:30,atk:120,debuff:13},
-					{need:29,atk:130,debuff:16},
-					{need:28,atk:140,debuff:20}
+					{need:40,atk: 75,debuff:-7},
+					{need:39,atk: 80,debuff:-7},
+					{need:38,atk: 85,debuff:-7},
+					{need:36,atk: 90,debuff:-7},
+					{need:35,atk: 95,debuff:-7},
+					{need:34,atk:100,debuff:-7},
+					{need:31,atk:110,debuff:-10},
+					{need:30,atk:120,debuff:-13},
+					{need:29,atk:130,debuff:-16},
+					{need:28,atk:140,debuff:-20}
 				]
 			}
 		}
@@ -1540,12 +1540,32 @@ const operator = {
 				exp:"所持コスト+12",
 				recover:"auto",activate:"auto",
 				effect:[
+					{start:10,need:44},
+					{start:10,need:43},
+					{start:10,need:42},
+					{start:12,need:41},
+					{start:12,need:40},
+					{start:12,need:39},
+					{start:14,need:38},
+					{start:16,need:37},
+					{start:18,need:36},
+					{start:20,need:35}
 				]
 			},
 			"剣雨":{
 				exp:"所持コスト+9<br/>周囲一定範囲内の敵全員に2回連続で攻撃力の@atk%の術ダメージを与え、@stan秒間スタンさせる",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:20,need:40,atk:105,stan:2},
+					{start:21,need:40,atk:110,stan:2},
+					{start:22,need:40,atk:115,stan:2},
+					{start:23,need:40,atk:120,stan:2},
+					{start:24,need:40,atk:125,stan:2},
+					{start:25,need:40,atk:130,stan:2},
+					{start:26,need:40,atk:135,stan:2},
+					{start:27,need:40,atk:140,stan:3},
+					{start:28,need:40,atk:155,stan:3},
+					{start:30,need:40,atk:175,stan:3}
 				]
 			}
 		}
@@ -1590,12 +1610,32 @@ const operator = {
 				exp:"所持コスト+12",
 				recover:"auto",activate:"auto",
 				effect:[
+					{start:10,need:44},
+					{start:10,need:43},
+					{start:10,need:42},
+					{start:12,need:41},
+					{start:12,need:40},
+					{start:12,need:39},
+					{start:14,need:38},
+					{start:16,need:37},
+					{start:18,need:36},
+					{start:20,need:35}
 				]
 			},
 			"ウルサスの雄叫び":{
-				exp:"効果時間内所持コストが徐々に増加(合計9)<br/>先鋒ユニット全員の攻撃力、防御力+35%、敵を倒す度所持コスト+1",
+				exp:"効果時間内所持コストが徐々に増加(合計@cost)<br/>先鋒ユニット全員の攻撃力、防御力+@atk%、敵を倒す度所持コスト+1",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:10,need:45,cost: 9,atk:25,def:25},
+					{start:10,need:44,cost: 9,atk:30,def:30},
+					{start:10,need:43,cost: 9,atk:35,def:35},
+					{start:12,need:42,cost:10,atk:40,def:40},
+					{start:12,need:41,cost:10,atk:45,def:45},
+					{start:12,need:40,cost:10,atk:45,def:45},
+					{start:14,need:39,cost:11,atk:45,def:45},
+					{start:16,need:38,cost:11,atk:50,def:50},
+					{start:18,need:37,cost:11,atk:55,def:55},
+					{start:20,need:35,cost:12,atk:60,def:60}
 				]
 			}
 		}
@@ -1650,12 +1690,32 @@ const operator = {
 				exp:"防御力+@def%",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start: 0,need:45,pers:40,def:30},
+					{start: 0,need:45,pers:40,def:35},
+					{start: 0,need:45,pers:40,def:40},
+					{start: 5,need:40,pers:40,def:45},
+					{start: 5,need:40,pers:40,def:50},
+					{start: 5,need:40,pers:40,def:55},
+					{start:10,need:35,pers:40,def:60},
+					{start:10,need:34,pers:40,def:75},
+					{start:10,need:33,pers:40,def:90},
+					{start:15,need:30,pers:40,def:100}
 				]
 			},
 			"引かない！":{
 				exp:"攻撃範囲縮小、攻撃力と防御力+@atk%、ブロック数+1、ブロック中の敵全員を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:50,need:80,pers:30,atk:30,def:30},
+					{start:50,need:79,pers:30,atk:35,def:35},
+					{start:50,need:78,pers:30,atk:40,def:40},
+					{start:50,need:77,pers:30,atk:45,def:45},
+					{start:50,need:76,pers:30,atk:50,def:50},
+					{start:50,need:75,pers:30,atk:55,def:55},
+					{start:50,need:74,pers:30,atk:60,def:60},
+					{start:50,need:73,pers:30,atk:66,def:66},
+					{start:50,need:72,pers:30,atk:72,def:72},
+					{start:50,need:70,pers:30,atk:80,def:80}
 				]
 			}
 		},
@@ -1707,15 +1767,35 @@ const operator = {
 		],
 		skill:{
 			"砕甲拳":{
-				exp:"次の通常攻撃時、攻撃力+@atk%、敵の防御力を@%無視",
+				exp:"次の通常攻撃時、攻撃力+@atk%、敵の防御力を@penetrate%無視",
 				recover:"attack",activate:"auto",
 				effect:[
+					{need:4,atk:50,penetrate:35},
+					{need:4,atk:60,penetrate:35},
+					{need:4,atk:70,penetrate:35},
+					{need:4,atk:80,penetrate:40},
+					{need:4,atk:90,penetrate:40},
+					{need:4,atk:100,penetrate:40},
+					{need:4,atk:110,penetrate:45},
+					{need:4,atk:120,penetrate:50},
+					{need:4,atk:130,penetrate:55},
+					{need:4,atk:140,penetrate:60}
 				]
 			},
 			"裂魂":{
 				exp:"攻撃力+@atk%、通常攻撃が術攻撃になり、与ダメージの@heal%のHPを回復",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start: 0,need:50,pers:25,atk:45,heal:10},
+					{start: 0,need:50,pers:25,atk:50,heal:10},
+					{start: 0,need:50,pers:25,atk:55,heal:10},
+					{start: 5,need:50,pers:25,atk:60,heal:15},
+					{start: 5,need:50,pers:25,atk:65,heal:15},
+					{start: 5,need:50,pers:25,atk:70,heal:15},
+					{start:10,need:50,pers:25,atk:75,heal:20},
+					{start:15,need:50,pers:25,atk:90,heal:20},
+					{start:20,need:50,pers:25,atk:105,heal:20},
+					{start:25,need:50,pers:25,atk:120,heal:25}
 				]
 			},
 		}
@@ -1768,12 +1848,32 @@ const operator = {
 				exp:"攻撃力+@atk%、攻撃速度+@speed",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start: 0,need:45,pers:35,atk:20,speed:20},
+					{start: 0,need:44,pers:35,atk:22,speed:20},
+					{start: 0,need:43,pers:35,atk:24,speed:20},
+					{start: 5,need:42,pers:35,atk:27,speed:25},
+					{start: 5,need:41,pers:35,atk:29,speed:25},
+					{start: 5,need:40,pers:35,atk:31,speed:25},
+					{start:10,need:39,pers:35,atk:34,speed:35},
+					{start:10,need:38,pers:35,atk:37,speed:35},
+					{start:10,need:37,pers:35,atk:40,speed:35},
+					{start:15,need:35,pers:35,atk:45,speed:45}
 				]
 			},
 			"利剣の極致":{
 				exp:"防御力が0になり、攻撃力+@atk%、素質の防御力無視確率が2.5倍まで上昇",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start: 0,need:20,pers:20,atk:50},
+					{start: 0,need:20,pers:20,atk:53},
+					{start: 0,need:20,pers:20,atk:56},
+					{start: 0,need:20,pers:23,atk:60},
+					{start: 0,need:20,pers:23,atk:63},
+					{start: 0,need:20,pers:23,atk:66},
+					{start: 5,need:20,pers:26,atk:70},
+					{start: 5,need:20,pers:27,atk:80},
+					{start: 5,need:20,pers:28,atk:90},
+					{start:10,need:20,pers:30,atk:100}
 				]
 			}
 		}
@@ -1834,12 +1934,32 @@ const operator = {
 				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇",
 				recover:"attack",activate:"auto",
 				effect:[
+					{need:5,atk:170},
+					{need:5,atk:175},
+					{need:5,atk:180},
+					{need:4,atk:185},
+					{need:4,atk:190},
+					{need:4,atk:195},
+					{need:4,atk:200},
+					{need:4,atk:210},
+					{need:4,atk:220},
+					{need:3,atk:230}
 				]
 			},
 			"精密起爆":{
-				exp:"前方3マス内の敵最大3体に攻撃力の@atk%の物理ダメージを与える",
+				exp:"前方3マス内の敵最大@target体に攻撃力の@atk%の物理ダメージを与える",
 				recover:"attack",activate:"manual",
 				effect:[
+					{need:20,target:3,atk:300},
+					{need:20,target:3,atk:310},
+					{need:20,target:3,atk:320},
+					{need:20,target:4,atk:330},
+					{need:20,target:4,atk:340},
+					{need:20,target:4,atk:350},
+					{need:19,target:4,atk:360},
+					{need:19,target:5,atk:370},
+					{need:18,target:5,atk:380},
+					{need:17,target:5,atk:400}
 				]
 			}
 		}
@@ -1891,12 +2011,32 @@ const operator = {
 				exp:"攻撃力+@atk%",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start: 0,need:40,pers:30,atk:30},
+					{start: 0,need:40,pers:30,atk:35},
+					{start: 0,need:40,pers:30,atk:40},
+					{start: 5,need:37,pers:30,atk:45},
+					{start: 5,need:37,pers:30,atk:50},
+					{start: 5,need:37,pers:30,atk:55},
+					{start:10,need:35,pers:30,atk:60},
+					{start:10,need:34,pers:30,atk:75},
+					{start:10,need:33,pers:30,atk:90},
+					{start:15,need:30,pers:30,atk:100}
 				]
 			},
 			"肉斬骨断":{
 				exp:"攻撃力+@atk%、効果時間内はダメージを受けてもHPが1残る<br/>効果時間終了後10秒間スタンする",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:20,need:45,pers:10,atk:40},
+					{start:20,need:45,pers:10,atk:50},
+					{start:20,need:45,pers:10,atk:60},
+					{start:25,need:45,pers:11,atk:70},
+					{start:25,need:45,pers:11,atk:80},
+					{start:25,need:45,pers:11,atk:90},
+					{start:30,need:43,pers:12,atk:100},
+					{start:30,need:42,pers:13,atk:120},
+					{start:30,need:41,pers:14,atk:140},
+					{start:35,need:40,pers:15,atk:160}
 				]
 			},
 		}
@@ -1936,15 +2076,35 @@ const operator = {
 		],
 		skill:{
 			"統括指揮":{
-				exp:"素質の効果範囲が拡大、効果が2倍まで上昇",
+				exp:"素質の効果範囲が@range、効果が2倍まで上昇",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:20,need:60,pers:15,range:"拡大"},
+					{start:20,need:59,pers:17,range:"拡大"},
+					{start:20,need:58,pers:19,range:"拡大"},
+					{start:20,need:55,pers:21,range:"拡大"},
+					{start:20,need:54,pers:23,range:"拡大"},
+					{start:20,need:53,pers:25,range:"拡大"},
+					{start:20,need:50,pers:27,range:"大幅に拡大"},
+					{start:20,need:47,pers:29,range:"大幅に拡大"},
+					{start:20,need:44,pers:31,range:"大幅に拡大"},
+					{start:20,need:40,pers:35,range:"大幅に拡大"}
 				]
 			},
 			"協同作戦":{
-				exp:"攻撃力+@atk%、素質の効果が2.3倍まで上昇",
+				exp:"攻撃力+@atk%、素質の効果が@nature倍まで上昇",
 				recover:"attack",activate:"manual",
 				effect:[
+					{start:20,need:60,pers:15,atk:30,nature:2.1},
+					{start:20,need:59,pers:15,atk:30,nature:2.2},
+					{start:20,need:58,pers:15,atk:30,nature:2.3},
+					{start:20,need:55,pers:17,atk:40,nature:2.4},
+					{start:20,need:54,pers:17,atk:40,nature:2.5},
+					{start:20,need:53,pers:17,atk:40,nature:2.6},
+					{start:20,need:50,pers:21,atk:50,nature:2.7},
+					{start:20,need:49,pers:23,atk:60,nature:2.8},
+					{start:20,need:48,pers:26,atk:70,nature:2.9},
+					{start:20,need:45,pers:30,atk:80,nature:3}
 				]
 			}
 		}
@@ -1986,15 +2146,35 @@ const operator = {
 		],
 		skill:{
 			"影落とす時針":{
-				exp:"攻撃力+@atk%、25%の確率で物理攻撃をガード<br/>退場まで効果継続",
+				exp:"攻撃力+@atk%、@guard%の確率で物理攻撃をガード<br/>退場まで効果継続",
 				recover:"attack",activate:"auto",
 				effect:[
+					{need:40,atk:30,guard:20},
+					{need:40,atk:33,guard:20},
+					{need:40,atk:37,guard:20},
+					{need:37,atk:43,guard:25},
+					{need:37,atk:47,guard:25},
+					{need:37,atk:50,guard:25},
+					{need:33,atk:55,guard:30},
+					{need:32,atk:60,guard:33},
+					{need:31,atk:65,guard:36},
+					{need:30,atk:70,guard:40}
 				]
 			},
 			"狼魂":{
 				exp:"攻撃力+@atk%、通常攻撃が術攻撃になり敵2体を同時に攻撃<br/>攻撃力の100%で遠距離攻撃を行う",
 				recover:"attack",activate:"auto",
 				effect:[
+					{need:30,pers:15,atk:60},
+					{need:29,pers:15,atk:65},
+					{need:28,pers:15,atk:70},
+					{need:27,pers:15,atk:75},
+					{need:26,pers:15,atk:80},
+					{need:25,pers:15,atk:85},
+					{need:24,pers:17,atk:90},
+					{need:22,pers:17,atk:100},
+					{need:20,pers:17,atk:110},
+					{need:17,pers:20,atk:120}
 				]
 			}
 		}
@@ -2048,12 +2228,32 @@ const operator = {
 				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇し、自身のHPを@heal%回復",
 				recover:"attack",activate:"auto",
 				effect:[
+					{need:5,atk:155,heal:5},
+					{need:5,atk:160,heal:5},
+					{need:5,atk:165,heal:5},
+					{need:4,atk:170,heal:6},
+					{need:4,atk:175,heal:6},
+					{need:4,atk:180,heal:6},
+					{need:4,atk:190,heal:7},
+					{need:4,atk:200,heal:7},
+					{need:3,atk:210,heal:7},
+					{need:3,atk:220,heal:8}
 				]
 			},
 			"刃鬼":{
-				exp:"攻撃力+@atk%、攻撃速度+@speed",
+				exp:"攻撃力+@atk%、攻撃速度+@speed<br/>退場まで効果継続",
 				recover:"attack",activate:"auto",
 				effect:[
+					{need:60,atk:30,speed:30},
+					{need:58,atk:30,speed:30},
+					{need:56,atk:30,speed:30},
+					{need:54,atk:40,speed:30},
+					{need:52,atk:40,speed:30},
+					{need:50,atk:40,speed:30},
+					{need:48,atk:50,speed:30},
+					{need:46,atk:55,speed:35},
+					{need:44,atk:60,speed:40},
+					{need:40,atk:70,speed:45}
 				]
 			}
 		}
@@ -2105,12 +2305,32 @@ const operator = {
 				exp:"攻撃力+@atk%、防御力+@def%",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start: 0,need:40,pers:30,atk:20,def:30},
+					{start: 0,need:39,pers:30,atk:20,def:35},
+					{start: 0,need:38,pers:30,atk:20,def:40},
+					{start: 3,need:37,pers:30,atk:30,def:45},
+					{start: 3,need:36,pers:30,atk:30,def:50},
+					{start: 3,need:35,pers:30,atk:30,def:55},
+					{start: 6,need:34,pers:30,atk:40,def:60},
+					{start: 7,need:33,pers:30,atk:43,def:65},
+					{start: 8,need:32,pers:30,atk:46,def:70},
+					{start:10,need:30,pers:30,atk:50,def:80}
 				]
 			},
 			"星輝剣":{
 				exp:"攻撃力+@atk%、防御力+@def%、ブロック数+1、ブロック中の敵全員を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start: 0,need:30,pers:10,atk:30,def:30},
+					{start: 1,need:30,pers:10,atk:35,def:35},
+					{start: 2,need:30,pers:10,atk:40,def:40},
+					{start: 3,need:27,pers:11,atk:45,def:45},
+					{start: 4,need:27,pers:11,atk:50,def:50},
+					{start: 5,need:27,pers:11,atk:55,def:55},
+					{start: 6,need:24,pers:12,atk:60,def:60},
+					{start: 7,need:23,pers:13,atk:65,def:65},
+					{start: 8,need:22,pers:14,atk:70,def:70},
+					{start:10,need:20,pers:15,atk:80,def:80}
 				]
 			}
 		}
@@ -2160,12 +2380,32 @@ const operator = {
 				exp:"次に受けるダメージをガード、8秒間防御力+@def%",
 				recover:"damage",activate:"auto",
 				effect:[
+					{need:24,pers:8,def:40},
+					{need:24,pers:8,def:45},
+					{need:24,pers:8,def:50},
+					{need:22,pers:8,def:60},
+					{need:22,pers:8,def:65},
+					{need:22,pers:8,def:70},
+					{need:20,pers:8,def:80},
+					{need:20,pers:8,def:85},
+					{need:20,pers:8,def:90},
+					{need:18,pers:8,def:100}
 				]
 			},
 			"カウンターアーク":{
-				exp:"通常攻撃の間隔が延長し、攻撃力+@atk%、通常攻撃時敵最大3体に術ダメージを与え、10%の確率で1秒間スタンさせる<br/>効果時間終了後5秒間スタンする",
+				exp:"通常攻撃の間隔が延長し、攻撃力+@atk%、通常攻撃時敵最大@target体に術ダメージを与え、@stan%の確率で1秒間スタンさせる<br/>効果時間終了後5秒間スタンする",
 				recover:"damage",activate:"manual",
 				effect:[
+					{need:44,pers:20,atk:85,target:3,stan:10},
+					{need:43,pers:20,atk:90,target:3,stan:10},
+					{need:42,pers:20,atk:95,target:3,stan:10},
+					{need:41,pers:20,atk:105,target:3,stan:15},
+					{need:40,pers:20,atk:110,target:3,stan:15},
+					{need:39,pers:20,atk:115,target:3,stan:15},
+					{need:38,pers:20,atk:125,target:3,stan:20},
+					{need:37,pers:20,atk:150,target:3,stan:20},
+					{need:36,pers:20,atk:175,target:3,stan:20},
+					{need:34,pers:20,atk:200,target:4,stan:25}
 				]
 			}
 		}
@@ -2217,15 +2457,35 @@ const operator = {
 		],
 		skill:{
 			"防御態勢":{
-				exp:"防御力+@def%、素質の効果が130%まで上昇",
+				exp:"防御力+@def%、素質の効果が@nature%まで上昇",
 				recover:"auto",activate:"auto",
 				effect:[
+					{start: 0,need:30,pers:20,def:20,nature:110},
+					{start: 0,need:29,pers:20,def:20,nature:120},
+					{start: 0,need:28,pers:20,def:20,nature:130},
+					{start: 4,need:27,pers:23,def:30,nature:140},
+					{start: 4,need:26,pers:23,def:30,nature:150},
+					{start: 4,need:25,pers:23,def:30,nature:160},
+					{start: 8,need:24,pers:26,def:40,nature:170},
+					{start: 8,need:23,pers:27,def:50,nature:180},
+					{start: 8,need:22,pers:28,def:60,nature:190},
+					{start:12,need:20,pers:30,def:70,nature:200}
 				]
 			},
 			"テスラハンマー":{
-				exp:"周囲一定範囲内の敵を相当の力で突き飛ばし、攻撃力の280%の物理ダメージを与え、2.5秒間スタンさせる",
+				exp:"周囲一定範囲内の敵を@powで突き飛ばし、攻撃力の@atk%の物理ダメージを与え、@stan秒間スタンさせる",
 				recover:"attack",activate:"manual",
 				effect:[
+					{need:22,pow:"相当の力",atk:240,stan:2.5},
+					{need:22,pow:"相当の力",atk:260,stan:2.5},
+					{need:22,pow:"相当の力",atk:280,stan:2.5},
+					{need:21,pow:"相当の力",atk:300,stan:3},
+					{need:21,pow:"相当の力",atk:320,stan:3},
+					{need:21,pow:"相当の力",atk:340,stan:3},
+					{need:20,pow:"かなりの力",atk:360,stan:3.5},
+					{need:19,pow:"かなりの力",atk:400,stan:3.5},
+					{need:18,pow:"かなりの力",atk:440,stan:3.5},
+					{need:17,pow:"力強く",atk:480,stan:4}
 				]
 			}
 		}
