@@ -717,19 +717,19 @@ function showSkill(){
 		html += "<div class='flex'>";
 		html += "<div style='position:relative;text-align:center;'>";
 		html += "<img src='skill/" + sname + ".png' style='width:90px;margin-top:1em;'/>";
-		if(sdata[sname].effect[slv - 1]){
-			if(sdata[sname].effect[slv - 1].start){
+		if(sdata[sname].effect[slv - 1 + sp[i]]){
+			if(sdata[sname].effect[slv - 1 + sp[i]].start){
 				html += "<div class='flex' style='width:30px;position:absolute;background-color:rgba(0,0,0,1);font-size:11px;color:white;margin-left:72px;margin-top:-14px;box-shadow:-1px -1px 2px black;";
 				html += "z-index:55'>";
 				html += "<div><svg width='10' height='10' style='display:inline-block;margin-left:0.3em;'><path d='M0 0 L10 5 L0 10 Z' style='fill:white'></path></svg></div>";
-				html += "<div style='margin-left:0.1em;margin-right:0.1em;'>" + sdata[sname].effect[slv - 1].start + "</div>";
+				html += "<div style='margin-left:0.1em;margin-right:0.1em;'>" + sdata[sname].effect[slv - 1 + sp[i]].start + "</div>";
 				html += "</div>";
 			}
-			if(sdata[sname].effect[slv - 1].need){
+			if(sdata[sname].effect[slv - 1 + sp[i]].need){
 				html += "<div class='flex' style='width:30px;position:absolute;background-color:rgba(0,0,0,1);font-size:11px;color:white;margin-left:106px;margin-top:-14px;box-shadow:-1px -1px 2px black;";
 				html += "z-index:55'>";
 				html += "<div><img src='icon/lightning.png' width='12'></div>";
-				html += "<div style='margin-left:0.1em;margin-right:0.1em;'>" + sdata[sname].effect[slv - 1].need + "</div>";
+				html += "<div style='margin-left:0.1em;margin-right:0.1em;'>" + sdata[sname].effect[slv - 1 + sp[i]].need + "</div>";
 				html += "</div>";
 			}
 		}
@@ -780,7 +780,7 @@ function showSkill(){
 		// スキルの説明取得
 		let exp = sdata[sname].exp;
 		// スキルレベルに対応した形にスキルの説明を補正
-		const eff = sdata[sname].effect[slv + sp[i]];
+		const eff = sdata[sname].effect[slv - 1 + sp[i]];
 		for(var key in eff){
 			if(exp.indexOf("@" + key) >= 0){
 			　　while(exp.indexOf("@" + key) >= 0){

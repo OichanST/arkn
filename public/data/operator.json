@@ -184,19 +184,19 @@ const operator = {
 				]
 			},
 			"波涛の裂刃":{
-				exp:"配置後の@pers秒間、攻撃力+@atk%",
+				exp:"配置後の@time秒間、攻撃力+@atk%",
 				passive:true,
 				effect:[
-					{pers:15,atk: 80},
-					{pers:16,atk: 85},
-					{pers:17,atk: 90},
-					{pers:20,atk:100},
-					{pers:21,atk:105},
-					{pers:22,atk:110},
-					{pers:25,atk:120},
-					{pers:27,atk:135},
-					{pers:28,atk:150},
-					{pers:30,atk:170}
+					{time:15,atk: 80},
+					{time:16,atk: 85},
+					{time:17,atk: 90},
+					{time:20,atk:100},
+					{time:21,atk:105},
+					{time:22,atk:110},
+					{time:25,atk:120},
+					{time:27,atk:135},
+					{time:28,atk:150},
+					{time:30,atk:170}
 				]
 			},
 			"海嘯の悲歌":{
