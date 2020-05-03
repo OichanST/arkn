@@ -2522,15 +2522,35 @@ const operator = {
 		],
 		skill:{
 			"応急処置":{
-				exp:"次の通常攻撃時、周囲一定範囲内にいるHPが50%以下の味方1人に、攻撃力@atk%回復<br/>1回チャージ可能",
+				exp:"次の通常攻撃時、周囲一定範囲内にいるHPが50%以下の味方1人に、攻撃力@atk%回復<br/>@charge回チャージ可能",
 				recover:"auto",activate:"auto",
 				effect:[
+					{need:6,atk:110,charge:1},
+					{need:6,atk:115,charge:1},
+					{need:6,atk:120,charge:1},
+					{need:5,atk:130,charge:1},
+					{need:5,atk:135,charge:1},
+					{need:5,atk:140,charge:1},
+					{need:5,atk:150,charge:2},
+					{need:4,atk:160,charge:2},
+					{need:4,atk:170,charge:2},
+					{need:4,atk:180,charge:3}
 				]
 			},
 			"救護態勢":{
 				exp:"攻撃力+@atk%、攻撃しなくなり回復行動のみ行う",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:20,need:60,pers:40,atk:20},
+					{start:20,need:59,pers:40,atk:25},
+					{start:20,need:58,pers:40,atk:30},
+					{start:25,need:55,pers:40,atk:35},
+					{start:25,need:54,pers:40,atk:40},
+					{start:25,need:53,pers:40,atk:45},
+					{start:30,need:52,pers:40,atk:50},
+					{start:30,need:50,pers:40,atk:60},
+					{start:30,need:45,pers:40,atk:70},
+					{start:30,need:40,pers:40,atk:80}
 				]
 			}
 		}
