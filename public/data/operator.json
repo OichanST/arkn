@@ -2185,7 +2185,21 @@ const operator = {
 			{atk:24},
 			{nature:1},
 			{cost:-1}
-		]
+		],
+		skill:{
+			"ダブルショット":{
+				exp:"次の通常攻撃時、敵2体に攻撃力の@atk%のダメージを与える",
+				recover:"attack",activate:"auto",
+				effect:[
+				]
+			},
+			"毒液装填":{
+				exp:"攻撃力+@atk%、通常攻撃で敵3体を同時に攻撃",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
 	},
 	"プラチナ":{
 		en:"Platinum",relocation:70,speed:1.0,trust:{atk:75},tag:["遠距離","火力"],
@@ -2510,7 +2524,7 @@ const operator = {
 			{
 				hp:1480,atk:612,def:121,res:20,cost:20,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
 				nature:{
-					"？？？":"敵を攻撃する時、2SP回復する。敵を撃破した時、8SP回復する"
+					"アブソープション":"敵を攻撃する時、2SP回復する。敵を撃破した時、8SP回復する"
 				}
 			}
 		],
@@ -3567,9 +3581,9 @@ const operator = {
 				effect:[
 				]
 			},
-			"？？？":{
-				exp:"",
-				recover:"",activate:"",
+			"治癒の翅":{
+				exp:"効果時間内所持コストが徐々に増加(合計16)<br/>攻撃しなくなり、周囲一定範囲内の味方1人のHPを回復(1秒ごとテンニンカの攻撃力の25%)",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -3976,9 +3990,9 @@ const operator = {
 				effect:[
 				]
 			},
-			"？":{
-				exp:"",
-				recover:"",activate:"",
+			"寒冷順化":{
+				exp:"最大HP@hp%、防御力+@def%、術耐性+@res%",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4033,9 +4047,9 @@ const operator = {
 				effect:[
 				]
 			},
-			"":{
-				exp:"",
-				recover:"",activate:"",
+			"戦場のシェフ":{
+				exp:"10秒間調理状態(攻撃停止)になり、防御力+50%<br/>調理終了後攻撃力+@atk%、近くの味方の回復行動のみ行う",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4392,9 +4406,9 @@ const operator = {
 				effect:[
 				]
 			},
-			"？":{
-				exp:"",
-				recover:"",activate:"",
+			"帯電":{
+				exp:"攻撃速度+@speed、素質による足止め効果の継続時間が1.5倍まで上昇",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4709,9 +4723,9 @@ const operator = {
 				effect:[
 				]
 			},
-			"？":{
-				exp:"",
-				recover:"",activate:"",
+			"トロンブイユ":{
+				exp:"攻撃範囲拡大、攻撃範囲内の味方の物理回避+25%",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
@@ -4885,9 +4899,9 @@ const operator = {
 				effect:[
 				]
 			},
-			"？":{
-				exp:"",
-				recover:"",activate:"",
+			"鉤縄二本流":{
+				exp:"近くにいる敵２体をわずかな力で引き寄せ、攻撃力の@atk%の物理ダメージを与える",
+				recover:"auto",activate:"manual",
 				effect:[
 				]
 			}
