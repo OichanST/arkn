@@ -3233,7 +3233,7 @@ const operator = {
 	"フィリオプシス":{
 		en:"Ptilopsis",
 		rare:5,job:"医療",relocation:70,speed:2.85,trust:{atk:55},tag:["遠距離","治療","支援"],
-		characteristic:"",
+		characteristic:"味方３人のＨＰを同時に回復",
 		stat:[
 			{
 				min:{hp: 751,atk:122,def: 71},
@@ -5147,11 +5147,15 @@ const operator = {
 		skill:{
 			"回復力強化β":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃力+@atk%"
+				exp:"攻撃力+@atk%",
+				effect:[
+				]
 			},
 			"ディープヒーリング":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃力+@atk%、攻撃速度+@speed<br/>使用上限2回"
+				exp:"攻撃力+@atk%、攻撃速度+@speed<br/>使用上限2回",
+				effect:[
+				]
 			}
 		}
 	},
