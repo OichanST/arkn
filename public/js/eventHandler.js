@@ -770,7 +770,7 @@ function showSkill(){
 					break;
 			}
 		}
-		if(sdata[sname].effect[slv - 1].pers > 0){
+		if(sdata[sname].effect[slv - 1] && sdata[sname].effect[slv - 1].pers > 0){
 			html += "<div class='flex' style='border-radius:5px;background-color:gray;color:white;margin:0.15em;padding-top:2px;padding-bottom:0;height:26px;'>"
 			html += "<div><img src='icon/clock.png' width='24'></div>";
 			html += "<div style='margin-left:5px;margin-right:2px;'>" + sdata[sname].effect[slv - 1].pers + "秒</div>";
