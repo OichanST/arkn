@@ -19,15 +19,15 @@ function init(){
 	const hrow = new Row();
 	// 簡易＋詳細
 	if(type == "1"){
-		thead.size("73.3em");
-		ById("wrapper").style.width = "73.2em";
+		thead.size("70.0em");
+		ById("wrapper").style.width = "69.9em";
 		hrow.addHeader("所持", {width:"2.9em"});
 		hrow.addHeader("レア度", {width:"6.0em"});
 		hrow.addHeader("コードネーム", {width:"9.5em"});
 		hrow.addHeader("職業", {width:"2.5em"});
 		hrow.addHeader("昇進", {width:"3.8em"});
 		hrow.addHeader("レベル", {width:"11.1em"});
-		hrow.addHeader("潜在", {width:"2.0em"});
+		hrow.addHeader("潜在", {width:"2.5em"});
 		hrow.addHeader("信頼度", {width:"11.7em"});
 		hrow.addHeader("スキルRANK");
 	// 一覧
@@ -244,7 +244,7 @@ function init(){
 			sel.setAttribute("value", sto.data[operatorName].potential);
 			sel.style.color = "rgb(" + Math.round(sto.data[operatorName].potential / 6 * 255) + ",0,0)";
 			sel.addEventListener("change", changePotential);
-			r.add(sel, {textAlign:"center",width:"2.0em"});
+			r.add(sel, {textAlign:"center",width:"2.5em"});
 			// 信頼度スライダーセット生成
 			r.add(
 				makeRangeSet({
@@ -257,18 +257,27 @@ function init(){
 			);
 			if(data.rare > 2){
 				// スキルレベルスライダーセット生成
-				r.add(
-					makeRangeSet({
-						value:sto.data[operatorName].slv,
-						min:1,
-						max:7,
-						func:changeSlv,
-						sliderWidth:60,
-						numInputWidth:31
-					}),
-					{width:"6.3em"}
-				);
-				
+				sel = Elem("select");
+				optList = [
+					{label:1,value:1},
+					{label:2,value:2},
+					{label:3,value:3},
+					{label:4,value:4},
+					{label:5,value:5},
+					{label:6,value:6},
+					{label:7,value:7},
+				];
+				for(let i = 0; i < optList.length; i++){
+					const opt = new Option(optList[i].label, optList[i].value);
+					if(sto.data[operatorName].slv == optList[i].value){
+						opt.selected = true;
+					}
+					sel.appendChild(opt);
+				}
+				sel.setAttribute("value", sto.data[operatorName].slv);
+				sel.style.color = "rgb(" + Math.round(sto.data[operatorName].slv / 7 * 255) + ",0,0)";
+				sel.addEventListener("change", changePotential);
+				r.add(sel, {textAlign:"center",width:"2.5em"});
 				r.add("<button onclick='showSkillSp();'>スキル特化</button>");
 			}else{
 				r.add("");
