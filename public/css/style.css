@@ -262,6 +262,9 @@ button{
 	color:#E0E0E0;
 	background-color:#E0E0E0;
 }
+button:disabled{
+	display:none;
+}
 #rare{
 	position:absolute;
 	margin-left:34px;

@@ -822,7 +822,7 @@ function calcLvStat(name){
 	for(let i = 1; i < potential; i++){
 		
 		const pt = data.potential[i - 1];
-		
+
 		if(typeof pt["hp"] != "undefined"){
 			nowHp += pt["hp"];
 		}else if(typeof pt["atk"] != "undefined"){

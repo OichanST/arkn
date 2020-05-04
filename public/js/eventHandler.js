@@ -276,9 +276,13 @@ function init(){
 				}
 				sel.setAttribute("value", sto.data[operatorName].slv);
 				sel.style.color = "rgb(" + Math.round(sto.data[operatorName].slv / 7 * 255) + ",0,0)";
-				sel.addEventListener("change", changePotential);
+				sel.addEventListener("change", changeSlv);
 				r.add(sel, {textAlign:"center",width:"2.5em"});
-				r.add("<button onclick='showSkillSp();'>スキル特化</button>");
+				if(sto.data[operatorName].slv == 7){
+					r.add("<button onclick='showSkillSp();'>スキル特化</button>");
+				}else{
+					r.add("<button onclick='showSkillSp();' disabled>スキル特化</button>");
+				}
 			}else{
 				r.add("");
 				r.add("");
@@ -1008,8 +1012,15 @@ function change(key){
 		const inputs = r.getElementsByTagName("input");
 		inputs[4].style.color = "rgb(" + Math.round((inputs[4].value / inputs[4].max) * 255) + ",0,0)";
 	}else if(key == "slv"){
-		const inputs = r.getElementsByTagName("input");
-		inputs[6].style.color = "rgb(" + Math.round((inputs[6].value / inputs[6].max) * 255) + ",0,0)";
+		const selects = r.getElementsByTagName("select");
+		selects[2].style.color = "rgb(" + Math.round(selects[2].value / 7 * 255) + ",0,0)";
+		const btn = r.getElementsByTagName("button")[0];
+		
+		if(targetValue == 7){
+			btn.disabled = false;
+		}else{
+			btn.disabled = true;
+		}
 	}
 }
 /**
