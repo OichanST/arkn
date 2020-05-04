@@ -321,19 +321,17 @@ button{
 	padding-right:0.4em;
 	z-index:99;
 }
-#skillDetail{
+#skillDetailOverlay{
 	position:absolute;
 	top:50%;
 	left:50%;
 	transform:translateX(-50%) translateY(-50%);
 	display:none;
-	width:40em;
+	width:55em;
 	height:auto;
 	color:white;
-	background-color:rgba(0,0,0,0.8);
-	padding-left:0.4em;
-	padding-right:0.4em;
-	padding-bottom:0.4em;
+	background-color:rgba(0,0,0,0.25);
+	padding:1.5em;
 	z-index:99;
 }
 #skillSp{

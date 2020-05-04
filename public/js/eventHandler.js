@@ -710,6 +710,7 @@ function showSkill(){
 	const sdata = data.skill;
 	// スキルレベル取得
 	const slv = sto.data[name].slv;
+	ById("skillRank").innerText = slv;
 	// スキル特化取得
 	let sp = sto.data[name].sp;
 	// スキル特化データのnullpo防止
@@ -723,7 +724,83 @@ function showSkill(){
 	// スキルデータループ
 	for(let sname in sdata){
 		// タグ生成
-		html += "<div class='flex'>";
+		html += "<div class='flex' style='margin-bottom:0.5em;'>";
+		// スキル特化の設定がされている場合
+		if(slv == 7){
+			html += "<div style='background-color:rgba(160,160,160,0.7);text-align:center;'>";
+			switch(sp[i]){
+				case 0:
+					html += "<div style='margin-left:30px;margin-right:30px;margin-top:30px;'>";
+					html += "<svg width='55' height='55'>";
+					html += "<path d='M25 10 L20 20 L25 30 L35 30 L40 20 L35 10 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M15 30 L10 40 L15 50 L25 50 L30 40 L25 30 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M35 30 L30 40 L35 50 L45 50 L50 40 L45 30 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M30  0 L25 10 L35 10 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M20 20 L15 30 L25 30 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M10 40 L5  50 L15 50 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M40 20 L35 30 L45 30 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M50 40 L45 50 L55 50 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M25 30 L35 30 L30 40 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M30 40 L25 50 L35 50 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "</svg>";
+					html += "</div>";
+					html += "<div style='font-size:11px;font-family:Courier'>MASTER RANK<br/><span style='font-size:16px;'>０</span></div>";
+					break;
+				case 1:
+					html += "<div style='margin-left:30px;margin-right:30px;margin-top:30px;'>";
+					html += "<svg width='55' height='55'>";
+					html += "<path d='M25 10 L20 20 L25 30 L35 30 L40 20 L35 10 Z' style='fill:rgba(255,255,255,1);stroke:white;'></path>";
+					html += "<path d='M15 30 L10 40 L15 50 L25 50 L30 40 L25 30 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M35 30 L30 40 L35 50 L45 50 L50 40 L45 30 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M30  0 L25 10 L35 10 Z' style='fill:rgba(255,0,0,1);stroke:white;'></path>";
+					html += "<path d='M20 20 L15 30 L25 30 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M10 40 L5  50 L15 50 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M40 20 L35 30 L45 30 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M50 40 L45 50 L55 50 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M25 30 L35 30 L30 40 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M30 40 L25 50 L35 50 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "</svg>";
+					html += "</div>";
+					html += "<div style='font-size:11px;font-family:Courier'>MASTER RANK<br/><span style='font-size:16px;'>Ⅰ</span></div>";
+					break;
+				case 2:
+					html += "<div>";
+					html += "<svg width='55' height='55'>";
+					html += "<path d='M25 10 L20 20 L25 30 L35 30 L40 20 L35 10 Z' style='fill:rgba(255,255,255,1);stroke:white;'></path>";
+					html += "<path d='M15 30 L10 40 L15 50 L25 50 L30 40 L25 30 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M35 30 L30 40 L35 50 L45 50 L50 40 L45 30 Z' style='fill:rgba(255,255,255,1);stroke:white;'></path>";
+					html += "<path d='M30  0 L25 10 L35 10 Z' style='fill:rgba(255,0,0,1);stroke:white;'></path>";
+					html += "<path d='M20 20 L15 30 L25 30 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M10 40 L5  50 L15 50 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M40 20 L35 30 L45 30 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M50 40 L45 50 L55 50 Z' style='fill:rgba(255,0,0,1);stroke:white;'></path>";
+					html += "<path d='M25 30 L35 30 L30 40 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M30 40 L25 50 L35 50 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "</svg>";
+					html += "</div>";
+					html += "<div style='font-size:11px;font-family:Courier'>MASTER RANK<br/><span style='font-size:16px;'>Ⅱ</span></div>";
+					break;
+				case 3:
+					html += "<div>";
+					html += "<svg width='55' height='55'>";
+					html += "<path d='M25 10 L20 20 L25 30 L35 30 L40 20 L35 10 Z' style='fill:rgba(255,255,255,1);stroke:white;'></path>";
+					html += "<path d='M15 30 L10 40 L15 50 L25 50 L30 40 L25 30 Z' style='fill:rgba(255,255,255,1);stroke:white;'></path>";
+					html += "<path d='M35 30 L30 40 L35 50 L45 50 L50 40 L45 30 Z' style='fill:rgba(255,255,255,1);stroke:white;'></path>";
+					html += "<path d='M30  0 L25 10 L35 10 Z' style='fill:rgba(255,0,0,1);stroke:white;'></path>";
+					html += "<path d='M20 20 L15 30 L25 30 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M10 40 L5  50 L15 50 Z' style='fill:rgba(255,0,0,1);stroke:white;'></path>";
+					html += "<path d='M40 20 L35 30 L45 30 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M50 40 L45 50 L55 50 Z' style='fill:rgba(255,0,0,1);stroke:white;'></path>";
+					html += "<path d='M25 30 L35 30 L30 40 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "<path d='M30 40 L25 50 L35 50 Z' style='fill:rgba(0,0,0,0);stroke:white;'></path>";
+					html += "</svg>";
+					html += "</div>";
+					html += "<div style='font-size:11px;font-family:Courier'>MASTER RANK<br/><span style='font-size:16px;'>Ⅲ</span></div>";
+					break;
+			}
+			html += "</div>";
+		}
+		html += "<div class='flex' style='width:38em;background-color:rgba(0,0,0,0.6);box-shadow:2px 2px 4px black;'>";
 		html += "<div style='position:relative;text-align:center;'>";
 		html += "<img src='skill/" + sname + ".png' style='width:90px;margin-top:1em;'/>";
 		if(sdata[sname].effect[slv - 1 + sp[i]]){
@@ -743,13 +820,6 @@ function showSkill(){
 			}
 		}
 		html += div(sname, {textAlign:"center",margin:"3px",width:"150px"});
-		// スキル特化の設定がされている場合
-		if(sp){
-			// 特化段階の表示
-			if(sp[i] > 0){
-				html += div("スキル特化" + sp[i] + "段階", {marginLeft:"1em", marginTop:"3px", color:"yellow"});
-			}
-		}
 		html += "</div>";
 		html += "<div>";
 		html += "<div class='flex' style='margin-top:1em;'>";
@@ -801,13 +871,14 @@ function showSkill(){
 		html += div(exp, {height:"5em"});
 		html += "</div>";
 		html += "</div>";
+		html += "</div>";
 		// ループカウンタのインクリメント
 		i++;
 	}
 	// HTML反映
 	ById("skillDetail").innerHTML = html;
 	// スキル詳細の表示
-	ById("skillDetail").style.display = "block";
+	ById("skillDetailOverlay").style.display = "block";
 	// イベント伝播の停止
 	event.stopPropagation();
 }
@@ -823,8 +894,8 @@ function hide(){
 		flg = true;
 	}
 	// スキル詳細が表示されている場合、非表示
-	if(ById("skillDetail").style.display == "block"){
-		ById("skillDetail").style.display = "none";
+	if(ById("skillDetailOverlay").style.display == "block"){
+		ById("skillDetailOverlay").style.display = "none";
 		flg = true;
 	}
 	// 上記いずれも表示されていなかった場合
