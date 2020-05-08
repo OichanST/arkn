@@ -859,6 +859,11 @@ const operator = {
 		en:"Schwarz",
 		rare:6,job:"狙撃",relocation:70,speed:1.6,trust:{atk:100},tag:["遠距離","火力"],
 		characteristic:"高威力の中距離射撃",
+		effect:function(arg){
+			if(arg.promotion >= 1){
+				return "物理防御ダウン";
+			}
+		},
 		stat:[
 			{
 				min:{hp: 781,atk:357,def: 86},
@@ -1054,6 +1059,9 @@ const operator = {
 		en:"Ifrit",
 		rare:6,job:"術師",relocation:70,speed:2.9,trust:{atk:110},tag:["遠距離","範囲攻撃","弱化"],
 		characteristic:"<span class='merit'>直線上</span>の敵に<span class='merit'>範囲術ダメージ</span>を与える",
+		effect:function(arg){
+			return "術耐性ダウン";
+		},
 		stat:[
 			{
 				min:{hp: 687,atk:377,def: 52},
@@ -4628,7 +4636,7 @@ const operator = {
 	"フロストリーフ":{
 		en:"Frostleaf",
 		rare:4,job:"前衛",relocation:70,speed:1.3,trust:{def:55},tag:["近距離","減速","火力"],
-		characteristic:"８０％の攻撃力で<span>遠距離攻撃</span>も行える",
+		characteristic:"８０％の攻撃力で<span class='merit'>遠距離攻撃</span>も行える",
 		stat:[
 			{
 				min:{hp: 949,atk:272,def:154},
