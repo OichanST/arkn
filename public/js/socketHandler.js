@@ -2,15 +2,15 @@
 
 let execute;
 let serverData;
+const socket = io.connect();
 
 function callServer(key, data){
+	if(!socket.connected){
+		socket.connect();
+	}
 	execute = key;
-	
-	const socket = io.connect();
 	socket.on("result", handleResult);
-	
 	socket.emit(key, data);
-	socket.disconnect();
 }
 
 function handleResult(result){
