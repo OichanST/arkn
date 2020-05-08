@@ -436,7 +436,7 @@ const operator = {
 	"ヘラグ":{
 		en:"Hellagur",
 		rare:6,job:"前衛",relocation:70,speed:1.2,trust:{hp:400,atk:70},tag:["近距離","火力","生存"],
-		characteristic:"味方の治療対象にならない<br/>敵を攻撃する度自身のHPを<span class='merit'>30/50/70</span>回復",
+		characteristic:"味方の治療対象にならない<br/>敵を攻撃する度自身のHPを<span class='merit'>@heal</span>回復",
 		stat:[
 			{
 				min:{hp:1568,atk:340,def:160},

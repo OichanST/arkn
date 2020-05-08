@@ -340,6 +340,22 @@ function ValueConverter(name, key, val){
 				ret = operator[name].resUp(arg);
 			}
 			return ret;
+		case "characteristic":
+			ret = val;
+			if(name == "ヘラグ"){
+				switch(sto.data[name].promotion){
+					case 0:
+						ret = ret.replace("@heal", 30);
+						break;
+					case 1:
+						ret = ret.replace("@heal", 50);
+						break;
+					case 2:
+						ret = ret.replace("@heal", 70);
+						break;
+				}
+			}
+			return ret;
 		// 潜在
 		case "potential":
 			ret = "";
