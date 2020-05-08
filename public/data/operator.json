@@ -96,7 +96,7 @@ const operator = {
 				]
 			},
 			"スカルクラッシュ":{
-				exp:"攻撃速度が延長し、攻撃時攻撃力が@atk%まで上昇、更に40%の確率で攻撃した敵を@stan秒間スタンさせる",
+				exp:"攻撃速度が<span class='demerit'>延長</span>し、攻撃時攻撃力が<span class='merit'>@atk%まで上昇</span>、<span class='merit'>更に40%</span>の確率で攻撃した敵を<span class='merit'>@stan</span>秒間スタンさせる",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:0,need:30,pers:15,atk:260,stan:0.5},
