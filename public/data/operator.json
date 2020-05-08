@@ -168,7 +168,7 @@ const operator = {
 		],
 		skill:{
 			"迅速攻撃γ":{
-				exp:"攻撃力+@atk%、攻撃速度+@speed",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:45,pers:35,atk:20,speed:20},
@@ -184,7 +184,7 @@ const operator = {
 				]
 			},
 			"波涛の裂刃":{
-				exp:"配置後の@time秒間、攻撃力+@atk%",
+				exp:"配置後の<span class='merit'>@time</span>秒間、攻撃力<span class='merit'>+@atk%</span>",
 				passive:true,
 				effect:[
 					{time:15,atk: 80},
@@ -200,7 +200,7 @@ const operator = {
 				]
 			},
 			"海嘯の悲歌":{
-				exp:"攻撃力、防御力、最大HP+@atk%",
+				exp:"攻撃力、防御力、最大HP<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:50,need:90,pers:35,atk: 70,def: 70,hp: 70},
