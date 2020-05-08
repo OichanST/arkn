@@ -820,7 +820,7 @@ const operator = {
 		],
 		skill:{
 			"アサルトモード":{
-				exp:"次の通常攻撃時、@cnt回連続で攻撃力の@atk%の物理ダメージを与える",
+				exp:"次の通常攻撃時、<span class='merit'>@cnt</span>回連続で攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与える",
 				recover:"attack",activate:"auto",
 				effect:[
 					{need:5,cnt:3,atk:105},
@@ -836,7 +836,7 @@ const operator = {
 				]
 			},
 			"バーストモード":{
-				exp:"通常攻撃が攻撃力の@atk%での@cnt回連続攻撃になる",
+				exp:"通常攻撃が攻撃力の<span class='merit'>@atk%</span>での<span class='merit'>@cnt</span>回連続攻撃になる",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:15,need:45,pers:15,cnt:4,atk:100},
@@ -852,19 +852,19 @@ const operator = {
 				]
 			},
 			"オーバーロード":{
-				exp:"通常攻撃が@cnt回連続攻撃にな@text",
+				exp:"通常攻撃が<span class='merit'>@cnt</span>回連続攻撃にな@text",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:20,need:50,pers:15,cnt:5,text:"る"},
 					{start:20,need:48,pers:15,cnt:5,text:"る"},
 					{start:20,need:46,pers:15,cnt:5,text:"る"},
-					{start:20,need:44,pers:15,cnt:5,text:"り、攻撃間隔がわずかに短縮"},
-					{start:20,need:42,pers:15,cnt:5,text:"り、攻撃間隔がわずかに短縮"},
-					{start:20,need:40,pers:15,cnt:5,text:"り、攻撃間隔がわずかに短縮"},
-					{start:20,need:38,pers:15,cnt:5,text:"り、攻撃間隔がやや短縮"},
-					{start:20,need:36,pers:15,cnt:5,text:"り、攻撃間隔がやや短縮し、攻撃力が@atk%まで上昇",atk:103},
-					{start:20,need:34,pers:15,cnt:5,text:"り、攻撃間隔がやや短縮し、攻撃力が@atk%まで上昇",atk:107},
-					{start:20,need:30,pers:15,cnt:5,text:"り、攻撃間隔が短縮し、攻撃力が@atk%まで上昇",atk:110}
+					{start:20,need:44,pers:15,cnt:5,text:"り、攻撃間隔が<span class='merit'>わずかに短縮</span>"},
+					{start:20,need:42,pers:15,cnt:5,text:"り、攻撃間隔が<span class='merit'>わずかに短縮</span>"},
+					{start:20,need:40,pers:15,cnt:5,text:"り、攻撃間隔が<span class='merit'>わずかに短縮</span>"},
+					{start:20,need:38,pers:15,cnt:5,text:"り、攻撃間隔が<span class='merit'>やや短縮</span>"},
+					{start:20,need:36,pers:15,cnt:5,text:"り、攻撃間隔が<span class='merit'>やや短縮</span>し、攻撃力が<span class='merit'>@atk%</span>まで上昇",atk:103},
+					{start:20,need:34,pers:15,cnt:5,text:"り、攻撃間隔が<span class='merit'>やや短縮</span>し、攻撃力が<span class='merit'>@atk%</span>まで上昇",atk:107},
+					{start:20,need:30,pers:15,cnt:5,text:"り、攻撃間隔が<span class='merit'>短縮</span>し、攻撃力が<span class='merit'>@atk%</span>まで上昇",atk:110}
 				]
 			}
 		}
