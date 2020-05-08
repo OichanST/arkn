@@ -3,7 +3,17 @@
 let execute;
 let serverData;
 
-socket.on("result", function(result){
+function callServer(key, data){
+	execute = key;
+	
+	const socket = io.connect();
+	socket.on("result", handleResult);
+	
+	socket.emit(key, data);
+	socket.disconnect();
+}
+
+function handleResult(result){
 	switch(execute){
 		case "login":
 			if(result.rowCount == 1){
@@ -23,11 +33,4 @@ socket.on("result", function(result){
 		case "data":
 			break;
 	}
-});
-
-function callServer(key, data){
-	execute = key;
-	const socket = io.connect();
-	socket.emit(key, data);
-	socket.disconnect();
 }
