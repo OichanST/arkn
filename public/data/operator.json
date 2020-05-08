@@ -400,7 +400,7 @@ const operator = {
 				]
 			},
 			"赤霄・抜刀":{
-				exp:"前方一定範囲の敵最大<span class='merit'>@target</span>体に攻撃力の<span class='merit'>@atk%</span>の<<span class='charge'>物理</span>ダメージと攻撃力の<span class='merit'>@arts%</span>の<span class='charge'>術</span>ダメージを与える",
+				exp:"前方一定範囲の敵最大<span class='merit'>@target</span>体に攻撃力の<span class='merit'>@atk%</span>の<span class='charge'>物理</span>ダメージと攻撃力の<span class='merit'>@arts%</span>の<span class='charge'>術</span>ダメージを与える",
 				recover:"attack",activate:"manual",
 				effect:[
 					{start:10,need:27,target:4,atk:330,arts:330},
@@ -482,7 +482,7 @@ const operator = {
 		],
 		skill:{
 			"新月":{
-				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇し、@cnt回攻撃",
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇し、@cnt回攻撃",
 				recover:"attack",activate:"auto",
 				effect:[
 					{atk:110,cnt:2},
@@ -498,7 +498,7 @@ const operator = {
 				]
 			},
 			"弦月":{
-				exp:"攻撃力+@atk%、通常攻撃が@cnt回攻撃になり、物理回避率@dodge%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、通常攻撃が@cnt回攻撃になり、物理回避率<span class='merit'>+@dodge%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{atk:20,cnt:2,dodge:75},
@@ -514,7 +514,7 @@ const operator = {
 				]
 			},
 			"満月":{
-				exp:"攻撃力+@atk%、攻撃範囲+@rangeマス、敵最大@target体を同時に攻撃",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃範囲<span class='merit'>+@range</span>マス、敵最大<span class='merit'>@target</span>体を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
 					{atk:40,range:1,target:3},
