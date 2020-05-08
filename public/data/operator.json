@@ -459,6 +459,20 @@ const operator = {
 				}
 			},
 		],
+		cond:function(arg){
+			if(arg.promotion == 1){
+				return "HP60%減少時";
+			}else if(arg.promotion == 2){
+				return "HP70%減少時";
+			}
+		},
+		speedUp:function(arg){
+			if(arg.promotion == 1){
+				return 75;
+			}else if(arg.promotion == 2){
+				return 100;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
