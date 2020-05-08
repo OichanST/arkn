@@ -384,7 +384,7 @@ const operator = {
 		],
 		skill:{
 			"鞘打ち":{
-				exp:"次の通常攻撃時、敵に攻撃力の@atk%の物理ダメージを与え、@stan秒間スタンさせる",
+				exp:"次の通常攻撃時、敵に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる",
 				recover:"attack",activate:"auto",
 				effect:[
 					{need:7,atk:200,stan:1},
@@ -400,7 +400,7 @@ const operator = {
 				]
 			},
 			"赤霄・抜刀":{
-				exp:"前方一定範囲の敵最大@target体に攻撃力の@atk%の物理ダメージと攻撃力の@arts%の術ダメージを与える",
+				exp:"前方一定範囲の敵最大<span class='merit'>@target</span>体に攻撃力の<span class='merit'>@atk%</span>の<<span class='charge'>物理</span>ダメージと攻撃力の<span class='merit'>@arts%</span>の<span class='charge'>術</span>ダメージを与える",
 				recover:"attack",activate:"manual",
 				effect:[
 					{start:10,need:27,target:4,atk:330,arts:330},
@@ -416,7 +416,7 @@ const operator = {
 				]
 			},
 			"赤霄・絶影":{
-				exp:"周囲一定範囲内の最も近い敵に対して<br/>攻撃力@atk%の物理ダメージを@cnt回与え、最後の1回で@stan秒間スタンさせる<br/>@cnt回未満かつ他に敵がいる場合、攻撃し続ける",
+				exp:"周囲一定範囲内の最も近い敵に対して<br/>攻撃力<span class='merit'>@atk%</span>の物理ダメージを<span class='merit'>@cnt</span>回与え、最後の1回で<span class='merit'>@stan</span>秒間スタンさせる<br/>@cnt回未満かつ他に敵がいる場合、攻撃し続ける",
 				recover:"attack",activate:"manual",
 				effect:[
 					{start:10,need:40,atk:200,cnt:10,stan:2},
