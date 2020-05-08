@@ -272,7 +272,7 @@ const operator = {
 		],
 		skill:{
 			"強撃γ":{
-				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇",
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇",
 				recover:"attack",activate:"auto",
 				effect:[
 					{need:4,atk:190},
@@ -288,7 +288,7 @@ const operator = {
 				]
 			},
 			"雪境生存戦略":{
-				exp:"発動する度初期状態と次の状態とが切り替わる：<br/>攻撃範囲縮小、防御力+@def%、1秒ごとにHPが最大値の@heal%回復",
+				exp:"<span class='charge'>発動する度初期状態と次の状態とが切り替わる：</span><br/>攻撃範囲<span class='demerit'>縮小</span>、防御力<span class='merit'>+@def%</span>、1秒ごとにHPが最大値の<span class='merit'>@heal%</span>回復",
 				recover:"auto",activate:"manual",
 				effect:[
 					{need:5,def:35,heal:3.0},
@@ -304,7 +304,7 @@ const operator = {
 				]
 			},
 			"真銀斬":{
-				exp:"防御力@def%、攻撃力+@atk%、攻撃範囲拡大、敵最大@target体を同時に攻撃(近距離攻撃と見なす)",
+				exp:"防御力<span class='demerit'>@def%</span>、攻撃力<span class='merit'>+@atk%</span>、攻撃範囲<span class='merit'>拡大</span>、敵最大<span class='merit'>@target</span>体を同時に攻撃(近距離攻撃と見なす)",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:50,need:90,pers:20,def:-70,atk:110,target:3},
