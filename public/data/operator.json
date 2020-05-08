@@ -588,7 +588,7 @@ const operator = {
 		],
 		skill:{
 			"戦意昂揚":{
-				exp:"防御力+@def%、攻撃力+@atk%",
+				exp:"防御力<span class='merit'>+@def%</span>、攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:20,need:50,pers:20,def:35,atk:10},
@@ -604,7 +604,7 @@ const operator = {
 				]
 			},
 			"荊棘":{
-				exp:"防御力+@def%<br/>攻撃される度自身の攻撃力の@atk%の物理ダメージで敵に反撃する",
+				exp:"防御力<span class='merit'>+@def%</span><br/>攻撃される度自身の攻撃力の<span class='merit'>@atk%</span>の物理ダメージで敵に反撃する",
 				passive:true,
 				effect:[
 					{def: 5,atk: 50},
@@ -620,7 +620,7 @@ const operator = {
 				]
 			},
 			"般若":{
-				exp:"攻撃力+@atk%、防御力+@def%、盾を回転し、前方1マスにいる敵全員を同時に攻撃",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、防御力<span class='merit'>+@def%</span>、盾を回転し、前方1マスにいる敵全員を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:20,need:60,pers:25,atk: 65,def:40},
@@ -705,7 +705,7 @@ const operator = {
 		],
 		skill:{
 			"応急処置":{
-				exp:"次の通常攻撃時、周囲一定範囲内にいるHPが50%以下の味方1人に、攻撃力の@heal%回復<br/>@charge回チャージ可能",
+				exp:"次の通常攻撃時、周囲一定範囲内にいるHPが50%以下の味方1人に、攻撃力の<span class='merit'>@heal%回復</span><br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 					{need:6,heal:110,charge:1},
@@ -721,7 +721,7 @@ const operator = {
 				]
 			},
 			"薬剤配置":{
-				exp:"範囲内の味方全員のHPをサリアの攻撃力の@heal%回復",
+				exp:"範囲内の味方全員のHPをサリアの攻撃力の<span class='merit'>@heal%</span>回復",
 				recover:"auto",activate:"auto",
 				effect:[
 					{need:10,heal: 80},
@@ -737,7 +737,7 @@ const operator = {
 				]
 			},
 			"硬質化":{
-				exp:"近くにいる味方全員のHPを1秒ごとにサリアの攻撃力の@heal%分回復<br/>近くにいる敵全員の受ける術ダメージ+@res%、移動速度@slow%",
+				exp:"近くにいる味方全員のHPを1秒ごとにサリアの攻撃力の<span class='merit'>@heal%</span>分回復<br/>近くにいる敵全員の受ける術ダメージ<span class='merit'>+@res%</span>、移動速度<span class='merit'>@slow%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:45,need:80,pers:10,heal:10,res:20,slow:-60},
