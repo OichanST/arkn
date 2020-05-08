@@ -191,7 +191,13 @@ button{
 	width:2.0em;
 }
 .merit{
-	color:blue;
+	color:rgb(64,128,255);
+}
+.demerit{
+	color:rgb(255,128,64);
+}
+.charge{
+	color:rgb(255,255,64);
 }
 .whitelabel{
 	color:black;

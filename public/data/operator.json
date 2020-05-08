@@ -80,7 +80,7 @@ const operator = {
 				]
 			},
 			"スカイスマッシュ":{
-				exp:"次の通常攻撃時、所持コスト+3、周囲の敵全員に攻撃力の@atk%の物理ダメージを与える<br/>@charge回チャージ可能",
+				exp:"次の通常攻撃時、所持コスト<span class='merit'>+3</span>、周囲の敵全員に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与える<br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 					{start:0,need:12,atk:220,charge:1},
