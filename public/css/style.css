@@ -191,7 +191,7 @@ button{
 	width:2.0em;
 }
 .merit{
-	color:rgb(64,128,255);
+	color:rgb(80,160,255);
 }
 .demerit{
 	color:rgb(255,128,64);
@@ -326,8 +326,7 @@ button:disabled{
 	height:20em;
 	color:white;
 	background-color:rgba(0,0,0,0.8);
-	padding-left:0.4em;
-	padding-right:0.4em;
+	padding:1em 2em 1em 2em;
 	z-index:99;
 }
 #skillDetailOverlay{

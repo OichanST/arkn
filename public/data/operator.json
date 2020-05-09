@@ -447,14 +447,14 @@ const operator = {
 				hp:2868,atk:632,def:283,
 				res:0,cost:25,block:1,range:[[1,0]],
 				nature:{
-					"月満ち星隠る":"HPの減少量に応じて攻撃速度が上昇(上昇最大値:HPが60%減少時、攻撃速度+75)"
+					"月満ち星隠る":"HPの減少量に応じて攻撃速度が上昇(上昇最大値：HPが60%減少時、攻撃速度+75)"
 				}
 			},
 			{
 				hp:3825,atk:762,def:334,
 				res:0,cost:26,block:1,range:[[1,0]],
 				nature:{
-					"月満ち星隠る":"HPの減少量に応じて攻撃速度が上昇(上昇最大値:HPが70%減少時、攻撃速度+100)",
+					"月満ち星隠る":"HPの減少量に応じて攻撃速度が上昇(上昇最大値：HPが70%減少時、攻撃速度+100)",
 					"策その身に宿る":"敵を未ブロック時、1秒ごとにHPが60回復"
 				}
 			},
@@ -485,48 +485,48 @@ const operator = {
 				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇し、@cnt回攻撃",
 				recover:"attack",activate:"auto",
 				effect:[
-					{atk:110,cnt:2},
-					{atk:115,cnt:2},
-					{atk:120,cnt:2},
-					{atk:125,cnt:2},
-					{atk:130,cnt:2},
-					{atk:135,cnt:2},
-					{atk:145,cnt:2},
-					{atk:155,cnt:2},
-					{atk:165,cnt:2},
-					{atk:175,cnt:2}
+					{need:4,atk:110,cnt:2},
+					{need:4,atk:115,cnt:2},
+					{need:4,atk:120,cnt:2},
+					{need:3,atk:125,cnt:2},
+					{need:3,atk:130,cnt:2},
+					{need:3,atk:135,cnt:2},
+					{need:3,atk:145,cnt:2},
+					{need:3,atk:155,cnt:2},
+					{need:3,atk:165,cnt:2},
+					{need:2,atk:175,cnt:2}
 				]
 			},
 			"弦月":{
 				exp:"攻撃力<span class='merit'>+@atk%</span>、通常攻撃が@cnt回攻撃になり、物理回避率<span class='merit'>+@dodge%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{atk:20,cnt:2,dodge:75},
-					{atk:25,cnt:2,dodge:75},
-					{atk:30,cnt:2,dodge:75},
-					{atk:35,cnt:2,dodge:75},
-					{atk:40,cnt:2,dodge:75},
-					{atk:45,cnt:2,dodge:75},
-					{atk:50,cnt:2,dodge:75},
-					{atk:60,cnt:2,dodge:75},
-					{atk:70,cnt:2,dodge:75},
-					{atk:80,cnt:2,dodge:75}
+					{start: 0,need:35,pers:10,atk:20,cnt:2,dodge:75},
+					{start: 0,need:34,pers:10,atk:25,cnt:2,dodge:75},
+					{start: 0,need:33,pers:10,atk:30,cnt:2,dodge:75},
+					{start: 5,need:32,pers:11,atk:35,cnt:2,dodge:75},
+					{start: 5,need:31,pers:11,atk:40,cnt:2,dodge:75},
+					{start: 5,need:30,pers:11,atk:45,cnt:2,dodge:75},
+					{start:10,need:29,pers:12,atk:50,cnt:2,dodge:75},
+					{start:11,need:28,pers:12,atk:60,cnt:2,dodge:75},
+					{start:12,need:27,pers:12,atk:70,cnt:2,dodge:75},
+					{start:15,need:25,pers:13,atk:80,cnt:2,dodge:75}
 				]
 			},
 			"満月":{
 				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃範囲<span class='merit'>+@range</span>マス、敵最大<span class='merit'>@target</span>体を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
-					{atk:40,range:1,target:3},
-					{atk:45,range:1,target:3},
-					{atk:50,range:1,target:3},
-					{atk:55,range:1,target:3},
-					{atk:60,range:1,target:3},
-					{atk:65,range:1,target:3},
-					{atk:70,range:1,target:3},
-					{atk:80,range:2,target:3},
-					{atk:90,range:2,target:3},
-					{atk:100,range:2,target:3}
+					{start:15,need:45,pers:12,atk:40,range:1,target:3},
+					{start:15,need:45,pers:12,atk:45,range:1,target:3},
+					{start:15,need:45,pers:12,atk:50,range:1,target:3},
+					{start:15,need:43,pers:13,atk:55,range:1,target:3},
+					{start:15,need:43,pers:13,atk:60,range:1,target:3},
+					{start:15,need:43,pers:13,atk:65,range:1,target:3},
+					{start:15,need:41,pers:14,atk:70,range:1,target:3},
+					{start:15,need:39,pers:14,atk:80,range:2,target:3},
+					{start:15,need:37,pers:14,atk:90,range:2,target:3},
+					{start:15,need:35,pers:15,atk:100,range:2,target:3}
 				]
 			}
 		}
@@ -767,14 +767,14 @@ const operator = {
 			{
 				hp:1338,atk:437,def:136,res:0,cost:14,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
-					"スピードリロード":"攻撃速度+6"
+					"スピードリロード":"攻撃速度+6(+3)"
 				}
 			},
 			{
 				hp:1673,atk:540,def:161,res:0,cost:14,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
-					"スピードリロード":"攻撃速度+12",
-					"天使の祝福":"攻撃力+6%、最大HP+10%<br/>配置中、ランダムな味方1人に同じ効果を付与"
+					"スピードリロード":"攻撃速度+12(+3)",
+					"天使の祝福":"自身の攻撃力+6%、最大HP+10%。配置中、ランダムな味方1人に同じ効果を付与"
 				}
 			}
 		],
@@ -923,7 +923,7 @@ const operator = {
 		skill:{
 			"強射":{
 				recover:"attack",activate:"auto",
-				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇し、素質の発動率が@nature%まで上昇",
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇し、素質の発動率が<span class='merit'>@nature%</span>まで上昇",
 				effect:[
 					{need:5,atk:160,nature:50},
 					{need:5,atk:165,nature:50},
@@ -939,7 +939,7 @@ const operator = {
 			},
 			"暮色の慧眼":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃力+@atk%、素質の発動率が@nature%まで上昇",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、素質の発動率が<span class='merit'>@nature%</span>まで上昇",
 				effect:[
 					{start:10,need:40,pers:30,atk:70,nature:35},
 					{start:10,need:39,pers:31,atk:75,nature:35},
@@ -955,7 +955,7 @@ const operator = {
 			},
 			"ターミネート":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃範囲が前方@rangeマスになり、通常攻撃の間隔がわずかに延長。攻撃力+@atk%、素質の発動率が@nature%まで上昇"
+				exp:"攻撃範囲が前方<span class='charge'>@rangeマス</span>になり、通常攻撃の間隔が<span class='demerit'>わずかに延長</span>。攻撃力<span class='merit'>+@atk%</span>、素質の発動率が<span class='merit'>@nature%</span>まで上昇"
 				,
 				effect:[
 					{start: 5,need:35,pers:15,range:3,atk:100,nature:100},
@@ -1082,20 +1082,20 @@ const operator = {
 				max:{hp: 982,atk:563,def: 79},
 				res:10,cost:31,block:1,range:[[1,0],[2,0],[3,0],[4,0]],
 				nature:{
-					"精神融解":"攻撃範囲内に入った敵の術耐性-15%"
+					"精神融解":"攻撃範囲内の敵の術耐性-15%"
 				}
 			},
 			{
 				hp:1276,atk:722,def:109,res:15,cost:34,block:1,range:[[1,0],[2,0],[3,0],[4,0],[5,0]],
 				nature:{
-					"精神融解":"攻撃範囲内に入った敵の術耐性-27%"
+					"精神融解":"攻撃範囲内の敵の術耐性-27%"
 				}
 			},
 			{
 				hp:1680,atk:870,def:130,res:20,cost:34,block:1,range:[[1,0],[2,0],[3,0],[4,0],[5,0]],
 				nature:{
-					"精神融解":"攻撃範囲内に入った敵の術耐性-40%",
-					"ライン回路":"6秒ごとに2SP回復する"
+					"精神融解":"攻撃範囲内の敵の術耐性-40%",
+					"ライン回路":"6秒ごとにSPが通常回復とは別に2回復"
 				}
 			}
 		],
@@ -1123,7 +1123,7 @@ const operator = {
 		],
 		skill:{
 			"猛火":{
-				exp:"攻撃力+@atk%、攻撃速度+@speed",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:50,pers:20,atk:10,speed:45},
@@ -1139,7 +1139,7 @@ const operator = {
 				]
 			},
 			"爆炎":{
-				exp:"次の通常攻撃時、敵に攻撃力の@atk%の術ダメージを与え、3秒間防御力@debuff、やけど状態(継続ダメージを受ける)にする<br/>@charge回チャージ可能",
+				exp:"次の通常攻撃時、敵に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、<span class='merit'>3</span>秒間防御力<span class='merit'>@debuff</span>、やけど状態(継続ダメージを受ける)にする<br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 					{need:9,atk:130,debuff:-100,charge:2},
@@ -1155,7 +1155,7 @@ const operator = {
 				]
 			},
 			"灼獄":{
-				exp:"攻撃範囲内、地面にいる敵全員に1秒ごとに攻撃力の@atk%の術ダメージを与え、術耐性@debuff<br/>自身のHPが1秒ごとに最大値の2%減少",
+				exp:"攻撃範囲内、地面にいる敵全員に1秒ごとに攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、術耐性<span class='merit'>@debuff</span><br/><span class='charge'>自身のHPが1秒ごとに最大値の2%減少</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{need:40,atk: 75,debuff:-7},
@@ -1217,7 +1217,7 @@ const operator = {
 		],
 		skill:{
 			"信条":{
-				exp:"攻撃力+@atk%、攻撃速度+@speed",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:50,pers:20,atk:45,speed:10},
@@ -1233,7 +1233,7 @@ const operator = {
 				]
 			},
 			"オートカバー":{
-				exp:"次に味方を回復する時、対象に継続@time秒のシールドを付与。シールドは自身の攻撃力の@atk%のダメージを吸収、対象の防御力を@def%上昇<br/>@charge回チャージ可能",
+				exp:"次に味方を回復する時、対象に継続<span class='merit'>@time</span>秒のシールドを付与。シールドは自身の攻撃力の<span class='merit'>@atk%</span>のダメージを吸収、対象の防御力を<span class='merit'>@def%上昇</span><br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{need:8,time:2,atk:20,def:20,charge:1},
@@ -1249,7 +1249,7 @@ const operator = {
 				]
 			},
 			"教導の結界":{
-				exp:"攻撃力+@atk%<br/>攻撃範囲内の味方全員の防御力+@def%",
+				exp:"攻撃力<span class='merit'>+@atk%</span><br/>攻撃範囲内の味方全員の防御力<span class='merit'>+@def%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:100,need:120,pers:60,atk:20,def:30},
@@ -1289,7 +1289,7 @@ const operator = {
 				hp:1705,atk:350,def:169,res:5,cost:18,block:1,range:[[-1,1],[0,1],[1,1],[2,1],[-1,0],[1,0],[2,0],[-1,-1],[0,-1],[1,-1],[2,-1]],
 				nature:{
 					"白悪魔の庇護":"攻撃範囲内の味方の術耐性+15",
-					"うたかたの幻影":"攻撃、ブロック不可の幻影を配置できる。毎秒最大HPの3%減る"
+					"うたかたの幻影":"敵に狙われやすい鳥籠の幻影を召喚できる。幻影は攻撃もブロックもできない。術耐性が75、物理回避が30%で、1秒ごとにHPが最大値の3%減少"
 				}
 			}
 		],
@@ -1302,7 +1302,7 @@ const operator = {
 		],
 		skill:{
 			"回復力強化γ":{
-				exp:"攻撃力+@atk%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:20,need:40,pers:30,atk:40},
@@ -1318,7 +1318,7 @@ const operator = {
 				]
 			},
 			"アーツシールド":{
-				exp:"次に味方を回復する時、全ての対象に継続@time秒のシールドを付与。シールドは自身の攻撃力の@atk%の術ダメージを吸収、対象の術耐性を@res上昇<br/>@charge回チャージ可能",
+				exp:"次に味方を回復する時、全ての対象に継続<span class='merit'>@time</span>秒のシールドを付与。シールドは自身の攻撃力の<span class='merit'>@atk%</span>の術ダメージを吸収、対象の術耐性を<span class='merit'>@res</span>上昇<br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 					{need:11,time:  3,atk:40,res:5,charge:1},
@@ -1334,7 +1334,7 @@ const operator = {
 				]
 			},
 			"聖域":{
-				exp:"攻撃範囲拡大、攻撃力+@atk%、攻撃範囲内の味方の術耐性+@res%、術回避+@dodge%",
+				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atk%</span>、攻撃範囲内の味方の術耐性<span class='merit'>+@res%</span>、術回避<span class='merit'>+@dodge%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:100,need:120,pers:60,atk:30,res: 75,dodge:10},
@@ -1402,7 +1402,7 @@ const operator = {
 		],
 		skill:{
 			"秘杖・急収束":{
-				exp:"攻撃力+@atk%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"attack",activate:"auto",
 				effect:[
 					{need:10,pers:20,atk:40},
@@ -1418,7 +1418,7 @@ const operator = {
 				]
 			},
 			"秘杖・微粒子":{
-				exp:"通常攻撃の間隔が超大幅に短縮、@atk%の攻撃力で術攻撃を行う<br/>スキル発動中のみ攻撃行動を行う",
+				exp:"通常攻撃の間隔が<span class='merit'>超大幅に短縮</span>、<span class='demerit'>@atk%</span>の攻撃力で術攻撃を行う<br/><span class='charge'>スキル発動中のみ攻撃行動を行う</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:20,pers:20,atk:30},
@@ -1434,7 +1434,7 @@ const operator = {
 				]
 			},
 			"秘杖・反重力":{
-				exp:"敵全員の重量が1ランクダウン、攻撃範囲拡大、攻撃力+@atk%、敵最大@target体を同時に攻撃<br/>スキル発動中のみ攻撃行動を行う",
+				exp:"敵全員の重量が<span class='merit'>1ランクダウン</span>、攻撃範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atk%</span>、敵最大<span class='merit'>@target</span>体を同時に攻撃<br/><span class='charge'>スキル発動中のみ攻撃行動を行う</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:25,pers:10,atk: 75,target:4},
@@ -1461,14 +1461,14 @@ const operator = {
 				max:{hp:670,atk:302,def: 87},
 				res:15,cost:10,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[0,1],[1,1],[2,1]],
 				nature:{
-					"支援ドローン・DDF":"支援ドローンが召喚可能(ブロック数0、召喚上限3、最大配置数3）。<br/>スキルチェンジで機能変更。"
+					"支援ドローン・DDF":"支援ドローンが召喚可能(ブロック数0、召喚上限3、最大同時配置数3）。<br/>スキルチェンジで機能変更。"
 				}
 			},
 			{
 				hp:871,atk:403,def:116,
 				res:20,cost:12,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
 				nature:{
-					"支援ドローン・DDF":"支援ドローンが召喚可能(ブロック数0、召喚上限4、最大配置数3）。<br/>スキルチェンジで機能変更。",
+					"支援ドローン・DDF":"支援ドローンが召喚可能(ブロック数0、召喚上限4、最大同時配置数3）。<br/>スキルチェンジで機能変更。",
 					"光学迷彩カスタム":"支援ドローンは配置後12秒ステルス状態になる(敵の遠距離攻撃の対象にならない)"
 				}
 			},
@@ -1476,7 +1476,7 @@ const operator = {
 				hp:1103,atk:469,def:140,
 				res:20,cost:12,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
 				nature:{
-					"支援ドローン・DDF":"支援ドローンが召喚可能(ブロック数0、召喚上限5、最大配置数3）。<br/>スキルチェンジで機能変更。",
+					"支援ドローン・DDF":"支援ドローンが召喚可能(ブロック数0、召喚上限5、最大同時配置数3）。<br/>スキルチェンジで機能変更。",
 					"光学迷彩カスタム":"支援ドローンは配置後12秒ステルス状態になる(敵の遠距離攻撃の対象にならない)"
 				}
 			}
@@ -1490,7 +1490,7 @@ const operator = {
 		],
 		skill:{
 			"フリーズモジュール":{
-				exp:"パッシブ:自身とドローンの攻撃範囲内の敵を3秒ごとに@slow秒足止めを付与。スキル発動時、「@slow秒の足止め」が「@bind秒のバインド（移動停止）」に変化する。効果時間終了後配置中のドローンを全て回収",
+				exp:"パッシブ:自身とドローンの攻撃範囲内の敵を<span class='merit'>3</span>秒ごとに<span class='merit'>@slow</span>秒足止めを付与。スキル発動時、「<span class='merit'>@slow</span>秒の足止め」が「<span class='merit'>@bind</span>秒のバインド（移動停止）」に変化する。<span class='charge'>効果時間終了後配置中のドローンを全て回収</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:10,need:30,pers:15,slow:0.7,bind:1.6},
@@ -1506,7 +1506,7 @@ const operator = {
 				]
 			},
 			"レーザーモジュール":{
-				exp:"パッシブ:ドローンが術攻撃を行い、近距離ユニットとして配置可能。スキル発動時、自身とドローンの攻撃速度+100、ドローンが同時攻撃を行う。効果時間終了後配置中のドローンを全て回収",
+				exp:"パッシブ:ドローンが術攻撃を行い、近距離ユニットとして配置可能。スキル発動時、自身とドローンの攻撃速度<span class='merit'>+100</span>、ドローンが<span class='merit'>同時攻撃</span>を行う。<span class='charge'>効果時間終了後配置中のドローンを全て回収</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:25,need:50,pers:15,speed:60},
@@ -1522,7 +1522,7 @@ const operator = {
 				]
 			},
 			"アサルトモジュール":{
-				exp:"パッシブ:ドローンが範囲物理攻撃を行い、近距離ユニットとして配置可能。スキル発動時、自身とドローンの攻撃力+@atk%、ドローンの攻撃による爆破範囲が拡大。効果時間終了後配置中の全てのドローンを回収",
+				exp:"パッシブ:ドローンが範囲物理攻撃を行い、近距離ユニットとして配置可能。スキル発動時、自身とドローンの攻撃力<span class='merit'>+@atk%</span>、ドローンの攻撃による爆破範囲が<span class='merit'>拡大</span>。<span class='charge'>効果時間終了後配置中の全てのドローンを回収</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:25,need:50,pers:15,atk:60},
@@ -1571,7 +1571,7 @@ const operator = {
 		],
 		skill:{
 			"突撃指令γ":{
-				exp:"所持コスト+12",
+				exp:"所持コスト<span class='merit'>+12</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 					{start:10,need:44},
@@ -1587,7 +1587,7 @@ const operator = {
 				]
 			},
 			"剣雨":{
-				exp:"所持コスト+9<br/>周囲一定範囲内の敵全員に2回連続で攻撃力の@atk%の術ダメージを与え、@stan秒間スタンさせる",
+				exp:"所持コスト+<span class='merit'>9</span><br/>周囲一定範囲内の敵全員に<span class='merit'>2回連続</span>で攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:20,need:40,atk:105,stan:2},
@@ -1641,7 +1641,7 @@ const operator = {
 		],
 		skill:{
 			"突撃指令γ":{
-				exp:"所持コスト+12",
+				exp:"所持コスト<span class='merit'>+12</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 					{start:10,need:44},
@@ -1657,7 +1657,7 @@ const operator = {
 				]
 			},
 			"ウルサスの雄叫び":{
-				exp:"効果時間内所持コストが徐々に増加(合計@cost)<br/>先鋒ユニット全員の攻撃力、防御力+@atk%、敵を倒す度所持コスト+1",
+				exp:"効果時間内所持コストが徐々に増加(合計<span class='merit'>@cost</span>)<br/>先鋒ユニット全員の攻撃力、防御力<span class='merit'>+@atk</span>%、敵を倒す度所持コスト<span class='merit'>+1</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:10,need:45,cost: 9,atk:25,def:25},
@@ -1721,7 +1721,7 @@ const operator = {
 		],
 		skill:{
 			"防御力強化γ":{
-				exp:"防御力+@def%",
+				exp:"防御力<span class='merit'>+@def%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:45,pers:40,def:30},
@@ -1737,7 +1737,7 @@ const operator = {
 				]
 			},
 			"引かない！":{
-				exp:"攻撃範囲縮小、攻撃力と防御力+@atk%、ブロック数+1、ブロック中の敵全員を同時に攻撃",
+				exp:"攻撃範囲<span class='demerit'>縮小</span>、攻撃力と防御力<span class='merit'>+@atk</span>%、ブロック数<span class='merit'>+1</span>、ブロック中の敵全員を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:50,need:80,pers:30,atk:30,def:30},
@@ -1801,7 +1801,7 @@ const operator = {
 		],
 		skill:{
 			"砕甲拳":{
-				exp:"次の通常攻撃時、攻撃力+@atk%、敵の防御力を@penetrate%無視",
+				exp:"次の通常攻撃時、攻撃力<span class='merit'>+@atk%</span>、敵の防御力を<span class='merit'>@penetrate%</span>無視",
 				recover:"attack",activate:"auto",
 				effect:[
 					{need:4,atk:50,penetrate:35},
@@ -1817,7 +1817,7 @@ const operator = {
 				]
 			},
 			"裂魂":{
-				exp:"攻撃力+@atk%、通常攻撃が術攻撃になり、与ダメージの@heal%のHPを回復",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、通常攻撃が<span class='merit'>術攻撃</span>になり、与ダメージの<span class='merit'>@heal%</span>のHPを回復",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:50,pers:25,atk:45,heal:10},
@@ -1879,7 +1879,7 @@ const operator = {
 		],
 		skill:{
 			"迅速攻撃γ":{
-				exp:"攻撃力+@atk%、攻撃速度+@speed",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:45,pers:35,atk:20,speed:20},
@@ -1895,7 +1895,7 @@ const operator = {
 				]
 			},
 			"利剣の極致":{
-				exp:"防御力が0になり、攻撃力+@atk%、素質の防御力無視確率が2.5倍まで上昇",
+				exp:"防御力が<span class='demerit'>0になり</span>、攻撃力<span class='merit'>+@atk%</span>、素質の防御力無視確率が<span class='merit'>2.5</span>倍まで上昇",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:20,pers:20,atk:50},
@@ -1965,7 +1965,7 @@ const operator = {
 		],
 		skill:{
 			"強撃β":{
-				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇",
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇",
 				recover:"attack",activate:"auto",
 				effect:[
 					{need:5,atk:170},
@@ -1981,7 +1981,7 @@ const operator = {
 				]
 			},
 			"精密起爆":{
-				exp:"前方3マス内の敵最大@target体に攻撃力の@atk%の物理ダメージを与える",
+				exp:"前方3マス内の敵最大<span class='merit'>@target</span>体に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与える",
 				recover:"attack",activate:"manual",
 				effect:[
 					{need:20,target:3,atk:300},
@@ -2042,7 +2042,7 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化γ":{
-				exp:"攻撃力+@atk%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:40,pers:30,atk:30},
@@ -2058,7 +2058,7 @@ const operator = {
 				]
 			},
 			"肉斬骨断":{
-				exp:"攻撃力+@atk%、効果時間内はダメージを受けてもHPが1残る<br/>効果時間終了後10秒間スタンする",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、効果時間内はダメージを受けてもHPが<span class='merit'>1</span>残る<br/><span class='charge'>効果時間終了後10秒間スタンする</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:20,need:45,pers:10,atk:40},
@@ -2110,7 +2110,7 @@ const operator = {
 		],
 		skill:{
 			"統括指揮":{
-				exp:"素質の効果範囲が@range、効果が2倍まで上昇",
+				exp:"素質の効果範囲が<span class='merit'>@range</span>、効果が<span class='merit'>2</span>倍まで上昇",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:20,need:60,pers:15,range:"拡大"},
@@ -2126,7 +2126,7 @@ const operator = {
 				]
 			},
 			"協同作戦":{
-				exp:"攻撃力+@atk%、素質の効果が@nature倍まで上昇",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、素質の効果が<span class='merit'>@nature</span>倍まで上昇",
 				recover:"attack",activate:"manual",
 				effect:[
 					{start:20,need:60,pers:15,atk:30,nature:2.1},
@@ -2180,7 +2180,7 @@ const operator = {
 		],
 		skill:{
 			"影落とす時針":{
-				exp:"攻撃力+@atk%、@guard%の確率で物理攻撃をガード<br/>退場まで効果継続",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、<span class='merit'>@guard%</span>の確率で物理攻撃をガード<br/><span class='charge'>退場まで効果継続</span>",
 				recover:"attack",activate:"auto",
 				effect:[
 					{need:40,atk:30,guard:20},
@@ -2196,7 +2196,7 @@ const operator = {
 				]
 			},
 			"狼魂":{
-				exp:"攻撃力+@atk%、通常攻撃が術攻撃になり敵2体を同時に攻撃<br/>攻撃力の100%で遠距離攻撃を行う",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、通常攻撃が術攻撃になり敵2体を同時に攻撃<br/>攻撃力の100%で遠距離攻撃を行う",
 				recover:"attack",activate:"auto",
 				effect:[
 					{need:30,pers:15,atk:60},
@@ -2259,7 +2259,7 @@ const operator = {
 		],
 		skill:{
 			"血化粧":{
-				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇し、自身のHPを@heal%回復",
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇し、自身のHPを<span class='merit'>@heal%</span>回復",
 				recover:"attack",activate:"auto",
 				effect:[
 					{need:5,atk:155,heal:5},
@@ -2275,7 +2275,7 @@ const operator = {
 				]
 			},
 			"刃鬼":{
-				exp:"攻撃力+@atk%、攻撃速度+@speed<br/>退場まで効果継続",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span><br/><span class='charge'>退場まで効果継続</span>",
 				recover:"attack",activate:"auto",
 				effect:[
 					{need:60,atk:30,speed:30},
@@ -2336,7 +2336,7 @@ const operator = {
 		],
 		skill:{
 			"星座の守護":{
-				exp:"攻撃力+@atk%、防御力+@def%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、防御力<span class='merit'>+@def%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:40,pers:30,atk:20,def:30},
@@ -2352,7 +2352,7 @@ const operator = {
 				]
 			},
 			"星輝剣":{
-				exp:"攻撃力+@atk%、防御力+@def%、ブロック数+1、ブロック中の敵全員を同時に攻撃",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、防御力<span class='merit'>+@def%</span>、ブロック数<span class='merit'>+1</span>、ブロック中の敵全員を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:30,pers:10,atk:30,def:30},
@@ -2411,23 +2411,23 @@ const operator = {
 		],
 		skill:{
 			"チャージガード":{
-				exp:"次に受けるダメージをガード、8秒間防御力+@def%",
+				exp:"次に受けるダメージをガード、<span class='merit'>8</span>秒間防御力<span class='merit'>+@def%</span>",
 				recover:"damage",activate:"auto",
 				effect:[
-					{need:24,pers:8,def:40},
-					{need:24,pers:8,def:45},
-					{need:24,pers:8,def:50},
-					{need:22,pers:8,def:60},
-					{need:22,pers:8,def:65},
-					{need:22,pers:8,def:70},
-					{need:20,pers:8,def:80},
-					{need:20,pers:8,def:85},
-					{need:20,pers:8,def:90},
-					{need:18,pers:8,def:100}
+					{need:24,def:40},
+					{need:24,def:45},
+					{need:24,def:50},
+					{need:22,def:60},
+					{need:22,def:65},
+					{need:22,def:70},
+					{need:20,def:80},
+					{need:20,def:85},
+					{need:20,def:90},
+					{need:18,def:100}
 				]
 			},
 			"カウンターアーク":{
-				exp:"通常攻撃の間隔が延長し、攻撃力+@atk%、通常攻撃時敵最大@target体に術ダメージを与え、@stan%の確率で1秒間スタンさせる<br/>効果時間終了後5秒間スタンする",
+				exp:"通常攻撃の間隔が<span class='demerit'>延長</span>し、攻撃力<span class='merit'>+@atk%</span>、通常攻撃時敵最大<span class='merit'>@target</span>体に<span class='merit'>術ダメージ</span>を与え、<span class='merit'>@stan%</span>の確率で<span class='merit'>1</span>秒間スタンさせる<br/><span class='charge'>効果時間終了後5秒間スタンする</span>",
 				recover:"damage",activate:"manual",
 				effect:[
 					{need:44,pers:20,atk:85,target:3,stan:10},
@@ -2491,7 +2491,7 @@ const operator = {
 		],
 		skill:{
 			"防御態勢":{
-				exp:"防御力+@def%、素質の効果が@nature%まで上昇",
+				exp:"防御力<span class='merit'>+@def%</span>、素質の効果が<span class='merit'>@nature%まで上昇</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 					{start: 0,need:30,pers:20,def:20,nature:110},
@@ -2507,7 +2507,7 @@ const operator = {
 				]
 			},
 			"テスラハンマー":{
-				exp:"周囲一定範囲内の敵を@powで突き飛ばし、攻撃力の@atk%の物理ダメージを与え、@stan秒間スタンさせる",
+				exp:"周囲一定範囲内の敵を<span class='merit'>@pow</span>で突き飛ばし、攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる",
 				recover:"attack",activate:"manual",
 				effect:[
 					{need:22,pow:"相当の力",atk:240,stan:2.5},
@@ -2556,7 +2556,7 @@ const operator = {
 		],
 		skill:{
 			"応急処置":{
-				exp:"次の通常攻撃時、周囲一定範囲内にいるHPが50%以下の味方1人に、攻撃力@atk%回復<br/>@charge回チャージ可能",
+				exp:"次の通常攻撃時、周囲一定範囲内にいるHPが50%以下の味方1人に、攻撃力の<span class='merit'>@atk%回復</span><br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 					{need:6,atk:110,charge:1},
@@ -2572,7 +2572,7 @@ const operator = {
 				]
 			},
 			"救護態勢":{
-				exp:"攻撃力+@atk%、攻撃しなくなり回復行動のみ行う",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃しなくなり回復行動のみ行う",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:20,need:60,pers:40,atk:20},
@@ -2621,7 +2621,7 @@ const operator = {
 		],
 		skill:{
 			"鉄壁の構え":{
-				exp:"ブロック数+1、防御力+@def%、素質の効果の上、HPが1秒ごとに更に最大値の@heal%回復",
+				exp:"ブロック数<span class='merit'>+1</span>、防御力<span class='merit'>+@def%</span>、素質の効果の上、HPが1秒ごとに更に最大値の<span class='merit'>@heal%</span>回復",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:20,need:50,pers:20,def:60,heal:2},
@@ -2637,7 +2637,7 @@ const operator = {
 				]
 			},
 			"猛攻の構え":{
-				exp:"ブロック数-1、通常攻撃の間隔がわずかに延長し、攻撃力+@atk%、攻撃する度HPが最大値の@heal%回復、ブロック中の敵全員を同時に攻撃",
+				exp:"ブロック数<span class='demerit'>-1</span>、通常攻撃の間隔が<span class='demerit'>わずかに延長</span>し、攻撃力<span class='merit'>+@atk%</span>、攻撃する度HPが最大値の<span class='merit'>@heal%</span>回復、ブロック中の敵全員を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:20,need:50,pers:20,atk:65,heal:5},
@@ -2672,13 +2672,13 @@ const operator = {
 			{
 				hp: 984,atk:438,def:109,res:5,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
-					"神経毒":"対象を毒状態にし、30(+10)ダメージ/秒の術ダメージを3秒間与える。"
+					"神経毒":"敵に攻撃時、3秒間、1秒ごとに30(+10)の術ダメージを与える中毒状態にする"
 				}
 			},
 			{
 				hp:1230,atk:535,def:130,res:5,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
-					"神経毒":"対象を毒状態にし、75(+10)ダメージ/秒の術ダメージを3秒間与える。"
+					"神経毒":"敵に攻撃時、3秒間、1秒ごとに75(+10)の術ダメージを与える中毒状態にする"
 				}
 			}
 		],
@@ -2706,7 +2706,7 @@ const operator = {
 		],
 		skill:{
 			"ダブルショット":{
-				exp:"次の通常攻撃時、敵2体に攻撃力の@atk%のダメージを与える",
+				exp:"次の通常攻撃時、敵2体に攻撃力の<span class='merit'>@atk%</span>のダメージを与える",
 				recover:"attack",activate:"auto",
 				effect:[
 					{need:4,atk:125},
@@ -2722,7 +2722,7 @@ const operator = {
 				]
 			},
 			"毒液装填":{
-				exp:"攻撃力+@atk%、通常攻撃で敵3体を同時に攻撃@add",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、通常攻撃で敵<span class='merit'>3</span>体を同時に攻撃@add",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:10,need:50,pers:20,atk:10,add:""},
@@ -2791,7 +2791,7 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化γ":{
-				exp:"攻撃力+@atk%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:40,pers:30,atk:30},
@@ -2807,7 +2807,7 @@ const operator = {
 				]
 			},
 			"ペガサスアイ":{
-				exp:"攻撃速度がわずかに低下、攻撃力+@atk%、攻撃範囲拡大<br/>退場まで効果持続",
+				exp:"攻撃速度が<span class='demerit'>わずかに低下</span>、攻撃力<span class='merit'>+@atk%</span>、攻撃範囲<span class='merit'>拡大</span><br/><span class='charge'>退場まで効果持続</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 					{need:70,atk:50},
@@ -2837,13 +2837,13 @@ const operator = {
 			{
 				hp:1204,atk:674,def: 98,res:0,cost:26,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[4,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
-					"弾頭改造":"通常攻撃あるいはスキル攻撃時、15%の確率で攻撃力+60%"
+					"弾頭改造":"通常攻撃、スキル使用時、15%の確率でその攻撃のみ攻撃力+60%"
 				}
 			},
 			{
 				hp:1505,atk:865,def:116,res:0,cost:28,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[4,-1],[1,0],[2,0],[3,0],[4,0],[0,1],[1,1],[2,1],[3,1],[4,1]],
 				nature:{
-					"弾頭改造":"通常攻撃あるいはスキル攻撃時、30%の確率で攻撃力+60%"
+					"弾頭改造":"通常攻撃、スキル使用時、30%の確率でその攻撃のみ攻撃力+60%"
 				}
 			}
 		],
@@ -2871,7 +2871,7 @@ const operator = {
 		],
 		skill:{
 			"散弾装填":{
-				exp:"次の通常攻撃時、爆破範囲が拡大、攻撃力の@atk%の物理ダメージを与える",
+				exp:"次の通常攻撃時、爆破範囲が<span class='merit'>拡大</span>、攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与える",
 				recover:"attack",activate:"auto",
 				effect:[
 					{need:5,atk:135},
@@ -2887,7 +2887,7 @@ const operator = {
 				]
 			},
 			"榴弾装填":{
-				exp:"榴弾を発射し、爆破範囲内の敵全員に攻撃力の@atk%の物理ダメージを与え、10秒間防御力@debuff",
+				exp:"榴弾を発射し、爆破範囲内の敵全員に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>10</span>秒間防御力<span class='merit'>@debuff</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{need:25,atk:180,debuff:-130},
@@ -2917,19 +2917,19 @@ const operator = {
 			{
 				hp:1276,atk:601,def:156,res:0,cost:17,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[0,1],[1,1],[2,1]],
 				nature:{
-					"ハンターアロー":"攻撃時、20%の確率で次回攻撃のダメージを140%にする。敵が正面の1マス以内にいる時、発動確率は50%になる。"
+					"ハンターアロー":"攻撃時、20%の確率でその攻撃のみ攻撃力が140%に上昇。敵が正面の1マスにいる時、その確率が50%に上昇"
 				}
 			},
 			{
 				hp:1680,atk:781,def:215,res:0,cost:19,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[0,1],[1,1],[2,1]],
 				nature:{
-					"ハンターアロー":"攻撃時、20%の確率で次回攻撃のダメージを180%にする。敵が正面の1マス以内にいる時、発動確率は50%になる。"
+					"ハンターアロー":"攻撃時、20%の確率でその攻撃のみ攻撃力が180%に上昇。敵が正面の1マスにいる時、その確率が50%に上昇"
 				}
 			}
 		],
 		cond:function(arg){
 			if(arg.promotion >= 1){
-				return "敵が正面の1マス以内にいる時";
+				return "敵が正面の1マスにいる時";
 			}
 		},
 		dmgUp:function(arg){
@@ -2955,7 +2955,7 @@ const operator = {
 		],
 		skill:{
 			"ウルフアイ":{
-				exp:"攻撃対象のHPが20%減少する度その対象を攻撃時のみ攻撃力+@atk%",
+				exp:"攻撃対象のHPが<span class='merit'>20%減少する度</span>その対象を攻撃時のみ攻撃力<span class='merit'>+@atk%</span>",
 				passive:true,
 				effect:[
 					{atk:8},
@@ -2971,7 +2971,7 @@ const operator = {
 				]
 			},
 			"鮮血の匂い":{
-				exp:"攻撃力+@atk%、ただしHPが80%以上の敵を攻撃しなくなる",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、ただしHPが<span class='demerit'>80%</span>以上の敵を攻撃しなくなる",
 				recover:"auto",activate:"manual",
 				effect:[
 					{need:30,pers:20,atk:130},
@@ -3032,7 +3032,7 @@ const operator = {
 		],
 		skill:{
 			"カモフラージュ":{
-				exp:"攻撃力+@atk%、ステルス状態になる(敵の遠距離攻撃の対象にならない)",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、<span class='merit'>ステルス状態</span>になる<span class='charge'>(敵の遠距離攻撃の対象にならない)</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{need:30,pers:25,atk:24},
@@ -3048,7 +3048,7 @@ const operator = {
 				]
 			},
 			"爆撃要請":{
-				exp:"攻撃範囲内のランダムな位置に爆弾を@cnt個投下(敵がいる位置を優先する)<br/>爆弾は一個につき周囲一定範囲内の敵全員に攻撃力の@atk%の物理ダメージを与える",
+				exp:"攻撃範囲内のランダムな位置に爆弾を<span class='merit'>@cnt</span>個投下(敵がいる位置を優先する)<br/>爆弾は一個につき周囲一定範囲内の敵全員に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与える",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:10,need:50,cnt:2,atk:180},
@@ -3142,7 +3142,7 @@ const operator = {
 			{
 				hp:1480,atk:612,def:121,res:20,cost:20,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
 				nature:{
-					"アブソープション":"敵を攻撃する時、2SP回復する。敵を撃破した時、8SP回復する"
+					"アブソープション":"敵を攻撃する度SPが2回復、敵を倒すと更に8回復"
 				}
 			}
 		],
@@ -3155,7 +3155,7 @@ const operator = {
 		],
 		skill:{
 			"戦術詠唱γ":{
-				exp:"攻撃速度+@speed",
+				exp:"攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:40,pers:30,speed:30},
@@ -3171,7 +3171,7 @@ const operator = {
 				]
 			},
 			"ソウルブースト":{
-				exp:"通常攻撃が攻撃力の@atk%での@cnt回連続攻撃になり、ランダムで範囲内の敵を攻撃する<br/>効果時間終了後10秒間スタンする",
+				exp:"通常攻撃が攻撃力の<span class='merit'>@atk%</span>での<span class='merit'>@cnt</span>回連続攻撃になり、ランダムで範囲内の敵を攻撃する<br/><span class='charge'>効果時間終了後10秒間スタンする</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 					{need:100,pers:25,atk:33,cnt:6},
@@ -3187,7 +3187,7 @@ const operator = {
 				]
 			},
 			"キメラ":{
-				exp:"攻撃力+@atk%、最大HP+@hp%、攻撃範囲が拡大し、防御力と術耐性を無視して攻撃する<br/>効果時間終了後強制退場",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、最大HP<span class='merit'>+@hp%</span>、攻撃範囲が<span class='merit'>拡大</span>し、<span class='merit'>防御力と術耐性を無視して</span>攻撃する<br/><span class='charge'>効果時間終了後強制退場</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{need:120,pers:30,atk:100,hp:25},
@@ -3256,7 +3256,7 @@ const operator = {
 		],
 		skill:{
 			"ソウルドレイン":{
-				exp:"通常攻撃時、攻撃範囲内の味方最大1人のHPをダメージの@heal%分回復する",
+				exp:"通常攻撃時、攻撃範囲内の味方最大<span class='merit'>1</span>人のHPをダメージの<span class='merit'>@heal%</span>分回復する",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:30,need:80,pers:60,heal:40},
@@ -3272,7 +3272,7 @@ const operator = {
 				]
 			},
 			"ナイトシャドウ":{
-				exp:"攻撃範囲内の敵最大@cnt体に次の状態を付与：<br/>@time秒間、移動速度-60%、移動距離に応じて防御力、術耐性無視の固定ダメージを受ける",
+				exp:"攻撃範囲内の敵最大<span class='merit'>@cnt</span>体に次の状態を付与：<br/><span class='merit'>@time</span>秒間、移動速度<span class='merit'>-60%</span>、移動距離に応じて防御力、術耐性無視の固定ダメージを受ける",
 				recover:"auto",activate:"auto",
 				effect:[
 					{need:30,cnt:3,time:5},
@@ -3336,7 +3336,7 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化γ":{
-				exp:"攻撃力+@atk%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:40,pers:30,atk:30},
@@ -3352,7 +3352,7 @@ const operator = {
 				]
 			},
 			"メテオフレイム":{
-				exp:"通常攻撃の間隔が延長し、隕石を召喚する<br/>隕石は衝突まで時間がかかるが、衝突後広範囲の敵に攻撃力@atk%分の術ダメージを与え、@stan秒スタンさせる",
+				exp:"通常攻撃の間隔が<span class='demerit'>延長</span>し、隕石を召喚する<br/>隕石は衝突まで時間がかかるが、衝突後広範囲の敵に攻撃力<span class='merit'>@atk%</span>分の術ダメージを与え、<span class='merit'>@stan</span>秒スタンさせる",
 				recover:"auto",activate:"manual",
 				effect:[
 					{need:35,pers:25,atk:170,stan:0.1},
@@ -3416,7 +3416,7 @@ const operator = {
 		],
 		skill:{
 			"回復力強化γ":{
-				exp:"攻撃力+@atk%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:20,need:40,pers:30,atk:40},
@@ -3432,7 +3432,7 @@ const operator = {
 				]
 			},
 			"医療ドローン":{
-				exp:"医療ドローン1機が配置可能になる(上限1機)<br/>ドローンは配置後10秒間周囲の味方を回復し、効果終了後消滅する",
+				exp:"医療ドローン1機が配置可能になる<span class='charge'>(上限1機)</span><br/><span class='charge'>ドローンは配置後10秒間周囲の味方を回復し、効果終了後消滅する</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 					{need:30},
@@ -3462,13 +3462,13 @@ const operator = {
 			{
 				hp:1368,atk:404,def:100,res:0,cost:19,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
-					"血液サンプル回収":"攻撃範囲内の敵が撃破された時、自身と攻撃範囲内のランダムな味方1体のSPを1回復する"
+					"血液サンプル回収":"攻撃範囲内の敵が倒れた時、自身と攻撃範囲内のランダムな味方1体のSPを1回復する"
 				}
 			},
 			{
 				hp:1520,atk:505,def:125,res:0,cost:19,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
-					"血液サンプル回収":"攻撃範囲内の敵が撃破された時、自身と攻撃範囲内のランダムな味方1体のSPを2回復する"
+					"血液サンプル回収":"攻撃範囲内の敵が倒れた時、自身と攻撃範囲内のランダムな味方1体のSPを2回復する"
 				}
 			}
 		],
@@ -3481,7 +3481,7 @@ const operator = {
 		],
 		skill:{
 			"救急包帯法":{
-				exp:"HP50%以下の味方を回復する時、通常回復の上、更に対象のHPを最大値の@heal%回復<br/>@charge回チャージ可能",
+				exp:"<span class='charge'>HP50%以下の味方</span>を回復する時、通常回復の上、更に対象のHPを最大値の@heal%回復<br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"attack",activate:"auto",
 				effect:[
 					{need:4,heal:12,charge:2},
@@ -3497,7 +3497,7 @@ const operator = {
 				]
 			},
 			"不安定血漿":{
-				exp:"自身と攻撃範囲内ランダムな味方1人に次の効果を付与：<br/>15秒間、攻撃力+@atk%、１秒ごとにHPが最大値の3%減少",
+				exp:"自身と攻撃範囲内ランダムな味方1人に次の効果を付与：<br/><span class='merit'>15</span>秒間、攻撃力<span class='merit'>+@atk%</span>、１秒ごとにHPが最大値の<span class='demerit'>3%</span>減少",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:35,need:60,atk:30},
@@ -3546,15 +3546,35 @@ const operator = {
 		],
 		skill:{
 			"回復力強化γ":{
-				exp:"攻撃力+@atk%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:20,need:40,pers:30,atk:40},
+					{start:20,need:40,pers:30,atk:45},
+					{start:20,need:40,pers:30,atk:50},
+					{start:20,need:35,pers:30,atk:55},
+					{start:20,need:35,pers:30,atk:60},
+					{start:20,need:35,pers:30,atk:65},
+					{start:20,need:32,pers:30,atk:70},
+					{start:20,need:32,pers:30,atk:75},
+					{start:20,need:32,pers:30,atk:80},
+					{start:20,need:30,pers:30,atk:90}
 				]
 			},
 			"エンケファリン":{
-				exp:"攻撃範囲拡大、通常攻撃の間隔を短縮",
+				exp:"攻撃範囲拡大、通常攻撃の間隔を<span class='merit'>@down</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:65,need:100,pers:30,down:"短縮"},
+					{start:65,need:100,pers:31,down:"短縮"},
+					{start:65,need:100,pers:32,down:"短縮"},
+					{start:70,need:100,pers:33,down:"かなり短縮"},
+					{start:70,need:100,pers:34,down:"かなり短縮"},
+					{start:70,need:100,pers:35,down:"かなり短縮"},
+					{start:75,need:100,pers:36,down:"大幅に短縮"},
+					{start:78,need:100,pers:37,down:"大幅に短縮"},
+					{start:82,need:100,pers:38,down:"大幅に短縮"},
+					{start:85,need:100,pers:40,down:"超短縮"}
 				]
 			}
 		}
@@ -3592,34 +3612,34 @@ const operator = {
 		skill:{
 			"ハイドロセラピー":{
 				recover:"auto",activate:"manual",
-				exp:"次に味方を回復する時、特性による回復量低下が無効化され、自身の攻撃力の@atk%で味方を回復<br/>@charge回チャージ可能",
+				exp:"次に味方を回復する時、特性による回復量低下が無効化され、自身の攻撃力の<span class='merit'>@atk%</span>で味方を回復<br/><span class='charge'>@charge回チャージ可能</span>",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{need:10,atk:140,charge:1},
+					{need:10,atk:145,charge:1},
+					{need:10,atk:150,charge:1},
+					{need: 9,atk:155,charge:1},
+					{need: 9,atk:160,charge:1},
+					{need: 9,atk:165,charge:1},
+					{need: 9,atk:170,charge:2},
+					{need: 8,atk:180,charge:2},
+					{need: 8,atk:190,charge:2},
+					{need: 8,atk:200,charge:3}
 				]
 			},
 			"水霊の加護":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃力+@atk%、味方2人を同時に回復。効果時間内、攻撃範囲内にいる味方全員に【レジスト】を付与<br/>（レジスト：スタン状態の継続時間が50%短縮）",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、味方2人を同時に回復。効果時間内、攻撃範囲内にいる味方全員に<span class='merit'>【レジスト】</span>を付与<br/>（レジスト：スタン状態の継続時間が50%短縮）",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:20,need:80,pers:20,atk:30},
+					{start:22,need:80,pers:21,atk:30},
+					{start:24,need:80,pers:23,atk:30},
+					{start:26,need:80,pers:25,atk:40},
+					{start:28,need:80,pers:26,atk:40},
+					{start:30,need:80,pers:27,atk:40},
+					{start:32,need:80,pers:30,atk:50},
+					{start:34,need:80,pers:33,atk:53},
+					{start:36,need:80,pers:36,atk:56},
+					{start:40,need:80,pers:40,atk:60}
 				]
 			}
 		}
@@ -3695,15 +3715,35 @@ const operator = {
 		],
 		skill:{
 			"攪乱装置":{
-				exp:"機械川獺の物理回避、術回避+15%",
+				exp:"機械川獺の<span class='merit'>物理回避</span>、<span class='merit'>術回避+@dodge%</span>@add",
 				passive:true,
 				effect:[
+					{dodge:10,add:""},
+					{dodge:13,add:""},
+					{dodge:15,add:""},
+					{dodge:18,add:""},
+					{dodge:20,add:""},
+					{dodge:22,add:""},
+					{dodge:25,add:""},
+					{dodge:25,add:"<br/>周囲4マスの味方も同じ効果を得る"},
+					{dodge:30,add:"<br/>周囲4マスの味方も同じ効果を得る"},
+					{dodge:35,add:"<br/>周囲4マスの味方も同じ効果を得る"}
 				]
 			},
 			"ミーボ起爆":{
-				exp:"配置中の機械川獺を全て起爆、機械川獺の周囲一定範囲内の敵全員にメイヤーの攻撃力の@atk%の術ダメージを与え、@stan秒間スタンさせる<br/>機械川獺は再配置可能",
+				exp:"配置中の機械川獺を全て起爆、機械川獺の周囲一定範囲内の敵全員にメイヤーの攻撃力の@atk%の術ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる<br/><span class='charge'>機械川獺は再配置可能</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:40,atk:300,stan:1},
+					{need:39,atk:320,stan:1},
+					{need:38,atk:350,stan:1},
+					{need:37,atk:380,stan:1},
+					{need:36,atk:400,stan:1},
+					{need:35,atk:420,stan:1},
+					{need:34,atk:450,stan:1},
+					{need:33,atk:500,stan:1.5},
+					{need:32,atk:550,stan:1.5},
+					{need:30,atk:600,stan:2}
 				]
 			}
 		}
@@ -3746,15 +3786,35 @@ const operator = {
 		],
 		skill:{
 			"すやすやナンバー":{
-				exp:"攻撃範囲拡大、攻撃範囲内の敵全員が眠り状態(スタン+無敵)になる<br/>素質の効果が60%まで上昇",
+				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃範囲内の敵全員が<span class='merit'>眠り状態</span><span class='charge'>(スタン+無敵)</span>になる<br/>素質の効果が<span class='merit'>@nature%まで上昇</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:30,need:60,pers:7,nature:45},
+					{start:30,need:60,pers:7,nature:45},
+					{start:30,need:60,pers:7,nature:50},
+					{start:35,need:60,pers:7,nature:55},
+					{start:35,need:60,pers:7,nature:60},
+					{start:35,need:60,pers:7,nature:65},
+					{start:40,need:60,pers:7,nature:70},
+					{start:41,need:60,pers:7,nature:80},
+					{start:42,need:60,pers:7,nature:90},
+					{start:45,need:60,pers:7,nature:100}
 				]
 			},
 			"ファイトソング":{
-				exp:"攻撃範囲内の自身以外の味方の攻撃力に自身の攻撃力の@atk%を加算",
+				exp:"攻撃範囲内の自身以外の味方の<span class='merit'>攻撃力</span>に自身の攻撃力の<span class='merit'>@atk%</span>を加算",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:10,need:45,pers:10,atk:70},
+					{start:10,need:45,pers:11,atk:70},
+					{start:10,need:45,pers:12,atk:70},
+					{start:15,need:45,pers:15,atk:80},
+					{start:15,need:45,pers:16,atk:80},
+					{start:15,need:45,pers:17,atk:80},
+					{start:20,need:45,pers:20,atk:90},
+					{start:21,need:45,pers:23,atk:90},
+					{start:22,need:45,pers:26,atk:90},
+					{start:25,need:45,pers:30,atk:100}
 				]
 			}
 		}
@@ -3811,15 +3871,35 @@ const operator = {
 		],
 		skill:{
 			"木霊せし聖音":{
-				exp:"敵最大2体を同時に攻撃<br/>攻撃範囲内の敵全員の攻撃速度+@speed",
+				exp:"敵最大<span class='merit'>2</span>体を同時に攻撃<br/>攻撃範囲内の敵全員の攻撃速度<span class='merit'>@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:10,need:40,pers:10,speed:-30},
+					{start:10,need:40,pers:11,speed:-30},
+					{start:10,need:40,pers:12,speed:-30},
+					{start:15,need:40,pers:13,speed:-40},
+					{start:15,need:40,pers:14,speed:-40},
+					{start:15,need:40,pers:15,speed:-40},
+					{start:20,need:40,pers:16,speed:-50},
+					{start:20,need:40,pers:17,speed:-53},
+					{start:20,need:40,pers:18,speed:-56},
+					{start:25,need:40,pers:20,speed:-60}
 				]
 			},
 			"カランドの威圧":{
-				exp:"攻撃範囲内の敵全員の防御力+@def%、術耐性-23%",
+				exp:"攻撃範囲内の敵全員の防御力<span class='merit'>@defdown%</span>、術耐性<span class='merit'>@resdown%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:10,need:40,pers:10,defdown:-35,resdown:-20},
+					{start:11,need:40,pers:11,defdown:-35,resdown:-20},
+					{start:12,need:40,pers:12,defdown:-35,resdown:-20},
+					{start:13,need:40,pers:14,defdown:-40,resdown:-23},
+					{start:14,need:40,pers:15,defdown:-40,resdown:-23},
+					{start:15,need:40,pers:16,defdown:-40,resdown:-23},
+					{start:16,need:40,pers:18,defdown:-45,resdown:-26},
+					{start:17,need:40,pers:20,defdown:-50,resdown:-26},
+					{start:18,need:40,pers:22,defdown:-55,resdown:-26},
+					{start:20,need:40,pers:25,defdown:-60,resdown:-30}
 				]
 			}
 		}
@@ -3828,6 +3908,9 @@ const operator = {
 		en:"Glaucus",
 		rare:5,job:"補助",relocation:70,speed:1.9,trust:{hp:300,atk:35},tag:["遠距離","減速","牽制"],
 		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える<br/>攻撃時、敵を一瞬<span class='merit'>足止め</span>",
+		effect:function(arg){
+			return "鈍足";
+		},
 		stat:[
 			{
 				min:{hp:592,atk:213,def:45},
@@ -3857,34 +3940,34 @@ const operator = {
 		skill:{
 			"デュアルリロード":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃力+@atk%、敵2体を同時に攻撃",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、敵<span class='merit'>2</span>体を同時に攻撃",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start: 0,need:35,pers:16,atk:20},
+					{start: 2,need:35,pers:17,atk:20},
+					{start: 4,need:35,pers:18,atk:20},
+					{start: 6,need:35,pers:19,atk:30},
+					{start: 8,need:35,pers:20,atk:30},
+					{start:10,need:35,pers:21,atk:30},
+					{start:12,need:35,pers:22,atk:40},
+					{start:14,need:35,pers:23,atk:43},
+					{start:16,need:35,pers:24,atk:46},
+					{start:20,need:35,pers:25,atk:50}
 				]
 			},
 			"電磁パルス":{
 				recover:"auto",activate:"manual",
-				exp:"周囲に衝撃波を放ち、命中した敵に攻撃力の@atk%の術ダメージを与え、3.5秒の【バインド（移動停止）】を付与。攻撃対象が【ドローン】の場合、与ダメージが2倍になり、敵を【スタン】させる",
+				exp:"周囲に衝撃波を放ち、命中した敵に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、<span class='merit'>@bind</span>秒の【バインド（移動停止）】を付与。攻撃対象が【ドローン】の場合、与ダメージが2倍になり、敵を【スタン】させる",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:10,need:40,atk:200,bind:3.5},
+					{start:10,need:39,atk:220,bind:3.5},
+					{start:10,need:38,atk:240,bind:3.5},
+					{start:13,need:37,atk:260,bind:4},
+					{start:13,need:36,atk:280,bind:4},
+					{start:13,need:35,atk:300,bind:4},
+					{start:16,need:34,atk:320,bind:4.5},
+					{start:17,need:33,atk:340,bind:5},
+					{start:18,need:32,atk:360,bind:5.5},
+					{start:20,need:30,atk:400,bind:6}
 				]
 			}
 		}
@@ -3929,14 +4012,34 @@ const operator = {
 		skill:{
 			"処刑の構え":{
 				passive:true,
-				exp:"配置後攻撃力+@atk%、物理回避と術回避+20%",
+				exp:"配置後攻撃力<span class='merit'>+@atk%</span>、物理回避と術回避<span class='merit'>+@dodge%</span>",
 				effect:[
+					{pers:10,atk:35,dodge:20},
+					{pers:10,atk:40,dodge:20},
+					{pers:10,atk:45,dodge:20},
+					{pers:10,atk:50,dodge:30},
+					{pers:10,atk:55,dodge:30},
+					{pers:10,atk:60,dodge:30},
+					{pers:10,atk:65,dodge:40},
+					{pers:10,atk:70,dodge:40},
+					{pers:10,atk:75,dodge:40},
+					{pers:10,atk:80,dodge:50}
 				]
 			},
 			"郡狼":{
 				passive:true,
-				exp:"配置後周囲一定範囲内の敵全員に攻撃力の@atk%の物理ダメージを与え、1秒間スタンさせる",
+				exp:"配置後周囲一定範囲内の敵全員に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる",
 				effect:[
+					{atk:140,stan:1},
+					{atk:150,stan:1},
+					{atk:160,stan:1},
+					{atk:170,stan:1.5},
+					{atk:180,stan:1.5},
+					{atk:190,stan:1.5},
+					{atk:200,stan:2},
+					{atk:210,stan:2.3},
+					{atk:230,stan:2.6},
+					{atk:250,stan:3}
 				]
 			}
 		}
@@ -3987,15 +4090,35 @@ const operator = {
 		],
 		skill:{
 			"鉄意六合拳":{
-				exp:"次の通常攻撃時、敵を攻撃方向に相当の力で突き飛ばし、4秒間移動速度-18%",
+				exp:"次の通常攻撃時、敵を攻撃方向に<span class='merit'>@pow</span>で突き飛ばし、<span class='merit'>@time秒</span>間移動速度<span class='merit'>@down%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:6,pow:"わずかな力",time:3,down:-15},
+					{need:6,pow:"わずかな力",time:3,down:-16},
+					{need:6,pow:"わずかな力",time:3,down:-17},
+					{need:6,pow:"相当の力",time:4,down:-18},
+					{need:6,pow:"相当の力",time:4,down:-19},
+					{need:6,pow:"相当の力",time:4,down:-20},
+					{need:6,pow:"相当の力",time:4,down:-21},
+					{need:5,pow:"相当の力",time:4,down:-24},
+					{need:5,pow:"相当の力",time:5,down:-27},
+					{need:5,pow:"かなりの力",time:5,down:-30}
 				]
 			},
 			"崩拳":{
-				exp:"前方直線上一番近い敵に向かって突進し、攻撃対象とその周囲の敵全員を相当の力で突き飛ばし、攻撃力の@atk%のダメージを与え、4秒間移動速度-18%",
+				exp:"前方直線上一番近い敵に向かって突進し、攻撃対象とその周囲の敵全員を<span class='merit'>@pow</span>突き飛ばし、攻撃力の<span class='merit'>@atk%</span>のダメージを与え、@time秒間移動速度<span class='merit'>@down%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:20,atk:160,pow:"相当の力で",time:3,down:-15},
+					{need:20,atk:165,pow:"相当の力で",time:3,down:-16},
+					{need:20,atk:170,pow:"相当の力で",time:3,down:-17},
+					{need:19,atk:175,pow:"相当の力で",time:4,down:-18},
+					{need:19,atk:180,pow:"相当の力で",time:4,down:-19},
+					{need:19,atk:185,pow:"相当の力で",time:4,down:-20},
+					{need:18,atk:190,pow:"かなりの力で",time:5,down:-21},
+					{need:17,atk:210,pow:"かなりの力で",time:5,down:-24},
+					{need:16,atk:230,pow:"かなりの力で",time:5,down:-27},
+					{need:15,atk:250,pow:"力強く",time:5,down:-30}
 				]
 			}
 		}
@@ -4067,15 +4190,35 @@ const operator = {
 		],
 		skill:{
 			"ワイヤーシックル":{
-				exp:"次の通常攻撃時、敵を相当の力で引き寄せ、攻撃力の@atk%の術ダメージを与える",
+				exp:"次の通常攻撃時、敵を@powで引き寄せ、攻撃力の@atk%の術ダメージを与える",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:7,atk:115,pow:"わずかな力"},
+					{need:7,atk:118,pow:"わずかな力"},
+					{need:7,atk:120,pow:"わずかな力"},
+					{need:6,atk:125,pow:"相当の力"},
+					{need:6,atk:128,pow:"相当の力"},
+					{need:6,atk:130,pow:"相当の力"},
+					{need:5,atk:135,pow:"相当の力"},
+					{need:5,atk:150,pow:"相当の力"},
+					{need:5,atk:165,pow:"相当の力"},
+					{need:4,atk:180,pow:"かなりの力"}
 				]
 			},
 			"アレストチェーン":{
-				exp:"前方一定範囲内の敵最大2体を相当の力で引き寄せ、攻撃力の@atk%の防御力、術耐性無視ダメージを与え、@stan秒スタンさせる",
+				exp:"前方一定範囲内の敵最大@target体を相当の力で引き寄せ、攻撃力の@atk%の防御力、術耐性無視ダメージを与え、@stan秒スタンさせる",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:10,need:25,target:2,atk:130,stan:1.5},
+					{start:10,need:24,target:2,atk:135,stan:1.5},
+					{start:10,need:23,target:2,atk:140,stan:1.5},
+					{start:10,need:22,target:2,atk:150,stan:1.5},
+					{start:10,need:21,target:2,atk:155,stan:1.5},
+					{start:10,need:20,target:2,atk:160,stan:1.5},
+					{start:10,need:19,target:2,atk:170,stan:1.5},
+					{start:10,need:18,target:3,atk:180,stan:2},
+					{start:10,need:17,target:3,atk:190,stan:2.5},
+					{start:10,need:15,target:3,atk:200,stan:3}
 				]
 			}
 		}

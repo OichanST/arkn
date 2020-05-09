@@ -687,9 +687,9 @@ function showNature(){
 	for(let natureName in nature){
 		// ヘッダ、もしくは改行の追加
 		if(html == ""){
-			html += div("素質詳細", {color:"gray"});
+			html += div("素質詳細", {fontSize:"1.8em", marginBottom:"0.2em", color:"gray"});
 		}else{
-			html += "<br/>";
+			html += "<br/><br/>";
 		}
 		// 素質の追加
 		html += div(natureName, {display:"inline-block"}, {class:"whitelabel"}) + "<br/>";
@@ -834,10 +834,10 @@ function showSkill(){
 			// スキルの回復方法の文字変換
 			switch(sdata[sname].recover){
 				case "auto":
-					html += card("自動回復", {backgroundColor:"#00C000"});
+					html += card("自動回復", {backgroundColor:"rgb(160,205,64)"});
 					break;
 				case "attack":
-					html += card("攻撃回復", {backgroundColor:"#FF0000"});
+					html += card("攻撃回復", {backgroundColor:"rgb(255,128,64)"});
 					break;
 				case "deffence":
 					html += card("被撃回復", {backgroundColor:"#FFCC00"});
