@@ -839,7 +839,7 @@ function showSkill(){
 				case "attack":
 					html += card("攻撃回復", {backgroundColor:"rgb(255,128,64)"});
 					break;
-				case "deffence":
+				case "damage":
 					html += card("被撃回復", {backgroundColor:"#FFCC00"});
 					break;
 			}
