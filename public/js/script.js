@@ -928,7 +928,7 @@ function calcDPS(name, enableCond){
 		      );
 	}
 	// 範囲内の同時攻撃数
-	const target = (isCalc && operator[name].target && operator[name].target(arg) != null)
+	const target = (operator[name].target && operator[name].target(arg) != null)
 	               ? operator[name].target(arg)
 	               : 1;
 	// 保証ダメージの計算
