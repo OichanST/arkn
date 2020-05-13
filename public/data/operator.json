@@ -975,7 +975,7 @@ const operator = {
 	"エイヤフィヤトラ":{
 		en:"Eyjafjalla",
 		rare:6,job:"術師",relocation:70,speed:1.6,trust:{atk:90},tag:["遠距離","火力","弱化"],
-		characteristic:"",
+		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える",
 		stat:[
 			{
 				min:{hp: 732,atk:292,def: 46},
