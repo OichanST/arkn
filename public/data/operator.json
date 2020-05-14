@@ -5240,15 +5240,35 @@ const operator = {
 		],
 		skill:{
 			"非常食":{
-				exp:"次の通常攻撃時、近くの味方1人に自身の攻撃力の100%のHPを回復<br/>@charge回チャージ可能",
+				exp:"次の通常攻撃時、近くの味方1人に自身の攻撃力の@atk%のHPを回復<br/>@charge回チャージ可能",
 				recover:"auto",activate:"auto",
 				effect:[
+					{need:7,atk: 95,charge:1},
+					{need:7,atk:100,charge:1},
+					{need:7,atk:105,charge:1},
+					{need:6,atk:115,charge:1},
+					{need:6,atk:120,charge:1},
+					{need:6,atk:125,charge:1},
+					{need:5,atk:130,charge:2},
+					{need:5,atk:140,charge:2},
+					{need:5,atk:150,charge:2},
+					{need:4,atk:160,charge:2}
 				]
 			},
 			"戦場のシェフ":{
-				exp:"10秒間調理状態(攻撃停止)になり、防御力+50%<br/>調理終了後攻撃力+@atk%、近くの味方の回復行動のみ行う",
+				exp:"10秒間調理状態(攻撃停止)になり、防御力+@def%<br/>調理終了後攻撃力+@atk%、近くの味方の回復行動のみ行う",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:10,need:40,atk:30,def:50},
+					{start:10,need:39,atk:33,def:50},
+					{start:10,need:38,atk:36,def:50},
+					{start:12,need:37,atk:40,def:60},
+					{start:12,need:36,atk:43,def:60},
+					{start:12,need:35,atk:46,def:60},
+					{start:14,need:34,atk:50,def:70},
+					{start:16,need:33,atk:60,def:70},
+					{start:18,need:32,atk:70,def:70},
+					{start:20,need:30,atk:80,def:80}
 				]
 			}
 		}
@@ -5295,12 +5315,32 @@ const operator = {
 				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇",
 				recover:"attack",activate:"auto",
 				effect:[
+					{need:5,atk:170},
+					{need:5,atk:175},
+					{need:5,atk:180},
+					{need:4,atk:185},
+					{need:4,atk:190},
+					{need:4,atk:195},
+					{need:4,atk:200},
+					{need:4,atk:210},
+					{need:4,atk:220},
+					{need:3,atk:230}
 				]
 			},
 			"煙幕":{
-				exp:"攻撃力+@atk%、物理回避と術回避+75%",
+				exp:"攻撃力+@atk%、物理回避と術回避+@dodge%",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:10,need:50,pers:20,atk:20,dodge:75},
+					{start:10,need:49,pers:20,atk:25,dodge:75},
+					{start:10,need:48,pers:20,atk:30,dodge:75},
+					{start:10,need:47,pers:21,atk:35,dodge:75},
+					{start:10,need:46,pers:21,atk:40,dodge:75},
+					{start:10,need:45,pers:21,atk:45,dodge:75},
+					{start:15,need:44,pers:22,atk:50,dodge:75},
+					{start:15,need:43,pers:23,atk:60,dodge:75},
+					{start:15,need:42,pers:24,atk:70,dodge:75},
+					{start:20,need:40,pers:25,atk:80,dodge:75}
 				]
 			}
 		}
@@ -5357,15 +5397,35 @@ const operator = {
 		],
 		skill:{
 			"装甲砕き":{
-				exp:"次の通常攻撃時、敵に攻撃力の@atk%の物理ダメージを与え、5秒間防御力+@def%",
-				recover:"",activate:"",
+				exp:"次の通常攻撃時、敵に攻撃力の@atk%の物理ダメージを与え、5秒間防御力@down%",
+				recover:"attack",activate:"auto",
 				effect:[
+					{need:5,atk:120,down:-20},
+					{need:5,atk:125,down:-20},
+					{need:5,atk:130,down:-20},
+					{need:5,atk:135,down:-25},
+					{need:5,atk:140,down:-25},
+					{need:5,atk:145,down:-25},
+					{need:4,atk:150,down:-30},
+					{need:4,atk:160,down:-31},
+					{need:4,atk:170,down:-32},
+					{need:4,atk:180,down:-35}
 				]
 			},
 			"装甲砕き・拡散":{
-				exp:"攻撃範囲内の敵最大5体に攻撃力の@atk%の物理ダメージを与え、5秒間防御力-30%",
-				recover:"",activate:"",
+				exp:"攻撃範囲内の敵最大5体に攻撃力の@atk%の物理ダメージを与え、5秒間防御力@down%",
+				recover:"attack",activate:"manual",
 				effect:[
+					{need:20,atk:140,down:-25},
+					{need:20,atk:145,down:-25},
+					{need:20,atk:150,down:-25},
+					{need:20,atk:155,down:-30},
+					{need:20,atk:160,down:-30},
+					{need:20,atk:165,down:-30},
+					{need:20,atk:170,down:-35},
+					{need:20,atk:180,down:-35},
+					{need:20,atk:190,down:-35},
+					{need:20,atk:200,down:-40}
 				]
 			}
 		}
