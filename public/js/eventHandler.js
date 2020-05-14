@@ -994,6 +994,19 @@ function change(key){
 			divide = 2;
 		}
 		selects[0].style.color = "rgb(" + Math.round(selects[0].value / divide * 255) + ",0,0)";
+		
+		selects[1].innerHTML = "";
+		let max = 4;
+		if(targetValue == 2){
+			max = 7;
+		}
+		for(let i = 1; i <= max; i++){
+			let opt = new Option(i, i);
+			if(sto.data[operatorName].slv == i){
+				opt.selected = true;
+			}
+			selects[1].appendChild(opt);
+		}
 		// 行にある入力を取得
 		const inputs = r.getElementsByTagName("input");
 		// 該当レアリティ、昇進状態による最大Lvを取得
