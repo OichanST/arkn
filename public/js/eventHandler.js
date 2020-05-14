@@ -256,17 +256,19 @@ function init(){
 				{width:"11.7em"}
 			);
 			if(data.rare > 2){
-				// スキルレベルスライダーセット生成
+				// スキルレベルコンボ生成
 				sel = Elem("select");
 				optList = [
 					{label:1,value:1},
 					{label:2,value:2},
 					{label:3,value:3},
-					{label:4,value:4},
-					{label:5,value:5},
-					{label:6,value:6},
-					{label:7,value:7},
+					{label:4,value:4}
 				];
+				if(sto.data[operatorName].promotion >= 1){
+					optList.push({label:5,value:5});
+					optList.push({label:6,value:6});
+					optList.push({label:7,value:7});
+				}
 				for(let i = 0; i < optList.length; i++){
 					const opt = new Option(optList[i].label, optList[i].value);
 					if(sto.data[operatorName].slv == optList[i].value){
@@ -278,7 +280,7 @@ function init(){
 				sel.style.color = "rgb(" + Math.round(sto.data[operatorName].slv / 7 * 255) + ",0,0)";
 				sel.addEventListener("change", changeSlv);
 				r.add(sel, {textAlign:"center",width:"2.5em"});
-				if(sto.data[operatorName].slv == 7){
+				if(sto.data[operatorName].slv == 7 && sto.data[operatorName].promotion == 2){
 					r.add("<button onclick='showSkillSp();'>スキル特化</button>");
 				}else{
 					r.add("<button onclick='showSkillSp();' disabled>スキル特化</button>");
