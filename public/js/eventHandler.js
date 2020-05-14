@@ -1003,6 +1003,14 @@ function change(key){
 		inputs[1].setAttribute("class", "prom" + sto.data[operatorName].promotion);
 		inputs[2].max = lvMax;
 		inputs[2].style.color = "rgb(" + Math.round((inputs[2].value / inputs[2].max) * 255) + ",0,0)";
+		
+		const btn = r.getElementsByTagName("button")[0];
+		
+		if(targetValue == 2 && sto.data[operatorName].slv == 7){
+			btn.disabled = false;
+		}else{
+			btn.disabled = true;
+		}
 	}else if(key == "lv"){
 		// 行にある入力を取得
 		const inputs = r.getElementsByTagName("input");
@@ -1018,7 +1026,7 @@ function change(key){
 		selects[2].style.color = "rgb(" + Math.round(selects[2].value / 7 * 255) + ",0,0)";
 		const btn = r.getElementsByTagName("button")[0];
 		
-		if(targetValue == 7){
+		if(targetValue == 7 && sto.data[operatorName].promotion == 2){
 			btn.disabled = false;
 		}else{
 			btn.disabled = true;
