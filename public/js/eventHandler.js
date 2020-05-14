@@ -995,7 +995,7 @@ function change(key){
 		}
 		selects[0].style.color = "rgb(" + Math.round(selects[0].value / divide * 255) + ",0,0)";
 		
-		selects[1].innerHTML = "";
+		selects[2].innerHTML = "";
 		let max = 4;
 		if(targetValue == 2){
 			max = 7;
@@ -1005,7 +1005,7 @@ function change(key){
 			if(sto.data[operatorName].slv == i){
 				opt.selected = true;
 			}
-			selects[1].appendChild(opt);
+			selects[2].appendChild(opt);
 		}
 		// 行にある入力を取得
 		const inputs = r.getElementsByTagName("input");
