@@ -5467,12 +5467,32 @@ const operator = {
 				exp:"攻撃範囲+2",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:0,need:32,pers:25},
+					{start:0,need:31,pers:25},
+					{start:0,need:30,pers:25},
+					{start:5,need:27,pers:25},
+					{start:5,need:26,pers:25},
+					{start:5,need:25,pers:25},
+					{start:10,need:22,pers:25},
+					{start:10,need:21,pers:25},
+					{start:10,need:20,pers:25},
+					{start:10,need:15,pers:25}
 				]
 			},
 			"カザグルマ":{
-				exp:"回転する巨大な手裏剣を打ち、攻撃した敵に1秒ごと攻撃力@atk%の術ダメージを与え、短時間移動速度を24%下げる",
+				exp:"回転する巨大な手裏剣を打ち、攻撃した敵に1秒ごと攻撃力@atk%の術ダメージを与え、短時間移動速度を@slow%下げる",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:35,pers:25,atk:50,slow:22},
+					{need:34,pers:25,atk:50,slow:23},
+					{need:33,pers:25,atk:50,slow:24},
+					{need:32,pers:25,atk:60,slow:25},
+					{need:31,pers:25,atk:60,slow:26},
+					{need:30,pers:25,atk:60,slow:27},
+					{need:29,pers:25,atk:70,slow:28},
+					{need:28,pers:25,atk:70,slow:30},
+					{need:27,pers:25,atk:70,slow:32},
+					{need:25,pers:25,atk:80,slow:35}
 				]
 			}
 		}
@@ -5514,12 +5534,32 @@ const operator = {
 				exp:"攻撃力+@atk%",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start: 0,need:40,pers:25,atk:20},
+					{start: 0,need:40,pers:25,atk:25},
+					{start: 0,need:40,pers:25,atk:30},
+					{start: 0,need:37,pers:25,atk:35},
+					{start: 0,need:37,pers:25,atk:40},
+					{start: 0,need:37,pers:25,atk:45},
+					{start: 5,need:37,pers:25,atk:50},
+					{start: 5,need:37,pers:25,atk:60},
+					{start: 5,need:37,pers:25,atk:70},
+					{start:10,need:35,pers:25,atk:80}
 				]
 			},
 			"デュアルアロー":{
 				exp:"攻撃力+@atk%、通常攻撃時敵2体を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start: 0,need:30,pers:15,atk:10},
+					{start: 1,need:29,pers:15,atk:10},
+					{start: 2,need:28,pers:15,atk:10},
+					{start: 3,need:27,pers:16,atk:20},
+					{start: 4,need:26,pers:16,atk:20},
+					{start: 5,need:25,pers:16,atk:20},
+					{start: 6,need:24,pers:17,atk:30},
+					{start: 7,need:23,pers:18,atk:35},
+					{start: 8,need:22,pers:19,atk:40},
+					{start:10,need:20,pers:20,atk:45}
 				]
 			}
 		}
@@ -5564,12 +5604,32 @@ const operator = {
 				exp:"攻撃力+@atk%",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start: 0,need:40,pers:25,atk:20},
+					{start: 0,need:40,pers:25,atk:25},
+					{start: 0,need:40,pers:25,atk:30},
+					{start: 0,need:37,pers:25,atk:35},
+					{start: 0,need:37,pers:25,atk:40},
+					{start: 0,need:37,pers:25,atk:45},
+					{start: 5,need:37,pers:25,atk:50},
+					{start: 5,need:37,pers:25,atk:60},
+					{start: 5,need:37,pers:25,atk:70},
+					{start:10,need:35,pers:25,atk:80},
 				]
 			},
 			"赤色の瞳":{
 				exp:"最大HP-75%、攻撃力+@atk%、攻撃速度+@speed",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:35,pers:25,atk:15,speed:35},
+					{need:35,pers:25,atk:20,speed:35},
+					{need:35,pers:25,atk:25,speed:35},
+					{need:35,pers:25,atk:30,speed:40},
+					{need:35,pers:25,atk:35,speed:40},
+					{need:35,pers:25,atk:40,speed:40},
+					{need:30,pers:25,atk:45,speed:45},
+					{need:30,pers:25,atk:50,speed:50},
+					{need:30,pers:25,atk:55,speed:55},
+					{need:25,pers:25,atk:60,speed:60}
 				]
 			}
 		}
