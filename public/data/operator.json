@@ -5240,7 +5240,7 @@ const operator = {
 		],
 		skill:{
 			"非常食":{
-				exp:"次の通常攻撃時、近くの味方1人に自身の攻撃力の@atk%のHPを回復<br/>@charge回チャージ可能",
+				exp:"次の通常攻撃時、近くの味方1人に自身の攻撃力の<span class='merit'>@atk%</span>のHPを回復<br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 					{need:7,atk: 95,charge:1},
@@ -5256,7 +5256,7 @@ const operator = {
 				]
 			},
 			"戦場のシェフ":{
-				exp:"10秒間調理状態(攻撃停止)になり、防御力+@def%<br/>調理終了後攻撃力+@atk%、近くの味方の回復行動のみ行う",
+				exp:"<span class='demerit'>10</span>秒間調理状態(攻撃停止)になり、防御力<span class='merit'>+@def%</span><br/>調理終了後攻撃力<span class='merit'>+@atk%</span>、近くの味方の回復行動のみ行う",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:10,need:40,atk:30,def:50},
