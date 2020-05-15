@@ -997,7 +997,7 @@ function change(key){
 		
 		selects[2].innerHTML = "";
 		let max = 4;
-		if(targetValue == 2){
+		if(targetValue >= 1){
 			max = 7;
 		}
 		for(let i = 1; i <= max; i++){
