@@ -5312,7 +5312,7 @@ const operator = {
 		],
 		skill:{
 			"強撃β":{
-				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇",
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇",
 				recover:"attack",activate:"auto",
 				effect:[
 					{need:5,atk:170},
@@ -5328,7 +5328,7 @@ const operator = {
 				]
 			},
 			"煙幕":{
-				exp:"攻撃力+@atk%、物理回避と術回避+@dodge%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、物理回避と術回避<span class='merit'>+@dodge%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:10,need:50,pers:20,atk:20,dodge:75},
