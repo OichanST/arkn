@@ -64,7 +64,7 @@ const operator = {
 		],
 		skill:{
 			"突撃指令γ":{
-				exp:"所持コスト+12",
+				exp:"所持コスト<span class='merit'>+12</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 					{start:10,need:44},
@@ -5397,7 +5397,7 @@ const operator = {
 		],
 		skill:{
 			"装甲砕き":{
-				exp:"次の通常攻撃時、敵に攻撃力の@atk%の物理ダメージを与え、5秒間防御力@down%",
+				exp:"次の通常攻撃時、敵に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、5秒間防御力<span class='merit'>@down%</span>",
 				recover:"attack",activate:"auto",
 				effect:[
 					{need:5,atk:120,down:-20},
@@ -5413,7 +5413,7 @@ const operator = {
 				]
 			},
 			"装甲砕き・拡散":{
-				exp:"攻撃範囲内の敵最大5体に攻撃力の@atk%の物理ダメージを与え、5秒間防御力@down%",
+				exp:"攻撃範囲内の敵最大<span class='merit'>5</span>体に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>5</span>秒間防御力<span class='merit'>@down%</span>",
 				recover:"attack",activate:"manual",
 				effect:[
 					{need:20,atk:140,down:-25},
@@ -5464,7 +5464,7 @@ const operator = {
 		],
 		skill:{
 			"ユキケムリ":{
-				exp:"攻撃範囲+2",
+				exp:"攻撃範囲<span class='merit'>+2</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:0,need:32,pers:25},
@@ -5480,7 +5480,7 @@ const operator = {
 				]
 			},
 			"カザグルマ":{
-				exp:"回転する巨大な手裏剣を打ち、攻撃した敵に1秒ごと攻撃力@atk%の術ダメージを与え、短時間移動速度を@slow%下げる",
+				exp:"回転する巨大な手裏剣を打ち、攻撃した敵に1秒ごと攻撃力<span class='merit'>@atk%</span>の<span class='merit'>術ダメージ</span>を与え、短時間移動速度を<span class='merit'>@slow%下げる</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{need:35,pers:25,atk:50,slow:22},
@@ -5531,7 +5531,7 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化β":{
-				exp:"攻撃力+@atk%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:40,pers:25,atk:20},
@@ -5547,7 +5547,7 @@ const operator = {
 				]
 			},
 			"デュアルアロー":{
-				exp:"攻撃力+@atk%、通常攻撃時敵2体を同時に攻撃",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、通常攻撃時敵<span class='merit'>2</span>体を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:30,pers:15,atk:10},
@@ -5601,7 +5601,7 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化β":{
-				exp:"攻撃力+@atk%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:40,pers:25,atk:20},
@@ -5617,7 +5617,7 @@ const operator = {
 				]
 			},
 			"赤色の瞳":{
-				exp:"最大HP-75%、攻撃力+@atk%、攻撃速度+@speed",
+				exp:"最大HP<span class='demerit'>-75%</span>、攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{need:35,pers:25,atk:15,speed:35},
@@ -5669,13 +5669,13 @@ const operator = {
 		],
 		skill:{
 			"戦術詠唱β":{
-				exp:"攻撃速度+@speed",
+				exp:"攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
 			},
 			"運命":{
-				exp:"攻撃力+@atk%、攻撃範囲増加、範囲内にいる敵全員を同時に攻撃<br/>効果時間終了後14秒間攻撃停止",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃範囲<span class='merit'>増加</span>、範囲内にいる敵全員を同時に攻撃<br/<span class='charge'>>効果時間終了後14秒間攻撃停止</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -5719,13 +5719,13 @@ const operator = {
 		],
 		skill:{
 			"戦術詠唱β":{
-				exp:"攻撃速度+@speed",
+				exp:"攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
 			},
 			"帯電":{
-				exp:"攻撃速度+@speed、素質による足止め効果の継続時間が1.5倍まで上昇",
+				exp:"攻撃速度<span class='merit'>+@speed</span>、素質による<span class='merit'>足止め効果</span>の継続時間が<span class='merit'>1.5倍</span>まで上昇",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -5803,13 +5803,13 @@ const operator = {
 		],
 		skill:{
 			"回復力促進":{
-				exp:"次に味方を回復する時、対象に4秒の継続回復効果を付与し、1秒ごとにガヴィルの攻撃力の21%(対象のHPが50%以下の時42%)のHPを回復<br/>@charge回チャージ可能",
+				exp:"次に味方を回復する時、対象に<span class='merit'>4</span>秒の継続回復効果を付与し、1秒ごとにガヴィルの攻撃力の<span class='merit'>@atk%</span>(対象のHPが50%以下の時<span class='merit'>@pw%</span>)のHPを回復<br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 				]
 			},
 			"回復力促進・広域":{
-				exp:"攻撃範囲内の味方全員に7秒の継続回復効果を付与し、1秒ごとにガヴィルの攻撃力の@atk%(対象のHPが50%以下の時40%)のHPを回復",
+				exp:"攻撃範囲内の味方全員に<span class='merit'>7</span>秒の継続回復効果を付与し、1秒ごとにガヴィルの攻撃力の<span class='merit'>@atk%</span>(対象のHPが50%以下の時<span class='merit'>@pw%</span>)のHPを回復",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -5848,13 +5848,13 @@ const operator = {
 		],
 		skill:{
 			"二重治療":{
-				exp:"次に味方を回復する時、味方2人のHPを自身の攻撃力の@atk%を回復<br/>@charge回チャージ可能",
+				exp:"次に味方を回復する時、味方2人のHPを自身の攻撃力の<span class='merit'>@atk%</span>を回復<br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 				]
 			},
 			"メディカルゾーン":{
-				exp:"攻撃力+@atk%、効果時間中味方２人を回復可能",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、効果時間中味方２人を回復可能",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -5908,13 +5908,13 @@ const operator = {
 		],
 		skill:{
 			"回復力強化β":{
-				exp:"攻撃力+@atk%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
 			},
 			"調香":{
-				exp:"攻撃速度-50、攻撃力+@atk%",
+				exp:"攻撃速度<span class='demerit'>-50</span>、攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -5954,13 +5954,13 @@ const operator = {
 		skill:{
 			"回復力強化β":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃力+@atk%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				effect:[
 				]
 			},
 			"ディープヒーリング":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃力+@atk%、攻撃速度+@speed<br/>使用上限2回",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span><br/><span class='charge'>使用上限2回</span>",
 				effect:[
 				]
 			}
@@ -5995,13 +5995,13 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化β":{
-				exp:"攻撃力+@atk%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
 			},
 			"流砂":{
-				exp:"攻撃しなくなる<br/>攻撃範囲内の敵は1.8秒ごとに1回足止めされる",
+				exp:"<span class='demerit'>攻撃しなくなる</span><br/>攻撃範囲内の敵は<span class='merit'>1.8</span>秒ごとに1回足止めされる",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -6040,13 +6040,13 @@ const operator = {
 		],
 		skill:{
 			"光陰の触":{
-				exp:"全ての触手の攻撃力、防御力+@atk%、1秒ごとにHPが30回復",
+				exp:"全ての触手の攻撃力、防御力<span class='merit'>+@def%</span>、1秒ごとにHPが<span class='merit'>30</span>回復",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
 			},
 			"トロンブイユ":{
-				exp:"攻撃範囲拡大、攻撃範囲内の味方の物理回避+25%",
+				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃範囲内の味方の物理回避<span class='merit'>+25%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -6098,13 +6098,13 @@ const operator = {
 		skill:{
 			"スニークガード":{
 				passive:true,
-				exp:"配置後攻撃力+@def%<br/>この効果は徐々に減少し6秒間で0になる",
+				exp:"配置後攻撃力<span class='merit'>+@def%</span><br/>この効果は徐々に減少し<span class='merit'>6</span>秒間で0になる",
 				effect:[
 				]
 			},
 			"鼠の縄張り":{
 				passive:true,
-				exp:"配置後最大HP@hp%のシールドを形成し、敵からのダメージを吸収する<br/>シールドのHPは徐々に減少し10秒間で0になる",
+				exp:"配置後最大HP<span class='merit'>@hp%</span>のシールドを形成し、敵からのダメージを吸収する<br/>シールドのHPは徐々に減少し<span class='merit'>10</span>秒間で0になる",
 				effect:[
 				]
 			}
@@ -6156,13 +6156,13 @@ const operator = {
 		],
 		skill:{
 			"消火ポンプ":{
-				exp:"次の通常攻撃時、敵を攻撃方向に相当の力で突き飛ばし、攻撃力の@atk%の物理ダメージを与える",
+				exp:"次の通常攻撃時、敵を攻撃方向に<span class='merit'>相当の力で</span>突き飛ばし、攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与える",
 				recover:"auto",activate:"auto",
 				effect:[
 				]
 			},
 			"高圧放水":{
-				exp:"前方2マス内の敵全員を攻撃方向に相当の力で突き飛ばし、攻撃力の@atk%の物理ダメージを与える",
+				exp:"前方2マス内の敵全員を攻撃方向に<span class='merit'>相当の力で</span>突き飛ばし、攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与える",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -6216,13 +6216,13 @@ const operator = {
 		],
 		skill:{
 			"鉤縄投擲":{
-				exp:"次の通常攻撃時、敵をわずかな力で引き寄せ、攻撃力の@atk%の物理ダメージを与える",
+				exp:"次の通常攻撃時、敵を<span class='merit'>わずかな力で</span>引き寄せ、攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与える",
 				recover:"auto",activate:"auto",
 				effect:[
 				]
 			},
 			"鉤縄二本流":{
-				exp:"近くにいる敵２体をわずかな力で引き寄せ、攻撃力の@atk%の物理ダメージを与える",
+				exp:"近くにいる敵２体を<span class='merit'>わずかな力で</span>引き寄せ、攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与える",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -6264,7 +6264,7 @@ const operator = {
 		],
 		skill:{
 			"突撃指令・援軍":{
-				exp:"所持コスト+6、攻撃力+@atk%",
+				exp:"所持コスト<span class='merit'>+6</span>、攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -6302,7 +6302,7 @@ const operator = {
 		],
 		skill:{
 			"突撃指令α":{
-				exp:"所持コスト+6",
+				exp:"所持コスト<span class='merit'>+6</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 				]
@@ -6344,7 +6344,7 @@ const operator = {
 		],
 		skill:{
 			"迅速攻撃α":{
-				exp:"攻撃力+@atk%、攻撃速度+@speed",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -6386,7 +6386,7 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化α":{
-				exp:"攻撃力+@atk%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -6444,7 +6444,7 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化α":{
-				exp:"攻撃力+@atk%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -6488,7 +6488,7 @@ const operator = {
 		],
 		skill:{
 			"エンチャントα":{
-				exp:"攻撃力+@atk%、通常攻撃が術攻撃になる",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、通常攻撃が<span class='merit'>術攻撃</span>になる",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -6530,7 +6530,7 @@ const operator = {
 		],
 		skill:{
 			"防御力強化α":{
-				exp:"防御力+@def%",
+				exp:"防御力<span class='merit'>+@def%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -6572,7 +6572,7 @@ const operator = {
 		],
 		skill:{
 			"HP回復α":{
-				exp:"自身の最大HPが最大値の@heal%回復",
+				exp:"自身の最大HPが最大値の<span class='merit'>@heal%</span>回復",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -6605,7 +6605,7 @@ const operator = {
 		],
 		skill:{
 			"第二態勢・回復":{
-				exp:"攻撃力+@atk%、攻撃しなくなり回復行動のみ行う",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃しなくなり回復行動のみ行う",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -6659,7 +6659,7 @@ const operator = {
 		],
 		skill:{
 			"２点・バースト":{
-				exp:"次の通常攻撃時、2回連続で攻撃力の@atk%の物理ダメージを与える",
+				exp:"次の通常攻撃時、<span class='merit'>2</span>回連続で攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与える",
 				recover:"attack",activate:"auto",
 				effect:[
 				]
@@ -6701,7 +6701,7 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化α":{
-				exp:"攻撃力+@atk%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -6742,7 +6742,7 @@ const operator = {
 		],
 		skill:{
 			"爆破範囲拡大α":{
-				exp:"通常攻撃の爆破範囲が150%まで拡大",
+				exp:"通常攻撃の爆破範囲が<span class='merit'>150%</span>まで拡大",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -6784,7 +6784,7 @@ const operator = {
 		],
 		skill:{
 			"強撃α":{
-				exp:"次の通常攻撃時、攻撃力が@atk%まで上昇",
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇",
 				recover:"attack",activate:"auto",
 				effect:[
 				]
@@ -6820,7 +6820,7 @@ const operator = {
 		],
 		skill:{
 			"戦術詠唱α":{
-				exp:"攻撃速度+@speed",
+				exp:"攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -6862,7 +6862,7 @@ const operator = {
 		],
 		skill:{
 			"回復力強化α":{
-				exp:"攻撃力+@atk%",
+				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -6895,7 +6895,7 @@ const operator = {
 		],
 		skill:{
 			"回復範囲強化":{
-				exp:"攻撃範囲+1、攻撃力+@atk%",
+				exp:"攻撃範囲<span class='merit'>+1</span>、攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
@@ -6940,7 +6940,7 @@ const operator = {
 		],
 		skill:{
 			"迅速攻撃α":{
-				exp:"攻撃力+@atk%、攻撃速度+@speed",
+				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 				]
