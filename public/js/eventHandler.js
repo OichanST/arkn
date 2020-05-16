@@ -716,6 +716,8 @@ function showSkill(){
 	// スキルデータ取得
 	const sdata = data.skill;
 	if(Object.keys(sdata).length <= 0){
+		// イベント伝播の停止
+		event.stopPropagation();
 		return;
 	}
 	// スキルレベル取得
