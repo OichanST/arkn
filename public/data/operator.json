@@ -168,51 +168,51 @@ const operator = {
 		],
 		skill:{
 			"迅速攻撃γ":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:45,pers:35,atk:20,speed:20},
-					{start: 0,need:44,pers:35,atk:22,speed:20},
-					{start: 0,need:43,pers:35,atk:24,speed:20},
-					{start: 5,need:42,pers:35,atk:27,speed:25},
-					{start: 5,need:41,pers:35,atk:29,speed:25},
-					{start: 5,need:40,pers:35,atk:31,speed:25},
-					{start:10,need:39,pers:35,atk:34,speed:35},
-					{start:10,need:38,pers:35,atk:37,speed:35},
-					{start:10,need:37,pers:35,atk:40,speed:35},
-					{start:15,need:35,pers:35,atk:45,speed:45}
+					{start: 0,need:45,pers:35,atkadd:20,speed:20},
+					{start: 0,need:44,pers:35,atkadd:22,speed:20},
+					{start: 0,need:43,pers:35,atkadd:24,speed:20},
+					{start: 5,need:42,pers:35,atkadd:27,speed:25},
+					{start: 5,need:41,pers:35,atkadd:29,speed:25},
+					{start: 5,need:40,pers:35,atkadd:31,speed:25},
+					{start:10,need:39,pers:35,atkadd:34,speed:35},
+					{start:10,need:38,pers:35,atkadd:37,speed:35},
+					{start:10,need:37,pers:35,atkadd:40,speed:35},
+					{start:15,need:35,pers:35,atkadd:45,speed:45}
 				]
 			},
 			"波涛の裂刃":{
-				exp:"配置後の<span class='merit'>@time</span>秒間、攻撃力<span class='merit'>+@atk%</span>",
+				exp:"配置後の<span class='merit'>@time</span>秒間、攻撃力<span class='merit'>+@atkadd%</span>",
 				passive:true,
 				effect:[
-					{time:15,atk: 80},
-					{time:16,atk: 85},
-					{time:17,atk: 90},
-					{time:20,atk:100},
-					{time:21,atk:105},
-					{time:22,atk:110},
-					{time:25,atk:120},
-					{time:27,atk:135},
-					{time:28,atk:150},
-					{time:30,atk:170}
+					{time:15,atkadd: 80},
+					{time:16,atkadd: 85},
+					{time:17,atkadd: 90},
+					{time:20,atkadd:100},
+					{time:21,atkadd:105},
+					{time:22,atkadd:110},
+					{time:25,atkadd:120},
+					{time:27,atkadd:135},
+					{time:28,atkadd:150},
+					{time:30,atkadd:170}
 				]
 			},
 			"海嘯の悲歌":{
-				exp:"攻撃力、防御力、最大HP<span class='merit'>+@atk%</span>",
+				exp:"攻撃力、防御力、最大HP<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:50,need:90,pers:35,atk: 70,def: 70,hp: 70},
-					{start:50,need:90,pers:35,atk: 75,def: 75,hp: 75},
-					{start:50,need:90,pers:35,atk: 80,def: 80,hp: 80},
-					{start:55,need:90,pers:38,atk: 85,def: 85,hp: 85},
-					{start:55,need:90,pers:38,atk: 90,def: 90,hp: 90},
-					{start:55,need:90,pers:38,atk: 95,def: 95,hp: 95},
-					{start:60,need:90,pers:41,atk:100,def:100,hp:100},
-					{start:63,need:90,pers:44,atk:110,def:110,hp:110},
-					{start:66,need:90,pers:47,atk:120,def:120,hp:120},
-					{start:70,need:90,pers:60,atk:130,def:130,hp:130}
+					{start:50,need:90,pers:35,atkadd: 70,defadd: 70,hpadd: 70},
+					{start:50,need:90,pers:35,atkadd: 75,defadd: 75,hpadd: 75},
+					{start:50,need:90,pers:35,atkadd: 80,defadd: 80,hpadd: 80},
+					{start:55,need:90,pers:38,atkadd: 85,defadd: 85,hpadd: 85},
+					{start:55,need:90,pers:38,atkadd: 90,defadd: 90,hpadd: 90},
+					{start:55,need:90,pers:38,atkadd: 95,defadd: 95,hpadd: 95},
+					{start:60,need:90,pers:41,atkadd:100,defadd:100,hpadd:100},
+					{start:63,need:90,pers:44,atkadd:110,defadd:110,hpadd:110},
+					{start:66,need:90,pers:47,atkadd:120,defadd:120,hpadd:120},
+					{start:70,need:90,pers:60,atkadd:130,defadd:130,hpadd:130}
 				]
 			}
 		}
@@ -288,35 +288,35 @@ const operator = {
 				]
 			},
 			"雪境生存戦略":{
-				exp:"<span class='charge'>発動する度初期状態と次の状態とが切り替わる：</span><br/>攻撃範囲<span class='demerit'>縮小</span>、防御力<span class='merit'>+@def%</span>、1秒ごとにHPが最大値の<span class='merit'>@heal%</span>回復",
+				exp:"<span class='charge'>発動する度初期状態と次の状態とが切り替わる：</span><br/>攻撃範囲<span class='demerit'>縮小</span>、防御力<span class='merit'>+@defadd%</span>、1秒ごとにHPが最大値の<span class='merit'>@heal%</span>回復",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:5,def:35,heal:3.0},
-					{need:5,def:40,heal:3.0},
-					{need:5,def:45,heal:3.5},
-					{need:5,def:50,heal:3.5},
-					{need:5,def:55,heal:3.5},
-					{need:5,def:60,heal:3.5},
-					{need:5,def:65,heal:4.0},
-					{need:5,def:75,heal:4.5},
-					{need:5,def:85,heal:5.0},
-					{need:5,def:100,heal:6.0}
+					{need:5,defadd:35,heal:3.0},
+					{need:5,defadd:40,heal:3.0},
+					{need:5,defadd:45,heal:3.5},
+					{need:5,defadd:50,heal:3.5},
+					{need:5,defadd:55,heal:3.5},
+					{need:5,defadd:60,heal:3.5},
+					{need:5,defadd:65,heal:4.0},
+					{need:5,defadd:75,heal:4.5},
+					{need:5,defadd:85,heal:5.0},
+					{need:5,defadd:100,heal:6.0}
 				]
 			},
 			"真銀斬":{
-				exp:"防御力<span class='demerit'>@def%</span>、攻撃力<span class='merit'>+@atk%</span>、攻撃範囲<span class='merit'>拡大</span>、敵最大<span class='merit'>@target</span>体を同時に攻撃(近距離攻撃と見なす)",
+				exp:"防御力<span class='demerit'>@def%</span>、攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>拡大</span>、敵最大<span class='merit'>@target</span>体を同時に攻撃(近距離攻撃と見なす)",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:50,need:90,pers:20,def:-70,atk:110,target:3},
-					{start:50,need:90,pers:21,def:-70,atk:115,target:3},
-					{start:50,need:90,pers:22,def:-70,atk:120,target:3},
-					{start:55,need:90,pers:23,def:-70,atk:125,target:4},
-					{start:55,need:90,pers:24,def:-70,atk:130,target:4},
-					{start:55,need:90,pers:25,def:-70,atk:135,target:4},
-					{start:60,need:90,pers:26,def:-70,atk:140,target:5},
-					{start:65,need:90,pers:27,def:-70,atk:160,target:5},
-					{start:70,need:90,pers:28,def:-70,atk:180,target:5},
-					{start:75,need:90,pers:30,def:-70,atk:200,target:6}
+					{start:50,need:90,pers:20,def:-70,atkadd:110,target:3},
+					{start:50,need:90,pers:21,def:-70,atkadd:115,target:3},
+					{start:50,need:90,pers:22,def:-70,atkadd:120,target:3},
+					{start:55,need:90,pers:23,def:-70,atkadd:125,target:4},
+					{start:55,need:90,pers:24,def:-70,atkadd:130,target:4},
+					{start:55,need:90,pers:25,def:-70,atkadd:135,target:4},
+					{start:60,need:90,pers:26,def:-70,atkadd:140,target:5},
+					{start:65,need:90,pers:27,def:-70,atkadd:160,target:5},
+					{start:70,need:90,pers:28,def:-70,atkadd:180,target:5},
+					{start:75,need:90,pers:30,def:-70,atkadd:200,target:6}
 				]
 			}
 		}
@@ -400,19 +400,19 @@ const operator = {
 				]
 			},
 			"赤霄・抜刀":{
-				exp:"前方一定範囲の敵最大<span class='merit'>@target</span>体に攻撃力の<span class='merit'>@atk%</span>の<span class='charge'>物理</span>ダメージと攻撃力の<span class='merit'>@arts%</span>の<span class='charge'>術</span>ダメージを与える",
+				exp:"前方一定範囲の敵最大<span class='merit'>@target</span>体に攻撃力の<span class='merit'>@atk%</span>の<span class='charge'>物理</span>ダメージと攻撃力の<span class='merit'>@atk%</span>の<span class='charge'>術</span>ダメージを与える",
 				recover:"attack",activate:"manual",
 				effect:[
-					{start:10,need:27,target:4,atk:330,arts:330},
-					{start:10,need:27,target:4,atk:340,arts:340},
-					{start:10,need:27,target:4,atk:350,arts:350},
-					{start:12,need:26,target:5,atk:370,arts:370},
-					{start:12,need:26,target:5,atk:380,arts:380},
-					{start:12,need:26,target:5,atk:390,arts:390},
-					{start:14,need:25,target:6,atk:410,arts:410},
-					{start:15,need:23,target:6,atk:440,arts:440},
-					{start:16,need:21,target:6,atk:470,arts:470},
-					{start:20,need:20,target:7,atk:500,arts:500}
+					{start:10,need:27,target:4,atk:330},
+					{start:10,need:27,target:4,atk:340},
+					{start:10,need:27,target:4,atk:350},
+					{start:12,need:26,target:5,atk:370},
+					{start:12,need:26,target:5,atk:380},
+					{start:12,need:26,target:5,atk:390},
+					{start:14,need:25,target:6,atk:410},
+					{start:15,need:23,target:6,atk:440},
+					{start:16,need:21,target:6,atk:470},
+					{start:20,need:20,target:7,atk:500}
 				]
 			},
 			"赤霄・絶影":{
@@ -498,35 +498,35 @@ const operator = {
 				]
 			},
 			"弦月":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、通常攻撃が@cnt回攻撃になり、物理回避率<span class='merit'>+@dodge%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が@cnt回攻撃になり、物理回避率<span class='merit'>+@dodge%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:35,pers:10,atk:20,cnt:2,dodge:75},
-					{start: 0,need:34,pers:10,atk:25,cnt:2,dodge:75},
-					{start: 0,need:33,pers:10,atk:30,cnt:2,dodge:75},
-					{start: 5,need:32,pers:11,atk:35,cnt:2,dodge:75},
-					{start: 5,need:31,pers:11,atk:40,cnt:2,dodge:75},
-					{start: 5,need:30,pers:11,atk:45,cnt:2,dodge:75},
-					{start:10,need:29,pers:12,atk:50,cnt:2,dodge:75},
-					{start:11,need:28,pers:12,atk:60,cnt:2,dodge:75},
-					{start:12,need:27,pers:12,atk:70,cnt:2,dodge:75},
-					{start:15,need:25,pers:13,atk:80,cnt:2,dodge:75}
+					{start: 0,need:35,pers:10,atkadd:20,cnt:2,dodge:75},
+					{start: 0,need:34,pers:10,atkadd:25,cnt:2,dodge:75},
+					{start: 0,need:33,pers:10,atkadd:30,cnt:2,dodge:75},
+					{start: 5,need:32,pers:11,atkadd:35,cnt:2,dodge:75},
+					{start: 5,need:31,pers:11,atkadd:40,cnt:2,dodge:75},
+					{start: 5,need:30,pers:11,atkadd:45,cnt:2,dodge:75},
+					{start:10,need:29,pers:12,atkadd:50,cnt:2,dodge:75},
+					{start:11,need:28,pers:12,atkadd:60,cnt:2,dodge:75},
+					{start:12,need:27,pers:12,atkadd:70,cnt:2,dodge:75},
+					{start:15,need:25,pers:13,atkadd:80,cnt:2,dodge:75}
 				]
 			},
 			"満月":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃範囲<span class='merit'>+@range</span>マス、敵最大<span class='merit'>@target</span>体を同時に攻撃",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>+@range</span>マス、敵最大<span class='merit'>@target</span>体を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:15,need:45,pers:12,atk:40,range:1,target:3},
-					{start:15,need:45,pers:12,atk:45,range:1,target:3},
-					{start:15,need:45,pers:12,atk:50,range:1,target:3},
-					{start:15,need:43,pers:13,atk:55,range:1,target:3},
-					{start:15,need:43,pers:13,atk:60,range:1,target:3},
-					{start:15,need:43,pers:13,atk:65,range:1,target:3},
-					{start:15,need:41,pers:14,atk:70,range:1,target:3},
-					{start:15,need:39,pers:14,atk:80,range:2,target:3},
-					{start:15,need:37,pers:14,atk:90,range:2,target:3},
-					{start:15,need:35,pers:15,atk:100,range:2,target:3}
+					{start:15,need:45,pers:12,atkadd:40,range:1,target:3},
+					{start:15,need:45,pers:12,atkadd:45,range:1,target:3},
+					{start:15,need:45,pers:12,atkadd:50,range:1,target:3},
+					{start:15,need:43,pers:13,atkadd:55,range:1,target:3},
+					{start:15,need:43,pers:13,atkadd:60,range:1,target:3},
+					{start:15,need:43,pers:13,atkadd:65,range:1,target:3},
+					{start:15,need:41,pers:14,atkadd:70,range:1,target:3},
+					{start:15,need:39,pers:14,atkadd:80,range:2,target:3},
+					{start:15,need:37,pers:14,atkadd:90,range:2,target:3},
+					{start:15,need:35,pers:15,atkadd:100,range:2,target:3}
 				]
 			}
 		}
@@ -588,19 +588,19 @@ const operator = {
 		],
 		skill:{
 			"戦意昂揚":{
-				exp:"防御力<span class='merit'>+@def%</span>、攻撃力<span class='merit'>+@atk%</span>",
+				exp:"防御力<span class='merit'>+@defadd%</span>、攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:20,need:50,pers:20,def:35,atk:10},
-					{start:20,need:49,pers:21,def:40,atk:10},
-					{start:20,need:48,pers:22,def:45,atk:10},
-					{start:20,need:47,pers:23,def:50,atk:20},
-					{start:20,need:46,pers:24,def:55,atk:20},
-					{start:20,need:45,pers:25,def:60,atk:20},
-					{start:20,need:44,pers:26,def:65,atk:30},
-					{start:20,need:43,pers:27,def:70,atk:30},
-					{start:20,need:42,pers:28,def:75,atk:30},
-					{start:20,need:40,pers:30,def:80,atk:40}
+					{start:20,need:50,pers:20,defadd:35,atkadd:10},
+					{start:20,need:49,pers:21,defadd:40,atkadd:10},
+					{start:20,need:48,pers:22,defadd:45,atkadd:10},
+					{start:20,need:47,pers:23,defadd:50,atkadd:20},
+					{start:20,need:46,pers:24,defadd:55,atkadd:20},
+					{start:20,need:45,pers:25,defadd:60,atkadd:20},
+					{start:20,need:44,pers:26,defadd:65,atkadd:30},
+					{start:20,need:43,pers:27,defadd:70,atkadd:30},
+					{start:20,need:42,pers:28,defadd:75,atkadd:30},
+					{start:20,need:40,pers:30,defadd:80,atkadd:40}
 				]
 			},
 			"荊棘":{
@@ -620,19 +620,19 @@ const operator = {
 				]
 			},
 			"般若":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、防御力<span class='merit'>+@def%</span>、盾を回転し、前方1マスにいる敵全員を同時に攻撃",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、防御力<span class='merit'>+@defadd%</span>、盾を回転し、前方1マスにいる敵全員を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:20,need:60,pers:25,atk: 65,def:40},
-					{start:20,need:59,pers:25,atk: 70,def:40},
-					{start:20,need:58,pers:25,atk: 75,def:40},
-					{start:23,need:57,pers:25,atk: 80,def:40},
-					{start:23,need:56,pers:25,atk: 85,def:50},
-					{start:23,need:55,pers:25,atk: 90,def:50},
-					{start:26,need:54,pers:25,atk: 95,def:60},
-					{start:27,need:53,pers:25,atk:110,def:70},
-					{start:28,need:52,pers:25,atk:125,def:80},
-					{start:30,need:50,pers:25,atk:140,def:90}
+					{start:20,need:60,pers:25,atkadd: 65,defadd:40},
+					{start:20,need:59,pers:25,atkadd: 70,defadd:40},
+					{start:20,need:58,pers:25,atkadd: 75,defadd:40},
+					{start:23,need:57,pers:25,atkadd: 80,defadd:40},
+					{start:23,need:56,pers:25,atkadd: 85,defadd:50},
+					{start:23,need:55,pers:25,atkadd: 90,defadd:50},
+					{start:26,need:54,pers:25,atkadd: 95,defadd:60},
+					{start:27,need:53,pers:25,atkadd:110,defadd:70},
+					{start:28,need:52,pers:25,atkadd:125,defadd:80},
+					{start:30,need:50,pers:25,atkadd:140,defadd:90}
 				]
 			}
 		}
@@ -705,51 +705,51 @@ const operator = {
 		],
 		skill:{
 			"応急処置":{
-				exp:"次の通常攻撃時、周囲一定範囲内にいるHPが50%以下の味方1人に、攻撃力の<span class='merit'>@heal%回復</span><br/><span class='charge'>@charge回チャージ可能</span>",
+				exp:"次の通常攻撃時、周囲一定範囲内にいるHPが50%以下の味方1人に、攻撃力の<span class='merit'>@atk%回復</span><br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"auto",activate:"auto",
 				effect:[
-					{need:6,heal:110,charge:1},
-					{need:6,heal:115,charge:1},
-					{need:6,heal:120,charge:1},
-					{need:5,heal:130,charge:1},
-					{need:5,heal:135,charge:1},
-					{need:5,heal:140,charge:1},
-					{need:5,heal:150,charge:2},
-					{need:4,heal:160,charge:2},
-					{need:4,heal:170,charge:2},
-					{need:4,heal:180,charge:3}
+					{need:6,atk:110,charge:1},
+					{need:6,atk:115,charge:1},
+					{need:6,atk:120,charge:1},
+					{need:5,atk:130,charge:1},
+					{need:5,atk:135,charge:1},
+					{need:5,atk:140,charge:1},
+					{need:5,atk:150,charge:2},
+					{need:4,atk:160,charge:2},
+					{need:4,atk:170,charge:2},
+					{need:4,atk:180,charge:3}
 				]
 			},
 			"薬剤配置":{
-				exp:"範囲内の味方全員のHPをサリアの攻撃力の<span class='merit'>@heal%</span>回復",
+				exp:"範囲内の味方全員のHPをサリアの攻撃力の<span class='merit'>@atk%</span>回復",
 				recover:"auto",activate:"auto",
 				effect:[
-					{need:10,heal: 80},
-					{need:10,heal: 85},
-					{need:10,heal: 90},
-					{need: 9,heal: 95},
-					{need: 9,heal:100},
-					{need: 9,heal:105},
-					{need: 8,heal:110},
-					{need: 8,heal:120},
-					{need: 8,heal:130},
-					{need: 7,heal:140}
+					{need:10,atk: 80},
+					{need:10,atk: 85},
+					{need:10,atk: 90},
+					{need: 9,atk: 95},
+					{need: 9,atk:100},
+					{need: 9,atk:105},
+					{need: 8,atk:110},
+					{need: 8,atk:120},
+					{need: 8,atk:130},
+					{need: 7,atk:140}
 				]
 			},
 			"硬質化":{
-				exp:"近くにいる味方全員のHPを1秒ごとにサリアの攻撃力の<span class='merit'>@heal%</span>分回復<br/>近くにいる敵全員の受ける術ダメージ<span class='merit'>+@res%</span>、移動速度<span class='merit'>@slow%</span>",
+				exp:"近くにいる味方全員のHPを1秒ごとにサリアの攻撃力の<span class='merit'>@atk%</span>分回復<br/>近くにいる敵全員の受ける術ダメージ<span class='merit'>+@res%</span>、移動速度<span class='merit'>@slow%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:45,need:80,pers:10,heal:10,res:20,slow:-60},
-					{start:45,need:80,pers:12,heal:10,res:20,slow:-60},
-					{start:45,need:80,pers:14,heal:10,res:20,slow:-60},
-					{start:50,need:80,pers:16,heal:15,res:30,slow:-60},
-					{start:50,need:80,pers:18,heal:15,res:30,slow:-60},
-					{start:50,need:80,pers:20,heal:15,res:30,slow:-60},
-					{start:55,need:80,pers:22,heal:20,res:40,slow:-60},
-					{start:60,need:80,pers:24,heal:25,res:45,slow:-60},
-					{start:65,need:80,pers:27,heal:30,res:50,slow:-60},
-					{start:70,need:80,pers:30,heal:35,res:55,slow:-60}
+					{start:45,need:80,pers:10,atk:10,res:20,slow:-60},
+					{start:45,need:80,pers:12,atk:10,res:20,slow:-60},
+					{start:45,need:80,pers:14,atk:10,res:20,slow:-60},
+					{start:50,need:80,pers:16,atk:15,res:30,slow:-60},
+					{start:50,need:80,pers:18,atk:15,res:30,slow:-60},
+					{start:50,need:80,pers:20,atk:15,res:30,slow:-60},
+					{start:55,need:80,pers:22,atk:20,res:40,slow:-60},
+					{start:60,need:80,pers:24,atk:25,res:45,slow:-60},
+					{start:65,need:80,pers:27,atk:30,res:50,slow:-60},
+					{start:70,need:80,pers:30,atk:35,res:55,slow:-60}
 				]
 			}
 		}
@@ -939,35 +939,35 @@ const operator = {
 			},
 			"暮色の慧眼":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃力<span class='merit'>+@atk%</span>、素質の発動率が<span class='merit'>@nature%</span>まで上昇",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、素質の発動率が<span class='merit'>@nature%</span>まで上昇",
 				effect:[
-					{start:10,need:40,pers:30,atk:70,nature:35},
-					{start:10,need:39,pers:31,atk:75,nature:35},
-					{start:10,need:38,pers:32,atk:80,nature:35},
-					{start:13,need:37,pers:33,atk:85,nature:40},
-					{start:13,need:36,pers:34,atk:90,nature:40},
-					{start:13,need:35,pers:35,atk:95,nature:45},
-					{start:16,need:34,pers:36,atk:100,nature:45},
-					{start:17,need:33,pers:37,atk:110,nature:45},
-					{start:18,need:32,pers:38,atk:120,nature:45},
-					{start:20,need:30,pers:40,atk:130,nature:50}
+					{start:10,need:40,pers:30,atkadd:70,nature:35},
+					{start:10,need:39,pers:31,atkadd:75,nature:35},
+					{start:10,need:38,pers:32,atkadd:80,nature:35},
+					{start:13,need:37,pers:33,atkadd:85,nature:40},
+					{start:13,need:36,pers:34,atkadd:90,nature:40},
+					{start:13,need:35,pers:35,atkadd:95,nature:45},
+					{start:16,need:34,pers:36,atkadd:100,nature:45},
+					{start:17,need:33,pers:37,atkadd:110,nature:45},
+					{start:18,need:32,pers:38,atkadd:120,nature:45},
+					{start:20,need:30,pers:40,atkadd:130,nature:50}
 				]
 			},
 			"ターミネート":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃範囲が前方<span class='charge'>@rangeマス</span>になり、通常攻撃の間隔が<span class='demerit'>わずかに延長</span>。攻撃力<span class='merit'>+@atk%</span>、素質の発動率が<span class='merit'>@nature%</span>まで上昇"
+				exp:"攻撃範囲が前方<span class='charge'>@rangeマス</span>になり、通常攻撃の間隔が<span class='demerit'>わずかに延長</span>。攻撃力<span class='merit'>+@atkadd%</span>、素質の発動率が<span class='merit'>@nature%</span>まで上昇"
 				,
 				effect:[
-					{start: 5,need:35,pers:15,range:3,atk:100,nature:100},
-					{start: 5,need:34,pers:16,range:3,atk:105,nature:100},
-					{start: 5,need:33,pers:17,range:3,atk:110,nature:100},
-					{start: 7,need:32,pers:18,range:3,atk:120,nature:100},
-					{start: 7,need:31,pers:19,range:3,atk:125,nature:100},
-					{start: 7,need:30,pers:20,range:3,atk:130,nature:100},
-					{start: 9,need:29,pers:21,range:3,atk:140,nature:100},
-					{start:10,need:28,pers:22,range:4,atk:150,nature:100},
-					{start:11,need:27,pers:23,range:4,atk:160,nature:100},
-					{start:12,need:25,pers:25,range:4,atk:180,nature:100}
+					{start: 5,need:35,pers:15,range:3,atkadd:100,nature:100},
+					{start: 5,need:34,pers:16,range:3,atkadd:105,nature:100},
+					{start: 5,need:33,pers:17,range:3,atkadd:110,nature:100},
+					{start: 7,need:32,pers:18,range:3,atkadd:120,nature:100},
+					{start: 7,need:31,pers:19,range:3,atkadd:125,nature:100},
+					{start: 7,need:30,pers:20,range:3,atkadd:130,nature:100},
+					{start: 9,need:29,pers:21,range:3,atkadd:140,nature:100},
+					{start:10,need:28,pers:22,range:4,atkadd:150,nature:100},
+					{start:11,need:27,pers:23,range:4,atkadd:160,nature:100},
+					{start:12,need:25,pers:25,range:4,atkadd:180,nature:100}
 				]
 			}
 		}
@@ -1020,19 +1020,19 @@ const operator = {
 		],
 		skill:{
 			"二重詠唱":{
-				exp:"攻撃速度<span class='merit'>+@speed</span><br/>2回目以降スキル使用時、更に攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃速度<span class='merit'>+@speed</span><br/>2回目以降スキル使用時、更に攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:10,need:45,pers:25,speed:30,atk:30},
-					{start:10,need:44,pers:25,speed:32,atk:32},
-					{start:15,need:43,pers:25,speed:35,atk:35},
-					{start:15,need:42,pers:25,speed:38,atk:38},
-					{start:15,need:41,pers:25,speed:40,atk:40},
-					{start:15,need:40,pers:25,speed:42,atk:42},
-					{start:20,need:39,pers:25,speed:45,atk:45},
-					{start:20,need:38,pers:25,speed:50,atk:50},
-					{start:20,need:37,pers:25,speed:55,atk:55},
-					{start:25,need:35,pers:25,speed:60,atk:60}
+					{start:10,need:45,pers:25,speed:30,atkadd:30},
+					{start:10,need:44,pers:25,speed:32,atkadd:32},
+					{start:15,need:43,pers:25,speed:35,atkadd:35},
+					{start:15,need:42,pers:25,speed:38,atkadd:38},
+					{start:15,need:41,pers:25,speed:40,atkadd:40},
+					{start:15,need:40,pers:25,speed:42,atkadd:42},
+					{start:20,need:39,pers:25,speed:45,atkadd:45},
+					{start:20,need:38,pers:25,speed:50,atkadd:50},
+					{start:20,need:37,pers:25,speed:55,atkadd:55},
+					{start:25,need:35,pers:25,speed:60,atkadd:60}
 				]
 			},
 			"イグニッション":{
@@ -1052,19 +1052,19 @@ const operator = {
 				]
 			},
 			"イラプション":{
-				exp:"攻撃力+@atk%、攻撃範囲拡大、通常攻撃の感覚が大幅に短縮、ランダムで攻撃範囲内の敵最大@target体を攻撃",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>拡大</span>、通常攻撃の間隔が<span class='merit'>大幅に短縮</span>、ランダムで攻撃範囲内の敵最大<span class='merit'>@target</span>体を攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:30,need:80,pers:15,atk:55,target:3},
-					{start:31,need:80,pers:15,atk:60,target:3},
-					{start:32,need:80,pers:15,atk:65,target:3},
-					{start:33,need:80,pers:15,atk:70,target:4},
-					{start:34,need:80,pers:15,atk:75,target:4},
-					{start:35,need:80,pers:15,atk:80,target:4},
-					{start:40,need:80,pers:15,atk:85,target:5},
-					{start:45,need:80,pers:15,atk:100,target:5},
-					{start:50,need:80,pers:15,atk:115,target:5},
-					{start:55,need:80,pers:15,atk:130,target:6}
+					{start:30,need:80,pers:15,atkadd:55,target:3},
+					{start:31,need:80,pers:15,atkadd:60,target:3},
+					{start:32,need:80,pers:15,atkadd:65,target:3},
+					{start:33,need:80,pers:15,atkadd:70,target:4},
+					{start:34,need:80,pers:15,atkadd:75,target:4},
+					{start:35,need:80,pers:15,atkadd:80,target:4},
+					{start:40,need:80,pers:15,atkadd:85,target:5},
+					{start:45,need:80,pers:15,atkadd:100,target:5},
+					{start:50,need:80,pers:15,atkadd:115,target:5},
+					{start:55,need:80,pers:15,atkadd:130,target:6}
 				]
 			}
 		}
@@ -1123,19 +1123,19 @@ const operator = {
 		],
 		skill:{
 			"猛火":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:50,pers:20,atk:10,speed:45},
-					{start: 0,need:49,pers:20,atk:10,speed:48},
-					{start: 0,need:48,pers:20,atk:10,speed:50},
-					{start:10,need:47,pers:20,atk:10,speed:58},
-					{start:10,need:46,pers:20,atk:10,speed:61},
-					{start:10,need:45,pers:20,atk:10,speed:64},
-					{start:15,need:44,pers:20,atk:20,speed:67},
-					{start:15,need:43,pers:20,atk:20,speed:70},
-					{start:15,need:42,pers:20,atk:20,speed:75},
-					{start:20,need:40,pers:20,atk:20,speed:80}
+					{start: 0,need:50,pers:20,atkadd:10,speed:45},
+					{start: 0,need:49,pers:20,atkadd:10,speed:48},
+					{start: 0,need:48,pers:20,atkadd:10,speed:50},
+					{start:10,need:47,pers:20,atkadd:10,speed:58},
+					{start:10,need:46,pers:20,atkadd:10,speed:61},
+					{start:10,need:45,pers:20,atkadd:10,speed:64},
+					{start:15,need:44,pers:20,atkadd:20,speed:67},
+					{start:15,need:43,pers:20,atkadd:20,speed:70},
+					{start:15,need:42,pers:20,atkadd:20,speed:75},
+					{start:20,need:40,pers:20,atkadd:20,speed:80}
 				]
 			},
 			"爆炎":{
@@ -1155,19 +1155,19 @@ const operator = {
 				]
 			},
 			"灼獄":{
-				exp:"攻撃範囲内、地面にいる敵全員に1秒ごとに攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、術耐性<span class='merit'>@debuff</span><br/><span class='charge'>自身のHPが1秒ごとに最大値の2%減少</span>",
+				exp:"攻撃範囲内、地面にいる敵全員に1秒ごとに攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、術耐性<span class='merit'>@resdown</span><br/><span class='charge'>自身のHPが1秒ごとに最大値の2%減少</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:40,atk: 75,debuff:-7},
-					{need:39,atk: 80,debuff:-7},
-					{need:38,atk: 85,debuff:-7},
-					{need:36,atk: 90,debuff:-7},
-					{need:35,atk: 95,debuff:-7},
-					{need:34,atk:100,debuff:-7},
-					{need:31,atk:110,debuff:-10},
-					{need:30,atk:120,debuff:-13},
-					{need:29,atk:130,debuff:-16},
-					{need:28,atk:140,debuff:-20}
+					{need:40,atk: 75,resdown:-7},
+					{need:39,atk: 80,resdown:-7},
+					{need:38,atk: 85,resdown:-7},
+					{need:36,atk: 90,resdown:-7},
+					{need:35,atk: 95,resdown:-7},
+					{need:34,atk:100,resdown:-7},
+					{need:31,atk:110,resdown:-10},
+					{need:30,atk:120,resdown:-13},
+					{need:29,atk:130,resdown:-16},
+					{need:28,atk:140,resdown:-20}
 				]
 			}
 		}
@@ -1217,19 +1217,19 @@ const operator = {
 		],
 		skill:{
 			"信条":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:50,pers:20,atk:45,speed:10},
-					{start: 0,need:49,pers:20,atk:48,speed:10},
-					{start: 0,need:48,pers:20,atk:50,speed:10},
-					{start:10,need:47,pers:20,atk:58,speed:10},
-					{start:10,need:46,pers:20,atk:61,speed:10},
-					{start:10,need:45,pers:20,atk:64,speed:10},
-					{start:14,need:44,pers:20,atk:67,speed:20},
-					{start:16,need:43,pers:20,atk:70,speed:20},
-					{start:18,need:42,pers:20,atk:75,speed:20},
-					{start:20,need:40,pers:20,atk:80,speed:20}
+					{start: 0,need:50,pers:20,atkadd:45,speed:10},
+					{start: 0,need:49,pers:20,atkadd:48,speed:10},
+					{start: 0,need:48,pers:20,atkadd:50,speed:10},
+					{start:10,need:47,pers:20,atkadd:58,speed:10},
+					{start:10,need:46,pers:20,atkadd:61,speed:10},
+					{start:10,need:45,pers:20,atkadd:64,speed:10},
+					{start:14,need:44,pers:20,atkadd:67,speed:20},
+					{start:16,need:43,pers:20,atkadd:70,speed:20},
+					{start:18,need:42,pers:20,atkadd:75,speed:20},
+					{start:20,need:40,pers:20,atkadd:80,speed:20}
 				]
 			},
 			"オートカバー":{
@@ -1249,19 +1249,19 @@ const operator = {
 				]
 			},
 			"教導の結界":{
-				exp:"攻撃力<span class='merit'>+@atk%</span><br/>攻撃範囲内の味方全員の防御力<span class='merit'>+@def%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span><br/>攻撃範囲内の味方全員の防御力<span class='merit'>+@defadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:100,need:120,pers:60,atk:20,def:30},
-					{start:100,need:120,pers:60,atk:20,def:35},
-					{start:100,need:120,pers:60,atk:20,def:40},
-					{start:100,need:120,pers:60,atk:20,def:45},
-					{start:100,need:120,pers:60,atk:30,def:50},
-					{start:100,need:120,pers:60,atk:30,def:55},
-					{start:100,need:120,pers:60,atk:40,def:60},
-					{start:105,need:120,pers:60,atk:40,def:70},
-					{start:110,need:120,pers:60,atk:40,def:80},
-					{start:115,need:120,pers:60,atk:50,def:100}
+					{start:100,need:120,pers:60,atkadd:20,defadd:30},
+					{start:100,need:120,pers:60,atkadd:20,defadd:35},
+					{start:100,need:120,pers:60,atkadd:20,defadd:40},
+					{start:100,need:120,pers:60,atkadd:20,defadd:45},
+					{start:100,need:120,pers:60,atkadd:30,defadd:50},
+					{start:100,need:120,pers:60,atkadd:30,defadd:55},
+					{start:100,need:120,pers:60,atkadd:40,defadd:60},
+					{start:105,need:120,pers:60,atkadd:40,defadd:70},
+					{start:110,need:120,pers:60,atkadd:40,defadd:80},
+					{start:115,need:120,pers:60,atkadd:50,defadd:100}
 				]
 			}
 		}
@@ -1302,19 +1302,19 @@ const operator = {
 		],
 		skill:{
 			"回復力強化γ":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:20,need:40,pers:30,atk:40},
-					{start:20,need:40,pers:30,atk:45},
-					{start:20,need:40,pers:30,atk:50},
-					{start:20,need:35,pers:30,atk:55},
-					{start:20,need:35,pers:30,atk:60},
-					{start:20,need:35,pers:30,atk:65},
-					{start:20,need:32,pers:30,atk:70},
-					{start:20,need:32,pers:30,atk:75},
-					{start:20,need:32,pers:30,atk:80},
-					{start:20,need:30,pers:30,atk:90}
+					{start:20,need:40,pers:30,atkadd:40},
+					{start:20,need:40,pers:30,atkadd:45},
+					{start:20,need:40,pers:30,atkadd:50},
+					{start:20,need:35,pers:30,atkadd:55},
+					{start:20,need:35,pers:30,atkadd:60},
+					{start:20,need:35,pers:30,atkadd:65},
+					{start:20,need:32,pers:30,atkadd:70},
+					{start:20,need:32,pers:30,atkadd:75},
+					{start:20,need:32,pers:30,atkadd:80},
+					{start:20,need:30,pers:30,atkadd:90}
 				]
 			},
 			"アーツシールド":{
@@ -1334,19 +1334,19 @@ const operator = {
 				]
 			},
 			"聖域":{
-				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atk%</span>、攻撃範囲内の味方の術耐性<span class='merit'>+@res%</span>、術回避<span class='merit'>+@dodge%</span>",
+				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲内の味方の術耐性<span class='merit'>+@resadd%</span>、術回避<span class='merit'>+@resdodge%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:100,need:120,pers:60,atk:30,res: 75,dodge:10},
-					{start:100,need:120,pers:60,atk:30,res: 80,dodge:10},
-					{start:100,need:120,pers:60,atk:30,res: 85,dodge:10},
-					{start:105,need:120,pers:60,atk:40,res: 90,dodge:15},
-					{start:105,need:120,pers:60,atk:40,res: 95,dodge:15},
-					{start:105,need:120,pers:60,atk:40,res:100,dodge:15},
-					{start:110,need:120,pers:60,atk:50,res:105,dodge:20},
-					{start:110,need:120,pers:60,atk:60,res:120,dodge:20},
-					{start:110,need:120,pers:60,atk:70,res:135,dodge:20},
-					{start:115,need:120,pers:60,atk:80,res:150,dodge:25}
+					{start:100,need:120,pers:60,atkadd:30,resadd: 75,resdodge:10},
+					{start:100,need:120,pers:60,atkadd:30,resadd: 80,resdodge:10},
+					{start:100,need:120,pers:60,atkadd:30,resadd: 85,resdodge:10},
+					{start:105,need:120,pers:60,atkadd:40,resadd: 90,resdodge:15},
+					{start:105,need:120,pers:60,atkadd:40,resadd: 95,resdodge:15},
+					{start:105,need:120,pers:60,atkadd:40,resadd:100,resdodge:15},
+					{start:110,need:120,pers:60,atkadd:50,resadd:105,resdodge:20},
+					{start:110,need:120,pers:60,atkadd:60,resadd:120,resdodge:20},
+					{start:110,need:120,pers:60,atkadd:70,resadd:135,resdodge:20},
+					{start:115,need:120,pers:60,atkadd:80,resadd:150,resdodge:25}
 				]
 			}
 		}
@@ -1402,19 +1402,19 @@ const operator = {
 		],
 		skill:{
 			"秘杖・急収束":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"attack",activate:"auto",
 				effect:[
-					{need:10,pers:20,atk:40},
-					{need:10,pers:21,atk:45},
-					{need:10,pers:22,atk:50},
-					{need:10,pers:25,atk:60},
-					{need:10,pers:26,atk:65},
-					{need:10,pers:27,atk:70},
-					{need:10,pers:30,atk:80},
-					{need:10,pers:31,atk:90},
-					{need:10,pers:33,atk:100},
-					{need:10,pers:35,atk:110}
+					{need:10,pers:20,atkadd:40},
+					{need:10,pers:21,atkadd:45},
+					{need:10,pers:22,atkadd:50},
+					{need:10,pers:25,atkadd:60},
+					{need:10,pers:26,atkadd:65},
+					{need:10,pers:27,atkadd:70},
+					{need:10,pers:30,atkadd:80},
+					{need:10,pers:31,atkadd:90},
+					{need:10,pers:33,atkadd:100},
+					{need:10,pers:35,atkadd:110}
 				]
 			},
 			"秘杖・微粒子":{
@@ -1434,19 +1434,19 @@ const operator = {
 				]
 			},
 			"秘杖・反重力":{
-				exp:"敵全員の重量が<span class='merit'>1ランクダウン</span>、攻撃範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atk%</span>、敵最大<span class='merit'>@target</span>体を同時に攻撃<br/><span class='charge'>スキル発動中のみ攻撃行動を行う</span>",
+				exp:"敵全員の重量が<span class='merit'>1ランクダウン</span>、攻撃範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、敵最大<span class='merit'>@target</span>体を同時に攻撃<br/><span class='charge'>スキル発動中のみ攻撃行動を行う</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:25,pers:10,atk: 75,target:4},
-					{start: 0,need:25,pers:11,atk: 80,target:4},
-					{start: 0,need:25,pers:12,atk: 85,target:4},
-					{start: 3,need:25,pers:14,atk: 90,target:4},
-					{start: 3,need:25,pers:15,atk: 95,target:4},
-					{start: 3,need:25,pers:16,atk:100,target:4},
-					{start: 6,need:25,pers:18,atk:105,target:5},
-					{start: 7,need:25,pers:20,atk:120,target:5},
-					{start: 8,need:25,pers:22,atk:135,target:5},
-					{start:10,need:25,pers:25,atk:150,target:5}
+					{start: 0,need:25,pers:10,atkadd: 75,target:4},
+					{start: 0,need:25,pers:11,atkadd: 80,target:4},
+					{start: 0,need:25,pers:12,atkadd: 85,target:4},
+					{start: 3,need:25,pers:14,atkadd: 90,target:4},
+					{start: 3,need:25,pers:15,atkadd: 95,target:4},
+					{start: 3,need:25,pers:16,atkadd:100,target:4},
+					{start: 6,need:25,pers:18,atkadd:105,target:5},
+					{start: 7,need:25,pers:20,atkadd:120,target:5},
+					{start: 8,need:25,pers:22,atkadd:135,target:5},
+					{start:10,need:25,pers:25,atkadd:150,target:5}
 				]
 			}
 		}
@@ -1522,19 +1522,19 @@ const operator = {
 				]
 			},
 			"アサルトモジュール":{
-				exp:"パッシブ:ドローンが範囲物理攻撃を行い、近距離ユニットとして配置可能。スキル発動時、自身とドローンの攻撃力<span class='merit'>+@atk%</span>、ドローンの攻撃による爆破範囲が<span class='merit'>拡大</span>。<span class='charge'>効果時間終了後配置中の全てのドローンを回収</span>",
+				exp:"パッシブ:ドローンが範囲物理攻撃を行い、近距離ユニットとして配置可能。スキル発動時、自身とドローンの攻撃力<span class='merit'>+@atkadd%</span>、ドローンの攻撃による爆破範囲が<span class='merit'>拡大</span>。<span class='charge'>効果時間終了後配置中の全てのドローンを回収</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:25,need:50,pers:15,atk:60},
-					{start:25,need:49,pers:15,atk:65},
-					{start:25,need:48,pers:15,atk:70},
-					{start:25,need:47,pers:15,atk:80},
-					{start:25,need:46,pers:15,atk:85},
-					{start:25,need:45,pers:15,atk:90},
-					{start:25,need:44,pers:15,atk:100},
-					{start:25,need:42,pers:15,atk:115},
-					{start:25,need:40,pers:15,atk:130},
-					{start:25,need:38,pers:15,atk:150}
+					{start:25,need:50,pers:15,atkadd:60},
+					{start:25,need:49,pers:15,atkadd:65},
+					{start:25,need:48,pers:15,atkadd:70},
+					{start:25,need:47,pers:15,atkadd:80},
+					{start:25,need:46,pers:15,atkadd:85},
+					{start:25,need:45,pers:15,atkadd:90},
+					{start:25,need:44,pers:15,atkadd:100},
+					{start:25,need:42,pers:15,atkadd:115},
+					{start:25,need:40,pers:15,atkadd:130},
+					{start:25,need:38,pers:15,atkadd:150}
 				]
 			}
 		}
@@ -1657,19 +1657,19 @@ const operator = {
 				]
 			},
 			"ウルサスの雄叫び":{
-				exp:"効果時間内所持コストが徐々に増加(合計<span class='merit'>@cost</span>)<br/>先鋒ユニット全員の攻撃力、防御力<span class='merit'>+@atk</span>%、敵を倒す度所持コスト<span class='merit'>+1</span>",
+				exp:"効果時間内所持コストが徐々に増加(合計<span class='merit'>@cost</span>)<br/>先鋒ユニット全員の攻撃力、防御力<span class='merit'>+@atkadd</span>%、敵を倒す度所持コスト<span class='merit'>+1</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:10,need:45,cost: 9,atk:25,def:25},
-					{start:10,need:44,cost: 9,atk:30,def:30},
-					{start:10,need:43,cost: 9,atk:35,def:35},
-					{start:12,need:42,cost:10,atk:40,def:40},
-					{start:12,need:41,cost:10,atk:45,def:45},
-					{start:12,need:40,cost:10,atk:45,def:45},
-					{start:14,need:39,cost:11,atk:45,def:45},
-					{start:16,need:38,cost:11,atk:50,def:50},
-					{start:18,need:37,cost:11,atk:55,def:55},
-					{start:20,need:35,cost:12,atk:60,def:60}
+					{start:10,need:45,cost: 9,atkadd:25,defadd:25},
+					{start:10,need:44,cost: 9,atkadd:30,defadd:30},
+					{start:10,need:43,cost: 9,atkadd:35,defadd:35},
+					{start:12,need:42,cost:10,atkadd:40,defadd:40},
+					{start:12,need:41,cost:10,atkadd:45,defadd:45},
+					{start:12,need:40,cost:10,atkadd:45,defadd:45},
+					{start:14,need:39,cost:11,atkadd:45,defadd:45},
+					{start:16,need:38,cost:11,atkadd:50,defadd:50},
+					{start:18,need:37,cost:11,atkadd:55,defadd:55},
+					{start:20,need:35,cost:12,atkadd:60,defadd:60}
 				]
 			}
 		}
@@ -1721,35 +1721,35 @@ const operator = {
 		],
 		skill:{
 			"防御力強化γ":{
-				exp:"防御力<span class='merit'>+@def%</span>",
+				exp:"防御力<span class='merit'>+@defadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:45,pers:40,def:30},
-					{start: 0,need:45,pers:40,def:35},
-					{start: 0,need:45,pers:40,def:40},
-					{start: 5,need:40,pers:40,def:45},
-					{start: 5,need:40,pers:40,def:50},
-					{start: 5,need:40,pers:40,def:55},
-					{start:10,need:35,pers:40,def:60},
-					{start:10,need:34,pers:40,def:75},
-					{start:10,need:33,pers:40,def:90},
-					{start:15,need:30,pers:40,def:100}
+					{start: 0,need:45,pers:40,defadd:30},
+					{start: 0,need:45,pers:40,defadd:35},
+					{start: 0,need:45,pers:40,defadd:40},
+					{start: 5,need:40,pers:40,defadd:45},
+					{start: 5,need:40,pers:40,defadd:50},
+					{start: 5,need:40,pers:40,defadd:55},
+					{start:10,need:35,pers:40,defadd:60},
+					{start:10,need:34,pers:40,defadd:75},
+					{start:10,need:33,pers:40,defadd:90},
+					{start:15,need:30,pers:40,defadd:100}
 				]
 			},
 			"引かない！":{
-				exp:"攻撃範囲<span class='demerit'>縮小</span>、攻撃力と防御力<span class='merit'>+@atk</span>%、ブロック数<span class='merit'>+1</span>、ブロック中の敵全員を同時に攻撃",
+				exp:"攻撃範囲<span class='demerit'>縮小</span>、攻撃力と防御力<span class='merit'>+@atkadd</span>%、ブロック数<span class='merit'>+1</span>、ブロック中の敵全員を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:50,need:80,pers:30,atk:30,def:30},
-					{start:50,need:79,pers:30,atk:35,def:35},
-					{start:50,need:78,pers:30,atk:40,def:40},
-					{start:50,need:77,pers:30,atk:45,def:45},
-					{start:50,need:76,pers:30,atk:50,def:50},
-					{start:50,need:75,pers:30,atk:55,def:55},
-					{start:50,need:74,pers:30,atk:60,def:60},
-					{start:50,need:73,pers:30,atk:66,def:66},
-					{start:50,need:72,pers:30,atk:72,def:72},
-					{start:50,need:70,pers:30,atk:80,def:80}
+					{start:50,need:80,pers:30,atkadd:30,defadd:30},
+					{start:50,need:79,pers:30,atkadd:35,defadd:35},
+					{start:50,need:78,pers:30,atkadd:40,defadd:40},
+					{start:50,need:77,pers:30,atkadd:45,defadd:45},
+					{start:50,need:76,pers:30,atkadd:50,defadd:50},
+					{start:50,need:75,pers:30,atkadd:55,defadd:55},
+					{start:50,need:74,pers:30,atkadd:60,defadd:60},
+					{start:50,need:73,pers:30,atkadd:66,defadd:66},
+					{start:50,need:72,pers:30,atkadd:72,defadd:72},
+					{start:50,need:70,pers:30,atkadd:80,defadd:80}
 				]
 			}
 		},
@@ -1801,35 +1801,35 @@ const operator = {
 		],
 		skill:{
 			"砕甲拳":{
-				exp:"次の通常攻撃時、攻撃力<span class='merit'>+@atk%</span>、敵の防御力を<span class='merit'>@penetrate%</span>無視",
+				exp:"次の通常攻撃時、攻撃力<span class='merit'>+@atkadd%</span>、敵の防御力を<span class='merit'>@penetrate%</span>無視",
 				recover:"attack",activate:"auto",
 				effect:[
-					{need:4,atk:50,penetrate:35},
-					{need:4,atk:60,penetrate:35},
-					{need:4,atk:70,penetrate:35},
-					{need:4,atk:80,penetrate:40},
-					{need:4,atk:90,penetrate:40},
-					{need:4,atk:100,penetrate:40},
-					{need:4,atk:110,penetrate:45},
-					{need:4,atk:120,penetrate:50},
-					{need:4,atk:130,penetrate:55},
-					{need:4,atk:140,penetrate:60}
+					{need:4,atkadd: 50,penetrate:35},
+					{need:4,atkadd: 60,penetrate:35},
+					{need:4,atkadd: 70,penetrate:35},
+					{need:4,atkadd: 80,penetrate:40},
+					{need:4,atkadd: 90,penetrate:40},
+					{need:4,atkadd:100,penetrate:40},
+					{need:4,atkadd:110,penetrate:45},
+					{need:4,atkadd:120,penetrate:50},
+					{need:4,atkadd:130,penetrate:55},
+					{need:4,atkadd:140,penetrate:60}
 				]
 			},
 			"裂魂":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、通常攻撃が<span class='merit'>術攻撃</span>になり、与ダメージの<span class='merit'>@heal%</span>のHPを回復",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<span class='merit'>術攻撃</span>になり、与ダメージの<span class='merit'>@heal%</span>のHPを回復",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:50,pers:25,atk:45,heal:10},
-					{start: 0,need:50,pers:25,atk:50,heal:10},
-					{start: 0,need:50,pers:25,atk:55,heal:10},
-					{start: 5,need:50,pers:25,atk:60,heal:15},
-					{start: 5,need:50,pers:25,atk:65,heal:15},
-					{start: 5,need:50,pers:25,atk:70,heal:15},
-					{start:10,need:50,pers:25,atk:75,heal:20},
-					{start:15,need:50,pers:25,atk:90,heal:20},
-					{start:20,need:50,pers:25,atk:105,heal:20},
-					{start:25,need:50,pers:25,atk:120,heal:25}
+					{start: 0,need:50,pers:25,atkadd: 45,heal:10},
+					{start: 0,need:50,pers:25,atkadd: 50,heal:10},
+					{start: 0,need:50,pers:25,atkadd: 55,heal:10},
+					{start: 5,need:50,pers:25,atkadd: 60,heal:15},
+					{start: 5,need:50,pers:25,atkadd: 65,heal:15},
+					{start: 5,need:50,pers:25,atkadd: 70,heal:15},
+					{start:10,need:50,pers:25,atkadd: 75,heal:20},
+					{start:15,need:50,pers:25,atkadd: 90,heal:20},
+					{start:20,need:50,pers:25,atkadd:105,heal:20},
+					{start:25,need:50,pers:25,atkadd:120,heal:25}
 				]
 			},
 		}
@@ -1879,35 +1879,35 @@ const operator = {
 		],
 		skill:{
 			"迅速攻撃γ":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:45,pers:35,atk:20,speed:20},
-					{start: 0,need:44,pers:35,atk:22,speed:20},
-					{start: 0,need:43,pers:35,atk:24,speed:20},
-					{start: 5,need:42,pers:35,atk:27,speed:25},
-					{start: 5,need:41,pers:35,atk:29,speed:25},
-					{start: 5,need:40,pers:35,atk:31,speed:25},
-					{start:10,need:39,pers:35,atk:34,speed:35},
-					{start:10,need:38,pers:35,atk:37,speed:35},
-					{start:10,need:37,pers:35,atk:40,speed:35},
-					{start:15,need:35,pers:35,atk:45,speed:45}
+					{start: 0,need:45,pers:35,atkadd:20,speed:20},
+					{start: 0,need:44,pers:35,atkadd:22,speed:20},
+					{start: 0,need:43,pers:35,atkadd:24,speed:20},
+					{start: 5,need:42,pers:35,atkadd:27,speed:25},
+					{start: 5,need:41,pers:35,atkadd:29,speed:25},
+					{start: 5,need:40,pers:35,atkadd:31,speed:25},
+					{start:10,need:39,pers:35,atkadd:34,speed:35},
+					{start:10,need:38,pers:35,atkadd:37,speed:35},
+					{start:10,need:37,pers:35,atkadd:40,speed:35},
+					{start:15,need:35,pers:35,atkadd:45,speed:45}
 				]
 			},
 			"利剣の極致":{
-				exp:"防御力が<span class='demerit'>0になり</span>、攻撃力<span class='merit'>+@atk%</span>、素質の防御力無視確率が<span class='merit'>2.5</span>倍まで上昇",
+				exp:"防御力が<span class='demerit'>0になり</span>、攻撃力<span class='merit'>+@atkadd%</span>、素質の防御力無視確率が<span class='merit'>2.5</span>倍まで上昇",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:20,pers:20,atk:50},
-					{start: 0,need:20,pers:20,atk:53},
-					{start: 0,need:20,pers:20,atk:56},
-					{start: 0,need:20,pers:23,atk:60},
-					{start: 0,need:20,pers:23,atk:63},
-					{start: 0,need:20,pers:23,atk:66},
-					{start: 5,need:20,pers:26,atk:70},
-					{start: 5,need:20,pers:27,atk:80},
-					{start: 5,need:20,pers:28,atk:90},
-					{start:10,need:20,pers:30,atk:100}
+					{start: 0,need:20,pers:20,atkadd:50},
+					{start: 0,need:20,pers:20,atkadd:53},
+					{start: 0,need:20,pers:20,atkadd:56},
+					{start: 0,need:20,pers:23,atkadd:60},
+					{start: 0,need:20,pers:23,atkadd:63},
+					{start: 0,need:20,pers:23,atkadd:66},
+					{start: 5,need:20,pers:26,atkadd:70},
+					{start: 5,need:20,pers:27,atkadd:80},
+					{start: 5,need:20,pers:28,atkadd:90},
+					{start:10,need:20,pers:30,atkadd:100}
 				]
 			}
 		}
@@ -2042,35 +2042,35 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化γ":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:40,pers:30,atk:30},
-					{start: 0,need:40,pers:30,atk:35},
-					{start: 0,need:40,pers:30,atk:40},
-					{start: 5,need:37,pers:30,atk:45},
-					{start: 5,need:37,pers:30,atk:50},
-					{start: 5,need:37,pers:30,atk:55},
-					{start:10,need:35,pers:30,atk:60},
-					{start:10,need:34,pers:30,atk:75},
-					{start:10,need:33,pers:30,atk:90},
-					{start:15,need:30,pers:30,atk:100}
+					{start: 0,need:40,pers:30,atkadd:30},
+					{start: 0,need:40,pers:30,atkadd:35},
+					{start: 0,need:40,pers:30,atkadd:40},
+					{start: 5,need:37,pers:30,atkadd:45},
+					{start: 5,need:37,pers:30,atkadd:50},
+					{start: 5,need:37,pers:30,atkadd:55},
+					{start:10,need:35,pers:30,atkadd:60},
+					{start:10,need:34,pers:30,atkadd:75},
+					{start:10,need:33,pers:30,atkadd:90},
+					{start:15,need:30,pers:30,atkadd:100}
 				]
 			},
 			"肉斬骨断":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、効果時間内はダメージを受けてもHPが<span class='merit'>1</span>残る<br/><span class='charge'>効果時間終了後10秒間スタンする</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、効果時間内はダメージを受けてもHPが<span class='merit'>1</span>残る<br/><span class='charge'>効果時間終了後10秒間スタンする</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:20,need:45,pers:10,atk:40},
-					{start:20,need:45,pers:10,atk:50},
-					{start:20,need:45,pers:10,atk:60},
-					{start:25,need:45,pers:11,atk:70},
-					{start:25,need:45,pers:11,atk:80},
-					{start:25,need:45,pers:11,atk:90},
-					{start:30,need:43,pers:12,atk:100},
-					{start:30,need:42,pers:13,atk:120},
-					{start:30,need:41,pers:14,atk:140},
-					{start:35,need:40,pers:15,atk:160}
+					{start:20,need:45,pers:10,atkadd:40},
+					{start:20,need:45,pers:10,atkadd:50},
+					{start:20,need:45,pers:10,atkadd:60},
+					{start:25,need:45,pers:11,atkadd:70},
+					{start:25,need:45,pers:11,atkadd:80},
+					{start:25,need:45,pers:11,atkadd:90},
+					{start:30,need:43,pers:12,atkadd:100},
+					{start:30,need:42,pers:13,atkadd:120},
+					{start:30,need:41,pers:14,atkadd:140},
+					{start:35,need:40,pers:15,atkadd:160}
 				]
 			},
 		}
@@ -2126,19 +2126,19 @@ const operator = {
 				]
 			},
 			"協同作戦":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、素質の効果が<span class='merit'>@nature</span>倍まで上昇",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、素質の効果が<span class='merit'>@nature</span>倍まで上昇",
 				recover:"attack",activate:"manual",
 				effect:[
-					{start:20,need:60,pers:15,atk:30,nature:2.1},
-					{start:20,need:59,pers:15,atk:30,nature:2.2},
-					{start:20,need:58,pers:15,atk:30,nature:2.3},
-					{start:20,need:55,pers:17,atk:40,nature:2.4},
-					{start:20,need:54,pers:17,atk:40,nature:2.5},
-					{start:20,need:53,pers:17,atk:40,nature:2.6},
-					{start:20,need:50,pers:21,atk:50,nature:2.7},
-					{start:20,need:49,pers:23,atk:60,nature:2.8},
-					{start:20,need:48,pers:26,atk:70,nature:2.9},
-					{start:20,need:45,pers:30,atk:80,nature:3}
+					{start:20,need:60,pers:15,atkadd:30,nature:2.1},
+					{start:20,need:59,pers:15,atkadd:30,nature:2.2},
+					{start:20,need:58,pers:15,atkadd:30,nature:2.3},
+					{start:20,need:55,pers:17,atkadd:40,nature:2.4},
+					{start:20,need:54,pers:17,atkadd:40,nature:2.5},
+					{start:20,need:53,pers:17,atkadd:40,nature:2.6},
+					{start:20,need:50,pers:21,atkadd:50,nature:2.7},
+					{start:20,need:49,pers:23,atkadd:60,nature:2.8},
+					{start:20,need:48,pers:26,atkadd:70,nature:2.9},
+					{start:20,need:45,pers:30,atkadd:80,nature:3}
 				]
 			}
 		}
@@ -2180,35 +2180,35 @@ const operator = {
 		],
 		skill:{
 			"影落とす時針":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、<span class='merit'>@guard%</span>の確率で物理攻撃をガード<br/><span class='charge'>退場まで効果継続</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、<span class='merit'>@guard%</span>の確率で物理攻撃をガード<br/><span class='charge'>退場まで効果継続</span>",
 				recover:"attack",activate:"auto",
 				effect:[
-					{need:40,atk:30,guard:20},
-					{need:40,atk:33,guard:20},
-					{need:40,atk:37,guard:20},
-					{need:37,atk:43,guard:25},
-					{need:37,atk:47,guard:25},
-					{need:37,atk:50,guard:25},
-					{need:33,atk:55,guard:30},
-					{need:32,atk:60,guard:33},
-					{need:31,atk:65,guard:36},
-					{need:30,atk:70,guard:40}
+					{need:40,atkadd:30,guard:20},
+					{need:40,atkadd:33,guard:20},
+					{need:40,atkadd:37,guard:20},
+					{need:37,atkadd:43,guard:25},
+					{need:37,atkadd:47,guard:25},
+					{need:37,atkadd:50,guard:25},
+					{need:33,atkadd:55,guard:30},
+					{need:32,atkadd:60,guard:33},
+					{need:31,atkadd:65,guard:36},
+					{need:30,atkadd:70,guard:40}
 				]
 			},
 			"狼魂":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、通常攻撃が術攻撃になり敵2体を同時に攻撃<br/>攻撃力の100%で遠距離攻撃を行う",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が術攻撃になり敵2体を同時に攻撃<br/>攻撃力の100%で遠距離攻撃を行う",
 				recover:"attack",activate:"auto",
 				effect:[
-					{need:30,pers:15,atk:60},
-					{need:29,pers:15,atk:65},
-					{need:28,pers:15,atk:70},
-					{need:27,pers:15,atk:75},
-					{need:26,pers:15,atk:80},
-					{need:25,pers:15,atk:85},
-					{need:24,pers:17,atk:90},
-					{need:22,pers:17,atk:100},
-					{need:20,pers:17,atk:110},
-					{need:17,pers:20,atk:120}
+					{need:30,pers:15,atkadd:60},
+					{need:29,pers:15,atkadd:65},
+					{need:28,pers:15,atkadd:70},
+					{need:27,pers:15,atkadd:75},
+					{need:26,pers:15,atkadd:80},
+					{need:25,pers:15,atkadd:85},
+					{need:24,pers:17,atkadd:90},
+					{need:22,pers:17,atkadd:100},
+					{need:20,pers:17,atkadd:110},
+					{need:17,pers:20,atkadd:120}
 				]
 			}
 		}
@@ -2275,19 +2275,19 @@ const operator = {
 				]
 			},
 			"刃鬼":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span><br/><span class='charge'>退場まで効果継続</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span><br/><span class='charge'>退場まで効果継続</span>",
 				recover:"attack",activate:"auto",
 				effect:[
-					{need:60,atk:30,speed:30},
-					{need:58,atk:30,speed:30},
-					{need:56,atk:30,speed:30},
-					{need:54,atk:40,speed:30},
-					{need:52,atk:40,speed:30},
-					{need:50,atk:40,speed:30},
-					{need:48,atk:50,speed:30},
-					{need:46,atk:55,speed:35},
-					{need:44,atk:60,speed:40},
-					{need:40,atk:70,speed:45}
+					{need:60,atkadd:30,speed:30},
+					{need:58,atkadd:30,speed:30},
+					{need:56,atkadd:30,speed:30},
+					{need:54,atkadd:40,speed:30},
+					{need:52,atkadd:40,speed:30},
+					{need:50,atkadd:40,speed:30},
+					{need:48,atkadd:50,speed:30},
+					{need:46,atkadd:55,speed:35},
+					{need:44,atkadd:60,speed:40},
+					{need:40,atkadd:70,speed:45}
 				]
 			}
 		}
@@ -2336,35 +2336,35 @@ const operator = {
 		],
 		skill:{
 			"星座の守護":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、防御力<span class='merit'>+@def%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、防御力<span class='merit'>+@defadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:40,pers:30,atk:20,def:30},
-					{start: 0,need:39,pers:30,atk:20,def:35},
-					{start: 0,need:38,pers:30,atk:20,def:40},
-					{start: 3,need:37,pers:30,atk:30,def:45},
-					{start: 3,need:36,pers:30,atk:30,def:50},
-					{start: 3,need:35,pers:30,atk:30,def:55},
-					{start: 6,need:34,pers:30,atk:40,def:60},
-					{start: 7,need:33,pers:30,atk:43,def:65},
-					{start: 8,need:32,pers:30,atk:46,def:70},
-					{start:10,need:30,pers:30,atk:50,def:80}
+					{start: 0,need:40,pers:30,atkadd:20,defadd:30},
+					{start: 0,need:39,pers:30,atkadd:20,defadd:35},
+					{start: 0,need:38,pers:30,atkadd:20,defadd:40},
+					{start: 3,need:37,pers:30,atkadd:30,defadd:45},
+					{start: 3,need:36,pers:30,atkadd:30,defadd:50},
+					{start: 3,need:35,pers:30,atkadd:30,defadd:55},
+					{start: 6,need:34,pers:30,atkadd:40,defadd:60},
+					{start: 7,need:33,pers:30,atkadd:43,defadd:65},
+					{start: 8,need:32,pers:30,atkadd:46,defadd:70},
+					{start:10,need:30,pers:30,atkadd:50,defadd:80}
 				]
 			},
 			"星輝剣":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、防御力<span class='merit'>+@def%</span>、ブロック数<span class='merit'>+1</span>、ブロック中の敵全員を同時に攻撃",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、防御力<span class='merit'>+@defadd%</span>、ブロック数<span class='merit'>+1</span>、ブロック中の敵全員を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:30,pers:10,atk:30,def:30},
-					{start: 1,need:30,pers:10,atk:35,def:35},
-					{start: 2,need:30,pers:10,atk:40,def:40},
-					{start: 3,need:27,pers:11,atk:45,def:45},
-					{start: 4,need:27,pers:11,atk:50,def:50},
-					{start: 5,need:27,pers:11,atk:55,def:55},
-					{start: 6,need:24,pers:12,atk:60,def:60},
-					{start: 7,need:23,pers:13,atk:65,def:65},
-					{start: 8,need:22,pers:14,atk:70,def:70},
-					{start:10,need:20,pers:15,atk:80,def:80}
+					{start: 0,need:30,pers:10,atkadd:30,defadd:30},
+					{start: 1,need:30,pers:10,atkadd:35,defadd:35},
+					{start: 2,need:30,pers:10,atkadd:40,defadd:40},
+					{start: 3,need:27,pers:11,atkadd:45,defadd:45},
+					{start: 4,need:27,pers:11,atkadd:50,defadd:50},
+					{start: 5,need:27,pers:11,atkadd:55,defadd:55},
+					{start: 6,need:24,pers:12,atkadd:60,defadd:60},
+					{start: 7,need:23,pers:13,atkadd:65,defadd:65},
+					{start: 8,need:22,pers:14,atkadd:70,defadd:70},
+					{start:10,need:20,pers:15,atkadd:80,defadd:80}
 				]
 			}
 		}
@@ -2411,35 +2411,35 @@ const operator = {
 		],
 		skill:{
 			"チャージガード":{
-				exp:"次に受けるダメージをガード、<span class='merit'>8</span>秒間防御力<span class='merit'>+@def%</span>",
+				exp:"次に受けるダメージをガード、<span class='merit'>8</span>秒間防御力<span class='merit'>+@defadd%</span>",
 				recover:"damage",activate:"auto",
 				effect:[
-					{need:24,def:40},
-					{need:24,def:45},
-					{need:24,def:50},
-					{need:22,def:60},
-					{need:22,def:65},
-					{need:22,def:70},
-					{need:20,def:80},
-					{need:20,def:85},
-					{need:20,def:90},
-					{need:18,def:100}
+					{need:24,defadd:40},
+					{need:24,defadd:45},
+					{need:24,defadd:50},
+					{need:22,defadd:60},
+					{need:22,defadd:65},
+					{need:22,defadd:70},
+					{need:20,defadd:80},
+					{need:20,defadd:85},
+					{need:20,defadd:90},
+					{need:18,defadd:100}
 				]
 			},
 			"カウンターアーク":{
-				exp:"通常攻撃の間隔が<span class='demerit'>延長</span>し、攻撃力<span class='merit'>+@atk%</span>、通常攻撃時敵最大<span class='merit'>@target</span>体に<span class='merit'>術ダメージ</span>を与え、<span class='merit'>@stan%</span>の確率で<span class='merit'>1</span>秒間スタンさせる<br/><span class='charge'>効果時間終了後5秒間スタンする</span>",
+				exp:"通常攻撃の間隔が<span class='demerit'>延長</span>し、攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃時敵最大<span class='merit'>@target</span>体に<span class='merit'>術ダメージ</span>を与え、<span class='merit'>@stan%</span>の確率で<span class='merit'>1</span>秒間スタンさせる<br/><span class='charge'>効果時間終了後5秒間スタンする</span>",
 				recover:"damage",activate:"manual",
 				effect:[
-					{need:44,pers:20,atk:85,target:3,stan:10},
-					{need:43,pers:20,atk:90,target:3,stan:10},
-					{need:42,pers:20,atk:95,target:3,stan:10},
-					{need:41,pers:20,atk:105,target:3,stan:15},
-					{need:40,pers:20,atk:110,target:3,stan:15},
-					{need:39,pers:20,atk:115,target:3,stan:15},
-					{need:38,pers:20,atk:125,target:3,stan:20},
-					{need:37,pers:20,atk:150,target:3,stan:20},
-					{need:36,pers:20,atk:175,target:3,stan:20},
-					{need:34,pers:20,atk:200,target:4,stan:25}
+					{need:44,pers:20,atkadd: 85,target:3,stan:10},
+					{need:43,pers:20,atkadd: 90,target:3,stan:10},
+					{need:42,pers:20,atkadd: 95,target:3,stan:10},
+					{need:41,pers:20,atkadd:105,target:3,stan:15},
+					{need:40,pers:20,atkadd:110,target:3,stan:15},
+					{need:39,pers:20,atkadd:115,target:3,stan:15},
+					{need:38,pers:20,atkadd:125,target:3,stan:20},
+					{need:37,pers:20,atkadd:150,target:3,stan:20},
+					{need:36,pers:20,atkadd:175,target:3,stan:20},
+					{need:34,pers:20,atkadd:200,target:4,stan:25}
 				]
 			}
 		}
@@ -2491,35 +2491,35 @@ const operator = {
 		],
 		skill:{
 			"防御態勢":{
-				exp:"防御力<span class='merit'>+@def%</span>、素質の効果が<span class='merit'>@nature%まで上昇</span>",
+				exp:"防御力<span class='merit'>+@defadd%</span>、素質の効果が<span class='merit'>@nature%まで上昇</span>",
 				recover:"auto",activate:"auto",
 				effect:[
-					{start: 0,need:30,pers:20,def:20,nature:110},
-					{start: 0,need:29,pers:20,def:20,nature:120},
-					{start: 0,need:28,pers:20,def:20,nature:130},
-					{start: 4,need:27,pers:23,def:30,nature:140},
-					{start: 4,need:26,pers:23,def:30,nature:150},
-					{start: 4,need:25,pers:23,def:30,nature:160},
-					{start: 8,need:24,pers:26,def:40,nature:170},
-					{start: 8,need:23,pers:27,def:50,nature:180},
-					{start: 8,need:22,pers:28,def:60,nature:190},
-					{start:12,need:20,pers:30,def:70,nature:200}
+					{start: 0,need:30,pers:20,defadd:20,nature:110},
+					{start: 0,need:29,pers:20,defadd:20,nature:120},
+					{start: 0,need:28,pers:20,defadd:20,nature:130},
+					{start: 4,need:27,pers:23,defadd:30,nature:140},
+					{start: 4,need:26,pers:23,defadd:30,nature:150},
+					{start: 4,need:25,pers:23,defadd:30,nature:160},
+					{start: 8,need:24,pers:26,defadd:40,nature:170},
+					{start: 8,need:23,pers:27,defadd:50,nature:180},
+					{start: 8,need:22,pers:28,defadd:60,nature:190},
+					{start:12,need:20,pers:30,defadd:70,nature:200}
 				]
 			},
 			"テスラハンマー":{
 				exp:"周囲一定範囲内の敵を<span class='merit'>@pow</span>で突き飛ばし、攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる",
 				recover:"attack",activate:"manual",
 				effect:[
-					{need:22,pow:"相当の力",atk:240,stan:2.5},
-					{need:22,pow:"相当の力",atk:260,stan:2.5},
-					{need:22,pow:"相当の力",atk:280,stan:2.5},
-					{need:21,pow:"相当の力",atk:300,stan:3},
-					{need:21,pow:"相当の力",atk:320,stan:3},
-					{need:21,pow:"相当の力",atk:340,stan:3},
+					{need:22,pow:"相当の力"  ,atk:240,stan:2.5},
+					{need:22,pow:"相当の力"  ,atk:260,stan:2.5},
+					{need:22,pow:"相当の力"  ,atk:280,stan:2.5},
+					{need:21,pow:"相当の力"  ,atk:300,stan:3},
+					{need:21,pow:"相当の力"  ,atk:320,stan:3},
+					{need:21,pow:"相当の力"  ,atk:340,stan:3},
 					{need:20,pow:"かなりの力",atk:360,stan:3.5},
 					{need:19,pow:"かなりの力",atk:400,stan:3.5},
 					{need:18,pow:"かなりの力",atk:440,stan:3.5},
-					{need:17,pow:"力強く",atk:480,stan:4}
+					{need:17,pow:"力強く"    ,atk:480,stan:4}
 				]
 			}
 		}
@@ -2572,19 +2572,19 @@ const operator = {
 				]
 			},
 			"救護態勢":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃しなくなり回復行動のみ行う",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃しなくなり回復行動のみ行う",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:20,need:60,pers:40,atk:20},
-					{start:20,need:59,pers:40,atk:25},
-					{start:20,need:58,pers:40,atk:30},
-					{start:25,need:55,pers:40,atk:35},
-					{start:25,need:54,pers:40,atk:40},
-					{start:25,need:53,pers:40,atk:45},
-					{start:30,need:52,pers:40,atk:50},
-					{start:30,need:50,pers:40,atk:60},
-					{start:30,need:45,pers:40,atk:70},
-					{start:30,need:40,pers:40,atk:80}
+					{start:20,need:60,pers:40,atkadd:20},
+					{start:20,need:59,pers:40,atkadd:25},
+					{start:20,need:58,pers:40,atkadd:30},
+					{start:25,need:55,pers:40,atkadd:35},
+					{start:25,need:54,pers:40,atkadd:40},
+					{start:25,need:53,pers:40,atkadd:45},
+					{start:30,need:52,pers:40,atkadd:50},
+					{start:30,need:50,pers:40,atkadd:60},
+					{start:30,need:45,pers:40,atkadd:70},
+					{start:30,need:40,pers:40,atkadd:80}
 				]
 			}
 		}
@@ -2621,35 +2621,35 @@ const operator = {
 		],
 		skill:{
 			"鉄壁の構え":{
-				exp:"ブロック数<span class='merit'>+1</span>、防御力<span class='merit'>+@def%</span>、素質の効果の上、HPが1秒ごとに更に最大値の<span class='merit'>@heal%</span>回復",
+				exp:"ブロック数<span class='merit'>+1</span>、防御力<span class='merit'>+@defadd%</span>、素質の効果の上、HPが1秒ごとに更に最大値の<span class='merit'>@heal%</span>回復",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:20,need:50,pers:20,def:60,heal:2},
-					{start:21,need:50,pers:21,def:65,heal:2},
-					{start:22,need:50,pers:22,def:70,heal:2},
-					{start:25,need:50,pers:23,def:75,heal:3},
-					{start:26,need:50,pers:24,def:80,heal:3},
-					{start:27,need:50,pers:25,def:85,heal:3},
-					{start:30,need:50,pers:26,def:90,heal:4},
-					{start:33,need:50,pers:27,def:100,heal:4},
-					{start:37,need:50,pers:28,def:110,heal:4},
-					{start:40,need:50,pers:30,def:120,heal:5}
+					{start:20,need:50,pers:20,defadd:60,heal:2},
+					{start:21,need:50,pers:21,defadd:65,heal:2},
+					{start:22,need:50,pers:22,defadd:70,heal:2},
+					{start:25,need:50,pers:23,defadd:75,heal:3},
+					{start:26,need:50,pers:24,defadd:80,heal:3},
+					{start:27,need:50,pers:25,defadd:85,heal:3},
+					{start:30,need:50,pers:26,defadd:90,heal:4},
+					{start:33,need:50,pers:27,defadd:100,heal:4},
+					{start:37,need:50,pers:28,defadd:110,heal:4},
+					{start:40,need:50,pers:30,defadd:120,heal:5}
 				]
 			},
 			"猛攻の構え":{
-				exp:"ブロック数<span class='demerit'>-1</span>、通常攻撃の間隔が<span class='demerit'>わずかに延長</span>し、攻撃力<span class='merit'>+@atk%</span>、攻撃する度HPが最大値の<span class='merit'>@heal%</span>回復、ブロック中の敵全員を同時に攻撃",
+				exp:"ブロック数<span class='demerit'>-1</span>、通常攻撃の間隔が<span class='demerit'>わずかに延長</span>し、攻撃力<span class='merit'>+@atkadd%</span>、攻撃する度HPが最大値の<span class='merit'>@heal%</span>回復、ブロック中の敵全員を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:20,need:50,pers:20,atk:65,heal:5},
-					{start:21,need:50,pers:21,atk:70,heal:5},
-					{start:22,need:50,pers:22,atk:75,heal:5},
-					{start:25,need:50,pers:23,atk:85,heal:6},
-					{start:26,need:50,pers:24,atk:90,heal:6},
-					{start:27,need:50,pers:25,atk:95,heal:6},
-					{start:30,need:50,pers:26,atk:105,heal:7},
-					{start:33,need:50,pers:27,atk:120,heal:8},
-					{start:37,need:50,pers:28,atk:135,heal:9},
-					{start:40,need:50,pers:30,atk:150,heal:10}
+					{start:20,need:50,pers:20,atkadd:65,heal:5},
+					{start:21,need:50,pers:21,atkadd:70,heal:5},
+					{start:22,need:50,pers:22,atkadd:75,heal:5},
+					{start:25,need:50,pers:23,atkadd:85,heal:6},
+					{start:26,need:50,pers:24,atkadd:90,heal:6},
+					{start:27,need:50,pers:25,atkadd:95,heal:6},
+					{start:30,need:50,pers:26,atkadd:105,heal:7},
+					{start:33,need:50,pers:27,atkadd:120,heal:8},
+					{start:37,need:50,pers:28,atkadd:135,heal:9},
+					{start:40,need:50,pers:30,atkadd:150,heal:10}
 				]
 			}
 		}
@@ -2722,19 +2722,19 @@ const operator = {
 				]
 			},
 			"毒液装填":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、通常攻撃で敵<span class='merit'>3</span>体を同時に攻撃@add",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃で敵<span class='merit'>3</span>体を同時に攻撃@add",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:10,need:50,pers:20,atk:10,add:""},
-					{start:10,need:50,pers:21,atk:10,add:""},
-					{start:10,need:50,pers:22,atk:10,add:""},
-					{start:15,need:50,pers:23,atk:20,add:""},
-					{start:15,need:50,pers:24,atk:20,add:""},
-					{start:15,need:50,pers:25,atk:20,add:""},
-					{start:20,need:50,pers:26,atk:30,add:""},
-					{start:21,need:47,pers:27,atk:30,add:"し、うち1体に2回攻撃"},
-					{start:22,need:44,pers:28,atk:40,add:"し、うち1体に2回攻撃"},
-					{start:25,need:40,pers:30,atk:50,add:"し、うち1体に2回攻撃"}
+					{start:10,need:50,pers:20,atkadd:10,add:""},
+					{start:10,need:50,pers:21,atkadd:10,add:""},
+					{start:10,need:50,pers:22,atkadd:10,add:""},
+					{start:15,need:50,pers:23,atkadd:20,add:""},
+					{start:15,need:50,pers:24,atkadd:20,add:""},
+					{start:15,need:50,pers:25,atkadd:20,add:""},
+					{start:20,need:50,pers:26,atkadd:30,add:""},
+					{start:21,need:47,pers:27,atkadd:30,add:"し、うち1体に2回攻撃"},
+					{start:22,need:44,pers:28,atkadd:40,add:"し、うち1体に2回攻撃"},
+					{start:25,need:40,pers:30,atkadd:50,add:"し、うち1体に2回攻撃"}
 				]
 			}
 		}
@@ -2791,35 +2791,35 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化γ":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:40,pers:30,atk:30},
-					{start: 0,need:40,pers:30,atk:35},
-					{start: 0,need:40,pers:30,atk:40},
-					{start: 5,need:37,pers:30,atk:45},
-					{start: 5,need:37,pers:30,atk:50},
-					{start: 5,need:37,pers:30,atk:55},
-					{start:10,need:35,pers:30,atk:60},
-					{start:10,need:34,pers:30,atk:75},
-					{start:10,need:33,pers:30,atk:90},
-					{start:15,need:30,pers:30,atk:100}
+					{start: 0,need:40,pers:30,atkadd:30},
+					{start: 0,need:40,pers:30,atkadd:35},
+					{start: 0,need:40,pers:30,atkadd:40},
+					{start: 5,need:37,pers:30,atkadd:45},
+					{start: 5,need:37,pers:30,atkadd:50},
+					{start: 5,need:37,pers:30,atkadd:55},
+					{start:10,need:35,pers:30,atkadd:60},
+					{start:10,need:34,pers:30,atkadd:75},
+					{start:10,need:33,pers:30,atkadd:90},
+					{start:15,need:30,pers:30,atkadd:100}
 				]
 			},
 			"ペガサスアイ":{
-				exp:"攻撃速度が<span class='demerit'>わずかに低下</span>、攻撃力<span class='merit'>+@atk%</span>、攻撃範囲<span class='merit'>拡大</span><br/><span class='charge'>退場まで効果持続</span>",
+				exp:"攻撃速度が<span class='demerit'>わずかに低下</span>、攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>拡大</span><br/><span class='charge'>退場まで効果持続</span>",
 				recover:"auto",activate:"auto",
 				effect:[
-					{need:70,atk:50},
-					{need:69,atk:53},
-					{need:68,atk:56},
-					{need:67,atk:60},
-					{need:66,atk:63},
-					{need:65,atk:66},
-					{need:63,atk:70},
-					{need:59,atk:80},
-					{need:55,atk:90},
-					{need:50,atk:100}
+					{need:70,atkadd:50},
+					{need:69,atkadd:53},
+					{need:68,atkadd:56},
+					{need:67,atkadd:60},
+					{need:66,atkadd:63},
+					{need:65,atkadd:66},
+					{need:63,atkadd:70},
+					{need:59,atkadd:80},
+					{need:55,atkadd:90},
+					{need:50,atkadd:100}
 				]
 			}
 		}
@@ -2887,19 +2887,19 @@ const operator = {
 				]
 			},
 			"榴弾装填":{
-				exp:"榴弾を発射し、爆破範囲内の敵全員に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>10</span>秒間防御力<span class='merit'>@debuff</span>",
+				exp:"榴弾を発射し、爆破範囲内の敵全員に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>10</span>秒間防御力<span class='merit'>@defdown</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:25,atk:180,debuff:-130},
-					{need:25,atk:190,debuff:-130},
-					{need:25,atk:200,debuff:-130},
-					{need:24,atk:210,debuff:-170},
-					{need:24,atk:220,debuff:-170},
-					{need:24,atk:230,debuff:-170},
-					{need:23,atk:240,debuff:-210},
-					{need:22,atk:260,debuff:-250},
-					{need:21,atk:280,debuff:-290},
-					{need:20,atk:300,debuff:-330}
+					{need:25,atk:180,defdown:-130},
+					{need:25,atk:190,defdown:-130},
+					{need:25,atk:200,defdown:-130},
+					{need:24,atk:210,defdown:-170},
+					{need:24,atk:220,defdown:-170},
+					{need:24,atk:230,defdown:-170},
+					{need:23,atk:240,defdown:-210},
+					{need:22,atk:260,defdown:-250},
+					{need:21,atk:280,defdown:-290},
+					{need:20,atk:300,defdown:-330}
 				]
 			}
 		}
@@ -2955,35 +2955,35 @@ const operator = {
 		],
 		skill:{
 			"ウルフアイ":{
-				exp:"攻撃対象のHPが<span class='merit'>20%減少する度</span>その対象を攻撃時のみ攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃対象のHPが<span class='merit'>20%減少する度</span>その対象を攻撃時のみ攻撃力<span class='merit'>+@atkadd%</span>",
 				passive:true,
 				effect:[
-					{atk:8},
-					{atk:9},
-					{atk:10},
-					{atk:12},
-					{atk:13},
-					{atk:14},
-					{atk:16},
-					{atk:19},
-					{atk:22},
-					{atk:25}
+					{atkadd:8},
+					{atkadd:9},
+					{atkadd:10},
+					{atkadd:12},
+					{atkadd:13},
+					{atkadd:14},
+					{atkadd:16},
+					{atkadd:19},
+					{atkadd:22},
+					{atkadd:25}
 				]
 			},
 			"鮮血の匂い":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、ただしHPが<span class='demerit'>80%</span>以上の敵を攻撃しなくなる",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、ただしHPが<span class='demerit'>80%</span>以上の敵を攻撃しなくなる",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:30,pers:20,atk:130},
-					{need:30,pers:20,atk:135},
-					{need:30,pers:20,atk:140},
-					{need:30,pers:25,atk:145},
-					{need:30,pers:25,atk:150},
-					{need:30,pers:25,atk:155},
-					{need:30,pers:30,atk:160},
-					{need:30,pers:31,atk:180},
-					{need:30,pers:32,atk:200},
-					{need:30,pers:35,atk:220}
+					{need:30,pers:20,atkadd:130},
+					{need:30,pers:20,atkadd:135},
+					{need:30,pers:20,atkadd:140},
+					{need:30,pers:25,atkadd:145},
+					{need:30,pers:25,atkadd:150},
+					{need:30,pers:25,atkadd:155},
+					{need:30,pers:30,atkadd:160},
+					{need:30,pers:31,atkadd:180},
+					{need:30,pers:32,atkadd:200},
+					{need:30,pers:35,atkadd:220}
 				]
 			}
 		}
@@ -3032,19 +3032,19 @@ const operator = {
 		],
 		skill:{
 			"カモフラージュ":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、<span class='merit'>ステルス状態</span>になる<span class='charge'>(敵の遠距離攻撃の対象にならない)</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、<span class='merit'>ステルス状態</span>になる<span class='charge'>(敵の遠距離攻撃の対象にならない)</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:30,pers:25,atk:24},
-					{need:30,pers:26,atk:26},
-					{need:30,pers:27,atk:28},
-					{need:28,pers:30,atk:32},
-					{need:28,pers:31,atk:34},
-					{need:28,pers:32,atk:36},
-					{need:26,pers:35,atk:40},
-					{need:24,pers:40,atk:50},
-					{need:22,pers:45,atk:60},
-					{need:20,pers:50,atk:70}
+					{need:30,pers:25,atkadd:24},
+					{need:30,pers:26,atkadd:26},
+					{need:30,pers:27,atkadd:28},
+					{need:28,pers:30,atkadd:32},
+					{need:28,pers:31,atkadd:34},
+					{need:28,pers:32,atkadd:36},
+					{need:26,pers:35,atkadd:40},
+					{need:24,pers:40,atkadd:50},
+					{need:22,pers:45,atkadd:60},
+					{need:20,pers:50,atkadd:70}
 				]
 			},
 			"爆撃要請":{
@@ -3187,19 +3187,19 @@ const operator = {
 				]
 			},
 			"キメラ":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、最大HP<span class='merit'>+@hp%</span>、攻撃範囲が<span class='merit'>拡大</span>し、<span class='merit'>防御力と術耐性を無視して</span>攻撃する<br/><span class='charge'>効果時間終了後強制退場</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、最大HP<span class='merit'>+@hpadd%</span>、攻撃範囲が<span class='merit'>拡大</span>し、<span class='merit'>防御力と術耐性を無視して</span>攻撃する<br/><span class='charge'>効果時間終了後強制退場</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:120,pers:30,atk:100,hp:25},
-					{need:120,pers:30,atk:110,hp:25},
-					{need:120,pers:30,atk:120,hp:50},
-					{need:120,pers:30,atk:130,hp:50},
-					{need:120,pers:30,atk:140,hp:50},
-					{need:120,pers:30,atk:150,hp:50},
-					{need:120,pers:30,atk:160,hp:75},
-					{need:120,pers:30,atk:180,hp:75},
-					{need:120,pers:30,atk:200,hp:75},
-					{need:120,pers:30,atk:230,hp:100}
+					{need:120,pers:30,atkadd:100,hpadd:25},
+					{need:120,pers:30,atkadd:110,hpadd:25},
+					{need:120,pers:30,atkadd:120,hpadd:50},
+					{need:120,pers:30,atkadd:130,hpadd:50},
+					{need:120,pers:30,atkadd:140,hpadd:50},
+					{need:120,pers:30,atkadd:150,hpadd:50},
+					{need:120,pers:30,atkadd:160,hpadd:75},
+					{need:120,pers:30,atkadd:180,hpadd:75},
+					{need:120,pers:30,atkadd:200,hpadd:75},
+					{need:120,pers:30,atkadd:230,hpadd:100}
 				]
 			}
 		}
@@ -3336,19 +3336,19 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化γ":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:40,pers:30,atk:30},
-					{start: 0,need:40,pers:30,atk:35},
-					{start: 0,need:40,pers:30,atk:40},
-					{start: 5,need:37,pers:30,atk:45},
-					{start: 5,need:37,pers:30,atk:50},
-					{start: 5,need:37,pers:30,atk:55},
-					{start:10,need:35,pers:30,atk:60},
-					{start:10,need:34,pers:30,atk:75},
-					{start:10,need:33,pers:30,atk:90},
-					{start:15,need:30,pers:30,atk:100}
+					{start: 0,need:40,pers:30,atkadd:30},
+					{start: 0,need:40,pers:30,atkadd:35},
+					{start: 0,need:40,pers:30,atkadd:40},
+					{start: 5,need:37,pers:30,atkadd:45},
+					{start: 5,need:37,pers:30,atkadd:50},
+					{start: 5,need:37,pers:30,atkadd:55},
+					{start:10,need:35,pers:30,atkadd:60},
+					{start:10,need:34,pers:30,atkadd:75},
+					{start:10,need:33,pers:30,atkadd:90},
+					{start:15,need:30,pers:30,atkadd:100}
 				]
 			},
 			"メテオフレイム":{
@@ -3416,19 +3416,19 @@ const operator = {
 		],
 		skill:{
 			"回復力強化γ":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:20,need:40,pers:30,atk:40},
-					{start:20,need:40,pers:30,atk:45},
-					{start:20,need:40,pers:30,atk:50},
-					{start:20,need:35,pers:30,atk:55},
-					{start:20,need:35,pers:30,atk:60},
-					{start:20,need:35,pers:30,atk:65},
-					{start:20,need:32,pers:30,atk:70},
-					{start:20,need:32,pers:30,atk:75},
-					{start:20,need:32,pers:30,atk:80},
-					{start:20,need:30,pers:30,atk:90}
+					{start:20,need:40,pers:30,atkadd:40},
+					{start:20,need:40,pers:30,atkadd:45},
+					{start:20,need:40,pers:30,atkadd:50},
+					{start:20,need:35,pers:30,atkadd:55},
+					{start:20,need:35,pers:30,atkadd:60},
+					{start:20,need:35,pers:30,atkadd:65},
+					{start:20,need:32,pers:30,atkadd:70},
+					{start:20,need:32,pers:30,atkadd:75},
+					{start:20,need:32,pers:30,atkadd:80},
+					{start:20,need:30,pers:30,atkadd:90}
 				]
 			},
 			"医療ドローン":{
@@ -3497,19 +3497,19 @@ const operator = {
 				]
 			},
 			"不安定血漿":{
-				exp:"自身と攻撃範囲内ランダムな味方1人に次の効果を付与：<br/><span class='merit'>15</span>秒間、攻撃力<span class='merit'>+@atk%</span>、１秒ごとにHPが最大値の<span class='demerit'>3%</span>減少",
+				exp:"自身と攻撃範囲内ランダムな味方1人に次の効果を付与：<br/><span class='merit'>15</span>秒間、攻撃力<span class='merit'>+@atkadd%</span>、１秒ごとにHPが最大値の<span class='demerit'>3%</span>減少",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:35,need:60,atk:30},
-					{start:35,need:60,atk:35},
-					{start:35,need:60,atk:40},
-					{start:40,need:60,atk:45},
-					{start:40,need:60,atk:50},
-					{start:40,need:60,atk:55},
-					{start:45,need:60,atk:60},
-					{start:45,need:60,atk:70},
-					{start:45,need:60,atk:80},
-					{start:50,need:60,atk:90}
+					{start:35,need:60,atkadd:30},
+					{start:35,need:60,atkadd:35},
+					{start:35,need:60,atkadd:40},
+					{start:40,need:60,atkadd:45},
+					{start:40,need:60,atkadd:50},
+					{start:40,need:60,atkadd:55},
+					{start:45,need:60,atkadd:60},
+					{start:45,need:60,atkadd:70},
+					{start:45,need:60,atkadd:80},
+					{start:50,need:60,atkadd:90}
 				]
 			}
 		}
@@ -3546,19 +3546,19 @@ const operator = {
 		],
 		skill:{
 			"回復力強化γ":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:20,need:40,pers:30,atk:40},
-					{start:20,need:40,pers:30,atk:45},
-					{start:20,need:40,pers:30,atk:50},
-					{start:20,need:35,pers:30,atk:55},
-					{start:20,need:35,pers:30,atk:60},
-					{start:20,need:35,pers:30,atk:65},
-					{start:20,need:32,pers:30,atk:70},
-					{start:20,need:32,pers:30,atk:75},
-					{start:20,need:32,pers:30,atk:80},
-					{start:20,need:30,pers:30,atk:90}
+					{start:20,need:40,pers:30,atkadd:40},
+					{start:20,need:40,pers:30,atkadd:45},
+					{start:20,need:40,pers:30,atkadd:50},
+					{start:20,need:35,pers:30,atkadd:55},
+					{start:20,need:35,pers:30,atkadd:60},
+					{start:20,need:35,pers:30,atkadd:65},
+					{start:20,need:32,pers:30,atkadd:70},
+					{start:20,need:32,pers:30,atkadd:75},
+					{start:20,need:32,pers:30,atkadd:80},
+					{start:20,need:30,pers:30,atkadd:90}
 				]
 			},
 			"エンケファリン":{
@@ -3628,18 +3628,18 @@ const operator = {
 			},
 			"水霊の加護":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃力<span class='merit'>+@atk%</span>、味方2人を同時に回復。効果時間内、攻撃範囲内にいる味方全員に<span class='merit'>【レジスト】</span>を付与<br/>（レジスト：スタン状態の継続時間が50%短縮）",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、味方2人を同時に回復。効果時間内、攻撃範囲内にいる味方全員に<span class='merit'>【レジスト】</span>を付与<br/>（レジスト：スタン状態の継続時間が50%短縮）",
 				effect:[
-					{start:20,need:80,pers:20,atk:30},
-					{start:22,need:80,pers:21,atk:30},
-					{start:24,need:80,pers:23,atk:30},
-					{start:26,need:80,pers:25,atk:40},
-					{start:28,need:80,pers:26,atk:40},
-					{start:30,need:80,pers:27,atk:40},
-					{start:32,need:80,pers:30,atk:50},
-					{start:34,need:80,pers:33,atk:53},
-					{start:36,need:80,pers:36,atk:56},
-					{start:40,need:80,pers:40,atk:60}
+					{start:20,need:80,pers:20,atkadd:30},
+					{start:22,need:80,pers:21,atkadd:30},
+					{start:24,need:80,pers:23,atkadd:30},
+					{start:26,need:80,pers:25,atkadd:40},
+					{start:28,need:80,pers:26,atkadd:40},
+					{start:30,need:80,pers:27,atkadd:40},
+					{start:32,need:80,pers:30,atkadd:50},
+					{start:34,need:80,pers:33,atkadd:53},
+					{start:36,need:80,pers:36,atkadd:56},
+					{start:40,need:80,pers:40,atkadd:60}
 				]
 			}
 		}
@@ -3715,19 +3715,19 @@ const operator = {
 		],
 		skill:{
 			"攪乱装置":{
-				exp:"機械川獺の<span class='merit'>物理回避</span>、<span class='merit'>術回避+@dodge%</span>@add",
+				exp:"機械川獺の<span class='merit'>物理回避</span>、<span class='merit'>術回避+@resdodge%</span>@add",
 				passive:true,
 				effect:[
-					{dodge:10,add:""},
-					{dodge:13,add:""},
-					{dodge:15,add:""},
-					{dodge:18,add:""},
-					{dodge:20,add:""},
-					{dodge:22,add:""},
-					{dodge:25,add:""},
-					{dodge:25,add:"<br/>周囲4マスの味方も同じ効果を得る"},
-					{dodge:30,add:"<br/>周囲4マスの味方も同じ効果を得る"},
-					{dodge:35,add:"<br/>周囲4マスの味方も同じ効果を得る"}
+					{resdodge:10,add:""},
+					{resdodge:13,add:""},
+					{resdodge:15,add:""},
+					{resdodge:18,add:""},
+					{resdodge:20,add:""},
+					{resdodge:22,add:""},
+					{resdodge:25,add:""},
+					{resdodge:25,add:"<br/>周囲4マスの味方も同じ効果を得る"},
+					{resdodge:30,add:"<br/>周囲4マスの味方も同じ効果を得る"},
+					{resdodge:35,add:"<br/>周囲4マスの味方も同じ効果を得る"}
 				]
 			},
 			"ミーボ起爆":{
@@ -3940,18 +3940,18 @@ const operator = {
 		skill:{
 			"デュアルリロード":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃力<span class='merit'>+@atk%</span>、敵<span class='merit'>2</span>体を同時に攻撃",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、敵<span class='merit'>2</span>体を同時に攻撃",
 				effect:[
-					{start: 0,need:35,pers:16,atk:20},
-					{start: 2,need:35,pers:17,atk:20},
-					{start: 4,need:35,pers:18,atk:20},
-					{start: 6,need:35,pers:19,atk:30},
-					{start: 8,need:35,pers:20,atk:30},
-					{start:10,need:35,pers:21,atk:30},
-					{start:12,need:35,pers:22,atk:40},
-					{start:14,need:35,pers:23,atk:43},
-					{start:16,need:35,pers:24,atk:46},
-					{start:20,need:35,pers:25,atk:50}
+					{start: 0,need:35,pers:16,atkadd:20},
+					{start: 2,need:35,pers:17,atkadd:20},
+					{start: 4,need:35,pers:18,atkadd:20},
+					{start: 6,need:35,pers:19,atkadd:30},
+					{start: 8,need:35,pers:20,atkadd:30},
+					{start:10,need:35,pers:21,atkadd:30},
+					{start:12,need:35,pers:22,atkadd:40},
+					{start:14,need:35,pers:23,atkadd:43},
+					{start:16,need:35,pers:24,atkadd:46},
+					{start:20,need:35,pers:25,atkadd:50}
 				]
 			},
 			"電磁パルス":{
@@ -4012,18 +4012,18 @@ const operator = {
 		skill:{
 			"処刑の構え":{
 				passive:true,
-				exp:"配置後攻撃力<span class='merit'>+@atk%</span>、物理回避と術回避<span class='merit'>+@dodge%</span>",
+				exp:"配置後攻撃力<span class='merit'>+@atkadd%</span>、物理回避と術回避<span class='merit'>+@dodge%</span>",
 				effect:[
-					{pers:10,atk:35,dodge:20},
-					{pers:10,atk:40,dodge:20},
-					{pers:10,atk:45,dodge:20},
-					{pers:10,atk:50,dodge:30},
-					{pers:10,atk:55,dodge:30},
-					{pers:10,atk:60,dodge:30},
-					{pers:10,atk:65,dodge:40},
-					{pers:10,atk:70,dodge:40},
-					{pers:10,atk:75,dodge:40},
-					{pers:10,atk:80,dodge:50}
+					{pers:10,atkadd:35,dodge:20},
+					{pers:10,atkadd:40,dodge:20},
+					{pers:10,atkadd:45,dodge:20},
+					{pers:10,atkadd:50,dodge:30},
+					{pers:10,atkadd:55,dodge:30},
+					{pers:10,atkadd:60,dodge:30},
+					{pers:10,atkadd:65,dodge:40},
+					{pers:10,atkadd:70,dodge:40},
+					{pers:10,atkadd:75,dodge:40},
+					{pers:10,atkadd:80,dodge:50}
 				]
 			},
 			"郡狼":{
@@ -4300,19 +4300,19 @@ const operator = {
 				]
 			},
 			"スコーピオンテール":{
-				exp:"通常攻撃の間隔が<span class='demerit'>延長</span>し、攻撃力<span class='merit'>+@atk%</span>、攻撃した敵を<span class='merit'>@stan</span>秒間スタンさせる",
+				exp:"通常攻撃の間隔が<span class='demerit'>延長</span>し、攻撃力<span class='merit'>+@atkadd%</span>、攻撃した敵を<span class='merit'>@stan</span>秒間スタンさせる",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:20,pers:31,atk:30,stan:0.5},
-					{start: 0,need:20,pers:32,atk:35,stan:0.5},
-					{start: 0,need:20,pers:33,atk:40,stan:0.5},
-					{start: 0,need:20,pers:34,atk:45,stan:0.6},
-					{start: 0,need:20,pers:35,atk:50,stan:0.6},
-					{start: 0,need:20,pers:36,atk:55,stan:0.6},
-					{start: 5,need:20,pers:37,atk:60,stan:0.7},
-					{start: 6,need:20,pers:38,atk:70,stan:0.8},
-					{start: 8,need:20,pers:39,atk:80,stan:0.9},
-					{start:10,need:20,pers:40,atk:90,stan:1}
+					{start: 0,need:20,pers:31,atkadd:30,stan:0.5},
+					{start: 0,need:20,pers:32,atkadd:35,stan:0.5},
+					{start: 0,need:20,pers:33,atkadd:40,stan:0.5},
+					{start: 0,need:20,pers:34,atkadd:45,stan:0.6},
+					{start: 0,need:20,pers:35,atkadd:50,stan:0.6},
+					{start: 0,need:20,pers:36,atkadd:55,stan:0.6},
+					{start: 5,need:20,pers:37,atkadd:60,stan:0.7},
+					{start: 6,need:20,pers:38,atkadd:70,stan:0.8},
+					{start: 8,need:20,pers:39,atkadd:80,stan:0.9},
+					{start:10,need:20,pers:40,atkadd:90,stan:1}
 				]
 			}
 		}
@@ -4400,19 +4400,19 @@ const operator = {
 				]
 			},
 			"突撃指令・攻撃":{
-				exp:"所持コスト+<span class='merit'>11</span><br/>攻撃力<span class='merit'>+@atk%</span>",
+				exp:"所持コスト+<span class='merit'>11</span><br/>攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:13,need:40,pers:15,atk:20},
-					{start:13,need:39,pers:15,atk:23},
-					{start:13,need:38,pers:15,atk:26},
-					{start:14,need:37,pers:15,atk:30},
-					{start:14,need:36,pers:15,atk:33},
-					{start:14,need:35,pers:15,atk:36},
-					{start:15,need:34,pers:15,atk:40},
-					{start:16,need:33,pers:15,atk:50},
-					{start:17,need:32,pers:15,atk:60},
-					{start:18,need:30,pers:15,atk:70}
+					{start:13,need:40,pers:15,atkadd:20},
+					{start:13,need:39,pers:15,atkadd:23},
+					{start:13,need:38,pers:15,atkadd:26},
+					{start:14,need:37,pers:15,atkadd:30},
+					{start:14,need:36,pers:15,atkadd:33},
+					{start:14,need:35,pers:15,atkadd:36},
+					{start:15,need:34,pers:15,atkadd:40},
+					{start:16,need:33,pers:15,atkadd:50},
+					{start:17,need:32,pers:15,atkadd:60},
+					{start:18,need:30,pers:15,atkadd:70}
 				]
 			}
 		}
@@ -4485,19 +4485,19 @@ const operator = {
 				]
 			},
 			"突撃指令・防御":{
-				exp:"所持コスト<span class='merit'>+3</span><br/>効果時間内所持コストが徐々に増加(合計<span class='merit'>8</span>)<br/>防御力<span class='merit'>+@def%</span>",
+				exp:"所持コスト<span class='merit'>+3</span><br/>効果時間内所持コストが徐々に増加(合計<span class='merit'>8</span>)<br/>防御力<span class='merit'>+@defadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:12,need:40,pers:15,def:30},
-					{start:12,need:39,pers:15,def:33},
-					{start:12,need:38,pers:15,def:37},
-					{start:13,need:37,pers:15,def:40},
-					{start:13,need:36,pers:15,def:43},
-					{start:13,need:35,pers:15,def:47},
-					{start:14,need:34,pers:15,def:50},
-					{start:15,need:33,pers:15,def:60},
-					{start:16,need:32,pers:15,def:70},
-					{start:17,need:30,pers:15,def:80}
+					{start:12,need:40,pers:15,defadd:30},
+					{start:12,need:39,pers:15,defadd:33},
+					{start:12,need:38,pers:15,defadd:37},
+					{start:13,need:37,pers:15,defadd:40},
+					{start:13,need:36,pers:15,defadd:43},
+					{start:13,need:35,pers:15,defadd:47},
+					{start:14,need:34,pers:15,defadd:50},
+					{start:15,need:33,pers:15,defadd:60},
+					{start:16,need:32,pers:15,defadd:70},
+					{start:17,need:30,pers:15,defadd:80}
 				]
 			}
 		}
@@ -4534,35 +4534,35 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化β":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:40,pers:25,atk:20},
-					{start: 0,need:40,pers:25,atk:25},
-					{start: 0,need:40,pers:25,atk:30},
-					{start: 0,need:37,pers:25,atk:35},
-					{start: 0,need:37,pers:25,atk:40},
-					{start: 0,need:37,pers:25,atk:45},
-					{start: 5,need:37,pers:25,atk:50},
-					{start: 5,need:37,pers:25,atk:60},
-					{start: 5,need:37,pers:25,atk:70},
-					{start:10,need:35,pers:25,atk:80}
+					{start: 0,need:40,pers:25,atkadd:20},
+					{start: 0,need:40,pers:25,atkadd:25},
+					{start: 0,need:40,pers:25,atkadd:30},
+					{start: 0,need:37,pers:25,atkadd:35},
+					{start: 0,need:37,pers:25,atkadd:40},
+					{start: 0,need:37,pers:25,atkadd:45},
+					{start: 5,need:37,pers:25,atkadd:50},
+					{start: 5,need:37,pers:25,atkadd:60},
+					{start: 5,need:37,pers:25,atkadd:70},
+					{start:10,need:35,pers:25,atkadd:80}
 				]
 			},
 			"ハンマリング・オン":{
-				exp:"通常攻撃力の間隔が<span class='demerit'>わずかに延長</span>し、攻撃力<span class='merit'>+@atk%</span>",
+				exp:"通常攻撃力の間隔が<span class='demerit'>わずかに延長</span>し、攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:35,pers:20,atk:90},
-					{start: 0,need:35,pers:20,atk:100},
-					{start: 0,need:35,pers:20,atk:110},
-					{start: 0,need:32,pers:22,atk:120},
-					{start: 0,need:32,pers:22,atk:130},
-					{start: 0,need:32,pers:22,atk:140},
-					{start: 5,need:28,pers:25,atk:150},
-					{start: 5,need:27,pers:26,atk:165},
-					{start: 5,need:26,pers:27,atk:180},
-					{start:10,need:25,pers:30,atk:200}
+					{start: 0,need:35,pers:20,atkadd:90},
+					{start: 0,need:35,pers:20,atkadd:100},
+					{start: 0,need:35,pers:20,atkadd:110},
+					{start: 0,need:32,pers:22,atkadd:120},
+					{start: 0,need:32,pers:22,atkadd:130},
+					{start: 0,need:32,pers:22,atkadd:140},
+					{start: 5,need:28,pers:25,atkadd:150},
+					{start: 5,need:27,pers:26,atkadd:165},
+					{start: 5,need:26,pers:27,atkadd:180},
+					{start:10,need:25,pers:30,atkadd:200}
 				]
 			}
 		}
@@ -4771,19 +4771,19 @@ const operator = {
 				]
 			},
 			"悪鬼の力":{
-				exp:"防御力が<span class='demerit'>0になり</span>、攻撃力<span class='merit'>+@atk%</span>",
+				exp:"防御力が<span class='demerit'>0になり</span>、攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:35,pers:10,atk:75},
-					{start: 0,need:35,pers:10,atk:80},
-					{start: 0,need:35,pers:10,atk:85},
-					{start: 0,need:32,pers:11,atk:90},
-					{start: 0,need:32,pers:11,atk:95},
-					{start: 0,need:32,pers:11,atk:100},
-					{start: 0,need:29,pers:12,atk:105},
-					{start: 0,need:28,pers:13,atk:120},
-					{start: 0,need:27,pers:14,atk:135},
-					{start: 0,need:25,pers:15,atk:150}
+					{start: 0,need:35,pers:10,atkadd:75},
+					{start: 0,need:35,pers:10,atkadd:80},
+					{start: 0,need:35,pers:10,atkadd:85},
+					{start: 0,need:32,pers:11,atkadd:90},
+					{start: 0,need:32,pers:11,atkadd:95},
+					{start: 0,need:32,pers:11,atkadd:100},
+					{start: 0,need:29,pers:12,atkadd:105},
+					{start: 0,need:28,pers:13,atkadd:120},
+					{start: 0,need:27,pers:14,atkadd:135},
+					{start: 0,need:25,pers:15,atkadd:150}
 				]
 			}
 		}
@@ -4827,35 +4827,35 @@ const operator = {
 		],
 		skill:{
 			"ひっかき！":{
-				exp:"次の通常攻撃時、攻撃力<span class='merit'>+@atk%</span>、攻撃した敵を<span class='merit'>5</span>秒間攻撃力<span class='merit'>@down%</span>",
+				exp:"次の通常攻撃時、攻撃力<span class='merit'>+@atkadd%</span>、攻撃した敵を<span class='merit'>5</span>秒間攻撃力<span class='merit'>@atkdown%</span>",
 				recover:"attack",activate:"auto",
 				effect:[
-					{need:6,atk:30,down:-15},
-					{need:6,atk:35,down:-15},
-					{need:6,atk:40,down:-15},
-					{need:5,atk:45,down:-20},
-					{need:5,atk:50,down:-20},
-					{need:5,atk:55,down:-20},
-					{need:5,atk:60,down:-25},
-					{need:5,atk:65,down:-30},
-					{need:5,atk:70,down:-35},
-					{need:4,atk:75,down:-40}
+					{need:6,atkadd:30,atkdown:-15},
+					{need:6,atkadd:35,atkdown:-15},
+					{need:6,atkadd:40,atkdown:-15},
+					{need:5,atkadd:45,atkdown:-20},
+					{need:5,atkadd:50,atkdown:-20},
+					{need:5,atkadd:55,atkdown:-20},
+					{need:5,atkadd:60,atkdown:-25},
+					{need:5,atkadd:65,atkdown:-30},
+					{need:5,atkadd:70,atkdown:-35},
+					{need:4,atkadd:75,atkdown:-40}
 				]
 			},
 			"ねこのいかり":{
-				exp:"攻撃力、防御力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力、防御力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:20,need:80,pers:40,atk:27,def:27},
-					{start:21,need:80,pers:40,atk:30,def:30},
-					{start:22,need:80,pers:40,atk:33,def:33},
-					{start:25,need:80,pers:40,atk:36,def:36},
-					{start:26,need:80,pers:40,atk:39,def:39},
-					{start:27,need:80,pers:40,atk:42,def:42},
-					{start:30,need:80,pers:40,atk:45,def:45},
-					{start:35,need:80,pers:40,atk:55,def:55},
-					{start:40,need:80,pers:40,atk:65,def:65},
-					{start:45,need:80,pers:40,atk:75,def:75},
+					{start:20,need:80,pers:40,atkadd:27,defadd:27},
+					{start:21,need:80,pers:40,atkadd:30,defadd:30},
+					{start:22,need:80,pers:40,atkadd:33,defadd:33},
+					{start:25,need:80,pers:40,atkadd:36,defadd:36},
+					{start:26,need:80,pers:40,atkadd:39,defadd:39},
+					{start:27,need:80,pers:40,atkadd:42,defadd:42},
+					{start:30,need:80,pers:40,atkadd:45,defadd:45},
+					{start:35,need:80,pers:40,atkadd:55,defadd:55},
+					{start:40,need:80,pers:40,atkadd:65,defadd:65},
+					{start:45,need:80,pers:40,atkadd:75,defadd:75},
 				]
 			}
 		}
@@ -4892,35 +4892,35 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化β":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:40,pers:25,atk:20},
-					{start: 0,need:40,pers:25,atk:25},
-					{start: 0,need:40,pers:25,atk:30},
-					{start: 0,need:37,pers:25,atk:35},
-					{start: 0,need:37,pers:25,atk:40},
-					{start: 0,need:37,pers:25,atk:45},
-					{start: 5,need:37,pers:25,atk:50},
-					{start: 5,need:37,pers:25,atk:60},
-					{start: 5,need:37,pers:25,atk:70},
-					{start:10,need:35,pers:25,atk:80}
+					{start: 0,need:40,pers:25,atkadd:20},
+					{start: 0,need:40,pers:25,atkadd:25},
+					{start: 0,need:40,pers:25,atkadd:30},
+					{start: 0,need:37,pers:25,atkadd:35},
+					{start: 0,need:37,pers:25,atkadd:40},
+					{start: 0,need:37,pers:25,atkadd:45},
+					{start: 5,need:37,pers:25,atkadd:50},
+					{start: 5,need:37,pers:25,atkadd:60},
+					{start: 5,need:37,pers:25,atkadd:70},
+					{start:10,need:35,pers:25,atkadd:80}
 				]
 			},
 			"捨て身の覚悟":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、ただし味方の回復対象外になる",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、ただし味方の回復対象外になる",
 				recover:"damage",activate:"manual",
 				effect:[
-					{start:10,need:25,pers:15,atk:85},
-					{start:10,need:25,pers:15,atk:90},
-					{start:10,need:25,pers:15,atk:95},
-					{start:10,need:24,pers:15,atk:100},
-					{start:10,need:24,pers:15,atk:105},
-					{start:10,need:24,pers:15,atk:110},
-					{start:10,need:23,pers:15,atk:115},
-					{start:10,need:22,pers:15,atk:125},
-					{start:10,need:21,pers:15,atk:135},
-					{start:10,need:20,pers:15,atk:150}
+					{start:10,need:25,pers:15,atkadd:85},
+					{start:10,need:25,pers:15,atkadd:90},
+					{start:10,need:25,pers:15,atkadd:95},
+					{start:10,need:24,pers:15,atkadd:100},
+					{start:10,need:24,pers:15,atkadd:105},
+					{start:10,need:24,pers:15,atkadd:110},
+					{start:10,need:23,pers:15,atkadd:115},
+					{start:10,need:22,pers:15,atkadd:125},
+					{start:10,need:21,pers:15,atkadd:135},
+					{start:10,need:20,pers:15,atkadd:150}
 				]
 			}
 		}
@@ -4973,19 +4973,19 @@ const operator = {
 				]
 			},
 			"鞭撻":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、素質の効果が<span class='merit'>@nature</span>倍まで上昇",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、素質の効果が<span class='merit'>@nature</span>倍まで上昇",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:30,need:80,pers:25,atk:30,nature:2.1},
-					{start:30,need:79,pers:25,atk:30,nature:2.2},
-					{start:30,need:78,pers:25,atk:30,nature:2.3},
-					{start:32,need:77,pers:25,atk:40,nature:2.4},
-					{start:32,need:76,pers:25,atk:40,nature:2.5},
-					{start:32,need:75,pers:25,atk:40,nature:2.6},
-					{start:34,need:74,pers:25,atk:50,nature:2.7},
-					{start:36,need:73,pers:25,atk:60,nature:2.8},
-					{start:38,need:72,pers:25,atk:70,nature:2.9},
-					{start:40,need:70,pers:25,atk:80,nature:3}
+					{start:30,need:80,pers:25,atkadd:30,nature:2.1},
+					{start:30,need:79,pers:25,atkadd:30,nature:2.2},
+					{start:30,need:78,pers:25,atkadd:30,nature:2.3},
+					{start:32,need:77,pers:25,atkadd:40,nature:2.4},
+					{start:32,need:76,pers:25,atkadd:40,nature:2.5},
+					{start:32,need:75,pers:25,atkadd:40,nature:2.6},
+					{start:34,need:74,pers:25,atkadd:50,nature:2.7},
+					{start:36,need:73,pers:25,atkadd:60,nature:2.8},
+					{start:38,need:72,pers:25,atkadd:70,nature:2.9},
+					{start:40,need:70,pers:25,atkadd:80,nature:3}
 				]
 			}
 		}
@@ -5091,35 +5091,35 @@ const operator = {
 		],
 		skill:{
 			"防御力強化β":{
-				exp:"防御力<span class='merit'>+@def%</span>",
+				exp:"防御力<span class='merit'>+@defadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:45,pers:35,def:20},
-					{start: 0,need:45,pers:35,def:25},
-					{start: 0,need:45,pers:35,def:30},
-					{start: 5,need:40,pers:35,def:35},
-					{start: 5,need:40,pers:35,def:40},
-					{start: 5,need:40,pers:35,def:45},
-					{start: 5,need:38,pers:35,def:50},
-					{start: 5,need:37,pers:35,def:60},
-					{start: 5,need:36,pers:35,def:70},
-					{start:10,need:35,pers:35,def:80}
+					{start: 0,need:45,pers:35,defadd:20},
+					{start: 0,need:45,pers:35,defadd:25},
+					{start: 0,need:45,pers:35,defadd:30},
+					{start: 5,need:40,pers:35,defadd:35},
+					{start: 5,need:40,pers:35,defadd:40},
+					{start: 5,need:40,pers:35,defadd:45},
+					{start: 5,need:38,pers:35,defadd:50},
+					{start: 5,need:37,pers:35,defadd:60},
+					{start: 5,need:36,pers:35,defadd:70},
+					{start:10,need:35,pers:35,defadd:80}
 				]
 			},
 			"シェルガード":{
-				exp:"攻撃しなくなる<br/>ブロック数<span class='merit'>+1</span>、防御力<span class='merit'>+@def%</span>、自身のHPが1秒ごとに最大値の<span class='merit'>@heal%</span>回復",
+				exp:"攻撃しなくなる<br/>ブロック数<span class='merit'>+1</span>、防御力<span class='merit'>+@defadd%</span>、自身のHPが1秒ごとに最大値の<span class='merit'>@heal%</span>回復",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:40,pers:30,def:55,heal:1},
-					{need:40,pers:30,def:60,heal:1},
-					{need:40,pers:30,def:65,heal:1},
-					{need:40,pers:30,def:75,heal:1},
-					{need:40,pers:30,def:80,heal:1},
-					{need:40,pers:30,def:85,heal:1},
-					{need:40,pers:30,def:95,heal:2},
-					{need:40,pers:30,def:105,heal:2},
-					{need:40,pers:30,def:115,heal:2},
-					{need:40,pers:30,def:130,heal:3}
+					{need:40,pers:30,defadd:55,heal:1},
+					{need:40,pers:30,defadd:60,heal:1},
+					{need:40,pers:30,defadd:65,heal:1},
+					{need:40,pers:30,defadd:75,heal:1},
+					{need:40,pers:30,defadd:80,heal:1},
+					{need:40,pers:30,defadd:85,heal:1},
+					{need:40,pers:30,defadd:95,heal:2},
+					{need:40,pers:30,defadd:105,heal:2},
+					{need:40,pers:30,defadd:115,heal:2},
+					{need:40,pers:30,defadd:130,heal:3}
 				]
 			}
 		}
@@ -5163,35 +5163,35 @@ const operator = {
 		],
 		skill:{
 			"肉体強化":{
-				exp:"最大HP<span class='merit'>+@hp%</span>、自身のHPが1秒ごとに<span class='merit'>@heal</span>回復",
+				exp:"最大HP<span class='merit'>+@hpadd%</span>、自身のHPが1秒ごとに<span class='merit'>@heal</span>回復",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:45,pers:25,hp:20,heal:20},
-					{start: 0,need:44,pers:25,hp:23,heal:20},
-					{start: 0,need:43,pers:25,hp:26,heal:20},
-					{start: 0,need:42,pers:27,hp:30,heal:25},
-					{start: 5,need:41,pers:27,hp:33,heal:25},
-					{start: 5,need:40,pers:27,hp:36,heal:25},
-					{start: 5,need:39,pers:27,hp:40,heal:30},
-					{start: 5,need:38,pers:28,hp:50,heal:33},
-					{start: 5,need:37,pers:29,hp:60,heal:36},
-					{start:10,need:35,pers:30,hp:70,heal:40}
+					{start: 0,need:45,pers:25,hpadd:20,heal:20},
+					{start: 0,need:44,pers:25,hpadd:23,heal:20},
+					{start: 0,need:43,pers:25,hpadd:26,heal:20},
+					{start: 0,need:42,pers:27,hpadd:30,heal:25},
+					{start: 5,need:41,pers:27,hpadd:33,heal:25},
+					{start: 5,need:40,pers:27,hpadd:36,heal:25},
+					{start: 5,need:39,pers:27,hpadd:40,heal:30},
+					{start: 5,need:38,pers:28,hpadd:50,heal:33},
+					{start: 5,need:37,pers:29,hpadd:60,heal:36},
+					{start:10,need:35,pers:30,hpadd:70,heal:40}
 				]
 			},
 			"寒冷順化":{
-				exp:"最大HP<span class='merit'>+@hp%</span>、防御力<span class='merit'>+@def%</span>、術耐性<span class='merit'>+@res%</span>",
+				exp:"最大HP<span class='merit'>+@hpadd%</span>、防御力<span class='merit'>+@defadd%</span>、術耐性<span class='merit'>+@res%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:50,pers:25,hp:20,def:10,res:50},
-					{start: 0,need:49,pers:25,hp:23,def:10,res:53},
-					{start: 0,need:48,pers:25,hp:26,def:10,res:56},
-					{start: 0,need:47,pers:27,hp:30,def:10,res:60},
-					{start: 0,need:46,pers:27,hp:33,def:10,res:63},
-					{start: 0,need:45,pers:27,hp:36,def:10,res:66},
-					{start: 5,need:44,pers:27,hp:40,def:15,res:70},
-					{start: 5,need:40,pers:28,hp:43,def:20,res:80},
-					{start: 5,need:36,pers:29,hp:46,def:25,res:90},
-					{start:10,need:32,pers:30,hp:50,def:30,res:100}
+					{start: 0,need:50,pers:25,hpadd:20,defadd:10,res:50},
+					{start: 0,need:49,pers:25,hpadd:23,defadd:10,res:53},
+					{start: 0,need:48,pers:25,hpadd:26,defadd:10,res:56},
+					{start: 0,need:47,pers:27,hpadd:30,defadd:10,res:60},
+					{start: 0,need:46,pers:27,hpadd:33,defadd:10,res:63},
+					{start: 0,need:45,pers:27,hpadd:36,defadd:10,res:66},
+					{start: 5,need:44,pers:27,hpadd:40,defadd:15,res:70},
+					{start: 5,need:40,pers:28,hpadd:43,defadd:20,res:80},
+					{start: 5,need:36,pers:29,hpadd:46,defadd:25,res:90},
+					{start:10,need:32,pers:30,hpadd:50,defadd:30,res:100}
 				]
 			}
 		}
@@ -5256,19 +5256,19 @@ const operator = {
 				]
 			},
 			"戦場のシェフ":{
-				exp:"<span class='demerit'>10</span>秒間調理状態(攻撃停止)になり、防御力<span class='merit'>+@def%</span><br/>調理終了後攻撃力<span class='merit'>+@atk%</span>、近くの味方の回復行動のみ行う",
+				exp:"<span class='demerit'>10</span>秒間調理状態(攻撃停止)になり、防御力<span class='merit'>+@defadd%</span><br/>調理終了後攻撃力<span class='merit'>+@atkadd%</span>、近くの味方の回復行動のみ行う",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:10,need:40,atk:30,def:50},
-					{start:10,need:39,atk:33,def:50},
-					{start:10,need:38,atk:36,def:50},
-					{start:12,need:37,atk:40,def:60},
-					{start:12,need:36,atk:43,def:60},
-					{start:12,need:35,atk:46,def:60},
-					{start:14,need:34,atk:50,def:70},
-					{start:16,need:33,atk:60,def:70},
-					{start:18,need:32,atk:70,def:70},
-					{start:20,need:30,atk:80,def:80}
+					{start:10,need:40,atkadd:30,defadd:50},
+					{start:10,need:39,atkadd:33,defadd:50},
+					{start:10,need:38,atkadd:36,defadd:50},
+					{start:12,need:37,atkadd:40,defadd:60},
+					{start:12,need:36,atkadd:43,defadd:60},
+					{start:12,need:35,atkadd:46,defadd:60},
+					{start:14,need:34,atkadd:50,defadd:70},
+					{start:16,need:33,atkadd:60,defadd:70},
+					{start:18,need:32,atkadd:70,defadd:70},
+					{start:20,need:30,atkadd:80,defadd:80}
 				]
 			}
 		}
@@ -5328,19 +5328,19 @@ const operator = {
 				]
 			},
 			"煙幕":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、物理回避と術回避<span class='merit'>+@dodge%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、物理回避と術回避<span class='merit'>+@dodge%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:10,need:50,pers:20,atk:20,dodge:75},
-					{start:10,need:49,pers:20,atk:25,dodge:75},
-					{start:10,need:48,pers:20,atk:30,dodge:75},
-					{start:10,need:47,pers:21,atk:35,dodge:75},
-					{start:10,need:46,pers:21,atk:40,dodge:75},
-					{start:10,need:45,pers:21,atk:45,dodge:75},
-					{start:15,need:44,pers:22,atk:50,dodge:75},
-					{start:15,need:43,pers:23,atk:60,dodge:75},
-					{start:15,need:42,pers:24,atk:70,dodge:75},
-					{start:20,need:40,pers:25,atk:80,dodge:75}
+					{start:10,need:50,pers:20,atkadd:20,dodge:75},
+					{start:10,need:49,pers:20,atkadd:25,dodge:75},
+					{start:10,need:48,pers:20,atkadd:30,dodge:75},
+					{start:10,need:47,pers:21,atkadd:35,dodge:75},
+					{start:10,need:46,pers:21,atkadd:40,dodge:75},
+					{start:10,need:45,pers:21,atkadd:45,dodge:75},
+					{start:15,need:44,pers:22,atkadd:50,dodge:75},
+					{start:15,need:43,pers:23,atkadd:60,dodge:75},
+					{start:15,need:42,pers:24,atkadd:70,dodge:75},
+					{start:20,need:40,pers:25,atkadd:80,dodge:75}
 				]
 			}
 		}
@@ -5531,35 +5531,35 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化β":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:40,pers:25,atk:20},
-					{start: 0,need:40,pers:25,atk:25},
-					{start: 0,need:40,pers:25,atk:30},
-					{start: 0,need:37,pers:25,atk:35},
-					{start: 0,need:37,pers:25,atk:40},
-					{start: 0,need:37,pers:25,atk:45},
-					{start: 5,need:37,pers:25,atk:50},
-					{start: 5,need:37,pers:25,atk:60},
-					{start: 5,need:37,pers:25,atk:70},
-					{start:10,need:35,pers:25,atk:80}
+					{start: 0,need:40,pers:25,atkadd:20},
+					{start: 0,need:40,pers:25,atkadd:25},
+					{start: 0,need:40,pers:25,atkadd:30},
+					{start: 0,need:37,pers:25,atkadd:35},
+					{start: 0,need:37,pers:25,atkadd:40},
+					{start: 0,need:37,pers:25,atkadd:45},
+					{start: 5,need:37,pers:25,atkadd:50},
+					{start: 5,need:37,pers:25,atkadd:60},
+					{start: 5,need:37,pers:25,atkadd:70},
+					{start:10,need:35,pers:25,atkadd:80}
 				]
 			},
 			"デュアルアロー":{
 				exp:"攻撃力<span class='merit'>+@atk%</span>、通常攻撃時敵<span class='merit'>2</span>体を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:30,pers:15,atk:10},
-					{start: 1,need:29,pers:15,atk:10},
-					{start: 2,need:28,pers:15,atk:10},
-					{start: 3,need:27,pers:16,atk:20},
-					{start: 4,need:26,pers:16,atk:20},
-					{start: 5,need:25,pers:16,atk:20},
-					{start: 6,need:24,pers:17,atk:30},
-					{start: 7,need:23,pers:18,atk:35},
-					{start: 8,need:22,pers:19,atk:40},
-					{start:10,need:20,pers:20,atk:45}
+					{start: 0,need:30,pers:15,atkadd:10},
+					{start: 1,need:29,pers:15,atkadd:10},
+					{start: 2,need:28,pers:15,atkadd:10},
+					{start: 3,need:27,pers:16,atkadd:20},
+					{start: 4,need:26,pers:16,atkadd:20},
+					{start: 5,need:25,pers:16,atkadd:20},
+					{start: 6,need:24,pers:17,atkadd:30},
+					{start: 7,need:23,pers:18,atkadd:35},
+					{start: 8,need:22,pers:19,atkadd:40},
+					{start:10,need:20,pers:20,atkadd:45}
 				]
 			}
 		}
@@ -5601,35 +5601,35 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化β":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:40,pers:25,atk:20},
-					{start: 0,need:40,pers:25,atk:25},
-					{start: 0,need:40,pers:25,atk:30},
-					{start: 0,need:37,pers:25,atk:35},
-					{start: 0,need:37,pers:25,atk:40},
-					{start: 0,need:37,pers:25,atk:45},
-					{start: 5,need:37,pers:25,atk:50},
-					{start: 5,need:37,pers:25,atk:60},
-					{start: 5,need:37,pers:25,atk:70},
-					{start:10,need:35,pers:25,atk:80},
+					{start: 0,need:40,pers:25,atkadd:20},
+					{start: 0,need:40,pers:25,atkadd:25},
+					{start: 0,need:40,pers:25,atkadd:30},
+					{start: 0,need:37,pers:25,atkadd:35},
+					{start: 0,need:37,pers:25,atkadd:40},
+					{start: 0,need:37,pers:25,atkadd:45},
+					{start: 5,need:37,pers:25,atkadd:50},
+					{start: 5,need:37,pers:25,atkadd:60},
+					{start: 5,need:37,pers:25,atkadd:70},
+					{start:10,need:35,pers:25,atkadd:80},
 				]
 			},
 			"赤色の瞳":{
-				exp:"最大HP<span class='demerit'>-75%</span>、攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span>",
+				exp:"最大HP<span class='demerit'>-75%</span>、攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:35,pers:25,atk:15,speed:35},
-					{need:35,pers:25,atk:20,speed:35},
-					{need:35,pers:25,atk:25,speed:35},
-					{need:35,pers:25,atk:30,speed:40},
-					{need:35,pers:25,atk:35,speed:40},
-					{need:35,pers:25,atk:40,speed:40},
-					{need:30,pers:25,atk:45,speed:45},
-					{need:30,pers:25,atk:50,speed:50},
-					{need:30,pers:25,atk:55,speed:55},
-					{need:25,pers:25,atk:60,speed:60}
+					{need:35,pers:25,atkadd:15,speed:35},
+					{need:35,pers:25,atkadd:20,speed:35},
+					{need:35,pers:25,atkadd:25,speed:35},
+					{need:35,pers:25,atkadd:30,speed:40},
+					{need:35,pers:25,atkadd:35,speed:40},
+					{need:35,pers:25,atkadd:40,speed:40},
+					{need:30,pers:25,atkadd:45,speed:45},
+					{need:30,pers:25,atkadd:50,speed:50},
+					{need:30,pers:25,atkadd:55,speed:55},
+					{need:25,pers:25,atkadd:60,speed:60}
 				]
 			}
 		}
@@ -5685,19 +5685,19 @@ const operator = {
 				]
 			},
 			"運命":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃範囲<span class='merit'>増加</span>、範囲内にいる敵全員を同時に攻撃<br/<span class='charge'>>効果時間終了後@stop秒間攻撃停止</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>増加</span>、範囲内にいる敵全員を同時に攻撃<br/<span class='charge'>>効果時間終了後@stop秒間攻撃停止</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:50,need:100,pers:30,atk:30,stop:15},
-					{start:50,need:100,pers:30,atk:35,stop:15},
-					{start:50,need:100,pers:30,atk:40,stop:15},
-					{start:50,need: 95,pers:30,atk:45,stop:14},
-					{start:50,need: 95,pers:30,atk:50,stop:14},
-					{start:50,need: 95,pers:30,atk:55,stop:14},
-					{start:50,need: 90,pers:30,atk:70,stop:13},
-					{start:50,need: 90,pers:30,atk:80,stop:12},
-					{start:50,need: 90,pers:30,atk:90,stop:11},
-					{start:50,need: 85,pers:30,atk:100,stop:10}
+					{start:50,need:100,pers:30,atkadd:30,stop:15},
+					{start:50,need:100,pers:30,atkadd:35,stop:15},
+					{start:50,need:100,pers:30,atkadd:40,stop:15},
+					{start:50,need: 95,pers:30,atkadd:45,stop:14},
+					{start:50,need: 95,pers:30,atkadd:50,stop:14},
+					{start:50,need: 95,pers:30,atkadd:55,stop:14},
+					{start:50,need: 90,pers:30,atkadd:70,stop:13},
+					{start:50,need: 90,pers:30,atkadd:80,stop:12},
+					{start:50,need: 90,pers:30,atkadd:90,stop:11},
+					{start:50,need: 85,pers:30,atkadd:100,stop:10}
 				]
 			}
 		}
@@ -5924,19 +5924,19 @@ const operator = {
 				]
 			},
 			"メディカルゾーン":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、効果時間中味方２人を回復可能",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、効果時間中味方２人を回復可能",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 5,need:65,pers:25,atk: 5},
-					{start: 5,need:65,pers:25,atk:10},
-					{start: 5,need:65,pers:25,atk:15},
-					{start:10,need:60,pers:25,atk:20},
-					{start:10,need:60,pers:25,atk:25},
-					{start:10,need:60,pers:25,atk:30},
-					{start:15,need:55,pers:25,atk:35},
-					{start:17,need:53,pers:25,atk:45},
-					{start:18,need:52,pers:25,atk:55},
-					{start:20,need:50,pers:25,atk:65}
+					{start: 5,need:65,pers:25,atkadd: 5},
+					{start: 5,need:65,pers:25,atkadd:10},
+					{start: 5,need:65,pers:25,atkadd:15},
+					{start:10,need:60,pers:25,atkadd:20},
+					{start:10,need:60,pers:25,atkadd:25},
+					{start:10,need:60,pers:25,atkadd:30},
+					{start:15,need:55,pers:25,atkadd:35},
+					{start:17,need:53,pers:25,atkadd:45},
+					{start:18,need:52,pers:25,atkadd:55},
+					{start:20,need:50,pers:25,atkadd:65}
 				]
 			}
 		}
@@ -5988,35 +5988,35 @@ const operator = {
 		],
 		skill:{
 			"回復力強化β":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:10,need:40,pers:25,atk:15},
-					{start:10,need:40,pers:25,atk:20},
-					{start:10,need:40,pers:25,atk:25},
-					{start:10,need:35,pers:25,atk:30},
-					{start:10,need:35,pers:25,atk:35},
-					{start:10,need:35,pers:25,atk:40},
-					{start:10,need:32,pers:25,atk:50},
-					{start:10,need:32,pers:25,atk:55},
-					{start:10,need:32,pers:25,atk:60},
-					{start:10,need:30,pers:25,atk:70}
+					{start:10,need:40,pers:25,atkadd:15},
+					{start:10,need:40,pers:25,atkadd:20},
+					{start:10,need:40,pers:25,atkadd:25},
+					{start:10,need:35,pers:25,atkadd:30},
+					{start:10,need:35,pers:25,atkadd:35},
+					{start:10,need:35,pers:25,atkadd:40},
+					{start:10,need:32,pers:25,atkadd:50},
+					{start:10,need:32,pers:25,atkadd:55},
+					{start:10,need:32,pers:25,atkadd:60},
+					{start:10,need:30,pers:25,atkadd:70}
 				]
 			},
 			"調香":{
-				exp:"攻撃速度<span class='demerit'>-50</span>、攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃速度<span class='demerit'>-50</span>、攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:20,need:60,pers:30,atk:150},
-					{start:20,need:60,pers:30,atk:160},
-					{start:20,need:60,pers:30,atk:170},
-					{start:20,need:60,pers:30,atk:180},
-					{start:20,need:60,pers:30,atk:190},
-					{start:20,need:60,pers:30,atk:200},
-					{start:20,need:60,pers:30,atk:210},
-					{start:20,need:60,pers:30,atk:220},
-					{start:20,need:60,pers:30,atk:230},
-					{start:20,need:60,pers:30,atk:250}
+					{start:20,need:60,pers:30,atkadd:150},
+					{start:20,need:60,pers:30,atkadd:160},
+					{start:20,need:60,pers:30,atkadd:170},
+					{start:20,need:60,pers:30,atkadd:180},
+					{start:20,need:60,pers:30,atkadd:190},
+					{start:20,need:60,pers:30,atkadd:200},
+					{start:20,need:60,pers:30,atkadd:210},
+					{start:20,need:60,pers:30,atkadd:220},
+					{start:20,need:60,pers:30,atkadd:230},
+					{start:20,need:60,pers:30,atkadd:250}
 				]
 			}
 		}
@@ -6054,34 +6054,34 @@ const operator = {
 		skill:{
 			"回復力強化β":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				effect:[
-					{start:10,need:40,pers:25,atk:15},
-					{start:10,need:40,pers:25,atk:20},
-					{start:10,need:40,pers:25,atk:25},
-					{start:10,need:35,pers:25,atk:30},
-					{start:10,need:35,pers:25,atk:35},
-					{start:10,need:35,pers:25,atk:40},
-					{start:10,need:32,pers:25,atk:50},
-					{start:10,need:32,pers:25,atk:55},
-					{start:10,need:32,pers:25,atk:60},
-					{start:10,need:30,pers:25,atk:70}
+					{start:10,need:40,pers:25,atkadd:15},
+					{start:10,need:40,pers:25,atkadd:20},
+					{start:10,need:40,pers:25,atkadd:25},
+					{start:10,need:35,pers:25,atkadd:30},
+					{start:10,need:35,pers:25,atkadd:35},
+					{start:10,need:35,pers:25,atkadd:40},
+					{start:10,need:32,pers:25,atkadd:50},
+					{start:10,need:32,pers:25,atkadd:55},
+					{start:10,need:32,pers:25,atkadd:60},
+					{start:10,need:30,pers:25,atkadd:70}
 				]
 			},
 			"ディープヒーリング":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span><br/><span class='charge'>使用上限2回</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span><br/><span class='charge'>使用上限2回</span>",
 				effect:[
-					{need:25,pers:20,atk:40,speed:40},
-					{need:25,pers:21,atk:45,speed:45},
-					{need:25,pers:22,atk:50,speed:50},
-					{need:22,pers:25,atk:55,speed:55},
-					{need:22,pers:26,atk:60,speed:60},
-					{need:22,pers:27,atk:65,speed:65},
-					{need:19,pers:30,atk:70,speed:70},
-					{need:18,pers:30,atk:80,speed:80},
-					{need:17,pers:30,atk:90,speed:90},
-					{need:15,pers:30,atk:100,speed:100}
+					{need:25,pers:20,atkadd:40,speed:40},
+					{need:25,pers:21,atkadd:45,speed:45},
+					{need:25,pers:22,atkadd:50,speed:50},
+					{need:22,pers:25,atkadd:55,speed:55},
+					{need:22,pers:26,atkadd:60,speed:60},
+					{need:22,pers:27,atkadd:65,speed:65},
+					{need:19,pers:30,atkadd:70,speed:70},
+					{need:18,pers:30,atkadd:80,speed:80},
+					{need:17,pers:30,atkadd:90,speed:90},
+					{need:15,pers:30,atkadd:100,speed:100}
 				]
 			}
 		}
@@ -6115,19 +6115,19 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化β":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:40,pers:25,atk:20},
-					{start: 0,need:40,pers:25,atk:25},
-					{start: 0,need:40,pers:25,atk:30},
-					{start: 0,need:37,pers:25,atk:35},
-					{start: 0,need:37,pers:25,atk:40},
-					{start: 0,need:37,pers:25,atk:45},
-					{start: 5,need:37,pers:25,atk:50},
-					{start: 5,need:37,pers:25,atk:60},
-					{start: 5,need:37,pers:25,atk:70},
-					{start:10,need:35,pers:25,atk:80}
+					{start: 0,need:40,pers:25,atkadd:20},
+					{start: 0,need:40,pers:25,atkadd:25},
+					{start: 0,need:40,pers:25,atkadd:30},
+					{start: 0,need:37,pers:25,atkadd:35},
+					{start: 0,need:37,pers:25,atkadd:40},
+					{start: 0,need:37,pers:25,atkadd:45},
+					{start: 5,need:37,pers:25,atkadd:50},
+					{start: 5,need:37,pers:25,atkadd:60},
+					{start: 5,need:37,pers:25,atkadd:70},
+					{start:10,need:35,pers:25,atkadd:80}
 				]
 			},
 			"流砂":{
@@ -6180,19 +6180,19 @@ const operator = {
 		],
 		skill:{
 			"光陰の触":{
-				exp:"全ての触手の攻撃力、防御力<span class='merit'>+@def%</span>、1秒ごとにHPが<span class='merit'>@heal</span>回復",
+				exp:"全ての触手の攻撃力、防御力<span class='merit'>+@atkadd%</span>、1秒ごとにHPが<span class='merit'>@heal</span>回復",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:40,pers:30,def:15,heal:30},
-					{need:39,pers:30,def:20,heal:30},
-					{need:38,pers:30,def:25,heal:30},
-					{need:37,pers:30,def:30,heal:40},
-					{need:36,pers:30,def:35,heal:40},
-					{need:35,pers:30,def:40,heal:40},
-					{need:34,pers:30,def:45,heal:50},
-					{need:33,pers:30,def:50,heal:55},
-					{need:32,pers:30,def:55,heal:60},
-					{need:30,pers:30,def:60,heal:70}
+					{need:40,pers:30,atkadd:15,defadd:15,heal:30},
+					{need:39,pers:30,atkadd:20,defadd:20,heal:30},
+					{need:38,pers:30,atkadd:25,defadd:25,heal:30},
+					{need:37,pers:30,atkadd:30,defadd:30,heal:40},
+					{need:36,pers:30,atkadd:35,defadd:35,heal:40},
+					{need:35,pers:30,atkadd:40,defadd:40,heal:40},
+					{need:34,pers:30,atkadd:45,defadd:45,heal:50},
+					{need:33,pers:30,atkadd:50,defadd:50,heal:55},
+					{need:32,pers:30,atkadd:55,defadd:55,heal:60},
+					{need:30,pers:30,atkadd:60,defadd:60,heal:70}
 				]
 			},
 			"トロンブイユ":{
@@ -6484,16 +6484,16 @@ const operator = {
 		],
 		skill:{
 			"突撃指令・援軍":{
-				exp:"所持コスト<span class='merit'>+6</span>、攻撃力<span class='merit'>+@atk%</span>",
+				exp:"所持コスト<span class='merit'>+6</span>、攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:0,need:25,pers:10,atk: 5},
-					{start:1,need:25,pers:10,atk:10},
-					{start:2,need:25,pers:10,atk:15},
-					{start:3,need:23,pers:10,atk:20},
-					{start:3,need:22,pers:10,atk:25},
-					{start:3,need:21,pers:10,atk:30},
-					{start:6,need:20,pers:10,atk:35}
+					{start:0,need:25,pers:10,atkadd: 5},
+					{start:1,need:25,pers:10,atkadd:10},
+					{start:2,need:25,pers:10,atkadd:15},
+					{start:3,need:23,pers:10,atkadd:20},
+					{start:3,need:22,pers:10,atkadd:25},
+					{start:3,need:21,pers:10,atkadd:30},
+					{start:6,need:20,pers:10,atkadd:35}
 				]
 			}
 		}
@@ -6578,16 +6578,16 @@ const operator = {
 		],
 		skill:{
 			"迅速攻撃α":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:55,pers:25,atk: 6,speed:10},
-					{need:54,pers:25,atk: 9,speed:10},
-					{need:53,pers:25,atk:12,speed:10},
-					{need:50,pers:25,atk:15,speed:15},
-					{need:49,pers:25,atk:19,speed:15},
-					{need:48,pers:25,atk:22,speed:15},
-					{need:45,pers:25,atk:25,speed:25}
+					{need:55,pers:25,atkadd: 6,speed:10},
+					{need:54,pers:25,atkadd: 9,speed:10},
+					{need:53,pers:25,atkadd:12,speed:10},
+					{need:50,pers:25,atkadd:15,speed:15},
+					{need:49,pers:25,atkadd:19,speed:15},
+					{need:48,pers:25,atkadd:22,speed:15},
+					{need:45,pers:25,atkadd:25,speed:25}
 				]
 			}
 		}
@@ -6627,16 +6627,16 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化α":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:50,pers:20,atk:10},
-					{need:50,pers:20,atk:15},
-					{need:50,pers:20,atk:20},
-					{need:45,pers:20,atk:30},
-					{need:45,pers:20,atk:35},
-					{need:45,pers:20,atk:40},
-					{need:40,pers:20,atk:50}
+					{need:50,pers:20,atkadd:10},
+					{need:50,pers:20,atkadd:15},
+					{need:50,pers:20,atkadd:20},
+					{need:45,pers:20,atkadd:30},
+					{need:45,pers:20,atkadd:35},
+					{need:45,pers:20,atkadd:40},
+					{need:40,pers:20,atkadd:50}
 				]
 			}
 		}
@@ -6692,16 +6692,16 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化α":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:50,pers:20,atk:10},
-					{need:50,pers:20,atk:15},
-					{need:50,pers:20,atk:20},
-					{need:45,pers:20,atk:30},
-					{need:45,pers:20,atk:35},
-					{need:45,pers:20,atk:40},
-					{need:40,pers:20,atk:50}
+					{need:50,pers:20,atkadd:10},
+					{need:50,pers:20,atkadd:15},
+					{need:50,pers:20,atkadd:20},
+					{need:45,pers:20,atkadd:30},
+					{need:45,pers:20,atkadd:35},
+					{need:45,pers:20,atkadd:40},
+					{need:40,pers:20,atkadd:50}
 				]
 			}
 		}
@@ -6743,16 +6743,16 @@ const operator = {
 		],
 		skill:{
 			"エンチャントα":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、通常攻撃が<span class='merit'>術攻撃</span>になる",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<span class='merit'>術攻撃</span>になる",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:20,need:80,pers:30,atk: 5},
-					{start:20,need:79,pers:31,atk:10},
-					{start:20,need:78,pers:32,atk:15},
-					{start:25,need:75,pers:35,atk:20},
-					{start:25,need:74,pers:36,atk:25},
-					{start:25,need:73,pers:37,atk:30},
-					{start:30,need:70,pers:40,atk:35}
+					{start:20,need:80,pers:30,atkadd: 5},
+					{start:20,need:79,pers:31,atkadd:10},
+					{start:20,need:78,pers:32,atkadd:15},
+					{start:25,need:75,pers:35,atkadd:20},
+					{start:25,need:74,pers:36,atkadd:25},
+					{start:25,need:73,pers:37,atkadd:30},
+					{start:30,need:70,pers:40,atkadd:35}
 				]
 			}
 		}
@@ -6792,16 +6792,16 @@ const operator = {
 		],
 		skill:{
 			"防御力強化α":{
-				exp:"防御力<span class='merit'>+@def%</span>",
+				exp:"防御力<span class='merit'>+@defadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:50,pers:30,def:10},
-					{need:50,pers:30,def:15},
-					{need:50,pers:30,def:20},
-					{need:45,pers:30,def:30},
-					{need:45,pers:30,def:35},
-					{need:45,pers:30,def:40},
-					{need:40,pers:30,def:50}
+					{need:50,pers:30,defadd:10},
+					{need:50,pers:30,defadd:15},
+					{need:50,pers:30,defadd:20},
+					{need:45,pers:30,defadd:30},
+					{need:45,pers:30,defadd:35},
+					{need:45,pers:30,defadd:40},
+					{need:40,pers:30,defadd:50}
 				]
 			}
 		}
@@ -6881,16 +6881,16 @@ const operator = {
 		],
 		skill:{
 			"第二態勢・回復":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃しなくなり回復行動のみ行う",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃しなくなり回復行動のみ行う",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:15,need:40,pers:15,atk:15},
-					{start:15,need:40,pers:16,atk:20},
-					{start:15,need:40,pers:17,atk:25},
-					{start:20,need:40,pers:20,atk:30},
-					{start:20,need:40,pers:21,atk:35},
-					{start:20,need:40,pers:22,atk:40},
-					{start:25,need:40,pers:25,atk:45}
+					{start:15,need:40,pers:15,atkadd:15},
+					{start:15,need:40,pers:16,atkadd:20},
+					{start:15,need:40,pers:17,atkadd:25},
+					{start:20,need:40,pers:20,atkadd:30},
+					{start:20,need:40,pers:21,atkadd:35},
+					{start:20,need:40,pers:22,atkadd:40},
+					{start:25,need:40,pers:25,atkadd:45}
 				]
 			}
 		}
@@ -6991,16 +6991,16 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化α":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:50,pers:20,atk:10},
-					{need:50,pers:20,atk:15},
-					{need:50,pers:20,atk:20},
-					{need:45,pers:20,atk:30},
-					{need:45,pers:20,atk:35},
-					{need:45,pers:20,atk:40},
-					{need:40,pers:20,atk:50}
+					{need:50,pers:20,atkadd:10},
+					{need:50,pers:20,atkadd:15},
+					{need:50,pers:20,atkadd:20},
+					{need:45,pers:20,atkadd:30},
+					{need:45,pers:20,atkadd:35},
+					{need:45,pers:20,atkadd:40},
+					{need:40,pers:20,atkadd:50}
 				]
 			}
 		}
@@ -7180,16 +7180,16 @@ const operator = {
 		],
 		skill:{
 			"回復力強化α":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:40,pers:20,atk:10},
-					{need:40,pers:20,atk:15},
-					{need:40,pers:20,atk:20},
-					{need:35,pers:20,atk:30},
-					{need:35,pers:20,atk:35},
-					{need:35,pers:20,atk:40},
-					{need:30,pers:20,atk:50}
+					{need:40,pers:20,atkadd:10},
+					{need:40,pers:20,atkadd:15},
+					{need:40,pers:20,atkadd:20},
+					{need:35,pers:20,atkadd:30},
+					{need:35,pers:20,atkadd:35},
+					{need:35,pers:20,atkadd:40},
+					{need:30,pers:20,atkadd:50}
 				]
 			}
 		}
@@ -7220,16 +7220,16 @@ const operator = {
 		],
 		skill:{
 			"回復範囲強化":{
-				exp:"攻撃範囲<span class='merit'>+@range</span>、攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃範囲<span class='merit'>+@range</span>、攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:40,pers:20,range:1,atk: 5},
-					{need:40,pers:20,range:1,atk:10},
-					{need:40,pers:20,range:1,atk:15},
-					{need:35,pers:20,range:2,atk:20},
-					{need:35,pers:20,range:2,atk:25},
-					{need:35,pers:20,range:2,atk:30},
-					{need:30,pers:20,range:2,atk:40}
+					{need:40,pers:20,range:1,atkadd: 5},
+					{need:40,pers:20,range:1,atkadd:10},
+					{need:40,pers:20,range:1,atkadd:15},
+					{need:35,pers:20,range:2,atkadd:20},
+					{need:35,pers:20,range:2,atkadd:25},
+					{need:35,pers:20,range:2,atkadd:30},
+					{need:30,pers:20,range:2,atkadd:40}
 				]
 			}
 		}
@@ -7272,16 +7272,16 @@ const operator = {
 		],
 		skill:{
 			"迅速攻撃α":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:55,pers:25,atk: 6,speed:10},
-					{need:54,pers:25,atk: 9,speed:10},
-					{need:53,pers:25,atk:12,speed:10},
-					{need:50,pers:25,atk:15,speed:15},
-					{need:49,pers:25,atk:19,speed:15},
-					{need:48,pers:25,atk:22,speed:15},
-					{need:45,pers:25,atk:25,speed:25}
+					{need:55,pers:25,atkadd: 6,speed:10},
+					{need:54,pers:25,atkadd: 9,speed:10},
+					{need:53,pers:25,atkadd:12,speed:10},
+					{need:50,pers:25,atkadd:15,speed:15},
+					{need:49,pers:25,atkadd:19,speed:15},
+					{need:48,pers:25,atkadd:22,speed:15},
+					{need:45,pers:25,atkadd:25,speed:25}
 				]
 			}
 		}
