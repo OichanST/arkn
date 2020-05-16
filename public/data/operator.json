@@ -5672,16 +5672,16 @@ const operator = {
 				exp:"攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:45,pers:25,spped:15},
-					{start: 0,need:45,pers:25,spped:20},
-					{start: 0,need:45,pers:25,spped:25},
-					{start: 0,need:40,pers:25,spped:30},
-					{start: 0,need:40,pers:25,spped:35},
-					{start: 0,need:40,pers:25,spped:40},
-					{start: 5,need:37,pers:25,spped:45},
-					{start: 5,need:37,pers:25,spped:55},
-					{start: 5,need:37,pers:25,spped:65},
-					{start:10,need:35,pers:25,spped:75}
+					{start: 0,need:45,pers:25,speed:15},
+					{start: 0,need:45,pers:25,speed:20},
+					{start: 0,need:45,pers:25,speed:25},
+					{start: 0,need:40,pers:25,speed:30},
+					{start: 0,need:40,pers:25,speed:35},
+					{start: 0,need:40,pers:25,speed:40},
+					{start: 5,need:37,pers:25,speed:45},
+					{start: 5,need:37,pers:25,speed:55},
+					{start: 5,need:37,pers:25,speed:65},
+					{start:10,need:35,pers:25,speed:75}
 				]
 			},
 			"運命":{
@@ -6487,6 +6487,13 @@ const operator = {
 				exp:"所持コスト<span class='merit'>+6</span>、攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:0,need:25,pers:10,atk: 5},
+					{start:1,need:25,pers:10,atk:10},
+					{start:2,need:25,pers:10,atk:15},
+					{start:3,need:23,pers:10,atk:20},
+					{start:3,need:22,pers:10,atk:25},
+					{start:3,need:21,pers:10,atk:30},
+					{start:6,need:20,pers:10,atk:35}
 				]
 			}
 		}
@@ -6525,6 +6532,13 @@ const operator = {
 				exp:"所持コスト<span class='merit'>+6</span>",
 				recover:"auto",activate:"auto",
 				effect:[
+					{start:0,need:30},
+					{start:0,need:29},
+					{start:0,need:28},
+					{start:3,need:27},
+					{start:3,need:26},
+					{start:3,need:25},
+					{start:6,need:25}
 				]
 			}
 		}
@@ -6567,6 +6581,13 @@ const operator = {
 				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:55,pers:25,atk: 6,speed:10},
+					{need:54,pers:25,atk: 9,speed:10},
+					{need:53,pers:25,atk:12,speed:10},
+					{need:50,pers:25,atk:15,speed:15},
+					{need:49,pers:25,atk:19,speed:15},
+					{need:48,pers:25,atk:22,speed:15},
+					{need:45,pers:25,atk:25,speed:25}
 				]
 			}
 		}
@@ -6609,6 +6630,13 @@ const operator = {
 				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:50,pers:20,atk:10},
+					{need:50,pers:20,atk:15},
+					{need:50,pers:20,atk:20},
+					{need:45,pers:20,atk:30},
+					{need:45,pers:20,atk:35},
+					{need:45,pers:20,atk:40},
+					{need:40,pers:20,atk:50}
 				]
 			}
 		}
@@ -6667,6 +6695,13 @@ const operator = {
 				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:50,pers:20,atk:10},
+					{need:50,pers:20,atk:15},
+					{need:50,pers:20,atk:20},
+					{need:45,pers:20,atk:30},
+					{need:45,pers:20,atk:35},
+					{need:45,pers:20,atk:40},
+					{need:40,pers:20,atk:50}
 				]
 			}
 		}
@@ -6711,6 +6746,13 @@ const operator = {
 				exp:"攻撃力<span class='merit'>+@atk%</span>、通常攻撃が<span class='merit'>術攻撃</span>になる",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:20,need:80,pers:30,atk: 5},
+					{start:20,need:79,pers:31,atk:10},
+					{start:20,need:78,pers:32,atk:15},
+					{start:25,need:75,pers:35,atk:20},
+					{start:25,need:74,pers:36,atk:25},
+					{start:25,need:73,pers:37,atk:30},
+					{start:30,need:70,pers:40,atk:35}
 				]
 			}
 		}
@@ -6753,6 +6795,13 @@ const operator = {
 				exp:"防御力<span class='merit'>+@def%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:50,pers:30,def:10},
+					{need:50,pers:30,def:15},
+					{need:50,pers:30,def:20},
+					{need:45,pers:30,def:30},
+					{need:45,pers:30,def:35},
+					{need:45,pers:30,def:40},
+					{need:40,pers:30,def:50}
 				]
 			}
 		}
@@ -6795,6 +6844,13 @@ const operator = {
 				exp:"自身の最大HPが最大値の<span class='merit'>@heal%</span>回復",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start: 0,need:26,heal:20},
+					{start: 0,need:25,heal:23},
+					{start: 0,need:24,heal:25},
+					{start: 5,need:23,heal:30},
+					{start: 5,need:22,heal:32},
+					{start: 5,need:21,heal:35},
+					{start:10,need:20,heal:40}
 				]
 			}
 		}
@@ -6828,6 +6884,13 @@ const operator = {
 				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃しなくなり回復行動のみ行う",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:15,need:40,pers:15,atk:15},
+					{start:15,need:40,pers:16,atk:20},
+					{start:15,need:40,pers:17,atk:25},
+					{start:20,need:40,pers:20,atk:30},
+					{start:20,need:40,pers:21,atk:35},
+					{start:20,need:40,pers:22,atk:40},
+					{start:25,need:40,pers:25,atk:45}
 				]
 			}
 		}
@@ -6882,6 +6945,13 @@ const operator = {
 				exp:"次の通常攻撃時、<span class='merit'>2</span>回連続で攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与える",
 				recover:"attack",activate:"auto",
 				effect:[
+					{need:5,atk:100},
+					{need:5,atk:105},
+					{need:5,atk:110},
+					{need:4,atk:120},
+					{need:4,atk:125},
+					{need:4,atk:130},
+					{need:4,atk:140}
 				]
 			}
 		}
@@ -6924,6 +6994,13 @@ const operator = {
 				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:50,pers:20,atk:10},
+					{need:50,pers:20,atk:15},
+					{need:50,pers:20,atk:20},
+					{need:45,pers:20,atk:30},
+					{need:45,pers:20,atk:35},
+					{need:45,pers:20,atk:40},
+					{need:40,pers:20,atk:50}
 				]
 			}
 		}
@@ -6962,9 +7039,16 @@ const operator = {
 		],
 		skill:{
 			"爆破範囲拡大α":{
-				exp:"通常攻撃の爆破範囲が<span class='merit'>150%</span>まで拡大",
+				exp:"通常攻撃の爆破範囲が<span class='merit'>@range%</span>まで拡大",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:55,pers:20,range:150},
+					{need:53,pers:22,range:150},
+					{need:51,pers:24,range:150},
+					{need:50,pers:25,range:175},
+					{need:48,pers:27,range:175},
+					{need:46,pers:29,range:175},
+					{need:45,pers:30,range:200}
 				]
 			}
 		}
@@ -7007,6 +7091,13 @@ const operator = {
 				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇",
 				recover:"attack",activate:"auto",
 				effect:[
+					{need:5,atk:150},
+					{need:5,atk:155},
+					{need:5,atk:160},
+					{need:4,atk:170},
+					{need:4,atk:175},
+					{need:4,atk:180},
+					{need:4,atk:190}
 				]
 			}
 		}
@@ -7043,6 +7134,13 @@ const operator = {
 				exp:"攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:50,pers:20,speed:10},
+					{need:50,pers:20,speed:15},
+					{need:50,pers:20,speed:20},
+					{need:45,pers:20,speed:30},
+					{need:45,pers:20,speed:35},
+					{need:45,pers:20,speed:40},
+					{need:40,pers:20,speed:50}
 				]
 			}
 		}
@@ -7085,6 +7183,13 @@ const operator = {
 				exp:"攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:40,pers:20,atk:10},
+					{need:40,pers:20,atk:15},
+					{need:40,pers:20,atk:20},
+					{need:35,pers:20,atk:30},
+					{need:35,pers:20,atk:35},
+					{need:35,pers:20,atk:40},
+					{need:30,pers:20,atk:50}
 				]
 			}
 		}
@@ -7115,9 +7220,16 @@ const operator = {
 		],
 		skill:{
 			"回復範囲強化":{
-				exp:"攻撃範囲<span class='merit'>+1</span>、攻撃力<span class='merit'>+@atk%</span>",
+				exp:"攻撃範囲<span class='merit'>+@range</span>、攻撃力<span class='merit'>+@atk%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:40,pers:20,range:1,atk: 5},
+					{need:40,pers:20,range:1,atk:10},
+					{need:40,pers:20,range:1,atk:15},
+					{need:35,pers:20,range:2,atk:20},
+					{need:35,pers:20,range:2,atk:25},
+					{need:35,pers:20,range:2,atk:30},
+					{need:30,pers:20,range:2,atk:40}
 				]
 			}
 		}
@@ -7163,6 +7275,13 @@ const operator = {
 				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
+					{need:55,pers:25,atk: 6,speed:10},
+					{need:54,pers:25,atk: 9,speed:10},
+					{need:53,pers:25,atk:12,speed:10},
+					{need:50,pers:25,atk:15,speed:15},
+					{need:49,pers:25,atk:19,speed:15},
+					{need:48,pers:25,atk:22,speed:15},
+					{need:45,pers:25,atk:25,speed:25}
 				]
 			}
 		}
