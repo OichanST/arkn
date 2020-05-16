@@ -290,6 +290,7 @@ function ValueConverter(name, key, val){
 			}
 			ret += "s)";
 			return ret;
+		// 術耐性
 		case "res":
 			ret = val;
 			// 潜在データループ
@@ -308,6 +309,7 @@ function ValueConverter(name, key, val){
 				ret = operator[name].resUp(arg);
 			}
 			return ret;
+		// 特性
 		case "characteristic":
 			ret = val;
 			if(name == "ヘラグ"){
@@ -356,6 +358,13 @@ function ValueConverter(name, key, val){
 							ret += "攻撃速度+";
 							break;
 						case "nature":
+							if(operator[name].rare == 6){
+								if(val[i][key] == 1){
+									ret += "第一";
+								}else if(val[i][key] == 2){
+									ret += "第二";
+								}
+							}
 							ret += "素質強化";
 							break;
 						case "res":
