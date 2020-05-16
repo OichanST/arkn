@@ -683,20 +683,142 @@ function showNature(){
 	// 表示領域取得
 	const detail = ById("natureDetail");
 	// 対象オペレータの素質を取得
-	const nature = operator[name].stat[sto.data[name].promotion].nature;
+	let nature = operator[name].stat[sto.data[name].promotion].nature;
+	let next1Natures = null;
+	if(operator[name].rare == 2 && sto.data[name].lv < 30){
+		next1Natures = Object.keys(nature);
+		nature = {};
+	}else if(operator[name].rare >= 3 && sto.data[name].promotion == 0){
+		next1Natures = Object.keys(operator[name].stat[1].nature);
+	}else if(operator[name].rare > 3 && sto.data[name].promotion == 1){
+		next1Natures = Object.keys(operator[name].stat[2].nature);
+	}
+	let next2Natures = null;
+	if(operator[name].rare > 3 && sto.data[name].promotion == 0){
+		next2Natures = Object.keys(operator[name].stat[2].nature);
+	}
+	// 潜在能力による素質1or2強化
+	let enhanceNature1 = false;
+	let enhanceNature2 = false;
+	// 潜在能力による強化
+	for(let i = 1; i < sto.data[name].potential; i++){
+		const pt = operator[name].potential[i - 1];
+		if(typeof pt["nature"] != "undefined"){
+			if(pt.nature == 1){
+				enhanceNature1 = true;
+			}else if(pt.nature == 2){
+				enhanceNature2 = true;
+			}
+		}
+	}
 	// HTML
-	let html = "";
+	let html = div("素質詳細", {fontSize:"1.8em", marginBottom:"0.2em", color:"gray"});
+	let idx = 1;
 	// 素質ループ
 	for(let natureName in nature){
-		// ヘッダ、もしくは改行の追加
-		if(html == ""){
-			html += div("素質詳細", {fontSize:"1.8em", marginBottom:"0.2em", color:"gray"});
-		}else{
+		// 改行の追加
+		if(idx > 1){
 			html += "<br/><br/>";
 		}
 		// 素質の追加
-		html += div(natureName, {display:"inline-block"}, {class:"whitelabel"}) + "<br/>";
-		html += nature[natureName];
+		html += div(natureName, {display:"inline-block"}, {class:"whitelabel"});
+		if(operator[name].rare >= 3 && sto.data[name].promotion == 0){
+			html += "<span class='merit' style='margin-left:0.5em;'>昇進段階1強化</span>";
+		}else if(operator[name].rare > 3 && sto.data[name].promotion == 1){
+			html += "<span class='merit' style='margin-left:0.5em;'>昇進段階2強化</span>";
+		}else if(operator[name].rare == 3 && sto.data[name].promotion == 1 && sto.data[name].lv < 55){
+			html += "<span class='merit' style='margin-left:0.5em;'>昇進段階1レベル55強化</span>";
+		}
+		html += "<br/>";
+		let exp = nature[natureName].exp;
+		if(
+			(idx == 1 && enhanceNature1) ||
+			(idx == 2 && enhanceNature2)
+		){
+			if(nature[natureName].base && nature[natureName].base.length){
+				for(let i = 0; i < nature[natureName].base.length; i++){
+					let base = nature[natureName].base[i];
+					if(operator[name].rare == 3 && sto.data[name].lv == 55){
+						base += nature[natureName].lv55[i];
+					}
+					while(exp.indexOf("@base" + i) >= 0){
+						exp = exp.replace("@base" + i, base + nature[natureName].padd[i]);
+					}
+					while(exp.indexOf("@pexp" + i) >= 0){
+						exp = exp.replace("@pexp" + i, "<span class='charge'>" + nature[natureName].pexp[i].replace("@padd", nature[natureName].padd[i]) + "</span>");
+					}
+				}
+			}else{
+				let base = nature[natureName].base;
+				if(operator[name].rare == 3 && sto.data[name].lv == 55){
+					base += nature[natureName].lv55;
+				}
+				while(exp.indexOf("@base") >= 0){
+					exp = exp.replace("@base", base + nature[natureName].padd);
+				}
+				while(exp.indexOf("@pexp") >= 0){
+					exp = exp.replace("@pexp", "<span class='charge'>" + nature[natureName].pexp.replace("@padd", nature[natureName].padd) + "</span>");
+				}
+			}
+		}else{
+			if(nature[natureName].base && nature[natureName].base.length){
+				for(let i = 0; i < nature[natureName].base.length; i++){
+					let base = nature[natureName].base[i];
+					if(operator[name].rare == 3 && sto.data[name].lv == 55){
+						base += nature[natureName].lv55[i];
+					}
+					while(exp.indexOf("@base" + i) >= 0){
+						exp = exp.replace("@base" + i, base);
+					}
+					while(exp.indexOf("@pexp" + i) >= 0){
+						exp = exp.replace("@pexp" + i, "");
+					}
+				}
+			}else{
+				let base = nature[natureName].base;
+				if(operator[name].rare == 3 && sto.data[name].lv == 55){
+					base += nature[natureName].lv55;
+				}
+				while(exp.indexOf("@base") >= 0){
+					exp = exp.replace("@base", base);
+				}
+				while(exp.indexOf("@pexp") >= 0){
+					exp = exp.replace("@pexp", "");
+				}
+			}
+		}
+		html += exp;
+		idx++;
+	}
+	if(next1Natures){
+		for(let i = idx - 1; i < next1Natures.length; i++){
+			// 改行の追加
+			if(idx > 1){
+				html += "<br/><br/>";
+			}
+			html += div(next1Natures[i], {display:"inline-block"}, {class:"graylabel"});
+			if(operator[name].rare >= 3){
+				if(sto.data[name].promotion == 0){
+					html += "<span style='margin-left:0.5em;color:gray;'>昇進段階1開放</span>";
+				}else if(sto.data[name].promotion == 1){
+					html += "<span style='margin-left:0.5em;color:gray;'>昇進段階2開放</span>";
+				}
+			}else{
+				html += "<span style='margin-left:0.5em;color:gray;'>レベル30開放</span>";
+			}
+			idx++;
+		}
+	}
+	if(next2Natures){
+		for(let i = idx - 1; i < next2Natures.length; i++){
+			// 改行の追加
+			if(idx > 1){
+				html += "<br/><br/>";
+			}
+			html += div(next2Natures[i], {display:"inline-block"}, {class:"graylabel"});
+			html += "<span style='margin-left:0.5em;color:gray;'>昇進段階2開放</span>";
+			idx++;
+		}
 	}
 	// HTML反映
 	detail.innerHTML = html;

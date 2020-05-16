@@ -151,13 +151,111 @@ function ValueConverter(name, key, val){
 		case "nature":
 			// 戻り値の初期化
 			ret = "";
-			// 素質ループ
-			for(let subKey in val){
-				if(ret != ""){
-					ret += "<br/>";
+			if(operator[name].rare > 3){
+				if(sto.data[name].promotion == 2){
+					// 素質ループ
+					for(let subKey in val){
+						if(ret != ""){
+							ret += "<br/>";
+						}
+						// タグを生成して追加
+						ret += div(subKey, {display:"inline-block"}, {class:"whitelabel"});
+					}
+				}else if(sto.data[name].promotion == 1){
+					const nextval = operator[name].stat[2].nature;
+					let idx = 0;
+					// 素質ループ
+					for(let subKey in val){
+						if(ret != ""){
+							ret += "<br/>";
+						}
+						// タグを生成して追加
+						ret += div(subKey, {display:"inline-block"}, {class:"whitelabel"});
+						idx++;
+					}
+					const keys = Object.keys(nextval);
+					for(let i = idx; i < keys.length; i++){
+						if(ret != ""){
+							ret += "<br/>";
+						}
+						// タグを生成して追加
+						ret += div(keys[i], {display:"inline-block"}, {class:"graylabel"});
+					}
+				}else{
+					const next1val = operator[name].stat[1].nature;
+					const next2val = operator[name].stat[2].nature;
+					let idx = 0;
+					// 素質ループ
+					for(let subKey in val){
+						if(ret != ""){
+							ret += "<br/>";
+						}
+						// タグを生成して追加
+						ret += div(subKey, {display:"inline-block"}, {class:"whitelabel"});
+						idx++;
+					}
+					let keys = Object.keys(next1val);
+					for(let i = idx; i < keys.length; i++){
+						if(ret != ""){
+							ret += "<br/>";
+						}
+						// タグを生成して追加
+						ret += div(keys[i], {display:"inline-block"}, {class:"graylabel"});
+						idx++;
+					}
+					keys = Object.keys(next2val);
+					for(let i = idx; i < keys.length; i++){
+						if(ret != ""){
+							ret += "<br/>";
+						}
+						// タグを生成して追加
+						ret += div(keys[i], {display:"inline-block"}, {class:"graylabel"});
+					}
 				}
-				// タグを生成して追加
-				ret += div(subKey, {display:"inline-block"}, {class:"whitelabel"});
+			}else if(operator[name].rare == 3){
+				if(sto.data[name].promotion == 1){
+					// 素質ループ
+					for(let subKey in val){
+						if(ret != ""){
+							ret += "<br/>";
+						}
+						// タグを生成して追加
+						ret += div(subKey, {display:"inline-block"}, {class:"whitelabel"});
+					}
+				}else{
+					const nextval = operator[name].stat[1].nature;
+					// 素質ループ
+					for(let subKey in nextval){
+						if(ret != ""){
+							ret += "<br/>";
+						}
+						// タグを生成して追加
+						ret += div(subKey, {display:"inline-block"}, {class:"graylabel"});
+					}
+				}
+			}else if(operator[name].rare == 2){
+				// 素質ループ
+				for(let subKey in val){
+					if(ret != ""){
+						ret += "<br/>";
+					}
+					if(sto.data[name].lv == 30){
+						// タグを生成して追加
+						ret += div(subKey, {display:"inline-block"}, {class:"whitelabel"});
+					}else{
+						// タグを生成して追加
+						ret += div(subKey, {display:"inline-block"}, {class:"graylabel"});
+					}
+				}
+			}else{
+				// 素質ループ
+				for(let subKey in val){
+					if(ret != ""){
+						ret += "<br/>";
+					}
+					// タグを生成して追加
+					ret += div(subKey, {display:"inline-block"}, {class:"whitelabel"});
+				}
 			}
 			// 結果を返却
 			return ret;
