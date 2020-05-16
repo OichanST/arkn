@@ -715,6 +715,9 @@ function showSkill(){
 	const data = operator[name];
 	// スキルデータ取得
 	const sdata = data.skill;
+	if(Object.keys(sdata).length <= 0){
+		return;
+	}
 	// スキルレベル取得
 	const slv = sto.data[name].slv;
 	ById("skillRank").innerText = slv;

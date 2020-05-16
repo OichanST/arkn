@@ -5547,7 +5547,7 @@ const operator = {
 				]
 			},
 			"デュアルアロー":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、通常攻撃時敵<span class='merit'>2</span>体を同時に攻撃",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃時敵<span class='merit'>2</span>体を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:30,pers:15,atkadd:10},
