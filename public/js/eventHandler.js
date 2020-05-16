@@ -354,6 +354,7 @@ function init(){
  * 詳細表示
  */
 function showDetail(name){
+	hide();
 	ById("skillSp").style.display = "none";
 	// 該当のオペレーターのデータ取得
 	const data = operator[name];
