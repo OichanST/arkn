@@ -678,6 +678,10 @@ function showDetail(name){
  * 素質詳細の表示
  */
 function showNature(){
+	// スキル詳細が表示されている場合、非表示
+	if(ById("skillDetailOverlay").style.display == "block"){
+		ById("skillDetailOverlay").style.display = "none";
+	}
 	// 対象オペレータ名の取得
 	const name = ById("name").innerText;
 	// 表示領域取得
@@ -831,6 +835,10 @@ function showNature(){
  * スキル詳細の表示
  */
 function showSkill(){
+	// 素質詳細が表示されている場合、非表示
+	if(ById("natureDetail").style.display == "block"){
+		ById("natureDetail").style.display = "none";
+	}
 	// オペレータ名取得
 	const name = ById("name").innerText;
 	// オペレータデータ取得
