@@ -337,6 +337,8 @@ function ValueConverter(name, key, val){
 			}
 			if(v >= 200){
 				ret = "とても遅い(" + v;
+			}else if(v >= 60){
+				ret = "普通(" + v;
 			}else if(v >= 20){
 				ret = "遅い(" + v;
 			}else{

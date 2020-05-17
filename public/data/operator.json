@@ -3988,7 +3988,7 @@ const operator = {
 	},
 	"セイロン":{
 		en:"Ceylon",
-		rare:5,job:"医療",relocation:70,speed:2.85,trust:{hp:200,atk:40},tag:["遠距離","治療"],
+		rare:5,job:"医療",relocation:80,speed:2.85,trust:{hp:200,atk:40},tag:["遠距離","治療"],
 		characteristic:"回復範囲が広く、遠く離れた味方を回復時、回復量が<span class='merit'>70%</span>になる",
 		stat:[
 			{
