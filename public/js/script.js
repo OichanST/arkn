@@ -1056,7 +1056,7 @@ function calcDPS(name, enableCond){
 	                ? operator[name].speedUp(arg)
 	                : 0;
 	// 攻撃間隔延長
-	let intervalUp = (isCalc && operator[name].intervalUp && operator[name].intervalUp(arg) != null)
+	const intervalUp = (isCalc && operator[name].intervalUp && operator[name].intervalUp(arg) != null)
 	                ? operator[name].intervalUp(arg)
 	                : 0;
 	
@@ -1065,7 +1065,7 @@ function calcDPS(name, enableCond){
 	                ? operator[name].slipDmg(arg)
 	                : 0;
 	// DPSを計算して返却
-	return Math.round(dmg / (data.speed + intervalUp) * (100 / (100 + speedUp))) * atkCnt * target + slipDmg;
+	return Math.round(dmg / ((data.speed + intervalUp) * (100 / (100 + speedUp)))) * atkCnt * target + slipDmg;
 }
 /**
  * マトリクスの生成
