@@ -406,7 +406,7 @@ function ValueConverter(name, key, val){
 				res:val
 			};
 			if(operator[name].resUp && operator[name].resUp(arg)){
-				ret = operator[name].resUp(arg);
+				ret = val + "/<span class='merit'>" + operator[name].resUp(arg) + "</span>";
 			}
 			return ret;
 		// 特性
