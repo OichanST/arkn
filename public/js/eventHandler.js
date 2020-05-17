@@ -869,7 +869,7 @@ function showSkill(){
 		html += "<div class='flex' style='margin-bottom:0.5em;'>";
 		// スキル特化の設定がされている場合
 		if(slv == 7){
-			html += "<div style='background-color:rgba(160,160,160,0.7);text-align:center;'>";
+			html += "<div style='background-color:rgba(160,160,160,0.9);text-align:center;'>";
 			switch(sp[i]){
 				case 0:
 					html += "<div style='margin-left:30px;margin-right:30px;margin-top:30px;'>";

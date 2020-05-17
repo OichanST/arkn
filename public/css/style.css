@@ -345,7 +345,7 @@ button:disabled{
 	width:55em;
 	height:auto;
 	color:white;
-	background-color:rgba(0,0,0,0.25);
+	background-color:rgba(0,0,0,0.35);
 	padding:1.5em;
 	z-index:99;
 }
@@ -390,7 +390,7 @@ button:disabled{
 	left:50%;
 	transform:translateY(-50%) translateX(-50%);
 	display:none;
-	background-color:white;
+	background-color:rgb(250,250,250);
 	border:1px solid black;
 	padding:20px;
 	box-shadow:4px 4px 4px rgba(0,0,0,0.5);

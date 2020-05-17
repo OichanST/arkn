@@ -963,7 +963,7 @@ const operator = {
 		characteristic:"高威力の中距離射撃",
 		effect:function(arg){
 			if(arg.promotion >= 1){
-				return "物理防御ダウン";
+				return "物理防御低下";
 			}
 		},
 		stat:[
@@ -1186,7 +1186,7 @@ const operator = {
 		rare:6,job:"術師",relocation:70,speed:2.9,trust:{atk:110},tag:["遠距離","範囲攻撃","弱化"],
 		characteristic:"<span class='merit'>直線上</span>の敵に<span class='merit'>範囲術ダメージ</span>を与える",
 		effect:function(arg){
-			return "術耐性ダウン";
+			return "術耐性低下";
 		},
 		stat:[
 			{
@@ -2396,7 +2396,7 @@ const operator = {
 		characteristic:"８０％の攻撃力で<span class='merit'>遠距離攻撃</span>も行える",
 		effect:function(arg){
 			if(arg.promotion >= 1){
-				return "特殊能力無効化";
+				return "特殊能力無効";
 			}
 		},
 		stat:[
@@ -4373,6 +4373,26 @@ const operator = {
 				}
 			}
 		],
+		cond:function(arg){
+			if(arg.promotion >= 1){
+				return "ドローン攻撃時";
+			}
+		},
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.25;
+				}else{
+					return arg.atk * 1.3;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.atk * 1.5;
+				}else{
+					return arg.atk * 1.55;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -6179,7 +6199,7 @@ const operator = {
 		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える",
 		effect:function(arg){
 			if(arg.promotion >= 1){
-				return "術耐性ダウン";
+				return "術耐性低下";
 			}
 		},
 		stat:[
