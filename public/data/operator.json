@@ -5033,7 +5033,7 @@ const operator = {
 	},
 	"ヴィグナ":{
 		en:"Vigna",
-		rare:4,job:"先鋒",relocation:70,speed:1.05,trust:{atk:60},tag:["近距離","COST回復","火力"],
+		rare:4,job:"先鋒",relocation:70,speed:1,trust:{atk:60},tag:["近距離","COST回復","火力"],
 		characteristic:"敵を倒す度所持コスト＋１<br/>撤退時に初期配置時のコストを返却",
 		stat:[
 			{
