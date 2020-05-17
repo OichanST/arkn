@@ -1057,16 +1057,16 @@ const operator = {
 				exp:"攻撃範囲が前方<span class='charge'>@rangeマス</span>になり、通常攻撃の間隔が<span class='demerit'>わずかに延長</span>。攻撃力<span class='merit'>+@atkadd%</span>、素質の発動率が<span class='merit'>@nature%</span>まで上昇"
 				,
 				effect:[
-					{start: 5,need:35,pers:15,range:3,atkadd:100,nature:100},
-					{start: 5,need:34,pers:16,range:3,atkadd:105,nature:100},
-					{start: 5,need:33,pers:17,range:3,atkadd:110,nature:100},
-					{start: 7,need:32,pers:18,range:3,atkadd:120,nature:100},
-					{start: 7,need:31,pers:19,range:3,atkadd:125,nature:100},
-					{start: 7,need:30,pers:20,range:3,atkadd:130,nature:100},
-					{start: 9,need:29,pers:21,range:3,atkadd:140,nature:100},
-					{start:10,need:28,pers:22,range:4,atkadd:150,nature:100},
-					{start:11,need:27,pers:23,range:4,atkadd:160,nature:100},
-					{start:12,need:25,pers:25,range:4,atkadd:180,nature:100}
+					{start: 5,need:35,pers:15,range:3,intervaladd:0,4,atkadd:100,nature:100},
+					{start: 5,need:34,pers:16,range:3,intervaladd:0,4,atkadd:105,nature:100},
+					{start: 5,need:33,pers:17,range:3,intervaladd:0,4,atkadd:110,nature:100},
+					{start: 7,need:32,pers:18,range:3,intervaladd:0,4,atkadd:120,nature:100},
+					{start: 7,need:31,pers:19,range:3,intervaladd:0,4,atkadd:125,nature:100},
+					{start: 7,need:30,pers:20,range:3,intervaladd:0,4,atkadd:130,nature:100},
+					{start: 9,need:29,pers:21,range:3,intervaladd:0,4,atkadd:140,nature:100},
+					{start:10,need:28,pers:22,range:4,intervaladd:0,4,atkadd:150,nature:100},
+					{start:11,need:27,pers:23,range:4,intervaladd:0,4,atkadd:160,nature:100},
+					{start:12,need:25,pers:25,range:4,intervaladd:0,4,atkadd:180,nature:100}
 				]
 			}
 		}
