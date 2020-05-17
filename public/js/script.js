@@ -364,10 +364,12 @@ function ValueConverter(name, key, val){
 				enhanceNature2:enhanceNature2
 			};
 			if(
-				operator[name].speedUp &&
-				operator[name].speedUp(arg) != null
+				(operator[name].speedUp && operator[name].speedUp(arg) != null) ||
+				(operator[name].intervalUp && operator[name].intervalUp(arg) != null)
 			){
-				nv = 1 / ((100 + operator[name].speedUp(arg)) / v / 100);
+				const spd = (operator[name].speedUp && operator[name].speedUp(arg) != null) ? operator[name].speedUp(arg) : 0;
+				const inv = (operator[name].intervalUp && operator[name].intervalUp(arg) != null) ? operator[name].intervalUp(arg) : 0;
+				nv = (v + inv) * 100 / (100 + spd);
 				nv = Math.round(nv * 100) / 100;
 			}
 			if(v <= 0.9){
@@ -1054,13 +1056,16 @@ function calcDPS(name, enableCond){
 	                ? operator[name].speedUp(arg)
 	                : 0;
 	// 攻撃間隔延長
-	let intervalUp = 0;
+	let intervalUp = (isCalc && operator[name].intervalUp && operator[name].intervalUp(arg) != null)
+	                ? operator[name].intervalUp(arg)
+	                : 0;
+	
 	// スリップダメージ
 	const slipDmg = (isCalc && operator[name].slipDmg && operator[name].slipDmg(arg) != null)
 	                ? operator[name].slipDmg(arg)
 	                : 0;
 	// DPSを計算して返却
-	return Math.round(dmg * (Math.round((100 + speedUp) / (data.speed - intervalUp)) / 100) * atkCnt * target) + slipDmg;
+	return Math.round(dmg / (data.speed + intervalUp) * (100 / (100 + speedUp))) * atkCnt * target + slipDmg;
 }
 /**
  * マトリクスの生成

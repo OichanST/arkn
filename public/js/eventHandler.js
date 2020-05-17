@@ -859,6 +859,20 @@ function showSkill(){
 	if(!sp){
 		sp = new Array(0,0,0);
 	}
+	// 潜在能力による素質1or2強化
+	let enhanceNature1 = false;
+	let enhanceNature2 = false;
+	// 潜在能力による強化
+	for(let i = 1; i < sto.data[name].potential; i++){
+		const pt = operator[name].potential[i - 1];
+		if(typeof pt["nature"] != "undefined"){
+			if(pt.nature == 1){
+				enhanceNature1 = true;
+			}else if(pt.nature == 2){
+				enhanceNature2 = true;
+			}
+		}
+	}
 	// HTML
 	let html = "";
 	// ループカウンタ
@@ -994,14 +1008,66 @@ function showSkill(){
 		if(sdata[sname].effect[slv - 1] && sdata[sname].effect[slv - 1].pers > 0){
 			html += "<div class='flex' style='border-radius:5px;background-color:gray;color:white;margin:0.15em;padding-top:2px;padding-bottom:0;height:26px;'>"
 			html += "<div><img src='icon/clock.png' width='24'></div>";
-			html += "<div style='margin-left:5px;margin-right:2px;'>" + sdata[sname].effect[slv - 1].pers + "秒</div>";
+			html += "<div style='margin-left:5px;margin-right:2px;'>" + sdata[sname].effect[slv - 1 + sp[i]].pers + "秒</div>";
 			html += "</div>";
+		}
+		const arg = calcLvStat(name);
+		arg["speed"] = operator[name].speed;
+		if(!operator[name].cond){
+			const subArg = {
+				atk:arg.atk,
+				def:arg.def,
+				hp:arg.hp,
+				promotion:sto.data[name].promotion,
+				enhanceNature1:enhanceNature1,
+				enhanceNature2:enhanceNature2
+			};
+			if(operator[name].atkUp && operator[name].atkUp(subArg)){
+				arg.atk = operator[name].atkUp(subArg);
+			}
+			if(operator[name].defUp && operator[name].defUp(subArg)){
+				arg.def = operator[name].defUp(subArg);
+			}
+			if(operator[name].hpUp && operator[name].hpUp(subArg)){
+				arg.hp = operator[name].hpUp(subArg);
+			}
+			if(operator[name].speedUp && operator[name].speedUp(subArg)){
+				arg.speed = arg.speed * 100 / (100 + operator[name].speedUp(subArg));
+			}
+		}
+		
+		let inner = "";
+		const eff = sdata[sname].effect[slv - 1 + sp[i]];
+		if(eff.atk){
+			inner += "&nbsp;ATK:" + Math.round(arg.atk * eff.atk / 100);
+		}
+		if(eff.atkadd){
+			inner += "&nbsp;ATK:" + Math.round(arg.atk * (1 + eff.atkadd / 100));
+		}
+		if(eff.def){
+			inner += "&nbsp;DEF:" + Math.round(arg.def * eff.def / 100);
+		}
+		if(eff.defadd){
+			inner += "&nbsp;DEF:" + Math.round(arg.def * (1 + eff.defadd / 100));
+		}
+		if(eff.hp){
+			inner += "&nbsp;HP:" + Math.round(arg.hp * eff.hp / 100);
+		}
+		if(eff.hpadd){
+			inner += "&nbsp;HP:" + Math.round(arg.hp * (1 + eff.hpadd / 100));
+		}
+		if(eff.speed || eff.interval || eff.intervaladd){
+			let spd = eff.speed ? eff.speed : 0;
+			let intervaladd = eff.intervaladd ? eff.intervaladd : 0;
+			let interval = eff.interval ? eff.interval : 1;
+			inner += "&nbsp;SPD:" + (Math.round((arg.speed + intervaladd) * interval * (100 / (100 + spd)) * 100) / 100) + "sec";
+		}
+		if(inner != ""){
+			html += "<div style='padding-top:0.5em;font-size:0.8em;'>" + inner + "</div>";
 		}
 		html += "</div>";
 		// スキルの説明取得
 		let exp = sdata[sname].exp;
-		// スキルレベルに対応した形にスキルの説明を補正
-		const eff = sdata[sname].effect[slv - 1 + sp[i]];
 		for(var key in eff){
 			if(exp.indexOf("@" + key) >= 0){
 			　　while(exp.indexOf("@" + key) >= 0){
