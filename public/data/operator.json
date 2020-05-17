@@ -2579,7 +2579,7 @@ const operator = {
 				}
 			},
 			{
-				hp:2523,atk:660,def:393,res:1,cost:21,block:1,range:[[1,0]],
+				hp:2523,atk:660,def:393,res:15,cost:21,block:1,range:[[1,0]],
 				nature:{
 					"天球儀":{exp:"配置中、20秒ごとに攻撃速度+5、最大5回まで"}
 				}
