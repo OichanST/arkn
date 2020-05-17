@@ -1148,7 +1148,7 @@ const operator = {
 				]
 			},
 			"イグニッション":{
-				exp:"次の通常攻撃時、敵に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、攻撃対象の衆院の敵に半分のダメージを与える、更に<span class='merit'>6</span>秒間術耐性<span class='merit'>@res%</span><br/><span class='charge'>@charge回チャージ可能</span>",
+				exp:"次の通常攻撃時、敵に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、攻撃対象の周囲の敵に半分のダメージを与える、更に<span class='merit'>6</span>秒間術耐性<span class='merit'>@res%</span><br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 					{need:7,atk:240,res:-10,charge:1},
@@ -6267,19 +6267,19 @@ const operator = {
 				]
 			},
 			"赤色の瞳":{
-				exp:"最大HP<span class='demerit'>-75%</span>、攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>",
+				exp:"最大HP<span class='demerit'>@hpadd%</span>、攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:35,pers:25,atkadd:15,speed:35},
-					{need:35,pers:25,atkadd:20,speed:35},
-					{need:35,pers:25,atkadd:25,speed:35},
-					{need:35,pers:25,atkadd:30,speed:40},
-					{need:35,pers:25,atkadd:35,speed:40},
-					{need:35,pers:25,atkadd:40,speed:40},
-					{need:30,pers:25,atkadd:45,speed:45},
-					{need:30,pers:25,atkadd:50,speed:50},
-					{need:30,pers:25,atkadd:55,speed:55},
-					{need:25,pers:25,atkadd:60,speed:60}
+					{need:35,pers:25,hpadd:-75,atkadd:15,speed:35},
+					{need:35,pers:25,hpadd:-75,atkadd:20,speed:35},
+					{need:35,pers:25,hpadd:-75,atkadd:25,speed:35},
+					{need:35,pers:25,hpadd:-75,atkadd:30,speed:40},
+					{need:35,pers:25,hpadd:-75,atkadd:35,speed:40},
+					{need:35,pers:25,hpadd:-75,atkadd:40,speed:40},
+					{need:30,pers:25,hpadd:-75,atkadd:45,speed:45},
+					{need:30,pers:25,hpadd:-75,atkadd:50,speed:50},
+					{need:30,pers:25,hpadd:-75,atkadd:55,speed:55},
+					{need:25,pers:25,hpadd:-75,atkadd:60,speed:60}
 				]
 			}
 		}
