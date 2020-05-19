@@ -2545,7 +2545,7 @@ const operator = {
 			},
 			"刃鬼":{
 				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span><br/><span class='charge'>退場まで効果継続</span>",
-				recover:"attack",activate:"auto",
+				recover:"attack",activate:"auto",infinity:true,
 				effect:[
 					{need:60,atkadd:30,speed:30},
 					{need:58,atkadd:30,speed:30},
@@ -3903,19 +3903,19 @@ const operator = {
 				]
 			},
 			"不安定血漿":{
-				exp:"自身と攻撃範囲内ランダムな味方1人に次の効果を付与：<br/><span class='merit'>15</span>秒間、攻撃力<span class='merit'>+@atkadd%</span>、１秒ごとにHPが最大値の<span class='demerit'>3%</span>減少",
+				exp:"自身と攻撃範囲内ランダムな味方1人に次の効果を付与：<br/><span class='merit'>15</span>秒間、攻撃力<span class='merit'>+@enhanceatkadd%</span>、１秒ごとにHPが最大値の<span class='demerit'>3%</span>減少",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:35,need:60,atkadd:30},
-					{start:35,need:60,atkadd:35},
-					{start:35,need:60,atkadd:40},
-					{start:40,need:60,atkadd:45},
-					{start:40,need:60,atkadd:50},
-					{start:40,need:60,atkadd:55},
-					{start:45,need:60,atkadd:60},
-					{start:45,need:60,atkadd:70},
-					{start:45,need:60,atkadd:80},
-					{start:50,need:60,atkadd:90}
+					{start:35,need:60,enhanceatkadd:30},
+					{start:35,need:60,enhanceatkadd:35},
+					{start:35,need:60,enhanceatkadd:40},
+					{start:40,need:60,enhanceatkadd:45},
+					{start:40,need:60,enhanceatkadd:50},
+					{start:40,need:60,enhanceatkadd:55},
+					{start:45,need:60,enhanceatkadd:60},
+					{start:45,need:60,enhanceatkadd:70},
+					{start:45,need:60,enhanceatkadd:80},
+					{start:50,need:60,enhanceatkadd:90}
 				]
 			}
 		}
@@ -4223,19 +4223,19 @@ const operator = {
 				]
 			},
 			"ファイトソング":{
-				exp:"攻撃範囲内の自身以外の味方の<span class='merit'>攻撃力</span>に自身の攻撃力の<span class='merit'>@atk%</span>を加算",
+				exp:"攻撃範囲内の自身以外の味方の<span class='merit'>攻撃力</span>に自身の攻撃力の<span class='merit'>@enhanceatk%</span>を加算",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:10,need:45,pers:10,atk:70},
-					{start:10,need:45,pers:11,atk:70},
-					{start:10,need:45,pers:12,atk:70},
-					{start:15,need:45,pers:15,atk:80},
-					{start:15,need:45,pers:16,atk:80},
-					{start:15,need:45,pers:17,atk:80},
-					{start:20,need:45,pers:20,atk:90},
-					{start:21,need:45,pers:23,atk:90},
-					{start:22,need:45,pers:26,atk:90},
-					{start:25,need:45,pers:30,atk:100}
+					{start:10,need:45,pers:10,enhanceatk:70},
+					{start:10,need:45,pers:11,enhanceatk:70},
+					{start:10,need:45,pers:12,enhanceatk:70},
+					{start:15,need:45,pers:15,enhanceatk:80},
+					{start:15,need:45,pers:16,enhanceatk:80},
+					{start:15,need:45,pers:17,enhanceatk:80},
+					{start:20,need:45,pers:20,enhanceatk:90},
+					{start:21,need:45,pers:23,enhanceatk:90},
+					{start:22,need:45,pers:26,enhanceatk:90},
+					{start:25,need:45,pers:30,enhanceatk:100}
 				]
 			}
 		}
