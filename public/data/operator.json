@@ -809,19 +809,19 @@ const operator = {
 				]
 			},
 			"硬質化":{
-				exp:"近くにいる味方全員のHPを1秒ごとにサリアの攻撃力の<span class='merit'>@atk%</span>分回復<br/>近くにいる敵全員の受ける術ダメージ<span class='merit'>+@res%</span>、移動速度<span class='merit'>@slow%</span>",
+				exp:"近くにいる味方全員のHPを1秒ごとにサリアの攻撃力の<span class='merit'>@heal%</span>分回復<br/>近くにいる敵全員の受ける術ダメージ<span class='merit'>+@res%</span>、移動速度<span class='merit'>@slow%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:45,need:80,pers:10,atk:10,res:20,slow:-60},
-					{start:45,need:80,pers:12,atk:10,res:20,slow:-60},
-					{start:45,need:80,pers:14,atk:10,res:20,slow:-60},
-					{start:50,need:80,pers:16,atk:15,res:30,slow:-60},
-					{start:50,need:80,pers:18,atk:15,res:30,slow:-60},
-					{start:50,need:80,pers:20,atk:15,res:30,slow:-60},
-					{start:55,need:80,pers:22,atk:20,res:40,slow:-60},
-					{start:60,need:80,pers:24,atk:25,res:45,slow:-60},
-					{start:65,need:80,pers:27,atk:30,res:50,slow:-60},
-					{start:70,need:80,pers:30,atk:35,res:55,slow:-60}
+					{start:45,need:80,pers:10,heal:10,res:20,slow:-60},
+					{start:45,need:80,pers:12,heal:10,res:20,slow:-60},
+					{start:45,need:80,pers:14,heal:10,res:20,slow:-60},
+					{start:50,need:80,pers:16,heal:15,res:30,slow:-60},
+					{start:50,need:80,pers:18,heal:15,res:30,slow:-60},
+					{start:50,need:80,pers:20,heal:15,res:30,slow:-60},
+					{start:55,need:80,pers:22,heal:20,res:40,slow:-60},
+					{start:60,need:80,pers:24,heal:25,res:45,slow:-60},
+					{start:65,need:80,pers:27,heal:30,res:50,slow:-60},
+					{start:70,need:80,pers:30,heal:35,res:55,slow:-60}
 				]
 			}
 		}
@@ -2439,7 +2439,7 @@ const operator = {
 		skill:{
 			"影落とす時針":{
 				exp:"攻撃力<span class='merit'>+@atkadd%</span>、<span class='merit'>@guard%</span>の確率で物理攻撃をガード<br/><span class='charge'>退場まで効果継続</span>",
-				recover:"attack",activate:"auto",
+				recover:"attack",activate:"auto",infinity:true,
 				effect:[
 					{need:40,atkadd:30,guard:20},
 					{need:40,atkadd:33,guard:20},
@@ -3139,7 +3139,7 @@ const operator = {
 			},
 			"ペガサスアイ":{
 				exp:"攻撃速度が<span class='demerit'>わずかに低下</span>、攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>拡大</span><br/><span class='charge'>退場まで効果持続</span>",
-				recover:"auto",activate:"auto",
+				recover:"auto",activate:"auto",infinity:true,
 				effect:[
 					{need:70,atkadd:50,speed:-20},
 					{need:69,atkadd:53,speed:-20},

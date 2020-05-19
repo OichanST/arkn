@@ -1083,7 +1083,7 @@ function showSkill(){
 			inner += "&nbsp;SPD:" + skillSpd + "sec";
 			dpsFlg = true;
 		}
-		if(dpsFlg && (eff.pers || sdata[sname].passive)){
+		if(dpsFlg && (eff.pers || sdata[sname].passive || sdata[sname].infinity)){
 			let cnt = 1;
 			if(eff.cnt){
 				cnt = eff.cnt;
