@@ -1039,7 +1039,7 @@ function showSkill(){
 		let inner = "";
 		let dpsFlg = false;
 		let skillAtk = arg.atk;
-		let skillSpd = ark.speed;
+		let skillSpd = arg.speed;
 		const eff = sdata[sname].effect[slv - 1 + sp[i]];
 		if(eff.atk){
 			skillAtk = Math.round(arg.atk * eff.atk / 100);
