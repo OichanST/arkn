@@ -1093,9 +1093,9 @@ function showSkill(){
 			}else if(data.job == "医療"){
 				inner += "&nbsp;DPS:" + (Math.round(skillAtk / skillSpd) * cnt);
 			}else if(sdata[sname].multi){
-				inner += "&nbsp;DPS:" + (Math.round(skillAtk / skillSpd) * cnt - eneDef + Math.round((skillAtk / skillSpd) * cnt * ((100 - eneRes) / 100)));
+				inner += "&nbsp;DPS:" + (Math.round(skillAtk / skillSpd - eneDef) * cnt + Math.round((skillAtk / skillSpd) * cnt * ((100 - eneRes) / 100)));
 			}else{
-				inner += "&nbsp;DPS:" + (Math.round(skillAtk / skillSpd) * cnt - eneDef);
+				inner += "&nbsp;DPS:" + (Math.round(skillAtk / skillSpd - eneDef) * cnt);
 			}
 		}else if(dpsFlg){
 			let cnt = 1;
@@ -1107,9 +1107,9 @@ function showSkill(){
 			}else if(data.job == "医療"){
 				inner += "&nbsp;DMG:" + (Math.round(skillAtk) * cnt);
 			}else if(sdata[sname].multi){
-				inner += "&nbsp;DMG:" + (Math.round(skillAtk) * cnt - eneDef + Math.round(skillAtk * cnt * ((100 - eneRes) / 100)));
+				inner += "&nbsp;DMG:" + (Math.round(skillAtk - eneDef) * cnt + Math.round(skillAtk * cnt * ((100 - eneRes) / 100)));
 			}else{
-				inner += "&nbsp;DMG:" + (Math.round(skillAtk) * cnt - eneDef);
+				inner += "&nbsp;DMG:" + (Math.round(skillAtk - eneDef) * cnt);
 			}
 		}
 		if(inner != ""){

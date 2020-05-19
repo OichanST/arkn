@@ -7505,7 +7505,7 @@ const operator = {
 		skill:{
 			"エンチャントα":{
 				exp:"攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<span class='merit'>術攻撃</span>になる",
-				recover:"auto",activate:"manual",
+				recover:"auto",activate:"manual",res:true,
 				effect:[
 					{start:20,need:80,pers:30,atkadd: 5},
 					{start:20,need:79,pers:31,atkadd:10},
