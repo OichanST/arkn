@@ -5160,19 +5160,19 @@ const operator = {
 				]
 			},
 			"治癒の翅":{
-				exp:"効果時間内所持コストが徐々に増加(合計<span class='merit'>16</span>)<br/>攻撃しなくなり、周囲一定範囲内の味方1人のHPを回復(1秒ごとテンニンカの攻撃力の<span class='merit'>@atk%</span>)",
+				exp:"効果時間内所持コストが徐々に増加(合計<span class='merit'>16</span>)<br/>攻撃しなくなり、周囲一定範囲内の味方1人のHPを回復(1秒ごとテンニンカの攻撃力の<span class='merit'>@heal%</span>)",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 5,need:35,pers:16,atk:25},
-					{start: 5,need:34,pers:16,atk:25},
-					{start: 5,need:33,pers:16,atk:25},
-					{start: 6,need:31,pers:16,atk:30},
-					{start: 6,need:30,pers:16,atk:30},
-					{start: 6,need:29,pers:16,atk:30},
-					{start: 7,need:27,pers:16,atk:35},
-					{start: 8,need:26,pers:16,atk:40},
-					{start: 9,need:25,pers:16,atk:45},
-					{start:10,need:24,pers:16,atk:50}
+					{start: 5,need:35,pers:16,heal:25},
+					{start: 5,need:34,pers:16,heal:25},
+					{start: 5,need:33,pers:16,heal:25},
+					{start: 6,need:31,pers:16,heal:30},
+					{start: 6,need:30,pers:16,heal:30},
+					{start: 6,need:29,pers:16,heal:30},
+					{start: 7,need:27,pers:16,heal:35},
+					{start: 8,need:26,pers:16,heal:40},
+					{start: 9,need:25,pers:16,heal:45},
+					{start:10,need:24,pers:16,heal:50}
 				]
 			}
 		}
@@ -6993,18 +6993,18 @@ const operator = {
 			},
 			"鼠の縄張り":{
 				passive:true,
-				exp:"配置後最大HP<span class='merit'>@hp%</span>のシールドを形成し、敵からのダメージを吸収する<br/>シールドのHPは徐々に減少し<span class='merit'>10</span>秒間で0になる",
+				exp:"配置後最大HP<span class='merit'>@sheld%</span>のシールドを形成し、敵からのダメージを吸収する<br/>シールドのHPは徐々に減少し<span class='merit'>10</span>秒間で0になる",
 				effect:[
-					{hp:100},
-					{hp:110},
-					{hp:120},
-					{hp:140},
-					{hp:150},
-					{hp:160},
-					{hp:180},
-					{hp:200},
-					{hp:220},
-					{hp:250}
+					{sheld:100},
+					{sheld:110},
+					{sheld:120},
+					{sheld:140},
+					{sheld:150},
+					{sheld:160},
+					{sheld:180},
+					{sheld:200},
+					{sheld:220},
+					{sheld:250}
 				]
 			}
 		}
