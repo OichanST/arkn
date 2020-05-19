@@ -778,7 +778,7 @@ const operator = {
 		skill:{
 			"応急処置":{
 				exp:"次の通常攻撃時、周囲一定範囲内にいるHPが50%以下の味方1人に、攻撃力の<span class='merit'>@atk%回復</span><br/><span class='charge'>@charge回チャージ可能</span>",
-				recover:"auto",activate:"auto",
+				recover:"auto",activate:"auto",heal:true,
 				effect:[
 					{need:6,atk:110,charge:1},
 					{need:6,atk:115,charge:1},
@@ -794,7 +794,7 @@ const operator = {
 			},
 			"薬剤配置":{
 				exp:"範囲内の味方全員のHPをサリアの攻撃力の<span class='merit'>@atk%</span>回復",
-				recover:"auto",activate:"auto",
+				recover:"auto",activate:"auto",heal:true,
 				effect:[
 					{need:10,atk: 80},
 					{need:10,atk: 85},
@@ -810,7 +810,7 @@ const operator = {
 			},
 			"硬質化":{
 				exp:"近くにいる味方全員のHPを1秒ごとにサリアの攻撃力の<span class='merit'>@heal%</span>分回復<br/>近くにいる敵全員の受ける術ダメージ<span class='merit'>+@res%</span>、移動速度<span class='merit'>@slow%</span>",
-				recover:"auto",activate:"manual",
+				recover:"auto",activate:"manual",heal:true,
 				effect:[
 					{start:45,need:80,pers:10,heal:10,res:20,slow:-60},
 					{start:45,need:80,pers:12,heal:10,res:20,slow:-60},
@@ -2855,7 +2855,7 @@ const operator = {
 		skill:{
 			"応急処置":{
 				exp:"次の通常攻撃時、周囲一定範囲内にいるHPが50%以下の味方1人に、攻撃力の<span class='merit'>@atk%回復</span><br/><span class='charge'>@charge回チャージ可能</span>",
-				recover:"auto",activate:"auto",
+				recover:"auto",activate:"auto",heal:true,
 				effect:[
 					{need:6,atk:110,charge:1},
 					{need:6,atk:115,charge:1},
@@ -2871,7 +2871,7 @@ const operator = {
 			},
 			"救護態勢":{
 				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃しなくなり回復行動のみ行う",
-				recover:"auto",activate:"manual",
+				recover:"auto",activate:"manual",heal:true,
 				effect:[
 					{start:20,need:60,pers:40,atkadd:20},
 					{start:20,need:59,pers:40,atkadd:25},
@@ -5856,7 +5856,7 @@ const operator = {
 		skill:{
 			"非常食":{
 				exp:"次の通常攻撃時、近くの味方1人に自身の攻撃力の<span class='merit'>@atk%</span>のHPを回復<br/><span class='charge'>@charge回チャージ可能</span>",
-				recover:"auto",activate:"auto",
+				recover:"auto",activate:"auto",heal:true,
 				effect:[
 					{need:7,atk: 95,charge:1},
 					{need:7,atk:100,charge:1},
@@ -5872,7 +5872,7 @@ const operator = {
 			},
 			"戦場のシェフ":{
 				exp:"<span class='demerit'>10</span>秒間調理状態(攻撃停止)になり、防御力<span class='merit'>+@defadd%</span><br/>調理終了後攻撃力<span class='merit'>+@atkadd%</span>、近くの味方の回復行動のみ行う",
-				recover:"auto",activate:"manual",
+				recover:"auto",activate:"manual",heal:true,
 				effect:[
 					{start:10,need:40,pers:30,atkadd:30,defadd:50},
 					{start:10,need:39,pers:30,atkadd:33,defadd:50},
@@ -7613,7 +7613,7 @@ const operator = {
 		skill:{
 			"HP回復α":{
 				exp:"自身の最大HPが最大値の<span class='merit'>@heal%</span>回復",
-				recover:"auto",activate:"manual",
+				recover:"auto",activate:"manual",heal:true,
 				effect:[
 					{start: 0,need:26,heal:20},
 					{start: 0,need:25,heal:23},
@@ -7660,7 +7660,7 @@ const operator = {
 		skill:{
 			"第二態勢・回復":{
 				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃しなくなり回復行動のみ行う",
-				recover:"auto",activate:"manual",
+				recover:"auto",activate:"manual",heal:true,
 				effect:[
 					{start:15,need:40,pers:15,atkadd:15},
 					{start:15,need:40,pers:16,atkadd:20},
