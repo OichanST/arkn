@@ -1037,12 +1037,19 @@ function showSkill(){
 		}
 		
 		let inner = "";
+		let dpsFlg = false;
+		let skillAtk = arg.atk;
+		let skillSpd = ark.speed;
 		const eff = sdata[sname].effect[slv - 1 + sp[i]];
 		if(eff.atk){
-			inner += "&nbsp;ATK:" + Math.round(arg.atk * eff.atk / 100);
+			skillAtk = Math.round(arg.atk * eff.atk / 100);
+			inner += "&nbsp;ATK:" + skillAtk;
+			dpsFlg = true;
 		}
 		if(eff.atkadd){
-			inner += "&nbsp;ATK:" + Math.round(arg.atk * (1 + eff.atkadd / 100));
+			skillAtk = Math.round(arg.atk * (1 + eff.atkadd / 100));
+			inner += "&nbsp;ATK:" + skillAtk;
+			dpsFlg = true;
 		}
 		if(eff.def){
 			inner += "&nbsp;DEF:" + Math.round(arg.def * eff.def / 100);
@@ -1060,7 +1067,15 @@ function showSkill(){
 			let spd = eff.speed ? eff.speed : 0;
 			let intervaladd = eff.intervaladd ? eff.intervaladd : 0;
 			let interval = eff.interval ? eff.interval : 1;
-			inner += "&nbsp;SPD:" + (Math.round((arg.speed + intervaladd) * interval * (100 / (100 + spd)) * 100) / 100) + "sec";
+			skillSpd = Math.round((arg.speed + intervaladd) * interval * (100 / (100 + spd)) * 100) / 100;
+			inner += "&nbsp;SPD:" + skillSpd + "sec";
+			dpsFlg = true;
+		}
+		if(!eff.pers){
+			dpsFlg = false;
+		}
+		if(dpsFlg){
+			inner += "&nbsp;DPS:" + Math.round(skillAtk / skillSpd);
 		}
 		if(inner != ""){
 			html += "<div style='padding-top:0.5em;font-size:0.8em;'>" + inner + "</div>";
