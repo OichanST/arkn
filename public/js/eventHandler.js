@@ -1107,7 +1107,7 @@ function showSkill(){
 			}else if(data.job == "医療"){
 				inner += "&nbsp;DMG:" + (Math.round(skillAtk) * cnt);
 			}else if(sdata[sname].multi){
-				inner += "&nbsp;DPS:" + (Math.round(skillAtk) * cnt - eneDef + Math.round(skillAtk * cnt * ((100 - eneRes) / 100)));
+				inner += "&nbsp;DMG:" + (Math.round(skillAtk) * cnt - eneDef + Math.round(skillAtk * cnt * ((100 - eneRes) / 100)));
 			}else{
 				inner += "&nbsp;DMG:" + (Math.round(skillAtk) * cnt - eneDef);
 			}
