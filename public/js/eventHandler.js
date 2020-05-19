@@ -1071,7 +1071,7 @@ function showSkill(){
 			inner += "&nbsp;SPD:" + skillSpd + "sec";
 			dpsFlg = true;
 		}
-		if(!eff.pers){
+		if(!eff.pers && !sdata[sname].passive){
 			dpsFlg = false;
 		}
 		if(dpsFlg){
