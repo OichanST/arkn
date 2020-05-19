@@ -5874,16 +5874,16 @@ const operator = {
 				exp:"<span class='demerit'>10</span>秒間調理状態(攻撃停止)になり、防御力<span class='merit'>+@defadd%</span><br/>調理終了後攻撃力<span class='merit'>+@atkadd%</span>、近くの味方の回復行動のみ行う",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:10,need:40,atkadd:30,defadd:50},
-					{start:10,need:39,atkadd:33,defadd:50},
-					{start:10,need:38,atkadd:36,defadd:50},
-					{start:12,need:37,atkadd:40,defadd:60},
-					{start:12,need:36,atkadd:43,defadd:60},
-					{start:12,need:35,atkadd:46,defadd:60},
-					{start:14,need:34,atkadd:50,defadd:70},
-					{start:16,need:33,atkadd:60,defadd:70},
-					{start:18,need:32,atkadd:70,defadd:70},
-					{start:20,need:30,atkadd:80,defadd:80}
+					{start:10,need:40,pers:30,atkadd:30,defadd:50},
+					{start:10,need:39,pers:30,atkadd:33,defadd:50},
+					{start:10,need:38,pers:30,atkadd:36,defadd:50},
+					{start:12,need:37,pers:30,atkadd:40,defadd:60},
+					{start:12,need:36,pers:30,atkadd:43,defadd:60},
+					{start:12,need:35,pers:30,atkadd:46,defadd:60},
+					{start:14,need:34,pers:30,atkadd:50,defadd:70},
+					{start:16,need:33,pers:30,atkadd:60,defadd:70},
+					{start:18,need:32,pers:30,atkadd:70,defadd:70},
+					{start:20,need:30,pers:30,atkadd:80,defadd:80}
 				]
 			}
 		}
