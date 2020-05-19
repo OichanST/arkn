@@ -1075,7 +1075,11 @@ function showSkill(){
 			dpsFlg = false;
 		}
 		if(dpsFlg){
-			inner += "&nbsp;DPS:" + Math.round(skillAtk / skillSpd);
+			let cnt = 1;
+			if(eff.cnt){
+				cnt = eff.cnt;
+			}
+			inner += "&nbsp;DPS:" + Math.round(skillAtk / skillSpd) * cnt;
 		}
 		if(inner != ""){
 			html += "<div style='padding-top:0.5em;font-size:0.8em;'>" + inner + "</div>";
