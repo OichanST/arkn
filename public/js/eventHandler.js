@@ -1092,6 +1092,8 @@ function showSkill(){
 				inner += "&nbsp;DPS:" + Math.round((skillAtk / skillSpd) * cnt * ((100 - eneRes) / 100));
 			}else if(data.job == "医療"){
 				inner += "&nbsp;DPS:" + (Math.round(skillAtk / skillSpd) * cnt);
+			}else if(sdata[sname].multi){
+				inner += "&nbsp;DPS:" + (Math.round(skillAtk / skillSpd) * cnt - eneDef + Math.round((skillAtk / skillSpd) * cnt * ((100 - eneRes) / 100)));
 			}else{
 				inner += "&nbsp;DPS:" + (Math.round(skillAtk / skillSpd) * cnt - eneDef);
 			}
