@@ -873,6 +873,18 @@ function showSkill(){
 			}
 		}
 	}
+	let eneDef = ById("eneDef").value;
+	if(eneDef){
+		eneDef = parseInt(eneDef, 10);
+	}else{
+		eneDef = 0;
+	}
+	let eneRes = ById("eneRes").value;
+	if(eneRes){
+		eneRes = parseInt(eneRes, 10);
+	}else{
+		eneRes = 0;
+	}
 	// HTML
 	let html = "";
 	// ループカウンタ
@@ -1071,15 +1083,30 @@ function showSkill(){
 			inner += "&nbsp;SPD:" + skillSpd + "sec";
 			dpsFlg = true;
 		}
-		if(!eff.pers && !sdata[sname].passive){
-			dpsFlg = false;
-		}
-		if(dpsFlg){
+		if(dpsFlg && (eff.pers || sdata[sname].passive)){
 			let cnt = 1;
 			if(eff.cnt){
 				cnt = eff.cnt;
 			}
-			inner += "&nbsp;DPS:" + Math.round(skillAtk / skillSpd) * cnt;
+			if(data.job == "術師" || data.job == "補助" || name == "ムース" || name == "アステシア"){
+				inner += "&nbsp;DPS:" + Math.round((skillAtk / skillSpd) * cnt * ((100 - eneRes) / 100));
+			}else if(data.job == "医療"){
+				inner += "&nbsp;DPS:" + Math.round(skillAtk / skillSpd) * cnt;
+			}else{
+				inner += "&nbsp;DPS:" + Math.round(skillAtk / skillSpd) * cnt - eneDef;
+			}
+		}else if(dpsFlg){
+			let cnt = 1;
+			if(eff.cnt){
+				cnt = eff.cnt;
+			}
+			if(data.job == "術師" || data.job == "補助" || name == "ムース" || name == "アステシア"){
+				inner += "&nbsp;DMG:" + Math.round(skillAtk * cnt * ((100 - eneRes) / 100));
+			}else if(data.job == "医療"){
+				inner += "&nbsp;DMG:" + Math.round(skillAtk) * cnt;
+			}else{
+				inner += "&nbsp;DMG:" + Math.round(skillAtk) * cnt - eneDef;
+			}
 		}
 		if(inner != ""){
 			html += "<div style='padding-top:0.5em;font-size:0.8em;'>" + inner + "</div>";

@@ -1857,16 +1857,16 @@ const operator = {
 				exp:"効果時間内所持コストが徐々に増加(合計<span class='merit'>@cost</span>)<br/>先鋒ユニット全員の攻撃力、防御力<span class='merit'>+@atkadd</span>%、敵を倒す度所持コスト<span class='merit'>+1</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:10,need:45,cost: 9,atkadd:25,defadd:25},
-					{start:10,need:44,cost: 9,atkadd:30,defadd:30},
-					{start:10,need:43,cost: 9,atkadd:35,defadd:35},
-					{start:12,need:42,cost:10,atkadd:40,defadd:40},
-					{start:12,need:41,cost:10,atkadd:45,defadd:45},
-					{start:12,need:40,cost:10,atkadd:45,defadd:45},
-					{start:14,need:39,cost:11,atkadd:45,defadd:45},
-					{start:16,need:38,cost:11,atkadd:50,defadd:50},
-					{start:18,need:37,cost:11,atkadd:55,defadd:55},
-					{start:20,need:35,cost:12,atkadd:60,defadd:60}
+					{start:10,need:45,pers:10,cost: 9,atkadd:25,defadd:25},
+					{start:10,need:44,pers:10,cost: 9,atkadd:30,defadd:30},
+					{start:10,need:43,pers:10,cost: 9,atkadd:35,defadd:35},
+					{start:12,need:42,pers:12,cost:10,atkadd:40,defadd:40},
+					{start:12,need:41,pers:12,cost:10,atkadd:45,defadd:45},
+					{start:12,need:40,pers:12,cost:10,atkadd:45,defadd:45},
+					{start:14,need:39,pers:14,cost:11,atkadd:45,defadd:45},
+					{start:16,need:38,pers:16,cost:11,atkadd:50,defadd:50},
+					{start:18,need:37,pers:18,cost:11,atkadd:55,defadd:55},
+					{start:20,need:35,pers:20,cost:12,atkadd:60,defadd:60}
 				]
 			}
 		}
