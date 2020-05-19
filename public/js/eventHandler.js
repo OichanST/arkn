@@ -1091,9 +1091,9 @@ function showSkill(){
 			if(data.job == "術師" || data.job == "補助" || name == "ムース" || name == "アステシア"){
 				inner += "&nbsp;DPS:" + Math.round((skillAtk / skillSpd) * cnt * ((100 - eneRes) / 100));
 			}else if(data.job == "医療"){
-				inner += "&nbsp;DPS:" + Math.round(skillAtk / skillSpd) * cnt;
+				inner += "&nbsp;DPS:" + (Math.round(skillAtk / skillSpd) * cnt);
 			}else{
-				inner += "&nbsp;DPS:" + Math.round(skillAtk / skillSpd) * cnt - eneDef;
+				inner += "&nbsp;DPS:" + (Math.round(skillAtk / skillSpd) * cnt - eneDef);
 			}
 		}else if(dpsFlg){
 			let cnt = 1;
@@ -1101,11 +1101,11 @@ function showSkill(){
 				cnt = eff.cnt;
 			}
 			if(data.job == "術師" || data.job == "補助" || name == "ムース" || name == "アステシア"){
-				inner += "&nbsp;DMG:" + Math.round(skillAtk * cnt * ((100 - eneRes) / 100));
+				inner += "&nbsp;DMG:" + (Math.round(skillAtk * cnt * ((100 - eneRes) / 100)));
 			}else if(data.job == "医療"){
-				inner += "&nbsp;DMG:" + Math.round(skillAtk) * cnt;
+				inner += "&nbsp;DMG:" + (Math.round(skillAtk) * cnt);
 			}else{
-				inner += "&nbsp;DMG:" + Math.round(skillAtk) * cnt - eneDef;
+				inner += "&nbsp;DMG:" + (Math.round(skillAtk) * cnt - eneDef);
 			}
 		}
 		if(inner != ""){
