@@ -1088,7 +1088,7 @@ function showSkill(){
 			if(eff.cnt){
 				cnt = eff.cnt;
 			}
-			if(data.job == "術師" || data.job == "補助" || name == "ムース" || name == "アステシア"){
+			if(data.job == "術師" || data.job == "補助" || name == "ムース" || name == "アステシア" || sdata[sname].res){
 				inner += "&nbsp;DPS:" + Math.round((skillAtk / skillSpd) * cnt * ((100 - eneRes) / 100));
 			}else if(data.job == "医療"){
 				inner += "&nbsp;DPS:" + (Math.round(skillAtk / skillSpd) * cnt);
@@ -1100,7 +1100,7 @@ function showSkill(){
 			if(eff.cnt){
 				cnt = eff.cnt;
 			}
-			if(data.job == "術師" || data.job == "補助" || name == "ムース" || name == "アステシア"){
+			if(data.job == "術師" || data.job == "補助" || name == "ムース" || name == "アステシア" || sdata[sname].res){
 				inner += "&nbsp;DMG:" + (Math.round(skillAtk * cnt * ((100 - eneRes) / 100)));
 			}else if(data.job == "医療"){
 				inner += "&nbsp;DMG:" + (Math.round(skillAtk) * cnt);

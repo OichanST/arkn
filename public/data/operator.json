@@ -665,19 +665,19 @@ const operator = {
 				]
 			},
 			"荊棘":{
-				exp:"防御力<span class='merit'>+@defadd%</span><br/>攻撃される度自身の攻撃力の<span class='merit'>@atk%</span>の物理ダメージで敵に反撃する",
+				exp:"防御力<span class='merit'>+@defadd%</span><br/>攻撃される度自身の攻撃力の<span class='merit'>@reflect%</span>の物理ダメージで敵に反撃する",
 				passive:true,
 				effect:[
-					{defadd: 5,atk: 50},
-					{defadd: 7,atk: 55},
-					{defadd: 9,atk: 60},
-					{defadd:11,atk: 65},
-					{defadd:13,atk: 70},
-					{defadd:15,atk: 75},
-					{defadd:17,atk: 80},
-					{defadd:21,atk: 85},
-					{defadd:27,atk: 90},
-					{defadd:30,atk:100}
+					{defadd: 5,reflect: 50},
+					{defadd: 7,reflect: 55},
+					{defadd: 9,reflect: 60},
+					{defadd:11,reflect: 65},
+					{defadd:13,reflect: 70},
+					{defadd:15,reflect: 75},
+					{defadd:17,reflect: 80},
+					{defadd:21,reflect: 85},
+					{defadd:27,reflect: 90},
+					{defadd:30,reflect:100}
 				]
 			},
 			"般若":{
@@ -1385,35 +1385,35 @@ const operator = {
 				]
 			},
 			"オートカバー":{
-				exp:"次に味方を回復する時、対象に継続<span class='merit'>@time</span>秒のシールドを付与。シールドは自身の攻撃力の<span class='merit'>@atk%</span>のダメージを吸収、対象の防御力を<span class='merit'>@def%上昇</span><br/><span class='charge'>@charge回チャージ可能</span>",
+				exp:"次に味方を回復する時、対象に継続<span class='merit'>@time</span>秒のシールドを付与。シールドは自身の攻撃力の<span class='merit'>@sheld%</span>のダメージを吸収、対象の防御力を<span class='merit'>@enchantdef%上昇</span><br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:8,time:2,atk:20,def:20,charge:1},
-					{need:8,time:2,atk:23,def:20,charge:1},
-					{need:8,time:2,atk:25,def:20,charge:1},
-					{need:7,time:2,atk:28,def:25,charge:1},
-					{need:7,time:2,atk:30,def:25,charge:1},
-					{need:7,time:2,atk:33,def:25,charge:1},
-					{need:7,time:3,atk:35,def:35,charge:2},
-					{need:6,time:3,atk:40,def:35,charge:2},
-					{need:6,time:3,atk:45,def:35,charge:2},
-					{need:5,time:3,atk:50,def:50,charge:3}
+					{need:8,time:2,sheld:20,enchantdef:20,charge:1},
+					{need:8,time:2,sheld:23,enchantdef:20,charge:1},
+					{need:8,time:2,sheld:25,enchantdef:20,charge:1},
+					{need:7,time:2,sheld:28,enchantdef:25,charge:1},
+					{need:7,time:2,sheld:30,enchantdef:25,charge:1},
+					{need:7,time:2,sheld:33,enchantdef:25,charge:1},
+					{need:7,time:3,sheld:35,enchantdef:35,charge:2},
+					{need:6,time:3,sheld:40,enchantdef:35,charge:2},
+					{need:6,time:3,sheld:45,enchantdef:35,charge:2},
+					{need:5,time:3,sheld:50,enchantdef:50,charge:3}
 				]
 			},
 			"教導の結界":{
-				exp:"攻撃力<span class='merit'>+@atkadd%</span><br/>攻撃範囲内の味方全員の防御力<span class='merit'>+@defadd%</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span><br/>攻撃範囲内の味方全員の防御力<span class='merit'>+@enchantdefadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:100,need:120,pers:60,atkadd:20,defadd:30},
-					{start:100,need:120,pers:60,atkadd:20,defadd:35},
-					{start:100,need:120,pers:60,atkadd:20,defadd:40},
-					{start:100,need:120,pers:60,atkadd:20,defadd:45},
-					{start:100,need:120,pers:60,atkadd:30,defadd:50},
-					{start:100,need:120,pers:60,atkadd:30,defadd:55},
-					{start:100,need:120,pers:60,atkadd:40,defadd:60},
-					{start:105,need:120,pers:60,atkadd:40,defadd:70},
-					{start:110,need:120,pers:60,atkadd:40,defadd:80},
-					{start:115,need:120,pers:60,atkadd:50,defadd:100}
+					{start:100,need:120,pers:60,atkadd:20,enchantdefadd:30},
+					{start:100,need:120,pers:60,atkadd:20,enchantdefadd:35},
+					{start:100,need:120,pers:60,atkadd:20,enchantdefadd:40},
+					{start:100,need:120,pers:60,atkadd:20,enchantdefadd:45},
+					{start:100,need:120,pers:60,atkadd:30,enchantdefadd:50},
+					{start:100,need:120,pers:60,atkadd:30,enchantdefadd:55},
+					{start:100,need:120,pers:60,atkadd:40,enchantdefadd:60},
+					{start:105,need:120,pers:60,atkadd:40,enchantdefadd:70},
+					{start:110,need:120,pers:60,atkadd:40,enchantdefadd:80},
+					{start:115,need:120,pers:60,atkadd:50,enchantdefadd:100}
 				]
 			}
 		}
@@ -1487,19 +1487,19 @@ const operator = {
 				]
 			},
 			"アーツシールド":{
-				exp:"次に味方を回復する時、全ての対象に継続<span class='merit'>@time</span>秒のシールドを付与。シールドは自身の攻撃力の<span class='merit'>@atk%</span>の術ダメージを吸収、対象の術耐性を<span class='merit'>@res</span>上昇<br/><span class='charge'>@charge回チャージ可能</span>",
+				exp:"次に味方を回復する時、全ての対象に継続<span class='merit'>@time</span>秒のシールドを付与。シールドは自身の攻撃力の<span class='merit'>@sheld%</span>の術ダメージを吸収、対象の術耐性を<span class='merit'>@res</span>上昇<br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"auto",activate:"auto",
 				effect:[
-					{need:11,time:  3,atk:40,res:5,charge:1},
-					{need:11,time:  3,atk:43,res:5,charge:1},
-					{need:11,time:  3,atk:46,res:5,charge:1},
-					{need:10,time:3.5,atk:50,res:10,charge:2},
-					{need:10,time:3.5,atk:53,res:10,charge:2},
-					{need:10,time:3.5,atk:56,res:10,charge:2},
-					{need:10,time:  4,atk:60,res:15,charge:2},
-					{need: 9,time:  4,atk:70,res:15,charge:3},
-					{need: 9,time:  4,atk:80,res:15,charge:3},
-					{need: 8,time:  5,atk:90,res:20,charge:3}
+					{need:11,time:  3,sheld:40,res:5,charge:1},
+					{need:11,time:  3,sheld:43,res:5,charge:1},
+					{need:11,time:  3,sheld:46,res:5,charge:1},
+					{need:10,time:3.5,sheld:50,res:10,charge:2},
+					{need:10,time:3.5,sheld:53,res:10,charge:2},
+					{need:10,time:3.5,sheld:56,res:10,charge:2},
+					{need:10,time:  4,sheld:60,res:15,charge:2},
+					{need: 9,time:  4,sheld:70,res:15,charge:3},
+					{need: 9,time:  4,sheld:80,res:15,charge:3},
+					{need: 8,time:  5,sheld:90,res:20,charge:3}
 				]
 			},
 			"聖域":{
@@ -1784,18 +1784,18 @@ const operator = {
 			},
 			"剣雨":{
 				exp:"所持コスト+<span class='merit'>9</span><br/>周囲一定範囲内の敵全員に<span class='merit'>2回連続</span>で攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる",
-				recover:"auto",activate:"manual",
+				recover:"auto",activate:"manual",res:true,
 				effect:[
-					{start:20,need:40,atk:105,stan:2},
-					{start:21,need:40,atk:110,stan:2},
-					{start:22,need:40,atk:115,stan:2},
-					{start:23,need:40,atk:120,stan:2},
-					{start:24,need:40,atk:125,stan:2},
-					{start:25,need:40,atk:130,stan:2},
-					{start:26,need:40,atk:135,stan:2},
-					{start:27,need:40,atk:140,stan:3},
-					{start:28,need:40,atk:155,stan:3},
-					{start:30,need:40,atk:175,stan:3}
+					{start:20,need:40,cnt:2,atk:105,stan:2},
+					{start:21,need:40,cnt:2,atk:110,stan:2},
+					{start:22,need:40,cnt:2,atk:115,stan:2},
+					{start:23,need:40,cnt:2,atk:120,stan:2},
+					{start:24,need:40,cnt:2,atk:125,stan:2},
+					{start:25,need:40,cnt:2,atk:130,stan:2},
+					{start:26,need:40,cnt:2,atk:135,stan:2},
+					{start:27,need:40,cnt:2,atk:140,stan:3},
+					{start:28,need:40,cnt:2,atk:155,stan:3},
+					{start:30,need:40,cnt:2,atk:175,stan:3}
 				]
 			}
 		}
@@ -2037,7 +2037,7 @@ const operator = {
 			},
 			"裂魂":{
 				exp:"攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<span class='merit'>術攻撃</span>になり、与ダメージの<span class='merit'>@heal%</span>のHPを回復",
-				recover:"auto",activate:"manual",
+				recover:"auto",activate:"manual",res:true,
 				effect:[
 					{start: 0,need:50,pers:25,atkadd: 45,heal:10},
 					{start: 0,need:50,pers:25,atkadd: 50,heal:10},
@@ -2455,7 +2455,7 @@ const operator = {
 			},
 			"狼魂":{
 				exp:"攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が術攻撃になり敵2体を同時に攻撃<br/>攻撃力の100%で遠距離攻撃を行う",
-				recover:"attack",activate:"auto",
+				recover:"attack",activate:"auto",res:true,
 				effect:[
 					{need:30,pers:15,atkadd:60},
 					{need:29,pers:15,atkadd:65},
@@ -3402,19 +3402,19 @@ const operator = {
 				]
 			},
 			"爆撃要請":{
-				exp:"攻撃範囲内のランダムな位置に爆弾を<span class='merit'>@cnt</span>個投下(敵がいる位置を優先する)<br/>爆弾は一個につき周囲一定範囲内の敵全員に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与える",
+				exp:"攻撃範囲内のランダムな位置に爆弾を<span class='merit'>@target</span>個投下(敵がいる位置を優先する)<br/>爆弾は一個につき周囲一定範囲内の敵全員に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与える",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:10,need:50,cnt:2,atk:180},
-					{start:10,need:50,cnt:2,atk:190},
-					{start:10,need:50,cnt:2,atk:200},
-					{start:15,need:50,cnt:2,atk:210},
-					{start:15,need:50,cnt:2,atk:220},
-					{start:15,need:50,cnt:2,atk:230},
-					{start:20,need:50,cnt:2,atk:240},
-					{start:20,need:50,cnt:3,atk:260},
-					{start:20,need:50,cnt:3,atk:280},
-					{start:30,need:50,cnt:3,atk:300}
+					{start:10,need:50,target:2,atk:180},
+					{start:10,need:50,target:2,atk:190},
+					{start:10,need:50,target:2,atk:200},
+					{start:15,need:50,target:2,atk:210},
+					{start:15,need:50,target:2,atk:220},
+					{start:15,need:50,target:2,atk:230},
+					{start:20,need:50,target:2,atk:240},
+					{start:20,need:50,target:3,atk:260},
+					{start:20,need:50,target:3,atk:280},
+					{start:30,need:50,target:3,atk:300}
 				]
 			}
 		}
