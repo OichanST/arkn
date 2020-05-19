@@ -5888,6 +5888,34 @@ const operator = {
 			}
 		}
 	},
+	"ジュナー":{
+		en:"Dur-nar",
+		rare:4,job:"重装",relocation:70,speed:1.2,trust:{atk:1},tag:["近距離","防御","火力"],
+		characteristic:"スキル発動中、敵に術ダメージを与える",
+		stat:[
+			{
+				min:{hp:1201,atk:244,def:220},
+				max:{hp:1,atk:1,def:1},
+				res:5,cost:20,block:3,range:[],
+				nature:{}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:23},
+			{def:20},
+			{cost:-1}
+		],
+		skill:{
+			"攻撃力強化β":{
+				exp:"攻撃力<span class='merit'>+@atk%</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+				]
+			}
+		}
+	},
 	"ジェシカ":{
 		en:"Jessica",
 		rare:4,job:"狙撃",relocation:70,speed:1.0,trust:{atk:65},tag:["遠距離","火力","生存"],
@@ -7176,6 +7204,34 @@ const operator = {
 					{start:10,need:18,pow:"相当の力",atk:195},
 					{start:10,need:17,pow:"相当の力",atk:210},
 					{start:10,need:15,pow:"かなりの力",atk:225}
+				]
+			}
+		}
+	},
+	"イーサン":{
+		en:"Ethan",
+		rare:4,job:"特殊",relocation:70,speed:3.5,trust:{hp:1},tag:["近距離","火力","牽制"],
+		characteristic:"攻撃範囲内の<span classs='merit'>敵全員</span>を同時に攻撃<br/>物理回避、術回避が50%上昇<br/>敵に<span classs='merit'>狙われにくい</span>",
+		stat:[
+			{
+				min:{hp:730,atk:346,def:139},
+				max:{hp:1,atk:1,def:1},
+				res:10,cost:17,block:0,range:[[-1,1],[0,1],[1,1],[-1,0],[1,0],[2,0],[-1,-1],[0,-1],[1,-1]],
+				nature:{}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{hp:150},
+			{relocation:-6},
+			{cost:-1}
+		],
+		skill:{
+			"ループザループ":{
+				passive:true,
+				exp:"通常攻撃時、追加で１秒ごとに<span class='merit'>40</span>の術ダメージを与える、継続<span class='merit'>2</span>秒",
+				effect:[
 				]
 			}
 		}
