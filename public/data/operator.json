@@ -7301,12 +7301,20 @@ const operator = {
 			{
 				hp:1300,atk:601,def:279,
 				res:20,cost:19,block:0,range:[[-1,1],[0,1],[1,1],[-1,0],[1,0],[2,0],[-1,-1],[0,-1],[1,-1]],
-				nature:{}
+				nature:{
+					"絡みつく":{
+						exp:"25%の確率で攻撃した敵に2秒の【バインド（移動停止）】を付与"
+					}
+				}
 			},
 			{
 				hp:1530,atk:742,def:337,
 				res:30,cost:19,block:0,range:[[-1,1],[0,1],[1,1],[-1,0],[1,0],[2,0],[-1,-1],[0,-1],[1,-1]],
-				nature:{}
+				nature:{
+					"絡みつく":{
+						exp:"25%の確率で攻撃した敵に3秒の【バインド（移動停止）】を付与"
+					}
+				}
 			}
 		],
 		potential:[
@@ -7325,7 +7333,9 @@ const operator = {
 			},
 			"グラインドツイスター":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃力<span class='merit'>>+@atk%</span>、素質の発動率が</span class='merit'>1.5</span>まで上昇"
+				exp:"攻撃力<span class='merit'>>+@atk%</span>、素質の発動率が</span class='merit'>1.5</span>まで上昇",
+				effect:[
+				]
 			}
 		}
 	},
