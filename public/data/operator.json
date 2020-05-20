@@ -4101,16 +4101,35 @@ const operator = {
 		],
 		skill:{
 			"集中療法":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、回復可能な味方数<span class='demerit'>-1</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、回復可能な味方数<span class='demerit'>-1</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					
+					{start:20,need:40,pers:25,atkadd:70},
+					{start:20,need:39,pers:25,atkadd:75},
+					{start:20,need:38,pers:25,atkadd:80},
+					{start:20,need:37,pers:28,atkadd:85},
+					{start:20,need:36,pers:28,atkadd:90},
+					{start:20,need:35,pers:28,atkadd:95},
+					{start:20,need:34,pers:31,atkadd:100},
+					{start:20,need:33,pers:32,atkadd:110},
+					{start:20,need:32,pers:33,atkadd:120},
+					{start:20,need:30,pers:35,atkadd:140}
 				]
 			},
 			"拡散療法":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、通常回復が次のように変更：攻撃範囲内の味方を対象として医療弾を撃ち、対象と対象範囲８マスの味方を回復(周囲の味方を回復時回復量が50%)",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、通常回復が次のように変更：攻撃範囲内の味方を対象として医療弾を撃ち、対象と対象範囲８マスの味方を回復(周囲の味方を回復時回復量が50%)",
 				recover:"auto",activate:"manual",
 				effect:[
+					{start:40,need:80,pers:35,atkadd:110},
+					{start:40,need:80,pers:36,atkadd:120},
+					{start:40,need:80,pers:37,atkadd:130},
+					{start:44,need:80,pers:38,atkadd:150},
+					{start:44,need:80,pers:39,atkadd:160},
+					{start:44,need:80,pers:40,atkadd:170},
+					{start:48,need:80,pers:41,atkadd:190},
+					{start:52,need:80,pers:42,atkadd:210},
+					{start:56,need:80,pers:43,atkadd:230},
+					{start:60,need:80,pers:45,atkadd:250}
 				]
 			}
 		}
@@ -5982,16 +6001,36 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化β":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>",
-				recover:"auto",activate:"manual",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
+				recover:"auto",activate:"manual",res:true,
 				effect:[
+					{start: 0,need:40,pers:25,atkadd:20},
+					{start: 0,need:40,pers:25,atkadd:25},
+					{start: 0,need:40,pers:25,atkadd:30},
+					{start: 0,need:37,pers:25,atkadd:35},
+					{start: 0,need:37,pers:25,atkadd:40},
+					{start: 0,need:37,pers:25,atkadd:45},
+					{start: 5,need:37,pers:25,atkadd:50},
+					{start: 5,need:37,pers:25,atkadd:60},
+					{start: 5,need:37,pers:25,atkadd:70},
+					{start:10,need:35,pers:25,atkadd:80}
 				]
 			},
 			"カウンターシールド":{
-				exp:"攻撃力<span class='merit'>+@atk%</span>、ブロック中の敵全員を同時に攻撃",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、ブロック中の敵全員を同時に攻撃",
 				recover:"damage",acctivate:"manual",
-				effect:{
-				}
+				effect:[
+					{start: 0,need:37,pers:30,atkadd:20},
+					{start: 0,need:36,pers:30,atkadd:25},
+					{start: 0,need:35,pers:30,atkadd:30},
+					{start: 3,need:34,pers:30,atkadd:35},
+					{start: 3,need:33,pers:30,atkadd:40},
+					{start: 3,need:32,pers:30,atkadd:45},
+					{start: 6,need:31,pers:30,atkadd:50},
+					{start: 8,need:29,pers:30,atkadd:60},
+					{start:10,need:27,pers:30,atkadd:70},
+					{start:12,need:25,pers:30,atkadd:80}
+				]
 			}
 		}
 	},
@@ -7327,14 +7366,34 @@ const operator = {
 		skill:{
 			"ループザループ":{
 				passive:true,
-				exp:"通常攻撃時、追加で１秒ごとに<span class='merit'>40</span>の術ダメージを与える、継続<span class='merit'>2</span>秒",
+				exp:"通常攻撃時、追加で１秒ごとに<span class='merit'>@dmg</span>の術ダメージを与える、継続<span class='merit'>@time</span>秒",
 				effect:[
+					{dmg: 40,time:2},
+					{dmg: 45,time:2},
+					{dmg: 50,time:2},
+					{dmg: 55,time:3},
+					{dmg: 60,time:3},
+					{dmg: 65,time:3},
+					{dmg: 70,time:4},
+					{dmg: 80,time:4},
+					{dmg: 90,time:4},
+					{dmg:100,time:4}
 				]
 			},
 			"グラインドツイスター":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃力<span class='merit'>>+@atk%</span>、素質の発動率が</span class='merit'>1.5</span>まで上昇",
+				exp:"攻撃力<span class='merit'>>+@atkadd%</span>、素質の発動率が</span class='merit'>@nature</span>倍まで上昇",
 				effect:[
+					{need:25,pers:20,atkadd:20,nature:1.5},
+					{need:25,pers:20,atkadd:25,nature:1.5},
+					{need:25,pers:20,atkadd:30,nature:1.5},
+					{need:25,pers:22,atkadd:35,nature:2},
+					{need:25,pers:22,atkadd:40,nature:2},
+					{need:25,pers:22,atkadd:45,nature:2},
+					{need:25,pers:24,atkadd:50,nature:2.5},
+					{need:25,pers:26,atkadd:55,nature:2.5},
+					{need:25,pers:28,atkadd:60,nature:2.5},
+					{need:25,pers:30,atkadd:70,nature:3}
 				]
 			}
 		}
