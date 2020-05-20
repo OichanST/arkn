@@ -7382,7 +7382,7 @@ const operator = {
 			},
 			"グラインドツイスター":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃力<span class='merit'>>+@atkadd%</span>、素質の発動率が</span class='merit'>@nature</span>倍まで上昇",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、素質の発動率が<span class='merit'>@nature</span>倍まで上昇",
 				effect:[
 					{need:25,pers:20,atkadd:20,nature:1.5},
 					{need:25,pers:20,atkadd:25,nature:1.5},
