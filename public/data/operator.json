@@ -7329,7 +7329,7 @@ const operator = {
 	"イーサン":{
 		en:"Ethan",
 		rare:4,job:"特殊",relocation:70,speed:3.5,trust:{hp:450},tag:["近距離","火力","牽制"],
-		characteristic:"攻撃範囲内の<span classs='merit'>敵全員</span>を同時に攻撃<br/>物理回避、術回避が50%上昇<br/>敵に<span classs='merit'>狙われにくい</span>",
+		characteristic:"攻撃範囲内の<span class='merit'>敵全員</span>を同時に攻撃<br/>物理回避、術回避が50%上昇<br/>敵に<span class='merit'>狙われにくい</span>",
 		stat:[
 			{
 				min:{hp: 730,atk:346,def:139},
