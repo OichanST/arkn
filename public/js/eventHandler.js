@@ -1090,7 +1090,7 @@ function showSkill(){
 			}
 			if(data.job == "術師" || data.job == "補助" || name == "ムース" || name == "アステシア" || sdata[sname].res){
 				inner += "&nbsp;DPS:" + Math.round((skillAtk / skillSpd) * cnt * ((100 - eneRes) / 100));
-			}else if(data.job == "医療" || sdata[name].heal){
+			}else if(data.job == "医療" || sdata[sname].heal){
 				inner += "&nbsp;DPS:" + (Math.round(skillAtk / skillSpd) * cnt);
 			}else if(sdata[sname].multi){
 				inner += "&nbsp;DPS:" + (Math.round(skillAtk / skillSpd - eneDef) * cnt + Math.round((skillAtk / skillSpd) * cnt * ((100 - eneRes) / 100)));
@@ -1104,7 +1104,7 @@ function showSkill(){
 			}
 			if(data.job == "術師" || data.job == "補助" || name == "ムース" || name == "アステシア" || sdata[sname].res){
 				inner += "&nbsp;DMG:" + (Math.round(skillAtk * cnt * ((100 - eneRes) / 100)));
-			}else if(data.job == "医療" || sdata[name].heal){
+			}else if(data.job == "医療" || sdata[sname].heal){
 				inner += "&nbsp;DMG:" + (Math.round(skillAtk) * cnt);
 			}else if(sdata[sname].multi){
 				inner += "&nbsp;DMG:" + (Math.round(skillAtk - eneDef) * cnt + Math.round(skillAtk * cnt * ((100 - eneRes) / 100)));

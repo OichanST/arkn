@@ -6018,7 +6018,7 @@ const operator = {
 			},
 			"カウンターシールド":{
 				exp:"攻撃力<span class='merit'>+@atkadd%</span>、ブロック中の敵全員を同時に攻撃",
-				recover:"damage",acctivate:"manual",
+				recover:"damage",acctivate:"manual",res:true,
 				effect:[
 					{start: 0,need:37,pers:30,atkadd:20},
 					{start: 0,need:36,pers:30,atkadd:25},
