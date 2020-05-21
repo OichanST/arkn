@@ -1783,19 +1783,19 @@ const operator = {
 				]
 			},
 			"剣雨":{
-				exp:"所持コスト+<span class='merit'>9</span><br/>周囲一定範囲内の敵全員に<span class='merit'>2回連続</span>で攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる",
+				exp:"所持コスト+<span class='merit'>@cost</span><br/>周囲一定範囲内の敵全員に<span class='merit'>2回連続</span>で攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる",
 				recover:"auto",activate:"manual",res:true,
 				effect:[
-					{start:20,need:40,cnt:2,atk:105,stan:2},
-					{start:21,need:40,cnt:2,atk:110,stan:2},
-					{start:22,need:40,cnt:2,atk:115,stan:2},
-					{start:23,need:40,cnt:2,atk:120,stan:2},
-					{start:24,need:40,cnt:2,atk:125,stan:2},
-					{start:25,need:40,cnt:2,atk:130,stan:2},
-					{start:26,need:40,cnt:2,atk:135,stan:2},
-					{start:27,need:40,cnt:2,atk:140,stan:3},
-					{start:28,need:40,cnt:2,atk:155,stan:3},
-					{start:30,need:40,cnt:2,atk:175,stan:3}
+					{start:20,need:40,cost: 9,cnt:2,atk:105,stan:2},
+					{start:21,need:40,cost: 9,cnt:2,atk:110,stan:2},
+					{start:22,need:40,cost: 9,cnt:2,atk:115,stan:2},
+					{start:23,need:40,cost:10,cnt:2,atk:120,stan:2},
+					{start:24,need:40,cost:10,cnt:2,atk:125,stan:2},
+					{start:25,need:40,cost:10,cnt:2,atk:130,stan:2},
+					{start:26,need:40,cost:11,cnt:2,atk:135,stan:2},
+					{start:27,need:40,cost:11,cnt:2,atk:140,stan:3},
+					{start:28,need:40,cost:11,cnt:2,atk:155,stan:3},
+					{start:30,need:40,cost:12,cnt:2,atk:175,stan:3}
 				]
 			}
 		}
@@ -1945,7 +1945,7 @@ const operator = {
 				]
 			},
 			"引かない！":{
-				exp:"攻撃範囲<span class='demerit'>縮小</span>、攻撃力と防御力<span class='merit'>+@atkadd</span>%、ブロック数<span class='merit'>+1</span>、ブロック中の敵全員を同時に攻撃",
+				exp:"攻撃範囲<span class='demerit'>縮小</span>、攻撃力と防御力<span class='merit'>+@atkadd%</span>、ブロック数<span class='merit'>+1</span>、ブロック中の敵全員を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:50,need:80,pers:30,atkadd:30,defadd:30},
@@ -4223,7 +4223,7 @@ const operator = {
 				]
 			},
 			"ミーボ起爆":{
-				exp:"配置中の機械川獺を全て起爆、機械川獺の周囲一定範囲内の敵全員にメイヤーの攻撃力の@atk%の術ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる<br/><span class='charge'>機械川獺は再配置可能</span>",
+				exp:"配置中の機械川獺を全て起爆、機械川獺の周囲一定範囲内の敵全員にメイヤーの攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる<br/><span class='charge'>機械川獺は再配置可能</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{need:40,atk:300,stan:1},
@@ -4695,7 +4695,7 @@ const operator = {
 				hp:1497,atk:612,def:289,res:0,cost:13,block:2,range:[[1,0],[2,0],[3,0]],
 				nature:{
 					"雪境の狩人":{
-						exp:"敵をブロックしていない時、攻撃力と防御力+@base%@pexp",
+						exp:"敵をブロックしていない時、攻撃力、防御力+@base%@pexp",
 						base:6,
 						pexp:"(+@padd%)",
 						padd:2
@@ -4706,7 +4706,7 @@ const operator = {
 				hp:1970,atk:765,def:340,res:0,cost:13,block:2,range:[[1,0],[2,0],[3,0]],
 				nature:{
 					"雪境の狩人":{
-						exp:"敵をブロックしていない時、攻撃力と防御力+@base%@pexp",
+						exp:"敵をブロックしていない時、攻撃力、防御力+@base%@pexp",
 						base:12,
 						pexp:"(+@padd%)",
 						padd:2

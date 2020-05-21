@@ -411,6 +411,32 @@ function ValueConverter(name, key, val){
 				ret = val + "/<span class='merit'>" + operator[name].resUp(arg) + "</span>";
 			}
 			return ret;
+		case "trust":
+			let trustPt = sto.data[name].trust;
+			ById("trustPt").innerText = trustPt + "%";
+			ById("trustBar").style.width = Math.round(trustPt / 2) + "%";
+			ret = "";
+			for(let key in val){
+				if(ret != ""){
+					ret += "&nbsp;";
+				}
+				switch(key){
+					case "atk":
+						ret += "攻撃力+";
+						break;
+					case "hp":
+						ret += "HP+";
+						break;
+					case "def":
+						ret += "防御力+";
+						break;
+				}
+				if(trustPt >= 100){
+					trustPt = 100;
+				}
+				ret += Math.round(val[key] * trustPt / 100);
+			}
+			return ret;
 		// 特性
 		case "characteristic":
 			ret = val;
