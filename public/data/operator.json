@@ -455,7 +455,7 @@ const operator = {
 				]
 			},
 			"赤霄・絶影":{
-				exp:"周囲一定範囲内の最も近い敵に対して<br/>攻撃力<span class='merit'>@atk%</span>の物理ダメージを<span class='merit'>@cnt</span>回与え、最後の1回で<span class='merit'>@stan</span>秒間スタンさせる<br/>@cnt回未満かつ他に敵がいる場合、攻撃し続ける",
+				exp:"周囲一定範囲内の最も近い敵に対して攻撃力<span class='merit'>@atk%</span>の物理ダメージを<span class='merit'>@cnt</span>回与え、最後の1回で<span class='merit'>@stan</span>秒間スタンさせる<br/>@cnt回未満かつ他に敵がいる場合、攻撃し続ける",
 				recover:"attack",activate:"manual",
 				effect:[
 					{start:10,need:40,atk:200,cnt:10,stan:2},
