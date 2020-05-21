@@ -671,11 +671,11 @@ const operator = {
 					{defadd: 5,reflect: 50},
 					{defadd: 7,reflect: 55},
 					{defadd: 9,reflect: 60},
-					{defadd:11,reflect: 65},
-					{defadd:13,reflect: 70},
-					{defadd:15,reflect: 75},
-					{defadd:17,reflect: 80},
-					{defadd:21,reflect: 85},
+					{defadd:13,reflect: 65},
+					{defadd:15,reflect: 70},
+					{defadd:17,reflect: 75},
+					{defadd:21,reflect: 80},
+					{defadd:24,reflect: 85},
 					{defadd:27,reflect: 90},
 					{defadd:30,reflect:100}
 				]
@@ -1555,7 +1555,7 @@ const operator = {
 						padd:1
 					},
 					"ダブルワーク":{
-						exp:"スキル未使用時、味方全員のHPが1秒ごとに@base回復@pexp",
+						exp:"スキル未使用時、味方全員のHPが1秒ごとに@base@pexp回復",
 						base:20,
 						pexp:"(+@padd)",
 						padd:5
@@ -1854,14 +1854,14 @@ const operator = {
 				]
 			},
 			"ウルサスの雄叫び":{
-				exp:"効果時間内所持コストが徐々に増加(合計<span class='merit'>@cost</span>)<br/>先鋒ユニット全員の攻撃力、防御力<span class='merit'>+@atkadd</span>%、敵を倒す度所持コスト<span class='merit'>+1</span>",
+				exp:"効果時間内所持コストが徐々に増加(合計<span class='merit'>@cost</span>)<br/>先鋒ユニット全員の攻撃力、防御力<span class='merit'>+@atkadd%</span>、敵を倒す度所持コスト<span class='merit'>+1</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:10,need:45,pers:10,cost: 9,atkadd:25,defadd:25},
 					{start:10,need:44,pers:10,cost: 9,atkadd:30,defadd:30},
 					{start:10,need:43,pers:10,cost: 9,atkadd:35,defadd:35},
-					{start:12,need:42,pers:12,cost:10,atkadd:40,defadd:40},
-					{start:12,need:41,pers:12,cost:10,atkadd:45,defadd:45},
+					{start:12,need:42,pers:12,cost:10,atkadd:35,defadd:40},
+					{start:12,need:41,pers:12,cost:10,atkadd:40,defadd:45},
 					{start:12,need:40,pers:12,cost:10,atkadd:45,defadd:45},
 					{start:14,need:39,pers:14,cost:11,atkadd:45,defadd:45},
 					{start:16,need:38,pers:16,cost:11,atkadd:50,defadd:50},
@@ -1988,7 +1988,7 @@ const operator = {
 				hp:2265,atk:500,def:350,res:0,cost:10,block:1,range:[[1,0]],
 				nature:{
 					"迅虎拳":{
-						exp:"@base%@pexpの確率で近距離物理攻撃を回避、回避成功時自身の次の攻撃は攻撃力+80%",
+						exp:"@base%@pexpの確率で近距離物理攻撃を回避、回避成功時自身の次の攻撃は攻撃力+100%",
 						base:30,
 						pexp:"(+@padd%)",
 						padd:3
@@ -2836,7 +2836,7 @@ const operator = {
 			{
 				hp:2780,atk:462,def:575,res:10,cost:21,block:3,range:[],
 				nature:{
-					"回復効果上昇・大":{
+					"ペガサスの加護":{
 						exp:"配置中、味方全員の回復効果が+@base%@pexp上昇",
 						base:10,
 						pexp:"(+@padd%)",
@@ -3746,7 +3746,7 @@ const operator = {
 				]
 			},
 			"メテオフレイム":{
-				exp:"通常攻撃の間隔が<span class='demerit'>延長</span>し、隕石を召喚する<br/>隕石は衝突まで時間がかかるが、衝突後広範囲の敵に攻撃力<span class='merit'>@atk%</span>分の術ダメージを与え、<span class='merit'>@stan</span>秒スタンさせる",
+				exp:"通常攻撃の間隔が<span class='demerit'>延長</span>し、隕石を召喚する<br/>隕石は衝突まで時間がかかるが、衝突後広範囲の敵に攻撃力<span class='merit'>@atk%</span>分の術ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる",
 				recover:"auto",activate:"manual",
 				effect:[
 					{need:35,pers:25,atk:170,stan:0.1,interval:1.7},
@@ -3868,13 +3868,13 @@ const operator = {
 			{
 				hp:1368,atk:404,def:100,res:0,cost:19,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
-					"血液サンプル回収":{exp:"攻撃範囲内の敵が倒れた時、自身と攻撃範囲内のランダムな味方1体のSPを1回復する"}
+					"血液サンプル回収":{exp:"攻撃範囲内の敵が倒れた時、自身と攻撃範囲内のランダムな味方1体のSPを1回復"}
 				}
 			},
 			{
 				hp:1520,atk:505,def:125,res:0,cost:19,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
-					"血液サンプル回収":{exp:"攻撃範囲内の敵が倒れた時、自身と攻撃範囲内のランダムな味方1体のSPを2回復する"}
+					"血液サンプル回収":{exp:"攻撃範囲内の敵が倒れた時、自身と攻撃範囲内のランダムな味方1体のSPを2回復"}
 				}
 			}
 		],
@@ -3934,13 +3934,13 @@ const operator = {
 			{
 				hp:1271,atk:268,def:124,res:0,cost:17,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
 				nature:{
-					"スキルブースト":{exp:"配置中、味方全員のSPの自動回復速度+0.15SP/秒（同種の効果は高いほうのみ適用）"}
+					"スキルブースト":{exp:"配置中、味方全員のSPの自動回復速度+0.15sp/秒（同種の効果は高いほうのみ適用）"}
 				}
 			},
 			{
 				hp:1610,atk:335,def:150,res:0,cost:17,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
 				nature:{
-					"スキルブースト":{exp:"配置中、味方全員のSPの自動回復速度+0.3SP/秒（同種の効果は高いほうのみ適用）"}
+					"スキルブースト":{exp:"配置中、味方全員のSPの自動回復速度+0.3sp/秒（同種の効果は高いほうのみ適用）"}
 				}
 			}
 		],
@@ -3998,7 +3998,7 @@ const operator = {
 				nature:{}
 			},
 			{
-				hp:1251,atk:353,def:100,res:5,cost:20,block:1,range:[[0,-2],[1,-2],[2,-2],[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1],[0,2],[1,2],[2,2]],
+				hp:1251,atk:353,def:100,res:5,cost:22,block:1,range:[[0,-2],[1,-2],[2,-2],[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1],[0,2],[1,2],[2,2]],
 				nature:{
 					"湖畔の散策者":{
 						exp:"通常時攻撃力+@base0%@pexp0、フィールドに水場がある時攻撃力+@base1%@pexp1",
@@ -4009,7 +4009,7 @@ const operator = {
 				}
 			},
 			{
-				hp:1251,atk:353,def:100,res:5,cost:20,block:1,range:[[0,-2],[1,-2],[2,-2],[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1],[0,2],[1,2],[2,2]],
+				hp:1251,atk:353,def:100,res:5,cost:22,block:1,range:[[0,-2],[1,-2],[2,-2],[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1],[0,2],[1,2],[2,2]],
 				nature:{
 					"湖畔の散策者":{
 						exp:"通常時攻撃力+@base0%@pexp0、フィールドに水場がある時攻撃力+@base1%@pexp1",
@@ -4046,7 +4046,7 @@ const operator = {
 			},
 			"水霊の加護":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃力<span class='merit'>+@atkadd%</span>、味方2人を同時に回復。効果時間内、攻撃範囲内にいる味方全員に<span class='merit'>【レジスト】</span>を付与<br/>（レジスト：スタン状態の継続時間が50%短縮）",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、味方2人を同時に回復。効果時間内、攻撃範囲内にいる味方全員に<span class='merit'>【レジスト】</span>を付与（レジスト：スタン状態の継続時間が50%短縮）",
 				effect:[
 					{start:20,need:80,pers:20,atkadd:30},
 					{start:22,need:80,pers:21,atkadd:30},
@@ -4254,13 +4254,13 @@ const operator = {
 			{
 				hp:1017,atk:278,def:190,res:0,cost:7,block:1,range:[[0,-2],[-1,-1],[0,-1],[1,-1],[-2,0],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[0,2]],
 				nature:{
-					"アンコール":{exp:"スキル終了後、50%の確率でそのスキルの必要SPの25%を回復する"}
+					"アンコール":{exp:"スキル終了後、50%の確率でSPが最大値の25%回復"}
 				}
 			},
 			{
 				hp:1356,atk:335,def:238,res:0,cost:7,block:1,range:[[0,-2],[-1,-1],[0,-1],[1,-1],[-2,0],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[0,2]],
 				nature:{
-					"アンコール":{exp:"スキル終了後、50%の確率でそのスキルの必要SPの50%を回復する"}
+					"アンコール":{exp:"スキル終了後、50%の確率でSPが最大値の50%回復"}
 				}
 			}
 		],
@@ -4522,7 +4522,7 @@ const operator = {
 				hp:1173,atk:413,def:253,res:0,cost:9,block:1,range:[[1,0]],
 				nature:{
 					"貫通":{
-						exp:"攻撃の最低ダメージが@base%@pexp以下にならない",
+						exp:"敵を攻撃時、必ず攻撃力の@base%@pexp以上のダメージを与える",
 						base:20,
 						pexp:"(+@padd%)",
 						padd:3
@@ -4533,7 +4533,7 @@ const operator = {
 				hp:1505,atk:530,def:302,res:0,cost:9,block:1,range:[[1,0]],
 				nature:{
 					"貫通":{
-						exp:"攻撃の最低ダメージが@base%@pexp以下にならない",
+						exp:"敵を攻撃時、必ず攻撃力の@base%@pexp以上のダメージを与える",
 						base:30,
 						pexp:"(+@padd%)",
 						padd:3
