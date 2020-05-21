@@ -189,22 +189,37 @@
 							<div id="trust" style='margin-top:0.3em;padding:0.2em;width:396px;color:white;background-color:rgba(0,0,0,0.4);'></div>
 						</div>
 					</div>
-					<div style="width:18.0em;">
-						<div style="margin-top:0.1em;margin-left:4px;height:6.0em;">
-							<span>特性<span>
-							<div id="characteristic"></div>
+					<div style="width:18.0em;height:22em;background:black;color:white;padding:1em;box-shadow:7px 7px 7px rgba(0,0,0,0.7);">
+						<div class="flex">
+							<div style="position:relative;height:60px;">
+								<div style="position:absolute;margin-left:17px;font-size:0.9em;">LV</div>
+								<div style="position:absolute;margin-top:10px;">
+									<span id="lv" style="font-size:2.5em;"></span>/<span id="maxLv"></span>
+								</div>
+							</div>
+							<div>
+								<img id="promotion" src="icon/promotion2.png" style="margin-left:60px;height:55px;">
+							</div>
+						</div>
+						<div class="flex card" style='width:42px;'>
+							<span style='font-size:10px;margin-top:5px;'>RANK</span>
+							<span id="rank" style='margin-left:1px;font-size:1.1em;'></span>
 						</div>
 						<div class="card flex">
 							<div style="width:4.4em;position:relative;">
 								<div class="center" style="position:absolute;width:4.4em;color:#C0C0C0;margin-top:8px;">スキル</div>
-								<div style="cursor:pointer;font-size:1.75em;position:absolute;margin-top:20px;" onclick="showSkill();">＋</div>
+								<div style="cursor:pointer;font-size:1.75em;position:absolute;margin-top:22px;" onclick="showSkill();">＋</div>
 							</div>
-							<div id="skill" class="flex"></div>
+							<div id="skill" class="flex" style='margin-bottom:10px;'></div>
+						</div>
+						<div style="margin-top:0.1em;margin-left:4px;height:6.0em;">
+							<span style="color:#C0C0C0;">特性</span>
+							<div id="characteristic"></div>
 						</div>
 						<div class="card flexbetween" style="height:4.9em;flex-direction:column;">
 							<div class="flex">
 								<div style="width:4.4em;color:#C0C0C0;margin-top:0.1em;margin-left:0.3em;">素質</div>
-								<div id="nature" style="margin-left:4px;"></div>
+								<div id="nature" style="margin-left:4px;padding-top:0.2em;"></div>
 							</div>
 							<div style="font-size:1.1em;cursor:pointer;margin-left:0.4em;" onclick="showNature();">…</div>
 						</div>
@@ -225,10 +240,10 @@
 								<div class="center" style="width:100%;margin-top:70px;">潜在</div>
 							</div>
 							<div id="potential" class="center" style="width:190px;"></div>
+							<div style="width:625px;">
+								<canvas id="chart" height="180"></canvas>
+							</div>
 						</div>
-					</div>
-					<div style="width:725px;">
-						<canvas id="chart" height="180"></canvas>
 					</div>
 				</div>
 			</div>

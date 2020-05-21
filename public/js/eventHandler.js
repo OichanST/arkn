@@ -391,6 +391,18 @@ function showDetail(name){
 	ById("skill").innerHTML = "";
 	ById("cond").innerHTML = "";
 	ById("effect").innerHTML = "-";
+	ById("lv").innerText = sto.data[name].lv;
+	if(sto.data[name].promotion == 1){
+		ById("promotion").style.display = "block";
+		ById("promotion").setAttribute("src", "icon/promotion1.png");
+	}else if(sto.data[name].promotion == 2){
+		ById("promotion").style.display = "block";
+		ById("promotion").setAttribute("src", "icon/promotion2.png");
+	}else{
+		ById("promotion").style.display = "none";
+	}
+	ById("maxLv").innerText = calcLvMax(operator[name].rare, sto.data[name].promotion);
+	ById("rank").innerText = sto.data[name].slv;
 	// オペレーターデータループ
 	for(let key in data){
 		// 対応する項目を取得
