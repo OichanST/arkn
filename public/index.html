@@ -220,11 +220,9 @@
 				<div style="width:600px;">
 					<div class="flex">
 						<div>
-							<div style="width:150px;text-align:center;">
-								<svg width="50" height="20">
-									<path id="prev" d="M30 0 L50 10 L30 20 Z" style="cursor:pointer;fill:gray;" onclick="slide(1);"></path>
-									<path id="next" d="M0 10 L20 0 L20 20 Z" style="cursor:pointer;fill:gray;" onclick="slide(-1);"></path>
-								</svg>
+							<div style="display:flex;justify-content:space-between;width:152px;text-align:center;">
+								<div onclick="slide(-1)" style="width:70px;margin-right:px;cursor:pointer;background:gray;color:white;">PREV</div>
+								<div onclick="slide(1)" style="width:70px;cursor:pointer;background:gray;color:white;">NEXT</div>
 							</div>
 							<div id="rangeWrapper" class="card center flexend" style="width:144px;flex-direction:column;">
 								<div id="range"></div>
