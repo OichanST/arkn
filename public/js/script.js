@@ -417,24 +417,25 @@ function ValueConverter(name, key, val){
 			ById("trustBar").style.width = Math.round(trustPt / 2) + "%";
 			ret = "";
 			for(let key in val){
-				if(ret != ""){
-					ret += "&nbsp;";
-				}
+				ret += "<div class='flex'>";
+				ret += "<div style='width:5em;'>";
 				switch(key){
 					case "atk":
-						ret += "攻撃力+";
+						ret += "攻撃力";
 						break;
 					case "hp":
-						ret += "HP+";
+						ret += "HP";
 						break;
 					case "def":
-						ret += "防御力+";
+						ret += "防御力";
 						break;
 				}
+				ret += "</div>"
 				if(trustPt >= 100){
 					trustPt = 100;
 				}
-				ret += Math.round(val[key] * trustPt / 100);
+				ret += "<div style='text-align:right;width:3em;'>+" + Math.round(val[key] * trustPt / 100) + "</div>";
+				ret += "</div>"
 			}
 			return ret;
 		// 特性
