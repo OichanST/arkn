@@ -1,4 +1,6 @@
 "use strict";
+
+let slideFlg = false;
 /**
  * 初期表示処理
  */
@@ -70,7 +72,8 @@ function init(){
 				potential:1,
 				trust:0,
 				slv:1,
-				sp:new Array(0,0,0)
+				sp:new Array(0,0,0),
+				img:0
 			};
 		}
 		sortedOperator.push(data);
@@ -350,36 +353,39 @@ function init(){
 	}
 }
 
+let imgList;
+let dispNum;
 /**
  * 詳細表示
  */
 function showDetail(name){
 	hide();
 	ById("skillSp").style.display = "none";
+	slideFlg = false;
 	// 該当のオペレーターのデータ取得
 	const data = operator[name];
 	// イメージタグ生成
 	const img = Elem("img");
 	
-	let src;
+	imgList = new Array();
+	imgList.push(data.en);
+	if(name == "アーミヤ"){
+		imgList.push(data.en + "_1");
+	}
+	imgList.push(data.en + "_2");
 	
-	if(sto.data[name].promotion == 0){
-		src = data.en;
-	}else{
-		if(name == "アーミヤ"){
-			src = data.en + "_" + sto.data[name].promotion;
-		}else{
-			if(sto.data[name].promotion == 2){
-				src = data.en + "_2";
-			}else{
-				src = data.en;
-			}
+	if(data.outfit){
+		for(let i = 0; i < data.outfit.length; i++){
+			imgList.push(data.en + "_" + data.outfit[i]);
 		}
 	}
 	
+	if(!sto.data[name].img){
+		sto.data[name].img = 0;
+	}
+	let src = imgList[sto.data[name].img];
+	
 	img.setAttribute("src", "image/" + src + ".png");
-	img.style.width = "9.5em";
-	img.style.height = "295px";
 	ById("img").innerHTML = "";
 	ById("img").appendChild(img);
 	// イメージのオーバレイの色彩設定
@@ -1240,6 +1246,15 @@ function change(key){
 				r.setAttribute("class", "notHave");
 			}
 			break;
+		case "promotion":
+			// 入力されている値を数値変換して取得
+			targetValue = parseInt(event.target.value);
+			if(operatorName == "アーミヤ"){
+				sto.data[operatorName]["img"] = targetValue;
+			}else{
+				sto.data[operatorName]["img"] = (targetValue != 2 ? 0 : 1);
+			}
+			break;
 		// 所持以外
 		default:
 			// 入力されている値を数値変換して取得
@@ -1442,4 +1457,64 @@ function saveServer(){
 	serverData = sto.data;
 	callServer("data", JSON.stringify(serverData));
 	alert("サーバーにデータをセーブしました。");
+}
+
+function slide(val){
+	if(slideFlg){
+		event.stopPropagation();
+		return;
+	}
+	slideFlg = true;
+	// オペレータ名取得
+	const name = ById("name").innerText;
+	const f = ById("img");
+	if(val > 0){
+		const imgPrev = Elem("img");
+		let nextNum = sto.data[name].img + 1;
+		if(nextNum >= imgList.length){
+			nextNum = 0;
+		}
+		imgPrev.src = "image/" + imgList[nextNum] + ".png";
+		imgPrev.setAttribute("class", "prevToIn");
+		imgPrev.addEventListener("animationend", function(){
+			this.style.left = "0px";
+		});
+		f.appendChild(imgPrev);
+		const imgDisp = f.getElementsByTagName("img")[0];
+		imgDisp.setAttribute("class", "inToNext");
+		imgDisp.addEventListener("animationend", function(){
+			this.style.left = "9.5em";
+			ById("img").removeChild(this);
+			slideFlg = false;
+		});
+		sto.data[name].img++;
+		if(sto.data[name].img >= imgList.length){
+			sto.data[name].img = 0;
+		}
+	}else if(val < 0){
+		const imgNext = Elem("img");
+		let prevNum = sto.data[name].img - 1;
+		if(prevNum < 0){
+			prevNum = imgList.length - 1;
+		}
+		imgNext.src = "image/" + imgList[prevNum] + ".png";
+		imgNext.setAttribute("class", "nextToIn");
+		imgNext.addEventListener("animationend", function(){
+			this.style.left = "0px";
+		});
+		f.appendChild(imgNext);
+		const imgDisp = f.getElementsByTagName("img")[0];
+		imgDisp.setAttribute("class", "inToPrev");
+		imgDisp.addEventListener("animationend", function(){
+			this.style.left = "-9.5em";
+			ById("img").removeChild(this);
+			slideFlg = false;
+		});
+		sto.data[name].img--;
+		if(sto.data[name].img < 0){
+			sto.data[name].img = imgList.length - 1;
+		}
+	}
+	sto.save();
+	event.stopPropagation();
 }

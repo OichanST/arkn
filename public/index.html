@@ -137,7 +137,7 @@
 				</div>
 				<div class="flex" style="height:300px;">
 					<div style="width:154px;">
-						<div id="img" style="position:absolute;"></div>
+						<div id="img" style="width:9.5em;height:295px;position:absolute;overflow:hidden;border:1px solid black;"></div>
 						<div id="job" class="center" style="background-color:black;"></div>
 						<div id="rare"></div>
 						<div id="en"></div>
@@ -219,9 +219,17 @@
 				</div>
 				<div style="width:600px;">
 					<div class="flex">
-						<div id="rangeWrapper" class="card center flexend" style="width:165px;flex-direction:column;">
-							<div id="range"></div>
-							<div>攻撃範囲</div>
+						<div>
+							<div style="width:150px;text-align:center;">
+								<svg width="50" height="20">
+									<path id="prev" d="M30 0 L50 10 L30 20 Z" style="cursor:pointer;fill:gray;" onclick="slide(1);"></path>
+									<path id="next" d="M0 10 L20 0 L20 20 Z" style="cursor:pointer;fill:gray;" onclick="slide(-1);"></path>
+								</svg>
+							</div>
+							<div id="rangeWrapper" class="card center flexend" style="width:144px;flex-direction:column;">
+								<div id="range"></div>
+								<div>攻撃範囲</div>
+							</div>
 						</div>
 						<div id="tag"></div>
 						<div>

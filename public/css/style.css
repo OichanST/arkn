@@ -408,3 +408,53 @@ button:disabled{
 	margin-left:4px;
 	content:"※"
 }
+
+#img img{
+	position:absolute;
+	width:9.5em;
+	height:295px;
+}
+.prevToIn{
+	animation:animatePrevToIn 1s;
+}
+@keyframes animatePrevToIn{
+	0%{
+		left:-9.5em;
+	}
+	100%{
+		left:0px;
+	}
+}
+.nextToIn{
+	animation:animateNextToIn 1s;
+}
+@keyframes animateNextToIn{
+	0%{
+		left:9.5em;
+	}
+	100%{
+		left:0px;
+	}
+}
+.inToNext{
+	animation:animateInToNext 1s;
+}
+@keyframes animateInToNext{
+	0% {
+		left:0px;
+	}
+	100%{
+		left:9.5em;
+	}
+}
+.inToPrev{
+	animation:animateInToPrev 1s;
+}
+@keyframes animateInToPrev{
+	0%{
+		left:0px;
+	}
+	100%{
+		left:-9.5em;
+	}
+}

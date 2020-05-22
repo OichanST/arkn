@@ -20,7 +20,8 @@ if(sto.isEmpty){
 				potential:1,
 				trust:0,
 				slv:1,
-				sp:new Array(0,0,0)
+				sp:new Array(0,0,0),
+				img:0
 			};
 		}
 		// 初期化データの返却
