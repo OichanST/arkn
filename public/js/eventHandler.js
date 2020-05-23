@@ -364,30 +364,36 @@ function showDetail(name){
 	slideFlg = false;
 	// 該当のオペレーターのデータ取得
 	const data = operator[name];
-	// イメージタグ生成
-	const img = Elem("img");
+
 	
 	imgList = new Array();
-	imgList.push(data.en);
+	let img = Elem("img");
+	img.setAttribute("src", "image/" + data.en + ".png");
+	imgList.push(img);
 	if(name == "アーミヤ"){
-		imgList.push(data.en + "_1");
+		// イメージタグ生成
+		img = Elem("img");
+		img.setAttribute("src", "image/" + data.en + "_1.png");
+		imgList.push(img);
 	}
-	imgList.push(data.en + "_2");
+	img = Elem("img");
+	img.setAttribute("src", "image/" + data.en + "_2.png");
+	imgList.push(img);
 	
 	if(data.outfit){
 		for(let i = 0; i < data.outfit.length; i++){
-			imgList.push(data.en + "_" + data.outfit[i]);
+			img = Elem("img");
+			img.setAttribute("src", "image/" + data.en + "_" + data.outfit[i] + ".png");
+			imgList.push(img);
 		}
 	}
 	
 	if(!sto.data[name].img){
 		sto.data[name].img = 0;
 	}
-	let src = imgList[sto.data[name].img];
 	
-	img.setAttribute("src", "image/" + src + ".png");
 	ById("img").innerHTML = "";
-	ById("img").appendChild(img);
+	ById("img").appendChild(imgList[sto.data[name].img]);
 	// イメージのオーバレイの色彩設定
 	ById("imageBack").setAttribute("class", "rare" + data.rare);
 	// オペレーター名反映
@@ -1469,7 +1475,6 @@ function slide(val){
 	const name = ById("name").innerText;
 	const f = ById("img");
 	if(val > 0){
-		const imgPrev = Elem("img");
 		let nextNum = sto.data[name].img + 1;
 		if(name == "アーミヤ"){
 			if(sto.data[name].promotion < nextNum){
@@ -1487,7 +1492,7 @@ function slide(val){
 			event.stopPropagation();
 			return;
 		}
-		imgPrev.src = "image/" + imgList[nextNum] + ".png";
+		const imgPrev = imgList[nextNum].cloneNode();
 		imgPrev.setAttribute("class", "prevToIn");
 		imgPrev.addEventListener("animationend", function(){
 			this.style.left = "0px";
@@ -1502,7 +1507,6 @@ function slide(val){
 		});
 		sto.data[name].img = nextNum;
 	}else if(val < 0){
-		const imgNext = Elem("img");
 		let prevNum = sto.data[name].img - 1;
 		if(prevNum < 0){
 			prevNum = imgList.length - 1;
@@ -1520,7 +1524,7 @@ function slide(val){
 			event.stopPropagation();
 			return;
 		}
-		imgNext.src = "image/" + imgList[prevNum] + ".png";
+		const imgNext = imgList[prevNum].cloneNode();
 		imgNext.setAttribute("class", "nextToIn");
 		imgNext.addEventListener("animationend", function(){
 			this.style.left = "0px";
