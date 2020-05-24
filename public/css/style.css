@@ -295,16 +295,6 @@ button:disabled{
 	margin-left:6px;
 	z-index:98;
 }
-#name{
-	font-size:40px;
-	font-weight:600;
-	-webkit-text-stroke:1px black;
-	color:white;
-	position:absolute;
-	top:260px;
-	margin-left:6px;
-	z-index:98;
-}
 #job{
 	position:absolute;
 	width:2.0em;
@@ -314,32 +304,6 @@ button:disabled{
 }	
 #nature div:not(:first-child){
 	margin-top:2px;
-}
-#natureDetail{
-	position:absolute;
-	top:50%;
-	left:50%;
-	transform:translateX(-50%) translateY(-50%);
-	display:none;
-	width:40em;
-	height:20em;
-	color:white;
-	background-color:rgba(0,0,0,0.8);
-	padding:1em 2em 1em 2em;
-	z-index:99;
-}
-#skillDetailOverlay{
-	position:absolute;
-	top:50%;
-	left:50%;
-	transform:translateX(-50%) translateY(-50%);
-	display:none;
-	width:55em;
-	height:auto;
-	color:white;
-	background-color:rgba(0,0,0,0.35);
-	padding:1.5em;
-	z-index:99;
 }
 #skillSp{
 	position:absolute;

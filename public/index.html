@@ -35,12 +35,8 @@
 						<label><input type="radio" name="type" value="1" checked onchange="init();"><span>オペレーター管理</span></label>
 						<label><input type="radio" name="type" value="2" onchange="init();"><span>一覧</span></label>
 					</div>
-					<div>
-						<button type="button" onclick="ById('setting').style.display='block';" style="margin-top:0.4em;">設定</button>
-						<span id="serverAction" style="display:none;">
-							<button type="button" onclick="loadServer();" style="width:120px;">データロード</button>
-							<button type="button" onclick="saveServer();" style="width:120px;">データセーブ</button>
-						</span>
+					<div style="text-align:right;">
+						<button type="button" onclick="ById('setting').style.display='block';" style="margin-top:0.3em;">設定</button>
 					</div>
 				</div>
 				<div id="setting" style="position:absolute;width:calc(100% - 2.1em);z-index:99;padding:1em;border:1px solid black;top:0;left:0;background:white;display:none;">
@@ -105,6 +101,10 @@
 						</div>
 						<div id="errMessage" style="display:none;font-weight:bold;color:red;margin-top:5px;"></div>
 					</div>
+					<span id="serverAction" style="display:none;text-align:right;">
+						<button type="button" onclick="loadServer();" style="margin-top:1em;">データロード</button><br/>
+						<button type="button" onclick="saveServer();" style="margin-top:1em;">データセーブ</button>
+					</span>
 					<div style="text-align:center;margin-top:1em;">
 						<button type="button" onclick="ById('setting').style.display='none';">閉じる</button>
 					</div>
@@ -190,8 +190,8 @@
 				</div>
 			</div>
 			<div id="imageArea" class="flex" style="flex-wrap:wrap;">
-				<div>
-					<div style="width:154px;">
+				<div id="imgView">
+					<div>
 						<div id="img" style="width:9.5em;height:295px;position:absolute;overflow:hidden;border:1px solid black;"></div>
 						<div id="job" class="center" style="background-color:black;"></div>
 						<div id="rare"></div>

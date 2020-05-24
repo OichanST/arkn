@@ -889,6 +889,9 @@ function showNature(){
 	}
 	// HTML反映
 	detail.innerHTML = html;
+	if(isMobile){
+		detail.style.top = (window.scrollY + 100) + "px";
+	}
 	// 素質詳細の表示
 	detail.style.display = "block";
 	// イベント伝播の停止
