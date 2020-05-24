@@ -1,10 +1,16 @@
 "use strict";
 
 let slideFlg = false;
+
+let isMobile = false;
 /**
  * 初期表示処理
  */
 function init(){
+    if (window.matchMedia("(max-width:480px)").matches) {
+        //スマホ処理
+        isMobile = true;
+    }
 	// 入力フォームの取得
 	const f = document.forms[0];
 	// チェックされている表示形式の取得
@@ -19,19 +25,30 @@ function init(){
 	const t = new Table("operator").removeAll();
 	// リストヘッダ行生成
 	const hrow = new Row();
-	// 簡易＋詳細
+	// オペレーター管理
 	if(type == "1"){
-		thead.size("70.0em");
-		ById("wrapper").style.width = "69.9em";
+		if(isMobile){
+			thead.size("100%");
+			ById("wrapper").style.width = "calc(100% - 1px)";
+		}else{
+			thead.size("70.0em");
+			ById("wrapper").style.width = "calc(70em - 1px)";
+		}
 		hrow.addHeader("所持", {width:"2.9em"});
-		hrow.addHeader("レア度", {width:"6.0em"});
+		if(isMobile){
+			hrow.addHeader("ﾚｱ", {width:"1.5em"});
+		}else{
+			hrow.addHeader("レア度", {width:"6.0em"});
+		}
 		hrow.addHeader("コードネーム", {width:"9.5em"});
-		hrow.addHeader("職業", {width:"2.5em"});
-		hrow.addHeader("昇進", {width:"3.8em"});
-		hrow.addHeader("レベル", {width:"11.1em"});
-		hrow.addHeader("潜在", {width:"2.5em"});
-		hrow.addHeader("信頼度", {width:"11.7em"});
-		hrow.addHeader("スキルRANK");
+		hrow.addHeader("職業", {width:isMobile ? "" : "2.5em"});
+		if(!isMobile){
+			hrow.addHeader("昇進", {width:"3.8em"});
+			hrow.addHeader("レベル", {width:"11.1em"});
+			hrow.addHeader("潜在", {width:"2.5em"});
+			hrow.addHeader("信頼度", {width:"11.7em"});
+			hrow.addHeader("スキルRANK");
+		}
 	// 一覧
 	}else if(type == "2"){
 		thead.size("51.3em");
@@ -147,7 +164,7 @@ function init(){
 		}
 		// 行生成（処理用に属性としてオペレーター名を付与）
 		const r = new Row().attr("name", operatorName);
-		// 簡易＋詳細
+		// オペレーター管理
 		if(type == "1"){
 			// 所持状態取得
 			const haveOperator = sto.data[operatorName].have;
@@ -166,15 +183,32 @@ function init(){
 				r.add("<label><input type='checkbox' " + (haveOperator ? "checked": "") + " onchange='changeHave();'><span>所持</span></label>", {width:"2.9em"});
 			}
 			// レアリティセル追加
-			r.add(star(data.rare), {width:"6.0em"});
+			if(isMobile){
+				r.add(data.rare, {textAlign:"center", width:"1.5em"});
+			}else{
+				r.add(star(data.rare), {width:"6.0em"});
+			}
 			// オペレーター名セル追加
-			r.add(operatorName, {cursor:"pointer", width:"9.5em"}, null, function(){
+			let nameCss = {cursor:"pointer"};
+			nameCss["width"] = "9.5em";
+			r.add(operatorName, nameCss, null, function(){
 				new Table("operator").clear();
 				event.target.setAttribute("class", "selected");
-				showDetail(findRow(event.target).getAttribute("name"));
+				if(isMobile){
+					ById("name").innerText = findRow(event.target).getAttribute("name");
+					ById("selectorForMobile").style.display = "block";
+				}else{
+					showDetail(findRow(event.target).getAttribute("name"));
+				}
 			});
 			// 職業セル追加
-			r.add(data.job, {textAlign:"center", width:"2.5em"});
+			r.add(data.job, {textAlign:"center", width:isMobile ? "" : "2.5em"});
+			// モバイル端末ならここまで
+			if(isMobile){
+				// オペレーター一覧に行追加
+				t.add(r);
+				continue;
+			}
 			// 昇進選択リスト
 			let sel = Elem("select");
 			let optList = [
@@ -523,6 +557,11 @@ function showDetail(name){
 	// 詳細を表示する
 	ById("detail").style.display = "block";
 	
+	if(isMobile){
+		// イベント伝播の停止
+		event.stopPropagation();
+		return;
+	}
 	/*------------------------------------------------*/
 	
 	// キャンバス取得
@@ -1230,10 +1269,16 @@ function changeSlv(){
  * 汎用変更処理
  */
 function change(key){
-	// アクション対象の行を特定
-	const r = findRow(event.target);
-	// 行に設定されているオペレータ名の取得
-	const operatorName = r.getAttribute("name");
+	let operatorName;
+	let r;
+	if(isMobile){
+		operatorName = ById("name").innerText;
+	}else{
+		// アクション対象の行を特定
+		r = findRow(event.target);
+		// 行に設定されているオペレータ名の取得
+		operatorName = r.getAttribute("name");
+	}
 	// 値
 	let targetValue;
 	// キーによる分岐
@@ -1242,14 +1287,16 @@ function change(key){
 		case "have":
 			// チェックボックスなのでcheckedを取得
 			targetValue = event.target.checked;
-			// チェックされている場合
-			if(event.target.checked){
-				// クラス定義を消して未所持状態を解除
-				r.removeAttribute("class");
-			// チェックされていない場合
-			}else{
-				// 未所持状態のクラス定義を追加
-				r.setAttribute("class", "notHave");
+			if(r){
+				// チェックされている場合
+				if(event.target.checked){
+					// クラス定義を消して未所持状態を解除
+					r.removeAttribute("class");
+				// チェックされていない場合
+				}else{
+					// 未所持状態のクラス定義を追加
+					r.setAttribute("class", "notHave");
+				}
 			}
 			break;
 		case "promotion":
@@ -1272,62 +1319,119 @@ function change(key){
 	// ストレージデータの保存
 	sto.save();
 	// 昇進の変更の場合
-	if(key == "promotion"){
-		const selects = r.getElementsByTagName("select");
-		let divide = 1;
-		if(operator[operatorName].rare >= 4){
-			divide = 2;
-		}
-		selects[0].style.color = "rgb(" + Math.round(selects[0].value / divide * 255) + ",0,0)";
-		
-		selects[2].innerHTML = "";
-		let max = 4;
-		if(targetValue >= 1){
-			max = 7;
-		}
-		for(let i = 1; i <= max; i++){
-			let opt = new Option(i, i);
-			if(sto.data[operatorName].slv == i){
-				opt.selected = true;
+	if(isMobile){
+		if(key == "promotion"){
+			let divide = 1;
+			if(operator[operatorName].rare >= 4){
+				divide = 2;
 			}
-			selects[2].appendChild(opt);
+			const selects = ById("s_promotion").getElementsByTagName("select");
+			selects[0].style.color = "rgb(" + Math.round(selects[0].value / divide * 255) + ",0,0)";
+			
+			ById("s_slv").getElementsByTagName("select")[0].innerHTML = "";
+			let max = 4;
+			if(targetValue >= 1){
+				max = 7;
+			}
+			for(let i = 1; i <= max; i++){
+				let opt = new Option(i, i);
+				if(sto.data[operatorName].slv == i){
+					opt.selected = true;
+				}
+				ById("s_slv").getElementsByTagName("select")[0].appendChild(opt);
+			}
+			// 該当レアリティ、昇進状態による最大Lvを取得
+			const lvMax = calcLvMax(operator[operatorName].rare, sto.data[operatorName].promotion);
+			// Lvの最大値を更新
+			let inputs = ById("s_lv").getElementsByTagName("input");
+			inputs[0].max = lvMax;
+			inputs[0].setAttribute("class", "prom" + sto.data[operatorName].promotion);
+			inputs[1].max = lvMax;
+			inputs[1].style.color = "rgb(" + Math.round((inputs[1].value / inputs[1].max) * 255) + ",0,0)";
+			
+			if(targetValue == 2 && sto.data[operatorName].slv == 7){
+				ById("s_ssp").style.display = "block";
+			}else{
+				ById("s_ssp").style.display = "none";
+			}
+		}else if(key == "lv"){
+			// 行にある入力を取得
+			const inputs = ById("s_lv").getElementsByTagName("input");
+			inputs[1].style.color = "rgb(" + Math.round((inputs[1].value / inputs[1].max) * 255) + ",0,0)";
+		}else if(key == "potential"){
+			const selects = ById("s_potential").getElementsByTagName("select");
+			selects[0].style.color = "rgb(" + Math.round(selects[0].value / 6 * 255) + ",0,0)";
+		}else if(key == "trust"){
+			const inputs = ById("s_trust").getElementsByTagName("input");
+			inputs[1].style.color = "rgb(" + Math.round((inputs[1].value / inputs[1].max) * 255) + ",0,0)";
+		}else if(key == "slv"){
+			const selects = ById("s_slv").getElementsByTagName("select");
+			selects[0].style.color = "rgb(" + Math.round(selects[0].value / 7 * 255) + ",0,0)";
+
+			if(targetValue == 7 && sto.data[operatorName].promotion == 2){
+				ById("s_ssp").style.display = "block";
+			}else{
+				ById("s_ssp").style.display = "none";
+			}
 		}
-		// 行にある入力を取得
-		const inputs = r.getElementsByTagName("input");
-		// 該当レアリティ、昇進状態による最大Lvを取得
-		const lvMax = calcLvMax(operator[operatorName].rare, sto.data[operatorName].promotion);
-		// Lvの最大値を更新
-		inputs[1].max = lvMax;
-		inputs[1].setAttribute("class", "prom" + sto.data[operatorName].promotion);
-		inputs[2].max = lvMax;
-		inputs[2].style.color = "rgb(" + Math.round((inputs[2].value / inputs[2].max) * 255) + ",0,0)";
-		
-		const btn = r.getElementsByTagName("button")[0];
-		
-		if(targetValue == 2 && sto.data[operatorName].slv == 7){
-			btn.disabled = false;
-		}else{
-			btn.disabled = true;
-		}
-	}else if(key == "lv"){
-		// 行にある入力を取得
-		const inputs = r.getElementsByTagName("input");
-		inputs[2].style.color = "rgb(" + Math.round((inputs[2].value / inputs[2].max) * 255) + ",0,0)";
-	}else if(key == "potential"){
-		const selects = r.getElementsByTagName("select");
-		selects[1].style.color = "rgb(" + Math.round(selects[1].value / 6 * 255) + ",0,0)";
-	}else if(key == "trust"){
-		const inputs = r.getElementsByTagName("input");
-		inputs[4].style.color = "rgb(" + Math.round((inputs[4].value / inputs[4].max) * 255) + ",0,0)";
-	}else if(key == "slv"){
-		const selects = r.getElementsByTagName("select");
-		selects[2].style.color = "rgb(" + Math.round(selects[2].value / 7 * 255) + ",0,0)";
-		const btn = r.getElementsByTagName("button")[0];
-		
-		if(targetValue == 7 && sto.data[operatorName].promotion == 2){
-			btn.disabled = false;
-		}else{
-			btn.disabled = true;
+	}else{
+		if(key == "promotion"){
+			const selects = r.getElementsByTagName("select");
+			let divide = 1;
+			if(operator[operatorName].rare >= 4){
+				divide = 2;
+			}
+			selects[0].style.color = "rgb(" + Math.round(selects[0].value / divide * 255) + ",0,0)";
+			
+			selects[2].innerHTML = "";
+			let max = 4;
+			if(targetValue >= 1){
+				max = 7;
+			}
+			for(let i = 1; i <= max; i++){
+				let opt = new Option(i, i);
+				if(sto.data[operatorName].slv == i){
+					opt.selected = true;
+				}
+				selects[2].appendChild(opt);
+			}
+			// 行にある入力を取得
+			const inputs = r.getElementsByTagName("input");
+			// 該当レアリティ、昇進状態による最大Lvを取得
+			const lvMax = calcLvMax(operator[operatorName].rare, sto.data[operatorName].promotion);
+			// Lvの最大値を更新
+			inputs[1].max = lvMax;
+			inputs[1].setAttribute("class", "prom" + sto.data[operatorName].promotion);
+			inputs[2].max = lvMax;
+			inputs[2].style.color = "rgb(" + Math.round((inputs[2].value / inputs[2].max) * 255) + ",0,0)";
+			
+			const btn = r.getElementsByTagName("button")[0];
+			
+			if(targetValue == 2 && sto.data[operatorName].slv == 7){
+				btn.disabled = false;
+			}else{
+				btn.disabled = true;
+			}
+		}else if(key == "lv"){
+			// 行にある入力を取得
+			const inputs = r.getElementsByTagName("input");
+			inputs[2].style.color = "rgb(" + Math.round((inputs[2].value / inputs[2].max) * 255) + ",0,0)";
+		}else if(key == "potential"){
+			const selects = r.getElementsByTagName("select");
+			selects[1].style.color = "rgb(" + Math.round(selects[1].value / 6 * 255) + ",0,0)";
+		}else if(key == "trust"){
+			const inputs = r.getElementsByTagName("input");
+			inputs[4].style.color = "rgb(" + Math.round((inputs[4].value / inputs[4].max) * 255) + ",0,0)";
+		}else if(key == "slv"){
+			const selects = r.getElementsByTagName("select");
+			selects[2].style.color = "rgb(" + Math.round(selects[2].value / 7 * 255) + ",0,0)";
+			const btn = r.getElementsByTagName("button")[0];
+			
+			if(targetValue == 7 && sto.data[operatorName].promotion == 2){
+				btn.disabled = false;
+			}else{
+				btn.disabled = true;
+			}
 		}
 	}
 }
@@ -1541,4 +1645,171 @@ function slide(val){
 	}
 	sto.save();
 	event.stopPropagation();
+}
+
+function showSettingForMoble(){
+	const operatorName = ById("name").innerText;
+	ById("handleName").innerText = operatorName;
+	const data = operator[operatorName];
+	const f = ById("settingForMobile");
+	// 昇進選択リスト
+	let sel = Elem("select");
+	let optList = [
+		{label:"", value:"0"},
+	];
+	// レアリティ３以上
+	if(data.rare >= 3){
+		// 昇進１を追加
+		optList.push({label:"昇進１", value:"1"});
+	}
+	// レアリティ４以上
+	if(data.rare >= 4){
+		// 昇進２を追加
+		optList.push({label:"昇進２", value:"2"});
+	};
+	// レアリティ３以上の場合
+	if(data.rare >= 3){
+		// 昇進選択リストを生成
+		for(let i = 0; i < optList.length; i++){
+			const opt = new Option(optList[i].label, optList[i].value);
+			if(sto.data[operatorName].promotion == optList[i].value){
+				opt.selected = true;
+			}
+			sel.appendChild(opt);
+		}
+		sel.setAttribute("value", sto.data[operatorName].promotion);
+		if(data.rare >= 4){
+			sel.style.color = "rgb(" + Math.round(sto.data[operatorName].promotion / 2 * 255) + ",0,0)";
+		}else{
+			sel.style.color = "rgb(" + Math.round(sto.data[operatorName].promotion * 255) + ",0,0)";
+		}
+		sel.addEventListener("change", changePromotion);
+		ById("s_promotionArea").style.display = "";
+		ById("s_promotion").innerHTML = "";
+		ById("s_promotion").appendChild(sel);
+	// レアリティ２以下
+	}else{
+		// 昇進選択不可
+		ById("s_promotionArea").style.display = "none";
+	}
+	// LVスライダーセット
+	ById("s_lv").innerHTML = "";
+	ById("s_lv").appendChild(
+		makeRangeSet({
+			value:sto.data[operatorName].lv,
+			min:1,
+			max:calcLvMax(data.rare, sto.data[operatorName].promotion),
+			func:changeLv,
+			numInputWidth:38,
+			promotion:sto.data[operatorName].promotion
+		})
+	);
+	// 潜在選択リスト生成
+	sel = Elem("select");
+	// リスト選択値
+	optList = [
+		{label:"1",value:1},
+		{label:"2",value:2},
+		{label:"3",value:3},
+		{label:"4",value:4},
+		{label:"5",value:5},
+		{label:"6",value:6}
+	];
+	// 潜在リスト選択生成
+	for(let i = 0; i < optList.length; i++){
+		const opt = new Option(optList[i].label, optList[i].value);
+		if(sto.data[operatorName].potential == optList[i].value){
+			opt.selected = true;
+		}
+		sel.appendChild(opt);
+	}
+	sel.setAttribute("value", sto.data[operatorName].potential);
+	sel.style.color = "rgb(" + Math.round(sto.data[operatorName].potential / 6 * 255) + ",0,0)";
+	sel.addEventListener("change", changePotential);
+	ById("s_potential").innerHTML = "";
+	ById("s_potential").appendChild(sel);
+	// 信頼度スライダーセット生成
+	ById("s_trust").innerHTML = "";
+	ById("s_trust").appendChild(
+		makeRangeSet({
+			value:sto.data[operatorName].trust,
+			min:1,
+			max:200,
+			func:changeTrust
+		})
+	);
+	if(data.rare > 2){
+		// スキルレベルコンボ生成
+		sel = Elem("select");
+		optList = [
+			{label:1,value:1},
+			{label:2,value:2},
+			{label:3,value:3},
+			{label:4,value:4}
+		];
+		if(sto.data[operatorName].promotion >= 1){
+			optList.push({label:5,value:5});
+			optList.push({label:6,value:6});
+			optList.push({label:7,value:7});
+		}
+		for(let i = 0; i < optList.length; i++){
+			const opt = new Option(optList[i].label, optList[i].value);
+			if(sto.data[operatorName].slv == optList[i].value){
+				opt.selected = true;
+			}
+			sel.appendChild(opt);
+		}
+		sel.setAttribute("value", sto.data[operatorName].slv);
+		sel.style.color = "rgb(" + Math.round(sto.data[operatorName].slv / 7 * 255) + ",0,0)";
+		sel.addEventListener("change", changeSlv);
+		ById("s_slvArea").style.display = "";
+		ById("s_slv").innerHTML = "";
+		ById("s_slv").appendChild(sel);
+		if(sto.data[operatorName].slv == 7 && sto.data[operatorName].promotion == 2){
+			// スキルデータ取得
+			const sdata = operator[operatorName].skill;
+			// スキルデータ未設定の場合、何もしない
+			if(!sdata || sdata.length <= 0){
+				return;
+			}
+			// ストレージからスキル特化データ取得
+			let spData = sto.data[operatorName].sp;
+			// 未設定の場合の初期化
+			if(!spData){
+				spData = new Array(0,0,0);
+			}
+			// 表示内容リセット
+			ById("s_ssp").innerHTML = "<div>スキル特化</div>";
+			// ループカウンタ
+			let i = 0;
+			// スキルデータループ
+			for(let sname in sdata){
+				// divタグ生成
+				const div = Elem("div");
+				div.setAttribute("class", "flex");
+				const nameArea = Elem("div");
+				nameArea.style.width = "10em";
+				nameArea.style.marginLeft = "1.0em";
+				nameArea.style.marginTop = "1.0em";
+				nameArea.innerText = sname;
+				div.appendChild(nameArea);
+				// 選択スライダーを生成
+				div.appendChild(makeRangeSet({
+					value:spData[i],
+					min:0,
+					max:3,
+					func:changeSkillSp.bind(null, operatorName),
+					sliderWidth:35,
+					numInputWidth:30
+				}));
+				ById("s_ssp").appendChild(div);
+				i++;
+			}
+		}else{
+			ById("s_ssp").innerHTML = null;
+		}
+	}else{
+		ById("s_slvArea").style.display = "block";
+	}
+	f.style.display = "flex";
 }

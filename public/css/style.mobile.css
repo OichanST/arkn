@@ -1,0 +1,77 @@
+#main{
+	width:100%;
+}
+#detail{
+	position:absolute;
+	top:0;
+	left:0;
+	width:calc(100% - 22px);
+	display:none;
+	background-color:rgb(250,250,250);
+	border:1px solid black;
+	padding:10px;
+}
+#imageSelector{
+	margin-top:310px;
+}
+#skillArea{
+	margin-top:0.4em;
+	width:19.1em;
+	height:22.4em;
+	background:black;
+	color:white;
+	padding:1em;
+}
+#stat{
+	width:calc(100% - 160px);
+}
+.minilabel{
+	width:5.5em;
+	margin:1px;
+	padding-left:4px;
+	padding-top:0;
+	padding-bottom:0;
+}
+#bottomArea{
+	margin-top:0.4em;
+}
+#chartArea{
+	display:none;
+}
+#tag{
+	width:11.1em;
+}
+#trustArea{
+	width:100%;
+}
+#matrix{
+	display:none;
+}
+#settingForMobile{
+	position:absolute;
+	flex-direction:column;
+	justify-content:space-between;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:white;
+}
+#settingForMobile>div>div>div:not(first-child){
+	margin-left:1em;
+	margin-top:1.5em;
+}
+#settingForMobile>div>div>div>div.sliderTitle{
+	padding-top:0.4em;
+}
+#settingForMobile>div>div>div>div:first-child{
+	background:gray;
+	color:white;
+	text-align:center;
+	font-weight:bold;
+	font-size:1.1em;
+	width:7.0em;
+}
+#dpsSetting{
+	width:70%;
+}

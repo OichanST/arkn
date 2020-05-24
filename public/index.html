@@ -7,6 +7,8 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 		<title>アークナイツ オペレーターデータベース</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" media="(min-width:480px)" type="text/css" href="css/style.pc.css"/>
+		<link rel="stylesheet" media="(max-width:480px)" type="text/css" href="css/style.mobile.css"/>
 	</head>
 	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
 	<script type="text/javascript" src="data/operator.json" encoding="UTF-8"></script>
@@ -21,26 +23,29 @@
 			<div><input type="text" id="userId" onkeydown="enterLogin();"></div>
 			<div style="margin-top:1em;"><button type="button" onclick="login();">ログイン</button></div>
 			<div id="loginErr">Login Failed!</div>
-			<div style="text-align:right;">ゲストログインは<a href="javascript:void(0)" onclick="guestLogin();">こちら</a>をクリック</div>
+			<div style="text-align:right;margin-top:1em;">ゲストログインは<a href="javascript:void(0)" onclick="guestLogin();">こちら</a>をクリック</div>
 		</div>
-		<div id="main" style="display:none;">
-			<div class="flex">
-				<div>
-					<form id="f">
-						<div class="flexbetween">
-							<div>
-								<label><input type="radio" name="type" value="1" checked onchange="init();"><span>簡易＋詳細</span></label>
-								<label><input type="radio" name="type" value="2" onchange="init();"><span>一覧</span></label>
-							</div>
-							<div id="serverAction" style="display:none;">
-								<button type="button" onclick="loadServer();" style="width:120px;">データロード</button>
-								<button type="button" onclick="saveServer();" style="width:120px;">データセーブ</button>
-							</div>
-						</div>
-						<div class="flex" style="margin-top:4px;">
-							<div class="card center" style="width:4.5em;background-color:#00C000;">フィルタ</div>
+		<div id="main" class="flex" style="margin-left:50%;transform:translateX(-50%);display:none;">
+			<form id="f">
+				<div class="flexbetween">
+					<div>
+						<label><input type="radio" name="type" value="1" checked onchange="init();"><span>オペレーター管理</span></label>
+						<label><input type="radio" name="type" value="2" onchange="init();"><span>一覧</span></label>
+					</div>
+					<div>
+						<button type="button" onclick="ById('setting').style.display='block';" style="margin-top:0.4em;">設定</button>
+						<span id="serverAction" style="display:none;">
+							<button type="button" onclick="loadServer();" style="width:120px;">データロード</button>
+							<button type="button" onclick="saveServer();" style="width:120px;">データセーブ</button>
+						</span>
+					</div>
+				</div>
+				<div id="setting" style="position:absolute;width:calc(100% - 2.1em);z-index:99;padding:1em;border:1px solid black;top:0;left:0;background:white;display:none;">
+					<div style="margin-top:4px;">
+						<div class="card center" style="width:4.5em;background-color:#00C000;">フィルタ</div>
+						<div class="flex">
 							<div class="card center" style="width:4.0em;">レア度</div>
-							<div style="padding-top:4px;">
+							<div style="width:calc(100% - 4.1em);">
 								<label><input type="checkbox" name="rare" value="1" onchange="init();" checked><span>1</span></label>
 								<label><input type="checkbox" name="rare" value="2" onchange="init();" checked><span>2</span></label>
 								<label><input type="checkbox" name="rare" value="3" onchange="init();" checked><span>3</span></label>
@@ -48,8 +53,10 @@
 								<label><input type="checkbox" name="rare" value="5" onchange="init();" checked><span>5</span></label>
 								<label><input type="checkbox" name="rare" value="6" onchange="init();" checked><span>6</span></label>
 							</div>
-							<div class="card center" style="margin-left:0.6em;width:3.0em;">職業</div>
-							<div style="padding-top:4px;">
+						</div>
+						<div class="flex">
+							<div class="card center" style="width:4.0em;">職業</div>
+							<div style="width:calc(100% - 4.1em);">
 								<label><input type="checkbox" name="job" value="先鋒" onchange="init();" checked><span>先鋒</span></label>
 								<label><input type="checkbox" name="job" value="前衛" onchange="init();" checked><span>前衛</span></label>
 								<label><input type="checkbox" name="job" value="重装" onchange="init();" checked><span>重装</span></label>
@@ -60,83 +67,127 @@
 								<label><input type="checkbox" name="job" value="補助" onchange="init();" checked><span>補助</span></label>
 							</div>
 						</div>
-						<div class="flex">
-							<div class="card center" style="width:4.5em;background-color:#00C000;">ソート</div>
-							<div style="padding-top:4px;">
-								<label><input type="radio" name="sort" value="rare" onchange="init();" checked><span>レア度</span></label>
-								<label><input type="radio" name="sort" value="hp" onchange="init();"><span>HP</span></label>
-								<label><input type="radio" name="sort" value="atk" onchange="init();"><span>攻撃力</span></label>
-								<label><input type="radio" name="sort" value="def" onchange="init();"><span>防御力</span></label>
-								<label><input type="radio" name="sort" value="lv" onchange="init();"><span>レベル</span></label>
-								<label><input type="radio" name="sort" value="trust" onchange="init();"><span>信頼度</span></label>
-								<label><input type="radio" name="sort" value="dps" onchange="init();"><span>DPS</span></label>
-								<label><input type="radio" name="sort" value="pend" onchange="init();"><span>物理耐久</span></label>
-								<label><input type="radio" name="sort" value="aend" onchange="init();"><span>術耐久</span></label>
-							</div>
+					</div>
+					<div class="card center" style="margin-top:1em;width:4.5em;background-color:#00C000;">ソート</div>
+					<div style="width:100%">
+						<label><input type="radio" name="sort" value="rare" onchange="init();" checked><span>レア度</span></label>
+						<label><input type="radio" name="sort" value="hp" onchange="init();"><span>HP</span></label>
+						<label><input type="radio" name="sort" value="atk" onchange="init();"><span>攻撃力</span></label>
+						<label><input type="radio" name="sort" value="def" onchange="init();"><span>防御力</span></label>
+						<label><input type="radio" name="sort" value="lv" onchange="init();"><span>レベル</span></label>
+						<label><input type="radio" name="sort" value="trust" onchange="init();"><span>信頼度</span></label>
+						<label><input type="radio" name="sort" value="dps" onchange="init();"><span>DPS</span></label>
+						<label><input type="radio" name="sort" value="pend" onchange="init();"><span>物理耐久</span></label>
+						<label><input type="radio" name="sort" value="aend" onchange="init();"><span>術耐久</span></label>
+					</div>
+					<div class="card center" style="margin-top:1em;width:4.5em;background-color:#00C000;">DPS用</div>
+					<div id="dpsSetting" class="flex" style="flex-wrap:wrap;">
+						<div class="card center" style="width:5.5em;">敵物理防御</div>
+						<div style="width:4.5em;">
+							<input type="number" id="eneDef" style="font-size:19px;width:62px;height:22px;" min="0" max="9999" value="0" onchange="if(checkNum()){init();}">
 						</div>
-						<div class="flex">
-							<div class="card center" style="width:4.5em;background-color:#00C000;">DPS用</div>
-							<div class="card center">敵物理防御</div>
-							<div style="position:relative;width:67px;">
-								<input type="number" id="eneDef" style="font-size:19px;width:62px;height:22px;" min="0" max="9999" value="0" onchange="if(checkNum()){init();}">
-							</div>
-							<div class="card center">敵術耐性</div>
-							<div style="position:relative;width:47px;">
-								<input type="number" id="eneRes" style="font-size:19px;width:42px;height:22px;" min="0" max="99" value="0" onchange="if(checkNum()){init()};">
-							</div>
-							<div class="card center">範囲内敵数</div>
-							<div style="position:relative;width:30px;">
-								<select id="eneCnt" value="1" onchange="init();" style="font-size:19px;width:25px;">
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-								</select>
-							</div>
-							<div id="errMessage" style="display:none;font-weight:bold;color:red;margin-top:5px;"></div>
+						<div class="card center" style="width:5.5em;">敵術耐性</div>
+						<div style="width:3.0em;">
+							<input type="number" id="eneRes" style="font-size:19px;width:42px;height:22px;" min="0" max="99" value="0" onchange="if(checkNum()){init()};">
 						</div>
-					</form>
-					<div>
-						<table id="listHeader" class="list header"></table>
-						<div id="wrapper" class="listWrapper" style="height:33.7em;">
-							<table id="operator" class="list body" style="width:100%;"></table>
-						</div>
-						<div class="flexbetween">
-							<table id="matrix" class="list" style="margin-top:4px;"></table>
-						</div>
-						<div style="margin-top:4px;display:none;">
-							<select id="t1"></select>
-							と
-							<select id="t2"></select>
-							の
-							<select id="tpro">
-								<option value="0">初期</option>
-								<option value="1">昇進１</option>
-								<option value="2">昇進２</option>
+						<div class="card center" style="width:5.5em;">範囲内敵数</div>
+						<div style="width:1.5em;">
+							<select id="eneCnt" value="1" onchange="init();" style="font-size:19px;width:25px;">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
 							</select>
-							で
-							<button onclick="compare();">戦力比較</button>
 						</div>
+						<div id="errMessage" style="display:none;font-weight:bold;color:red;margin-top:5px;"></div>
+					</div>
+					<div style="text-align:center;margin-top:1em;">
+						<button type="button" onclick="ById('setting').style.display='none';">閉じる</button>
+					</div>
+				</div>
+			</form>
+			<div>
+				<table id="listHeader" class="list header"></table>
+				<div id="wrapper" class="listWrapper" style="height:33.7em;">
+					<table id="operator" class="list body" style="width:100%;"></table>
+				</div>
+			</div>
+		</div>
+		<div id="selectorForMobile" style="position:absolute;width:6em;top:50%;margin-left:50%;font-size:1.5em;transform:translate(-50%,-50%);text-align:center;left:0;z-index:99;display:none;background:white;border:1px solid black;padding:4em;">
+			<button type="button" onclick="ById('selectorForMobile').style.display='none';showSettingForMoble();">設定変更</button>
+			<br/><br/><br/>
+			<button type="button" onclick="ById('selectorForMobile').style.display='none';showDetail(ById('name').innerText);">詳細確認</button>
+			<br/><br/><br/>
+			<button type="button" onclick="ById('selectorForMobile').style.display='none';">キャンセル</button>
+		</div>
+		<div id="settingForMobile" style="display:none;">
+			<div>
+				<div style="text-align:center;width:calc(100% - 2px);font-size:1.4em;font-weight:bold;border:1px solid gray;padding-top:0.5em;padding-bottom:0.5em;">
+					設定変更：<span id="handleName"></span>
+				</div>
+				<div>
+					<div id="s_promotionArea" class='flex'>
+						<div>昇進</div>
+						<div id="s_promotion"></div>
+					</div>
+					<div class="flex">
+						<div class="sliderTitle">LV</div>
+						<div id="s_lv"></div>
+					</div>
+					<div class="flex">
+						<div>潜在</div>
+						<div id="s_potential"></div>
+					</div>
+					<div class="flex">
+						<div class="sliderTitle">信頼度</div>
+						<div id="s_trust"></div>
+					</div>
+					<div id="s_slvArea" class='flex'>
+						<div>スキルRANK</div>
+						<div id="s_slv"></div>
+					</div>
+					<div id="s_ssp">
 					</div>
 				</div>
 			</div>
-			<div id="skillSp">
-				<div class="closeBtn" onclick="ById('skillSp').style.display = 'none';">×</div>
-				<div id="skillSpBody"></div>
+			<div style="text-align:center;font-size:1.5em;border:1px solid gray;" onclick="ById('settingForMobile').style.display='none';">
+				<button type="button">閉じる</button>
 			</div>
-			<div id="detail">
-				<div id="natureDetail"></div>
-				<div id="skillDetailOverlay">
-					<div class="flex" style="align-items:center;">
-						<div style="width:200px;text-align:center;padding-right:1.5em;">
-							<div style="background-color:rgba(196,196,196,0.9);">スキルランク</div>
-							<div id="skillRank" style="margin-top:10px;font-size:100px;background-color:rgba(128,128,128,0.9);"></div>
-						</div>
-						<div id="skillDetail"></div>
+		</div>
+		<div style="width:70.5em;margin-left:50%;transform:translateX(-50%);">
+			<table id="matrix" class="list" style="margin-top:4px;"></table>
+		</div>
+		<div style="margin-top:4px;display:none;">
+			<select id="t1"></select>
+			と
+			<select id="t2"></select>
+			の
+			<select id="tpro">
+				<option value="0">初期</option>
+				<option value="1">昇進１</option>
+				<option value="2">昇進２</option>
+			</select>
+			で
+			<button onclick="compare();">戦力比較</button>
+		</div>
+		<div id="skillSp">
+			<div class="closeBtn" onclick="ById('skillSp').style.display = 'none';">×</div>
+			<div id="skillSpBody"></div>
+		</div>
+		<div id="detail">
+			<div id="natureDetail"></div>
+			<div id="skillDetailOverlay">
+				<div class="flex" style="align-items:center;">
+					<div style="width:200px;text-align:center;padding-right:1.5em;">
+						<div style="background-color:rgba(196,196,196,0.9);">スキルランク</div>
+						<div id="skillRank" style="margin-top:10px;font-size:100px;background-color:rgba(128,128,128,0.9);"></div>
 					</div>
+					<div id="skillDetail"></div>
 				</div>
-				<div class="flex" style="height:300px;">
+			</div>
+			<div id="imageArea" class="flex" style="flex-wrap:wrap;">
+				<div>
 					<div style="width:154px;">
 						<div id="img" style="width:9.5em;height:295px;position:absolute;overflow:hidden;border:1px solid black;"></div>
 						<div id="job" class="center" style="background-color:black;"></div>
@@ -146,122 +197,120 @@
 						<div id="imageBack">&nbsp;</div>
 						<div id="imageBack2">%nbsp;</div>
 					</div>
+					<div id="imageSelector" style="width:154px;display:flex;justify-content:space-between;text-align:center;">
+						<div onclick="slide(-1)" style="width:74px;margin-right:px;cursor:pointer;background:gray;color:white;">PREV</div>
+						<div onclick="slide(1)" style="width:74px;cursor:pointer;background:gray;color:white;">NEXT</div>
+					</div>
+				</div>
+				<div id="stat" style="padding-left:4px;">
+					<div class="flex" style="flex-wrap:wrap;margin-top:4px;">
+						<div class="label inversion">HP</div><div id="hp" class="minilabel"></div>
+						<div class="label inversion">再配置</div><div id="relocation" class="minilabel" style="width:12em;"></div>
+					</div>
+					<div class="flex" style="flex-wrap:wrap;margin-top:4px;">
+						<div class="label inversion">攻撃力</div><div id="atk" class="minilabel"></div>
+						<div class="label inversion">COST</div><div id="cost" class="minilabel"></div>
+					</div>
+					<div class="flex" style="flex-wrap:wrap;margin-top:4px;">
+						<div class="label inversion">防御力</div><div id="def" class="minilabel"></div>
+						<div class="label inversion">ブロック</div><div id="block" class="minilabel"></div>
+					</div>
+					<div class="flex" style="flex-wrap:wrap;margin-top:4px;">
+						<div class="label inversion">術耐性</div><div id="res" class="minilabel"></div>
+						<div class="label inversion">攻撃速度</div><div id="speed" class="minilabel" style="width:12em;"></div>
+					</div>
+					<div class="flex" style="flex-wrap:wrap;margin-top:4px;">
+						<div class="label inversion">DPS</div><div id="dps" class="minilabel"></div>
+						<div class="label inversion">攻撃付与</div><div id="effect" class="minilabel"></div>
+					</div>
+					<div class="flex" style="flex-wrap:wrap;margin-top:4px;">
+						<div class="label inversion">物理耐久</div><div id="pEndurance" class="minilabel"></div>
+						<div class="label inversion">術耐久</div><div id="aEndurance" class="minilabel"></div>
+					</div>
+					<div class="flex" id="guardDisp" style="display:none;flex-wrap:wrap;margin-top:4px;">
+						<div class="label inversion">ガード</div><div id="guard" class="minilabel"></div>
+					</div>
+					<div class="flex" id="dodgeDisp" style="display:none;flex-wrap:wrap;margin-top:4px;">
+						<div class="label inversion">物理回避</div><div id="pDodge" class="minilabel"></div>
+						<div class="label inversion">術回避</div><div id="aDodge" class="minilabel"></div>
+					</div>
+					<div id="cond" class="merit"></div>
+				</div>
+				<div id="skillArea">
+					<div class="flex">
+						<div style="position:relative;height:60px;">
+							<div style="position:absolute;margin-left:17px;font-size:0.9em;">LV</div>
+							<div style="position:absolute;margin-top:10px;">
+								<span id="lv" style="font-size:2.5em;"></span>/<span id="maxLv"></span>
+							</div>
+						</div>
+						<div>
+							<img id="promotion" src="icon/promotion2.png" style="margin-left:60px;height:55px;"/>
+						</div>
+					</div>
+					<div class="flex card" style='width:42px;'>
+						<span style='font-size:10px;margin-top:5px;'>RANK</span>
+						<span id="rank" style='margin-left:1px;font-size:1.1em;'></span>
+					</div>
+					<div class="card flex">
+						<div style="width:4.4em;position:relative;">
+							<div class="center" style="position:absolute;width:4.4em;color:#C0C0C0;margin-top:8px;">スキル</div>
+							<div style="cursor:pointer;font-size:1.75em;position:absolute;margin-top:22px;" onclick="showSkill();">＋</div>
+						</div>
+						<div id="skill" class="flex" style='margin-bottom:10px;'></div>
+					</div>
+					<div style="margin-top:0.1em;margin-left:4px;height:6.0em;">
+						<span style="color:#C0C0C0;">特性</span>
+						<div id="characteristic"></div>
+					</div>
+					<div class="card flex">
+						<div style="height:4.9em;">
+							<div style="width:4.4em;color:#C0C0C0;margin-top:0.1em;margin-left:0.3em;">素質</div>
+							<div style="cursor:pointer;font-size:1.1em;margin-left:0.4em;margin-top:22px;" onclick="showNature();">…</div>
+						</div>
+						<div id="nature" style="margin-left:4px;padding-top:0.2em;"></div>
+					</div>
+				</div>
+			</div>
+			<div id="bottomArea">
+				<div class="flex" style="flex-wrap:wrap;">
 					<div>
-						<div id="stat">
-							<div class="flex" style="margin-top:4px;">
-								<div class="label inversion">HP</div><div id="hp" class="minilabel"></div>
-								<div class="label inversion">再配置</div><div id="relocation" class="minilabel" style="width:12em;"></div>
-							</div>
-							<div class="flex">
-								<div class="label inversion">攻撃力</div><div id="atk" class="minilabel"></div>
-								<div class="label inversion">COST</div><div id="cost" class="minilabel"></div>
-							</div>
-							<div class="flex">
-								<div class="label inversion">防御力</div><div id="def" class="minilabel"></div>
-								<div class="label inversion">ブロック</div><div id="block" class="minilabel"></div>
-							</div>
-							<div class="flex">
-								<div class="label inversion">術耐性</div><div id="res" class="minilabel"></div>
-								<div class="label inversion">攻撃速度</div><div id="speed" class="minilabel" style="width:12em;"></div>
-							</div>
-							<div class="flex">
-								<div class="label inversion">DPS</div><div id="dps" class="minilabel"></div>
-								<div class="label inversion">攻撃付与</div><div id="effect" class="minilabel"></div>
-							</div>
-							<div class="flex">
-								<div class="label inversion">物理耐久</div><div id="pEndurance" class="minilabel"></div>
-								<div class="label inversion">術耐久</div><div id="aEndurance" class="minilabel"></div>
-							</div>
-							<div class="flex" id="guardDisp" style="display:none;">
-								<div class="label inversion">ガード</div><div id="guard" class="minilabel"></div>
-							</div>
-							<div class="flex" id="dodgeDisp" style="display:none;">
-								<div class="label inversion">物理回避</div><div id="pDodge" class="minilabel"></div>
-								<div class="label inversion">術回避</div><div id="aDodge" class="minilabel"></div>
-							</div>
-							<div id="cond" class="merit"></div>
+						<div id="rangeWrapper" class="card center flexend" style="width:144px;flex-direction:column;">
+							<div id="range"></div>
+							<div>攻撃範囲</div>
 						</div>
 					</div>
-					<div style="width:18.0em;height:22.4em;background:black;color:white;padding:1em;box-shadow:7px 7px 7px rgba(0,0,0,0.7);">
-						<div class="flex">
-							<div style="position:relative;height:60px;">
-								<div style="position:absolute;margin-left:17px;font-size:0.9em;">LV</div>
-								<div style="position:absolute;margin-top:10px;">
-									<span id="lv" style="font-size:2.5em;"></span>/<span id="maxLv"></span>
-								</div>
+					<div id="tag"></div>
+					<div id="trustArea">
+						<div style='display:flex;justify-content:space-between;'>
+							<div style='padding-left:0.2em;font-weight:bold;'>
+								信頼度
+								<svg width='10' height='8'>
+									<path d='M0 0 L4 4 L0 8 L0 0 Z' style='fill:rgba(196,196,196,1);stroke:rgba(196,196,196,1);'></path>
+									<path d='M5 0 L9 4 L5 8 L5 0 Z' style='fill:rgba(196,196,196,1);stroke:rgba(196,196,196,1);'></path>
+								</svg>
 							</div>
-							<div>
-								<img id="promotion" src="icon/promotion2.png" style="margin-left:60px;height:55px;"/>
-							</div>
+							<div id="trustPt"></div>
 						</div>
-						<div class="flex card" style='width:42px;'>
-							<span style='font-size:10px;margin-top:5px;'>RANK</span>
-							<span id="rank" style='margin-left:1px;font-size:1.1em;'></span>
+						<div style="border:1px solid black;height:5px;background-color:rgb(64,64,64);">
+							<div id="trustBar" style="border:1px sold black;height:100%;background-color:rgb(255,160,160);"></div>
 						</div>
-						<div class="card flex">
-							<div style="width:4.4em;position:relative;">
-								<div class="center" style="position:absolute;width:4.4em;color:#C0C0C0;margin-top:8px;">スキル</div>
-								<div style="cursor:pointer;font-size:1.75em;position:absolute;margin-top:22px;" onclick="showSkill();">＋</div>
-							</div>
-							<div id="skill" class="flex" style='margin-bottom:10px;'></div>
-						</div>
-						<div style="margin-top:0.1em;margin-left:4px;height:6.0em;">
-							<span style="color:#C0C0C0;">特性</span>
-							<div id="characteristic"></div>
-						</div>
-						<div class="card flex">
-							<div style="height:4.9em;">
-								<div style="width:4.4em;color:#C0C0C0;margin-top:0.1em;margin-left:0.3em;">素質</div>
-								<div style="cursor:pointer;font-size:1.1em;margin-left:0.4em;margin-top:22px;" onclick="showNature();">…</div>
-							</div>
-							<div id="nature" style="margin-left:4px;padding-top:0.2em;"></div>
-						</div>
+						<div id="trust" style='margin-top:0.3em;padding:0.2em 0em 0.2em 0.6em;color:white;background-color:rgba(0,0,0,0.4);'></div>
 					</div>
 				</div>
-				<div style="width:600px;">
-					<div class="flex">
-						<div>
-							<div style="display:flex;justify-content:space-between;width:152px;text-align:center;">
-								<div onclick="slide(-1)" style="width:70px;margin-right:px;cursor:pointer;background:gray;color:white;">PREV</div>
-								<div onclick="slide(1)" style="width:70px;cursor:pointer;background:gray;color:white;">NEXT</div>
-							</div>
-							<div id="rangeWrapper" class="card center flexend" style="width:144px;flex-direction:column;">
-								<div id="range"></div>
-								<div>攻撃範囲</div>
-							</div>
-						</div>
-						<div id="tag"></div>
-						<div>
-							<div style='display:flex;justify-content:space-between;width:350px;'>
-								<div style='padding-left:0.2em;font-weight:bold;'>
-									信頼度
-									<svg width='10' height='8'>
-										<path d='M0 0 L4 4 L0 8 L0 0 Z' style='fill:rgba(196,196,196,1);stroke:rgba(196,196,196,1);'></path>
-										<path d='M5 0 L9 4 L5 8 L5 0 Z' style='fill:rgba(196,196,196,1);stroke:rgba(196,196,196,1);'></path>
-									</svg>
-								</div>
-								<div id="trustPt"></div>
-							</div>
-							<div style='border:1px solid black;width:350px;height:5px;background-color:rgb(64,64,64);'>
-								<div id='trustBar' style='border:1px sold black;width:50%;height:100%;background-color:rgb(255,160,160);'></div>
-							</div>
-							<div id="trust" style='margin-top:0.3em;padding:0.2em 0em 0.2em 0.6em;width:342px;color:white;background-color:rgba(0,0,0,0.4);'></div>
-						</div>
+			</div>
+			<div>
+				<div class="flex">
+					<div style="width:70px;position:relative;">
+						<div id="potentialValue" class="center" style="font-size:50px;position:absolute;width:100%;margin-top:30px;"></div>
+						<div class="center" style="width:100%;margin-top:90px;">潜在</div>
+					</div>
+					<div id="potential" class="center" style="margin-top:15px;width:190px;"></div>
+					<div id="chartArea">
+						<canvas id="chart" height="180"></canvas>
 					</div>
 				</div>
-				<div>
-					<div class="flex">
-						<div style="width:70px;position:relative;">
-							<div id="potentialValue" class="center" style="font-size:50px;position:absolute;width:100%;margin-top:30px;"></div>
-							<div class="center" style="width:100%;margin-top:90px;">潜在</div>
-						</div>
-						<div id="potential" class="center" style="margin-top:15px;width:190px;"></div>
-						<div style="width:625px;">
-							<canvas id="chart" height="180"></canvas>
-						</div>
-					</div>
 
-				</div>
 			</div>
 		</div>
 	</body>
