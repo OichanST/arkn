@@ -3,6 +3,14 @@
 let slideFlg = false;
 
 let isMobile = false;
+
+let recluteOperator = {};
+for(let name in operator){
+	if(operator[name].recruitment){
+		recluteOperator[name] = JSON.parse(JSON.stringify(operator[name]));
+	}
+}
+
 /**
  * 初期表示処理
  */
@@ -27,6 +35,12 @@ function init(){
 	const hrow = new Row();
 	// オペレーター管理
 	if(type == "1"){
+		ById("btnSetting").style.display = "block";
+		ById('operatorList').style.display = 'block';
+		if(!isMobile){
+			ById('matrix').style.display = 'block';
+		}
+		ById('tagSearch').style.display = 'none';
 		if(isMobile){
 			thead.size("100%");
 			ById("wrapper").style.width = "calc(100% - 1px)";
@@ -51,6 +65,12 @@ function init(){
 		}
 	// 一覧
 	}else if(type == "2"){
+		ById("btnSetting").style.display = "block";
+		ById('operatorList').style.display = 'block';
+		if(!isMobile){
+			ById('matrix').style.display = 'block';
+		}
+		ById('tagSearch').style.display = 'none';
 		thead.size("51.3em");
 		ById("wrapper").style.width = "51.2em";
 		thead.size();
@@ -64,6 +84,12 @@ function init(){
 		hrow.addHeader("術耐性", {width:"3.0em"});
 		hrow.addHeader("ｺｽﾄ", {width:"2.0em"});
 		hrow.addHeader("ﾌﾞﾛｯｸ");
+	}else if(type == "3"){
+		ById("btnSetting").style.display = "none";
+		ById('operatorList').style.display = 'none';
+		ById('matrix').style.display = 'none';
+		ById('tagSearch').style.display = 'block';
+		return;
 	}
 	// リストヘッダに行追加
 	thead.addHeader(hrow);
@@ -1213,13 +1239,17 @@ function hide(){
 	// フラグ
 	let flg = false;
 	// 素質詳細が表示されている場合、非表示
-	if(ById("natureDetail").style.display == "block"){
+	if(ById("natureDetail").style.display != "none"){
 		ById("natureDetail").style.display = "none";
 		flg = true;
 	}
 	// スキル詳細が表示されている場合、非表示
-	if(ById("skillDetailOverlay").style.display == "block"){
+	if(ById("skillDetailOverlay").style.display != "none"){
 		ById("skillDetailOverlay").style.display = "none";
+		flg = true;
+	}
+	if(ById("materialArea").style.display != "none"){
+		ById("materialArea").style.display = "none";
 		flg = true;
 	}
 	// 上記いずれも表示されていなかった場合
@@ -1815,4 +1845,406 @@ function showSettingForMoble(){
 		ById("s_slvArea").style.display = "block";
 	}
 	f.style.display = "flex";
+}
+function showMaterial(){
+	const name = ById("name").innerText;
+	const m = ById("materialArea");
+	const rare = operator[name].rare;
+	const promotion = sto.data[name].promotion;
+	let gold;
+	let canPromote = false;
+	const soc = {
+		src:"",
+		num:0
+	};
+	switch(rare){
+		case 3:
+			switch(promotion){
+				case 1:
+					break;
+				default:
+					gold = 10000;
+					canPromote = true;
+					break;
+			}
+			break;
+		case 4:
+			switch(promotion){
+				case 0:
+					gold = 15000;
+					soc.src = "初級" + operator[name].job + "SoC";
+					soc.num = 3;
+					canPromote = true;
+					break;
+				case 1:
+					gold = 60000;
+					soc.src = "中級" + operator[name].job + "SoC";
+					soc.num = 5;
+					canPromote = true;
+					break;
+				default:
+					break;
+			}
+			break;
+		case 5:
+			switch(promotion){
+				case 0:
+					gold = 20000;
+					soc.src = "初級" + operator[name].job + "SoC";
+					soc.num = 4;
+					canPromote = true;
+					break;
+				case 1:
+					gold = 120000;
+					soc.src = "上級" + operator[name].job + "SoC";
+					soc.num = 3;
+					canPromote = true;
+					break;
+				default:
+					break;
+			}
+			break;
+		case 6:
+			switch(promotion){
+				case 0:
+					gold = 30000;
+					soc.src = "初級" + operator[name].job + "SoC";
+					soc.num = 5;
+					canPromote = true;
+					break;
+				case 1:
+					gold = 180000;
+					soc.src = "上級" + operator[name].job + "SoC";
+					soc.num = 4;
+					canPromote = true;
+					break;
+				default:
+					break;
+			}
+			break;
+	}
+	if(!canPromote){
+		m.innerHTML = "<div style='display:flex;justify-content:center;'><div><img src='icon/info.png' style='width:50px;margin-right:1em;'></div><div>これ以上<br/>昇進できません</div></div>";
+		m.removeAttribute("class");
+		m.setAttribute("class", "popup");
+		m.style.display = "block";
+		m.addEventListener("animationend", function(){
+			this.style.display = "none";
+		});
+		event.stopPropagation();
+		return;
+	}
+	let html = "<div style='display:flex;justify-content:center;'>";
+	html += "<div><div style='text-align:center'>龍門幣</div><div style='background:black;width:80px;height:80px;'><img src='material/龍門幣.png' style='width:auto;height:auto;max-width:100%;max-height:100%;'></div><div style='text-align:center;'>" + gold + "</div></div>";
+	html += "<div style='margin-left:1.5em;'><div style='text-align:center'>" + soc.src + "</div><div style='background:black;width:80px;height:80px;'><img src='material/" + soc.src + ".png' style='width:auto;height:auto;max-width:100%;max-height:100%;'></div><div style='text-align:center;'>" + soc.num + "</div></div>";
+	
+	const materials = operator[name].stat[promotion + 1].material;
+	
+	for(let material in materials){
+		html += "<div style='margin-left:1.5em;'><div style='text-align:center'>" + material + "</div><div style='background:black;width:80px;height:80px;'><img src='material/" + material + ".png' style='width:auto;height:auto;max-width:100%;max-height:100%;'></div><div style='text-align:center;'>" + materials[material] + "</div></div>";
+	}
+	html += "</div>";
+	
+	let nextMaterial = materials
+	
+	while(true){
+		nextMaterial = processMaterial(nextMaterial);
+		
+		if(nextMaterial){
+			html += "<div style='display:flex;justify-content:center;'>";
+			for(let next in nextMaterial){
+				html += "<div style='margin-left:1.5em;'><div style='text-align:center'>" + next + "</div><div style='background:black;width:80px;height:80px;'><img src='material/" + next + ".png' style='width:auto;height:auto;max-width:100%;max-height:100%;'></div><div style='text-align:center;'>" + nextMaterial[next] + "</div></div>";
+			}
+			html += "</div>"
+		}else{
+			break;
+		}
+	}
+	
+	m.innerHTML = html;
+	m.removeAttribute("class");
+	m.style.display = "block";
+	event.stopPropagation();
+}
+
+function processMaterial(materials){
+
+	const nextMaterial = {};
+	let hasNext = false;
+	
+	for(let material in materials){
+
+		if(materialProcess[material]){
+			hasNext = true;
+			for(let next in materialProcess[material]){
+				if(nextMaterial[next]){
+					nextMaterial[next] = nextMaterial[next] + materials[material] * materialProcess[material][next];
+				}else{
+					nextMaterial[next] = materials[material] * materialProcess[material][next];
+				}
+			}
+		}else{
+			if(nextMaterial[material]){
+				nextMaterial[material] += materials[material];
+			}else{
+				nextMaterial[material] = materials[material];
+			}
+		}
+	}
+	if(!hasNext){
+		return null;
+	}
+	return nextMaterial;
+}
+
+function recruitment(){
+	
+	const chk = ById("tagSearch").getElementsByTagName("input");
+	const out = ById("searchResult");
+	const searchCond = new Array();
+	const searchCond2 = new Array();
+	const searchCond3 = new Array();
+	
+	out.innerHTML = "";
+	
+	for(let i = 0; i < chk.length; i++){
+		if(chk[i].checked){
+			const cond = {};
+			if(chk[i].getAttribute("attr") == "rare"){
+				cond[chk[i].getAttribute("attr")] = parseInt(chk[i].value, 10);
+			}else{
+				cond[chk[i].getAttribute("attr")] = chk[i].value;
+			}
+			searchCond.push({
+				label:[chk[i].nextSibling.innerText],
+				cond:[cond],
+				hasElite:(cond.rare == 6)
+			});
+		}
+	}
+	
+	for(let i = 0; i < searchCond.length; i++){
+		for(let j = i + 1; j < searchCond.length; j++){
+			searchCond2.push({
+				label:[searchCond[i].label, searchCond[j].label],
+				cond:[
+					JSON.parse(JSON.stringify(searchCond[i].cond[0])),
+					JSON.parse(JSON.stringify(searchCond[j].cond[0]))
+				],
+				hasElite:(searchCond[i].cond[0].rare == 6 || searchCond[j].cond[0].rare == 6)
+			});
+		}
+	}
+	
+	for(let i = 0; i < searchCond.length; i++){
+		for(let j = i + 1; j < searchCond.length; j++){
+			for(let k = j + 1; k < searchCond.length; k++){
+				searchCond3.push({
+					label:[searchCond[i].label, searchCond[j].label, searchCond[k].label],
+					cond:[
+						JSON.parse(JSON.stringify(searchCond[i].cond[0])),
+						JSON.parse(JSON.stringify(searchCond[j].cond[0])),
+						JSON.parse(JSON.stringify(searchCond[k].cond[0]))
+					],
+					hasElite:(searchCond[i].cond[0].rare == 6 || searchCond[j].cond[0].rare == 6 || searchCond[k].cond[0].rare == 6)
+				});
+			}
+		}
+	}
+
+	for(let i = 0; i < searchCond.length; i++){
+		let row = Elem("tr");
+		let elem = Elem("td");
+		elem.innerHTML = "<div class='flex'><div class='card center'>" + searchCond[i].label[0] + "</div></div>";
+		row.appendChild(elem);
+		let row2 = Elem("tr");
+		let html = "";
+		for(let name in recluteOperator){
+			let add = true;
+			if(recluteOperator[name].rare == 6 && !searchCond[i].hasElite){
+				add = false;
+			}else if(searchCond[i].cond[0].rare && recluteOperator[name].rare != searchCond[i].cond[0].rare){
+				add = false;
+			}else if(searchCond[i].cond[0].job && recluteOperator[name].job != searchCond[i].cond[0].job){
+				add = false;
+			}else if(searchCond[i].cond[0].tag){
+				let tagContain = false;
+				for(let j = 0; j < recluteOperator[name].tag.length; j++){
+					if(recluteOperator[name].tag[j] == searchCond[i].cond[0].tag){
+						tagContain = true;
+					}
+				}
+				if(!tagContain){
+					add = false;
+				}
+			}
+			if(add){
+				html += "<div style='position:relative;width:75px;height:100px;overflow:hidden;border:3px solid "
+				switch(recluteOperator[name].rare){
+					case 1:
+						html += "rgb(220,220,220)";
+						break;
+					case 2:
+						html += "rgb(200,255,  0)";
+						break;
+					case 3:
+						html += "rgb(  0,200,255)";
+						break;
+					case 4:
+						html += "rgb(200,160,255)";
+						break;
+					case 5:
+						html += "rgb(255,255,  0)";
+						break;
+					case 6:
+						html += "rgb(255,196,  0)";
+						break;
+				}
+				html += ";'>"
+				html += "<img src='image/" + recluteOperator[name].en + ".png' style='position:absolute;width:75px'>"
+				html += "</div>"
+			}
+		}
+		if(html == "")continue;
+		let elem2 = Elem("td");
+		elem2.innerHTML = "<div class='flex' style='flex-wrap:wrap;'>" + html + "</div>";
+		row2.appendChild(elem2);
+		out.appendChild(row);
+		out.appendChild(row2);
+	}
+	for(let i = 0; i < searchCond2.length; i++){
+		let row = Elem("tr");
+		let elem = Elem("td");
+		let html = "<div class='flex'>";
+		for(let j = 0; j < searchCond2[i].label.length; j++){
+			html += "<div class='card center'>" + searchCond2[i].label[j] + "</div>";
+		}
+		html += "</div>";
+		elem.innerHTML = html;
+		row.appendChild(elem);
+		let row2 = Elem("tr");
+		html = "";
+		for(let name in recluteOperator){
+			let add = true;
+			
+			for(let x = 0; x < searchCond2[i].cond.length; x++){
+				if(recluteOperator[name].rare == 6 && !searchCond2[i].hasElite){
+					add = false;
+				}else if(searchCond2[i].cond[x].rare && recluteOperator[name].rare != searchCond2[i].cond[x].rare){
+					add = false;
+				}else if(searchCond2[i].cond[x].job && recluteOperator[name].job != searchCond2[i].cond[x].job){
+					add = false;
+				}else if(searchCond2[i].cond[x].tag){
+					let tagContain = false;
+					for(let j = 0; j < recluteOperator[name].tag.length; j++){
+						if(recluteOperator[name].tag[j] == searchCond2[i].cond[x].tag){
+							tagContain = true;
+						}
+					}
+					if(!tagContain){
+						add = false;
+					}
+				}
+			}
+			if(add){
+				html += "<div style='position:relative;width:75px;height:100px;overflow:hidden;border:3px solid "
+				switch(recluteOperator[name].rare){
+					case 1:
+						html += "rgb(220,220,220)";
+						break;
+					case 2:
+						html += "rgb(200,255,  0)";
+						break;
+					case 3:
+						html += "rgb(  0,200,255)";
+						break;
+					case 4:
+						html += "rgb(200,160,255)";
+						break;
+					case 5:
+						html += "rgb(255,255,  0)";
+						break;
+					case 6:
+						html += "rgb(255,196,  0)";
+						break;
+				}
+				html += ";'>"
+				html += "<img src='image/" + recluteOperator[name].en + ".png' style='position:absolute;width:75px'>"
+				html += "</div>"
+			}
+		}
+		if(html == "")continue;
+		let elem2 = Elem("td");
+		elem2.innerHTML = "<div class='flex' style='flex-wrap:wrap;'>" + html + "</div>";
+		row2.appendChild(elem2);
+		out.appendChild(row);
+		out.appendChild(row2);
+	}
+	for(let i = 0; i < searchCond3.length; i++){
+		let row = Elem("tr");
+		let elem = Elem("td");
+		let html = "<div class='flex'>";
+		for(let j = 0; j < searchCond3[i].label.length; j++){
+			html += "<div class='card center'>" + searchCond3[i].label[j] + "</div>";
+		}
+		html += "</div>"
+		elem.innerHTML = html;
+		row.appendChild(elem);
+		let row2 = Elem("tr");
+		html = "";
+		for(let name in recluteOperator){
+			let add = true;
+			for(let x = 0; x < searchCond3[i].cond.length; x++){
+				if(recluteOperator[name].rare == 6 && !searchCond3[i].hasElite){
+					add = false;
+				}else if(searchCond3[i].cond[x].rare && recluteOperator[name].rare != searchCond3[i].cond[x].rare){
+					add = false;
+				}else if(searchCond3[i].cond[x].job && recluteOperator[name].job != searchCond3[i].cond[x].job){
+					add = false;
+				}else if(searchCond3[i].cond[x].tag){
+					let tagContain = false;
+					for(let j = 0; j < recluteOperator[name].tag.length; j++){
+						if(recluteOperator[name].tag[j] == searchCond3[i].cond[x].tag){
+							tagContain = true;
+						}
+					}
+					if(!tagContain){
+						add = false;
+					}
+				}
+			}
+			if(add){
+				html += "<div style='position:relative;width:75px;height:100px;overflow:hidden;border:3px solid "
+				switch(recluteOperator[name].rare){
+					case 1:
+						html += "rgb(220,220,220)";
+						break;
+					case 2:
+						html += "rgb(200,255,  0)";
+						break;
+					case 3:
+						html += "rgb(  0,200,255)";
+						break;
+					case 4:
+						html += "rgb(200,160,255)";
+						break;
+					case 5:
+						html += "rgb(255,255,  0)";
+						break;
+					case 6:
+						html += "rgb(255,196,  0)";
+						break;
+				}
+				html += ";'>"
+				html += "<img src='image/" + recluteOperator[name].en + ".png' style='position:absolute;width:75px'>"
+				html += "</div>"
+			}
+		}
+		if(html == "")continue;
+		let elem2 = Elem("td");
+		elem2.innerHTML = "<div class='flex' style='flex-wrap:wrap;'>" + html + "</div>";
+		row2.appendChild(elem2);
+		out.appendChild(row);
+		out.appendChild(row2);
+	}
 }

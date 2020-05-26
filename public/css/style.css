@@ -403,3 +403,32 @@ button:disabled{
 		left:-9.5em;
 	}
 }
+#materialArea{
+	display:none;
+	color:white;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	background:rgba(0,0,0,1);
+	padding:1.5em;
+}
+.popup{
+	opacity:0;
+	display:none;
+	animation:fadeout 2s;
+}
+@keyframes fadeout{
+	0%{
+		opacity:1;
+	}
+	25%{
+		opacity:1;
+	}
+	100%{
+		opacity:0;
+	}
+}
+#searchResult{
+	table-layout:fixed;
+}

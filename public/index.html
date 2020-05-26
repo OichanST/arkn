@@ -12,6 +12,7 @@
 	</head>
 	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
 	<script type="text/javascript" src="data/operator.json" encoding="UTF-8"></script>
+	<script type="text/javascript" src="data/materialProcess.json" encoding="UTF-8"></script>
 	<script type="text/javascript" src="js/domWrapper.js" encoding="UTF-8"></script>
 	<script type="text/javascript" src="js/script.js" encoding="UTF-8"></script>
 	<script type="text/javascript" src="js/eventHandler.js" encoding="UTF-8"></script>
@@ -32,11 +33,14 @@
 			<form id="f">
 				<div class="flexbetween">
 					<div>
-						<label><input type="radio" name="type" value="1" checked onchange="init();"><span>オペレーター管理</span></label>
-						<label><input type="radio" name="type" value="2" onchange="init();"><span>一覧</span></label>
+						<select name="type" onchange="init();">
+							<option value="1">オペレーター管理</option>
+							<option value="2">一覧</option>
+							<option value="3">公開求人検索</option>
+						</select>
 					</div>
 					<div style="text-align:right;">
-						<button type="button" onclick="ById('setting').style.display='block';" style="margin-top:0.3em;">設定</button>
+						<button type="button" id="btnSetting" onclick="ById('setting').style.display='block';" style="margin-top:0.3em;">設定</button>
 					</div>
 				</div>
 				<div id="setting" style="position:absolute;width:calc(100% - 2.1em);z-index:99;padding:1em;border:1px solid black;top:0;left:0;background:white;display:none;">
@@ -110,7 +114,7 @@
 					</div>
 				</div>
 			</form>
-			<div>
+			<div id="operatorList">
 				<table id="listHeader" class="list header"></table>
 				<div id="wrapper" class="listWrapper" style="height:33.7em;">
 					<table id="operator" class="list body" style="width:100%;"></table>
@@ -241,14 +245,18 @@
 				</div>
 				<div id="skillArea">
 					<div class="flex">
-						<div style="position:relative;height:60px;">
+						<div style="position:relative;width:80px;height:60px;">
 							<div style="position:absolute;margin-left:17px;font-size:0.9em;">LV</div>
 							<div style="position:absolute;margin-top:10px;">
 								<span id="lv" style="font-size:2.5em;"></span>/<span id="maxLv"></span>
 							</div>
 						</div>
 						<div>
-							<img id="promotion" src="icon/promotion2.png" style="margin-left:60px;height:55px;"/>
+							<div style="position:absolute;margin-top:6px;color:#C0C0C0;">昇進</div>
+							<div style="position:absolute;margin-top:18px;cursor:pointer;font-size:1.75em;" onclick="showMaterial();">＋</div>
+						</div>
+						<div>
+							<img id="promotion" src="" style="margin-left:60px;height:55px;"/>
 						</div>
 					</div>
 					<div class="flex card" style='width:42px;'>
@@ -313,7 +321,52 @@
 						<canvas id="chart" height="180"></canvas>
 					</div>
 				</div>
-
+			</div>
+		</div>
+		<div id="materialArea">
+		</div>
+		<div id="tagSearch" style="display:none;margin-left:50%;transform:translateX(-50%);">
+			<div>
+				<div>
+					<label><input type="checkbox" attr="rare" value="2" onchange="recruitment();"><span>初期</span></label>
+					<label><input type="checkbox" attr="rare" value="5" onchange="recruitment();"><span>エリート</span></label>
+					<label><input type="checkbox" attr="rare" value="6" onchange="recruitment();"><span>上級エリート</span></label>
+				</div>
+				<div>
+					<label><input type="checkbox" attr="tag" value="近距離" onchange="recruitment();"><span>近距離</span></label>
+					<label><input type="checkbox" attr="tag" value="遠距離" onchange="recruitment();"><span>遠距離</span></label>
+				</div>
+				<div>
+					<label><input type="checkbox" attr="job" value="前衛" onchange="recruitment();"><span>前衛タイプ</span></label>
+					<label><input type="checkbox" attr="job" value="医療" onchange="recruitment();"><span>医療タイプ</span></label>
+					<label><input type="checkbox" attr="job" value="先鋒" onchange="recruitment();"><span>先鋒タイプ</span></label>
+					<label><input type="checkbox" attr="job" value="術師" onchange="recruitment();"><span>術師タイプ</span></label>
+					<label><input type="checkbox" attr="job" value="狙撃" onchange="recruitment();"><span>狙撃タイプ</span></label>
+					<label><input type="checkbox" attr="job" value="重装" onchange="recruitment();"><span>重装タイプ</span></label>
+					<label><input type="checkbox" attr="job" value="補助" onchange="recruitment();"><span>補助タイプ</span></label>
+					<label><input type="checkbox" attr="job" value="特殊" onchange="recruitment();"><span>特殊タイプ</span></label>
+				</div>
+				<div>
+					<label><input type="checkbox" attr="tag" value="治療" onchange="recruitment();"><span>治療</span></label>
+					<label><input type="checkbox" attr="tag" value="支援" onchange="recruitment();"><span>支援</span></label>
+					<label><input type="checkbox" attr="tag" value="火力" onchange="recruitment();"><span>火力</span></label>
+					<label><input type="checkbox" attr="tag" value="範囲攻撃" onchange="recruitment();"><span>範囲攻撃</span></label>
+					<label><input type="checkbox" attr="tag" value="減速" onchange="recruitment();"><span>減速</span></label>
+					<label><input type="checkbox" attr="tag" value="生存" onchange="recruitment();"><span>生存</span></label>
+					<label><input type="checkbox" attr="tag" value="防御" onchange="recruitment();"><span>防御</span></label>
+					<label><input type="checkbox" attr="tag" value="弱化" onchange="recruitment();"><span>弱化</span></label>
+					<label><input type="checkbox" attr="tag" value="強制移動" onchange="recruitment();"><span>強制移動</span></label>
+					<label><input type="checkbox" attr="tag" value="牽制" onchange="recruitment();"><span>牽制</span></label>
+					<label><input type="checkbox" attr="tag" value="爆発力" onchange="recruitment();"><span>爆発力</span></label>
+					<label><input type="checkbox" attr="tag" value="召喚" onchange="recruitment();"><span>召喚</span></label>
+					<label><input type="checkbox" attr="tag" value="高速再配置" onchange="recruitment();"><span>高速再配置</span></label>
+					<label><input type="checkbox" attr="tag" value="COST回復" onchange="recruitment();"><span>COST回復</span></label>
+					<label><input type="checkbox" attr="tag" value="ロボット" onchange="recruitment();"><span>ロボット</span></label>
+				</div>
+			</div>
+			<div>
+				<table id="searchResult">
+				</table>
 			</div>
 		</div>
 	</body>
