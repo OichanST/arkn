@@ -86,10 +86,20 @@ function init(){
 			// 集計結果の表示
 			ById('matrixArea').style.display = 'block';
 		}
+		// 求人募集検索の非表示
 		ById('tagSearch').style.display = 'none';
-		thead.size("51.3em");
-		ById("wrapper").style.width = "51.2em";
-		thead.size();
+		// モバイルの場合
+		if(isMobile){
+			// サイズを画面フルに設定
+			thead.size("100%");
+			ById("wrapper").style.width = "calc(100% - 1px)";
+		// PCの場合
+		}else{
+			// サイズ調整
+			thead.size("51.3em");
+			ById("wrapper").style.width = "calc(51.3em - 1px)";
+		}
+		// ヘッダ生成
 		hrow.addHeader("レア度", {width:"6.0em"});
 		hrow.addHeader("コードネーム", {width:"9.5em"});
 		hrow.addHeader("職業", {width:"2.5em"});
@@ -100,19 +110,25 @@ function init(){
 		hrow.addHeader("術耐性", {width:"3.0em"});
 		hrow.addHeader("ｺｽﾄ", {width:"2.0em"});
 		hrow.addHeader("ﾌﾞﾛｯｸ");
+	// 求人募集検索
 	}else if(type == "3"){
+		// 設定ボタンの非表示
 		ById("btnSetting").style.display = "none";
+		// オペレーター一覧の非表示
 		ById('operatorList').style.display = 'none';
+		// 集計情報の非表示
 		ById('matrixArea').style.display = 'none';
+		// 求人募集検索の表示
 		ById('tagSearch').style.display = 'block';
+		// 処理終了
 		return;
 	}
 	// リストヘッダに行追加
 	thead.addHeader(hrow);
-	// 
+	// 戦力比較用　※今は非表示
 	const t1 = ById("t1");
 	t1.innerHTML = "";
-	// 
+	// 戦力比較用　※今は非表示
 	const t2 = ById("t2");
 	t2.innerHTML = "";
 	// ソート用の配列準備
@@ -234,12 +250,19 @@ function init(){
 			let nameCss = {cursor:"pointer"};
 			nameCss["width"] = "9.5em";
 			r.add(operatorName, nameCss, null, function(){
+				// オペレーター一覧のクラス定義のリセット
 				new Table("operator").clear();
+				// 選択行の設定
 				event.target.setAttribute("class", "selected");
+				// モバイル
 				if(isMobile){
+					// 選択行のオペレーターのコードネーム退避
 					ById("name").innerText = findRow(event.target).getAttribute("name");
+					// モバイル用メニュー表示
 					ById("selectorForMobile").style.display = "block";
+				// PC
 				}else{
+					// 詳細画面表示
 					showDetail(findRow(event.target).getAttribute("name"));
 				}
 			});
@@ -277,12 +300,16 @@ function init(){
 					sel.appendChild(opt);
 				}
 				sel.setAttribute("value", sto.data[operatorName].promotion);
+				// レアリティ4以上
 				if(data.rare >= 4){
 					sel.style.color = "rgb(" + Math.round(sto.data[operatorName].promotion / 2 * 255) + ",0,0)";
+				// レアリティ3以下
 				}else{
 					sel.style.color = "rgb(" + Math.round(sto.data[operatorName].promotion * 255) + ",0,0)";
 				}
+				// 変更時処理の追加
 				sel.addEventListener("change", changePromotion);
+				// セル追加
 				r.add(sel, {textAlign:"center", width:"3.8em"});
 			// レアリティ２以下
 			}else{
@@ -334,6 +361,7 @@ function init(){
 				}),
 				{width:"11.7em"}
 			);
+			// レアリティ3以上
 			if(data.rare > 2){
 				// スキルレベルコンボ生成
 				sel = Elem("select");
@@ -356,15 +384,24 @@ function init(){
 					sel.appendChild(opt);
 				}
 				sel.setAttribute("value", sto.data[operatorName].slv);
+				// 配色設定
 				sel.style.color = "rgb(" + Math.round(sto.data[operatorName].slv / 7 * 255) + ",0,0)";
+				// 変更時イベント登録
 				sel.addEventListener("change", changeSlv);
+				// セル追加
 				r.add(sel, {textAlign:"center",width:"2.5em"});
+				// スキルレベル7且つ昇進2の場合
 				if(sto.data[operatorName].slv == 7 && sto.data[operatorName].promotion == 2){
+					// スキル特化機能の有効化
 					r.add("<button onclick='showSkillSp();'>スキル特化</button>");
+				// 上記以外
 				}else{
+					// スキル特化機能の無効化
 					r.add("<button onclick='showSkillSp();' disabled>スキル特化</button>");
 				}
+			// レアリティ2以下
 			}else{
+				// スキルなし＋スキル特化なし
 				r.add("");
 				r.add("");
 			}
@@ -402,7 +439,7 @@ function init(){
 				t.add(detailSet(new Row(), "昇進２", data.stat[2]));
 			}
 		}
-		
+		// 戦力比較用コンボにコードネーム追加　※現在本機能は非表示
 		t1.appendChild(new Option(operatorName, operatorName));
 		t2.appendChild(new Option(operatorName, operatorName));
 	}
@@ -598,10 +635,11 @@ function showDetail(name){
 	}
 	// 詳細を表示する
 	ById("detail").style.display = "block";
-	
+	// モバイルの場合
 	if(isMobile){
 		// イベント伝播の停止
 		event.stopPropagation();
+		// 処理中断
 		return;
 	}
 	/*------------------------------------------------*/
@@ -2093,22 +2131,37 @@ function recruitment(){
 		// 行生成
 		let row2 = Elem("tr");
 		let html = "";
+		// 求人募集対象のオペレーターに対してループ
 		for(let name in recluteOperator){
+			// 追加判定
 			let add = true;
+			// レアリティ6で上級エリートが含まれていない場合
 			if(recluteOperator[name].rare == 6 && !searchCond[i].hasElite){
+				// 追加しない
 				add = false;
+			// レアリティ不一致
 			}else if(searchCond[i].cond[0].rare && recluteOperator[name].rare != searchCond[i].cond[0].rare){
+				// 追加しない
 				add = false;
+			// 職業不一致
 			}else if(searchCond[i].cond[0].job && recluteOperator[name].job != searchCond[i].cond[0].job){
+				// 追加しない
 				add = false;
+			// タグ条件
 			}else if(searchCond[i].cond[0].tag){
+				// タグに含まれるかの判定
 				let tagContain = false;
+				// 該当オペレーターのタグ情報をループ
 				for(let j = 0; j < recluteOperator[name].tag.length; j++){
+					// 合致しているタグがある
 					if(recluteOperator[name].tag[j] == searchCond[i].cond[0].tag){
+						// タグに含まれる
 						tagContain = true;
 					}
 				}
+				// タグに含まれない
 				if(!tagContain){
+					// 追加しない
 					add = false;
 				}
 			}
