@@ -1,10 +1,11 @@
 "use strict";
-
-let slideFlg = false;
-
+// モバイル判定
 let isMobile = false;
-
+// 画像のスライド処理中にアクションを制御するためのフラグ
+let slideFlg = false;
+// 求人募集対象オペレーター
 let recluteOperator = {};
+// オペレーターの中から求人募集対象のオペレーターのみを抽出する
 for(let name in operator){
 	if(operator[name].recruitment){
 		recluteOperator[name] = JSON.parse(JSON.stringify(operator[name]));
@@ -15,6 +16,7 @@ for(let name in operator){
  * 初期表示処理
  */
 function init(){
+	// windowサイズによりPCかスマホかを判別
     if (window.matchMedia("(max-width:480px)").matches) {
         //スマホ処理
         isMobile = true;
@@ -35,19 +37,29 @@ function init(){
 	const hrow = new Row();
 	// オペレーター管理
 	if(type == "1"){
+		// 設定ボタン表示
 		ById("btnSetting").style.display = "block";
+		// オペレーター一覧表示
 		ById('operatorList').style.display = 'block';
+		// モバイルの場合
 		if(!isMobile){
-			ById('matrix').style.display = 'block';
+			// 集計結果の表示
+			ById('matrixArea').style.display = 'block';
 		}
+		// 求人募集検索の非表示
 		ById('tagSearch').style.display = 'none';
+		// モバイルの場合
 		if(isMobile){
+			// サイズを画面フルに設定
 			thead.size("100%");
 			ById("wrapper").style.width = "calc(100% - 1px)";
+		// PCの場合
 		}else{
+			// サイズ調整
 			thead.size("70.0em");
 			ById("wrapper").style.width = "calc(70em - 1px)";
 		}
+		// ヘッダ生成
 		hrow.addHeader("所持", {width:"2.9em"});
 		if(isMobile){
 			hrow.addHeader("ﾚｱ", {width:"1.5em"});
@@ -65,10 +77,14 @@ function init(){
 		}
 	// 一覧
 	}else if(type == "2"){
+		// 設定ボタン表示
 		ById("btnSetting").style.display = "block";
+		// オペレーター一覧表示
 		ById('operatorList').style.display = 'block';
+		// モバイルの場合
 		if(!isMobile){
-			ById('matrix').style.display = 'block';
+			// 集計結果の表示
+			ById('matrixArea').style.display = 'block';
 		}
 		ById('tagSearch').style.display = 'none';
 		thead.size("51.3em");
@@ -87,7 +103,7 @@ function init(){
 	}else if(type == "3"){
 		ById("btnSetting").style.display = "none";
 		ById('operatorList').style.display = 'none';
-		ById('matrix').style.display = 'none';
+		ById('matrixArea').style.display = 'none';
 		ById('tagSearch').style.display = 'block';
 		return;
 	}
@@ -1996,25 +2012,38 @@ function processMaterial(materials){
 	}
 	return nextMaterial;
 }
-
+/**
+ * 公開求人検索
+ */
 function recruitment(){
-	
+	// タグ取得
 	const chk = ById("tagSearch").getElementsByTagName("input");
+	// 検索結果表示欄取得
 	const out = ById("searchResult");
+	// 募集条件（単一）
 	const searchCond = new Array();
+	// 募集条件（２条件）
 	const searchCond2 = new Array();
+	// 募集条件（３条件）
 	const searchCond3 = new Array();
-	
+	// 検索結果のクリア
 	out.innerHTML = "";
-	
+	// タグループ
 	for(let i = 0; i < chk.length; i++){
+		// 選択されている場合
 		if(chk[i].checked){
+			// 検索条件ハッシュ生成
 			const cond = {};
+			// レアリティ条件（初期／エリート／上級エリート）の場合
 			if(chk[i].getAttribute("attr") == "rare"){
+				// 数値変換して退避
 				cond[chk[i].getAttribute("attr")] = parseInt(chk[i].value, 10);
+			// それ以外
 			}else{
+				// 条件を退避
 				cond[chk[i].getAttribute("attr")] = chk[i].value;
 			}
+			// 募集条件（単一）に追加
 			searchCond.push({
 				label:[chk[i].nextSibling.innerText],
 				cond:[cond],
@@ -2022,9 +2051,10 @@ function recruitment(){
 			});
 		}
 	}
-	
+	// 募集条件ループ（２条件組み合わせ）
 	for(let i = 0; i < searchCond.length; i++){
 		for(let j = i + 1; j < searchCond.length; j++){
+			// 募集条件（２条件）に追加
 			searchCond2.push({
 				label:[searchCond[i].label, searchCond[j].label],
 				cond:[
@@ -2035,10 +2065,11 @@ function recruitment(){
 			});
 		}
 	}
-	
+	// 募集条件ループ（３条件組み合わせ）
 	for(let i = 0; i < searchCond.length; i++){
 		for(let j = i + 1; j < searchCond.length; j++){
 			for(let k = j + 1; k < searchCond.length; k++){
+				// 募集条件（３条件）に追加
 				searchCond3.push({
 					label:[searchCond[i].label, searchCond[j].label, searchCond[k].label],
 					cond:[
@@ -2051,12 +2082,15 @@ function recruitment(){
 			}
 		}
 	}
-
+	// 募集条件（単一）ループ
 	for(let i = 0; i < searchCond.length; i++){
+		// 行生成
 		let row = Elem("tr");
+		// セル生成
 		let elem = Elem("td");
 		elem.innerHTML = "<div class='flex'><div class='card center'>" + searchCond[i].label[0] + "</div></div>";
 		row.appendChild(elem);
+		// 行生成
 		let row2 = Elem("tr");
 		let html = "";
 		for(let name in recluteOperator){

@@ -1132,7 +1132,7 @@ function makeMatrix(){
 		}
 	}
 	// テーブル生成
-	const t = new Table("matrix").removeAll(true).caption("オペレータ総数/所持数/昇進1済/昇進2済");
+	const t = new Table("matrix").removeAll(true);
 	// ヘッダ行生成
 	const hrow = new Row();
 	// レアリティヘッダ
@@ -1240,4 +1240,5 @@ function makeMatrix(){
 	);
 	// 合計行をテーブルに追加
 	t.add(sumrow);
+	ById("matrixArea").style.display = "block";
 }
