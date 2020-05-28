@@ -1330,6 +1330,99 @@ const operator = {
 		},
 		outfit:["summer"]
 	},
+	"モスティマ":{
+		en:"Mostima",rare:6,job:"術師",relocation:70,speed:2.9,trust:{atk:105},tag:["遠距離","範囲攻撃","支援","牽制"],
+		characteristic:"敵に<span class='merit'>範囲術ダメージ</span>を与える",
+		stat:[
+			{
+				min:{hp: 777,atk:348,def:52},
+				max:{hp:1080,atk:491,def:80},
+				res:10,cost:31,block:1,range:[[0,1],[1,1],[1,0],[2,0],[0,-1],[1,-1]],
+				nature:{}
+			},
+			{
+				hp:1350,atk:630,def:110,
+				res:15,cost:34,block:1,range:[[0,1],[1,1],[2,1],[1,0],[2,0],[0,-1],[1,-1],[2,-1]],
+				nature:{
+					"スキルブースト・術師":{
+						exp:"配置中、味方【術師】のSP自然回復速度+0.2sp/秒（同種の効果は高いほうのみ適用）"
+					}
+				}
+			},
+			{
+				hp:1731,atk:750,def:132,
+				res:20,cost:34,block:1,range:[[0,1],[1,1],[2,1],[1,0],[2,0],[0,-1],[1,-1],[2,-1]],
+				nature:{
+					"スキルブースト・術師":{
+						exp:"配置中、味方【術師】のSP自然回復速度+0.4sp/秒（同種の効果は高いほうのみ適用）"
+					},
+					"時間認知鈍化":{
+						exp:"攻撃範囲内の敵の移動速度-@base%@pexp",
+						base:15,
+						pexp:"(+@padd%)",
+						padd:3
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:34},
+			{nature:2},
+			{cost:-1}
+		],
+		skill:{
+			"攻撃力強化γ":{
+				recover:"auto",activate:"auto",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"時荒びの黒き錠":{
+				recover:"auto",activate:"auto",
+				exp:"攻撃範囲内の敵全員を<span class='merit'>スタン</span>させ、1秒ごと攻撃力の<span class='merit'>@atk%</span>の術ダメージを与える",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"時闢きの白き鍵":{
+				recover:"auto",activate:"auto",
+				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、第二素質の効果が<span class='merit'>3</span>倍まで上昇。攻撃時拡散する波紋を放ち、<span class='merit'>@pow</span>攻撃対象を突き飛ばす",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		}
+	},
 	"シャイニング":{
 		en:"Shining",
 		rare:6,job:"医療",relocation:70,speed:2.85,trust:{atk:80,def:20},tag:["遠距離","治療","支援"],
@@ -3041,6 +3134,84 @@ const operator = {
 			}
 		}
 	},
+	"バイソン":{
+		en:"Bison",
+		rare:5,job:"重装",relocation:80,speed:1.2,trust:{def:80},tag:["近距離","防御"],
+		characteristic:"敵を3体までブロック",
+		stat:[
+			{
+				min:{hp:1475,atk:198,def:245},
+				max:{hp:1941,atk:254,def:367},
+				res:0,cost:20,block:3,range:[],
+				nature:{}
+			},
+			{
+				hp:2522,atk:318,def:504,
+				res:0,cost:22,block:3,range:[],
+				nature:{
+					"クロスカバー":{
+						exp:"配置中、自身の防御力+@base@pexp、自身の後ろ1マスに配置されている味方【先鋒】或いは【前衛】も同じ効果を受ける",
+						base:25,
+						pexp:"(+@padd)",
+						padd:20
+					}
+				}
+			},
+			{
+				hp:3456,atk:375,def:701,
+				res:0,cost:24,block:3,range:[],
+				nature:{
+					"クロスカバー":{
+						exp:"配置中、自身の防御力+@base@pexp、自身の後ろ1マスに配置されている味方【先鋒】或いは【前衛】も同じ効果を受ける",
+						base:50,
+						pexp:"(+@padd)",
+						padd:20
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-10},
+			{cost:-1},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"防御力強化γ":{
+				recover:"auto",activate:"auto",
+				exp:"防御力<span class='merit'>+@defadd%</span>",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"戦線強化":{
+				recover:"auto",activate:"auto",
+				exp:"防御力<span class='merit'>+@defadd%</span>、攻撃しなくなり、敵に攻撃されやすくなる。隣接4マスの味方の防御力をも<span class='merit'>+@rangedefadd%</span>上昇",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		}
+	},
 	"アズリウス":{
 		en:"Blue Poison",
 		rare:5,job:"狙撃",relocation:70,speed:1.0,trust:{atk:75},tag:["遠距離","火力"],
@@ -3511,7 +3682,8 @@ const operator = {
 					{start:30,need:50,target:3,atk:300}
 				]
 			}
-		}
+		},
+		outfit:["wild"]
 	},
 	"イグゼキューター":{
 		en:"Executor",
@@ -5042,6 +5214,84 @@ const operator = {
 			}
 		}
 	},
+	"ワイフー":{
+		en:"Waai Fu",
+		rare:5,job:"特殊",relocation:18,speed:0.93,trust:{atk:50,def:30},tag:["近距離","高速再配置","弱化"],
+		characteristic:"再配置までの時間が極めて<span class='merit'>短い</span>",
+		stat:[
+			{
+				min:{hp:680,atk:207,def:137},
+				max:{hp:907,atk:305,def:196},
+				res:0,cost:7,block:1,range:[[1,0]],
+				nature:{}
+			},
+			{
+				hp:1134,atk:418,def:255,
+				res:0,cost:9,block:1,range:[[1,0]],
+				nature:{
+					"紅眉詠春":{
+						exp:"攻撃時20%の確率でその攻撃のみ攻撃力が@base%@pexpまで上昇し、対象をかすかに突き飛ばす",
+						base:125,
+						pexp:"(+@padd%)",
+						padd:10
+					}
+				}
+			},
+			{
+				hp:1455,atk:536,def:304,
+				res:0,cost:9,block:1,range:[[1,0]],
+				nature:{
+					"紅眉詠春":{
+						exp:"攻撃時20%の確率でその攻撃のみ攻撃力が@base%@pexpまで上昇し、対象をかすかに突き飛ばす",
+						base:150,
+						pexp:"(+@padd%)",
+						padd:10
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{def:19},
+			{relocation:-2},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"寸勁":{
+				passive:true,
+				exp:"配置後、攻撃力<span class='merit'>+@atkadd%</span>、攻撃対象の攻撃力を<span class='merit'>2</span>秒間<span class='merit'>-20%</span>",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"七武掠陣脚":{
+				passive:true,
+				exp:"配置後周囲一定範囲内の敵に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、攻撃対象の一部の特殊能力を<span class='merit'>5</span>秒間無効化する",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		}
+	},
 	"スカベンジャー":{
 		en:"Scavenger",
 		rare:4,job:"先鋒",relocation:70,speed:1.05,trust:{atk:60},tag:["近距離","COST回復","火力"],
@@ -6268,7 +6518,7 @@ const operator = {
 				]
 			}
 		},
-		outfit:["sweep"]
+		outfit:["sweep","wild"]
 	},
 	"メテオ":{
 		en:"Meteor",
@@ -6510,6 +6760,84 @@ const operator = {
 					{start: 7,need:23,pers:18,atkadd:35},
 					{start: 8,need:22,pers:19,atkadd:40},
 					{start:10,need:20,pers:20,atkadd:45}
+				]
+			}
+		}
+	},
+	"メイ":{
+		en:"May",
+		rare:4,job:"狙撃",relocation:70,speed:1,trust:{atk:65},tag:["遠距離","火力","減速"],
+		characteristic:"飛行ユニットを優先して攻撃",
+		stat:[
+			{
+				min:{hp: 730,atk:163,def:36},
+				max:{hp:1043,atk:273,def:61},
+				res:0,cost:10,block:1,range:[[0,1],[1,1],[2,1],[1,0],[2,0],[3,0],[0,-1],[1,-1],[2,-1]],
+				nature:{}
+			},
+			{
+				hp:1338,atk:391,def:88,
+				res:0,cost:12,block:1,range:[[0,1],[1,1],[2,1],[3,1],[1,0],[2,0],[3,0],[0,-1],[1,-1],[2,-1],[3,-1]],
+				nature:{
+					"ヴィクトリアの探偵":{
+						exp:"攻撃力+@base0%@pexp0,攻撃速度+@base1@pexp1",
+						base:[4,4],
+						pexp:["(+@pexp%)","(+@pexp)"],
+						padd:[1,1]
+					}
+				}
+			},
+			{
+				hp:132,atk:478,def:105,
+				res:0,cost:12,block:1,range:[[0,1],[1,1],[2,1],[3,1],[1,0],[2,0],[3,0],[0,-1],[1,-1],[2,-1],[3,-1]],
+				nature:{
+					"ヴィクトリアの探偵":{
+						exp:"攻撃力+@base0%@pexp0,攻撃速度+@base1@pexp1",
+						base:[7,7],
+						pexp:["(+@pexp%)","(+@pexp)"],
+						padd:[1,1]
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:23},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"ストップショット":{
+				recover:"attack",activate:"auto",
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇し、攻撃対象を<span class='merit'>1.5</span>秒<足止めする",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"スタンショック":{
+				recover:"ato",activate:"manual",
+				exp:"通常攻撃の間隔が<span class='demerit'>わずかに延長</span>し、攻撃力<span class='merit'>+@atkadd%</span>、攻撃対象を<span class='merit'>0.8</span>秒足止めし、<span class='merit'>30%</span>の確率で<span class='merit'>0.9</span>秒間スタンさせる",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
 				]
 			}
 		}
