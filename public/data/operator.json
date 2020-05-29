@@ -1393,16 +1393,16 @@ const operator = {
 				recover:"auto",activate:"auto",
 				exp:"攻撃範囲内の敵全員を<span class='merit'>スタン</span>させ、1秒ごと攻撃力の<span class='merit'>@atk%</span>の術ダメージを与える",
 				effect:[
-					{start: 5,need:65,pers:4,atk: 80},
-					{start: 7,need:64,pers:4,atk: 90},
-					{start: 9,need:63,pers:4,atk:100},
-					{start:11,need:61,pers:5,atk:100},
-					{start:13,need:59,pers:5,atk:110},
-					{start:15,need:58,pers:5,atk:120},
-					{start:17,need:56,pers:6,atk:120},
-					{start:20,need:54,pers:6,atk:130},
-					{start:23,need:52,pers:7,atk:130},
-					{start:30,need:50,pers:7,atk:140}
+					{start: 5,need:65,pers:4,atk: 80,intervaladd:-1.9},
+					{start: 7,need:64,pers:4,atk: 90,intervaladd:-1.9},
+					{start: 9,need:63,pers:4,atk:100,intervaladd:-1.9},
+					{start:11,need:61,pers:5,atk:100,intervaladd:-1.9},
+					{start:13,need:59,pers:5,atk:110,intervaladd:-1.9},
+					{start:15,need:58,pers:5,atk:120,intervaladd:-1.9},
+					{start:17,need:56,pers:6,atk:120,intervaladd:-1.9},
+					{start:20,need:54,pers:6,atk:130,intervaladd:-1.9},
+					{start:23,need:52,pers:7,atk:130,intervaladd:-1.9},
+					{start:30,need:50,pers:7,atk:140,intervaladd:-1.9}
 				]
 			},
 			"時闢きの白き鍵":{
@@ -5262,16 +5262,16 @@ const operator = {
 				passive:true,
 				exp:"配置後、攻撃力<span class='merit'>+@atkadd%</span>、攻撃対象の攻撃力を<span class='merit'>@time</span>秒間<span class='merit'>@atkdown%</span>",
 				effect:[
-					{pres:10,atkadd:25,time:2,atkdown:-20},
-					{pres:10,atkadd:30,time:2,atkdown:-20},
-					{pres:10,atkadd:35,time:2,atkdown:-20},
-					{pres:10,atkadd:40,time:2,atkdown:-25},
-					{pres:10,atkadd:45,time:2,atkdown:-25},
-					{pres:10,atkadd:50,time:2,atkdown:-25},
-					{pres:10,atkadd:55,time:3,atkdown:-30},
-					{pres:10,atkadd:60,time:3,atkdown:-33},
-					{pres:10,atkadd:65,time:3,atkdown:-36},
-					{pres:10,atkadd:70,time:3,atkdown:-40}
+					{pers:10,atkadd:25,time:2,atkdown:-20},
+					{pers:10,atkadd:30,time:2,atkdown:-20},
+					{pers:10,atkadd:35,time:2,atkdown:-20},
+					{pers:10,atkadd:40,time:2,atkdown:-25},
+					{pers:10,atkadd:45,time:2,atkdown:-25},
+					{pers:10,atkadd:50,time:2,atkdown:-25},
+					{pers:10,atkadd:55,time:3,atkdown:-30},
+					{pers:10,atkadd:60,time:3,atkdown:-33},
+					{pers:10,atkadd:65,time:3,atkdown:-36},
+					{pers:10,atkadd:70,time:3,atkdown:-40}
 				]
 			},
 			"七武掠陣脚":{
