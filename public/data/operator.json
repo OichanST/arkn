@@ -1377,48 +1377,48 @@ const operator = {
 				recover:"auto",activate:"auto",
 				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:40,pers:30,atkadd:30},
+					{start:0,need:40,pers:30,atkadd:35},
+					{start:0,need:40,pers:30,atkadd:40},
+					{start:5,need:37,pers:30,atkadd:45},
+					{start:5,need:37,pers:30,atkadd:50},
+					{start:5,need:37,pers:30,atkadd:55},
+					{start:10,need:35,pers:30,atkadd:60},
+					{start:10,need:34,pers:30,atkadd:75},
+					{start:10,need:33,pers:30,atkadd:90},
+					{start:15,need:30,pers:30,atkadd:100}
 				]
 			},
 			"時荒びの黒き錠":{
 				recover:"auto",activate:"auto",
 				exp:"攻撃範囲内の敵全員を<span class='merit'>スタン</span>させ、1秒ごと攻撃力の<span class='merit'>@atk%</span>の術ダメージを与える",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start: 5,need:65,pers:4,atk: 80},
+					{start: 7,need:64,pers:4,atk: 90},
+					{start: 9,need:63,pers:4,atk:100},
+					{start:11,need:61,pers:5,atk:100},
+					{start:13,need:59,pers:5,atk:110},
+					{start:15,need:58,pers:5,atk:120},
+					{start:17,need:56,pers:6,atk:120},
+					{start:20,need:54,pers:6,atk:130},
+					{start:23,need:52,pers:7,atk:130},
+					{start:30,need:50,pers:7,atk:140}
 				]
 			},
 			"時闢きの白き鍵":{
 				recover:"auto",activate:"auto",
-				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、第二素質の効果が<span class='merit'>3</span>倍まで上昇。攻撃時拡散する波紋を放ち、<span class='merit'>@pow</span>攻撃対象を突き飛ばす",
+				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、第二素質の効果が<span class='merit'>@nature</span>倍まで上昇。攻撃時拡散する波紋を放ち、<span class='merit'>@pow</span>攻撃対象を突き飛ばす",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start: 50,need:110,pers:20,atkadd: 60,nature:3,pow:"普通の力で"},
+					{start: 52,need:110,pers:20,atkadd: 70,nature:3,pow:"普通の力で"},
+					{start: 54,need:110,pers:20,atkadd: 80,nature:3,pow:"普通の力で"},
+					{start: 56,need:110,pers:22,atkadd: 90,nature:3,pow:"普通の力で"},
+					{start: 58,need:110,pers:22,atkadd:100,nature:3,pow:"普通の力で"},
+					{start: 60,need:110,pers:22,atkadd:110,nature:3,pow:"普通の力で"},
+					{start: 62,need:110,pers:24,atkadd:120,nature:3,pow:"普通の力で"},
+					{start: 68,need:110,pers:25,atkadd:135,nature:3,pow:"普通の力で"},
+					{start: 74,need:110,pers:26,atkadd:150,nature:3,pow:"普通の力で"},
+					{start: 80,need:110,pers:27,atkadd:170,nature:3,pow:"普通の力で"}
 				]
 			}
 		}
@@ -3182,32 +3182,32 @@ const operator = {
 				recover:"auto",activate:"auto",
 				exp:"防御力<span class='merit'>+@defadd%</span>",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start: 0,need:45,pers:40,defadd:30},
+					{start: 0,need:45,pers:40,defadd:35},
+					{start: 0,need:45,pers:40,defadd:40},
+					{start: 5,need:40,pers:40,defadd:45},
+					{start: 5,need:40,pers:40,defadd:50},
+					{start: 5,need:40,pers:40,defadd:55},
+					{start:10,need:35,pers:40,defadd:60},
+					{start:10,need:34,pers:40,defadd:75},
+					{start:10,need:33,pers:40,defadd:90},
+					{start:15,need:30,pers:40,defadd:100}
 				]
 			},
 			"戦線強化":{
 				recover:"auto",activate:"auto",
 				exp:"防御力<span class='merit'>+@defadd%</span>、攻撃しなくなり、敵に攻撃されやすくなる。隣接4マスの味方の防御力をも<span class='merit'>+@rangedefadd%</span>上昇",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:10,need:60,pers:40,defadd:50,rangedefadd:15},
+					{start:10,need:59,pers:40,defadd:55,rangedefadd:15},
+					{start:10,need:58,pers:40,defadd:60,rangedefadd:15},
+					{start:13,need:57,pers:40,defadd:65,rangedefadd:20},
+					{start:13,need:56,pers:40,defadd:70,rangedefadd:20},
+					{start:13,need:55,pers:40,defadd:75,rangedefadd:20},
+					{start:16,need:54,pers:40,defadd:80,rangedefadd:25},
+					{start:17,need:53,pers:40,defadd:90,rangedefadd:25},
+					{start:18,need:52,pers:40,defadd:100,rangedefadd:25},
+					{start:20,need:50,pers:40,defadd:120,rangedefadd:30}
 				]
 			}
 		}
@@ -5260,34 +5260,34 @@ const operator = {
 		skill:{
 			"寸勁":{
 				passive:true,
-				exp:"配置後、攻撃力<span class='merit'>+@atkadd%</span>、攻撃対象の攻撃力を<span class='merit'>2</span>秒間<span class='merit'>-20%</span>",
+				exp:"配置後、攻撃力<span class='merit'>+@atkadd%</span>、攻撃対象の攻撃力を<span class='merit'>@time</span>秒間<span class='merit'>@atkdown%</span>",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{pres:10,atkadd:25,time:2,atkdown:-20},
+					{pres:10,atkadd:30,time:2,atkdown:-20},
+					{pres:10,atkadd:35,time:2,atkdown:-20},
+					{pres:10,atkadd:40,time:2,atkdown:-25},
+					{pres:10,atkadd:45,time:2,atkdown:-25},
+					{pres:10,atkadd:50,time:2,atkdown:-25},
+					{pres:10,atkadd:55,time:3,atkdown:-30},
+					{pres:10,atkadd:60,time:3,atkdown:-33},
+					{pres:10,atkadd:65,time:3,atkdown:-36},
+					{pres:10,atkadd:70,time:3,atkdown:-40}
 				]
 			},
 			"七武掠陣脚":{
 				passive:true,
-				exp:"配置後周囲一定範囲内の敵に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、攻撃対象の一部の特殊能力を<span class='merit'>5</span>秒間無効化する",
+				exp:"配置後周囲一定範囲内の敵に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、攻撃対象の一部の特殊能力を<span class='merit'>@time</span>秒間無効化する",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{atk:180,time:5},
+					{atk:190,time:5},
+					{atk:200,time:5},
+					{atk:210,time:6},
+					{atk:220,time:6},
+					{atk:230,time:6},
+					{atk:240,time:7},
+					{atk:255,time:7},
+					{atk:270,time:7},
+					{atk:290,time:8}
 				]
 			}
 		}
@@ -6810,34 +6810,34 @@ const operator = {
 		skill:{
 			"ストップショット":{
 				recover:"attack",activate:"auto",
-				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇し、攻撃対象を<span class='merit'>1.5</span>秒<足止めする",
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇し、攻撃対象を<span class='merit'>@stop</span>秒<足止めする",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{need:5,atk:135,stop:1.5},
+					{need:5,atk:140,stop:1.5},
+					{need:5,atk:145,stop:1.5},
+					{need:4,atk:150,stop:2},
+					{need:4,atk:155,stop:2},
+					{need:4,atk:160,stop:2},
+					{need:4,atk:170,stop:2},
+					{need:4,atk:180,stop:2.5},
+					{need:4,atk:190,stop:2.5},
+					{need:3,atk:200,stop:2.5}
 				]
 			},
 			"スタンショック":{
 				recover:"ato",activate:"manual",
-				exp:"通常攻撃の間隔が<span class='demerit'>わずかに延長</span>し、攻撃力<span class='merit'>+@atkadd%</span>、攻撃対象を<span class='merit'>0.8</span>秒足止めし、<span class='merit'>30%</span>の確率で<span class='merit'>0.9</span>秒間スタンさせる",
+				exp:"通常攻撃の間隔が<span class='demerit'>わずかに延長</span>し、攻撃力<span class='merit'>+@atkadd%</span>、攻撃対象を<span class='merit'>@slow</span>秒足止めし、<span class='merit'>30%</span>の確率で<span class='merit'>@stan</span>秒間スタンさせる",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{need:30,pers:25,intervaladd:0.5,atkadd: 60,slow:0.8,stan:0.9},
+					{need:29,pers:25,intervaladd:0.5,atkadd: 65,slow:0.8,stan:0.9},
+					{need:28,pers:25,intervaladd:0.5,atkadd: 70,slow:0.8,stan:0.9},
+					{need:27,pers:25,intervaladd:0.5,atkadd: 75,slow:0.8,stan:1},
+					{need:25,pers:26,intervaladd:0.5,atkadd: 80,slow:0.8,stan:1},
+					{need:25,pers:26,intervaladd:0.5,atkadd: 85,slow:0.8,stan:1},
+					{need:24,pers:27,intervaladd:0.5,atkadd: 90,slow:0.9,stan:1},
+					{need:23,pers:28,intervaladd:0.5,atkadd:100,slow:0.9,stan:1.1},
+					{need:22,pers:29,intervaladd:0.5,atkadd:110,slow:0.9,stan:1.1},
+					{need:20,pers:30,intervaladd:0.5,atkadd:120,slow:  1,stan:1.2}
 				]
 			}
 		}
