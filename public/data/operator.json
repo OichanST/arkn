@@ -5271,6 +5271,28 @@ const operator = {
 				}
 			}
 		],
+		dmgUp:function(arg){
+			if(arg.promotion == 1){
+					if(arg.enhanceNature1){
+						// 20%の確率で攻撃力135%
+						return arg.atk + (arg.atk * 0.2 * 0.35) - arg.eneDef;
+					}else{
+						// 20%の確率で攻撃力125%
+						return arg.atk + (arg.atk * 0.2 * 0.25) - arg.eneDef;
+					}
+			}else if(arg.promotion == 2){
+					if(arg.enhanceNature1){
+						// 20%の確率で攻撃力160%
+						return arg.atk + (arg.atk * 0.2 * 0.6) - arg.eneDef;
+					}else{
+						// 20%の確率で攻撃力150%
+						return arg.atk + (arg.atk * 0.2 * 0.5) - arg.eneDef;
+					}
+			}else{
+				// 物理防御による計算
+				return arg.atk - eneDef;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{def:19},
