@@ -3176,13 +3176,13 @@ const operator = {
 		],
 		defUp:function(arg){
 			if(arg.promotion == 1){
-				if(!arg.enhanceNature1){
+				if(arg.enhanceNature1){
 					return arg.def + 45;
 				}else{
 					return arg.def + 25;
 				}
 			}else if(arg.promotion == 2){
-				if(!arg.enhanceNature1){
+				if(arg.enhanceNature1){
 					return arg.def + 70;
 				}else{
 					return arg.def + 50;
