@@ -958,7 +958,7 @@ const operator = {
 			},
 			"オーバーロード":{
 				exp:"通常攻撃が<span class='merit'>@cnt</span>回連続攻撃にな@text",
-				recover:"auto",activate:"manual",
+				recover:"auto",activate:"auto",
 				effect:[
 					{start:20,need:50,pers:15,cnt:5,text:"る"},
 					{start:20,need:48,pers:15,cnt:5,text:"る"},
