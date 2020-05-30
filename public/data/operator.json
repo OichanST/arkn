@@ -6789,7 +6789,7 @@ const operator = {
 					"ヴィクトリアの探偵":{
 						exp:"攻撃力+@base0%@pexp0,攻撃速度+@base1@pexp1",
 						base:[4,4],
-						pexp:["(+@pexp%)","(+@pexp)"],
+						pexp:["(+@padd%)","(+@padd)"],
 						padd:[1,1]
 					}
 				}
@@ -6802,7 +6802,7 @@ const operator = {
 					"ヴィクトリアの探偵":{
 						exp:"攻撃力+@base0%@pexp0,攻撃速度+@base1@pexp1",
 						base:[7,7],
-						pexp:["(+@pexp%)","(+@pexp)"],
+						pexp:["(+@padd%)","(+@padd)"],
 						padd:[1,1]
 					}
 				}
