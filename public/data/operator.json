@@ -3174,6 +3174,21 @@ const operator = {
 				}
 			}
 		],
+		defUp:function(arg){
+			if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.def + 45;
+				}else{
+					return arg.def + 25;
+				}
+			}else if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.def + 70;
+				}else{
+					return arg.def + 50;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-10},
@@ -6818,7 +6833,7 @@ const operator = {
 		skill:{
 			"ストップショット":{
 				recover:"attack",activate:"auto",
-				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇し、攻撃対象を<span class='merit'>@stop</span>秒<足止めする",
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇し、攻撃対象を<span class='merit'>@stop</span>秒足止めする",
 				effect:[
 					{need:5,atk:135,stop:1.5},
 					{need:5,atk:140,stop:1.5},
