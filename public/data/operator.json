@@ -5579,6 +5579,21 @@ const operator = {
 				}
 			}
 		],
+		dmgUp:function(arg){
+			if(arg.promotion == 1){
+				if(arg.enhanceNature1){
+					return arg.atk + (arg.atk * 0.1 * 0.6) -arg.eneDef;
+				}else{
+					return arg.atk + (arg.atk * 0.1 * 0.5) -arg.eneDef;
+				}
+			}else if(arg.promotion == 2){
+				if(arg.enhanceNature1){
+					return arg.atk + (arg.atk * 0.1 * 1.1) -arg.eneDef;
+				}else{
+					return arg.atk + (arg.atk * 0.1 * 1) -arg.eneDef;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
