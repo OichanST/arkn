@@ -7697,10 +7697,12 @@ const operator = {
 			}
 		},
 		defUp:function(arg){
-			if(!arg.enhanceNature1){
-				return arg.def * 1.06;
-			}else{
-				return arg.def * 1.08;
+			if(arg.promotion == 2){
+				if(!arg.enhanceNature1){
+					return arg.def * 1.06;
+				}else{
+					return arg.def * 1.08;
+				}
 			}
 		},
 		potential:[
