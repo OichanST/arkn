@@ -6424,6 +6424,20 @@ const operator = {
 				}
 			},
 		],
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				return arg.atk * 1.04;
+			}else if(arg.promotion == 2){
+				return arg.atk * 1.07;
+			}
+		},
+		defUp:function(arg){
+			if(arg.promotion == 1){
+				return arg.def * 1.04;
+			}else if(arg.promotion == 2){
+				return arg.def * 1.07;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
