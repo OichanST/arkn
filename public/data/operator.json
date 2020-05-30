@@ -6837,6 +6837,36 @@ const operator = {
 				}
 			}
 		],
+		atkUp:function(arg){
+			if(arg.promotion == 1){
+				if(arg.enhanceNature1){
+					return arg.atk * 1.05;
+				}else{
+					return arg.atk * 1.04;
+				}
+			}else if(arg.promotion == 2){
+				if(arg.enhanceNature1){
+					return arg.atk * 1.08;
+				}else{
+					return arg.atk * 1.07;
+				}
+			}
+		},
+		speedUp:function(arg){
+			if(arg.promotion == 1){
+				if(arg.enhanceNature1){
+					return 5;
+				}else{
+					return 4;
+				}
+			}else if(arg.promotion == 2){
+				if(arg.enhanceNature1){
+					return 8;
+				}else{
+					return 7;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -8535,9 +8565,9 @@ const operator = {
 		speedUp:function(arg){
 			if(arg.promotion == 1){
 				if(arg.lv != 55){
-					speedUp = 4;
+					return 4;
 				}else{
-					speedUp = 8;
+					return 8;
 				}
 			}
 		},
