@@ -1475,6 +1475,27 @@ const operator = {
 				}
 			}
 		],
+		defUp:function(arg){
+			if(arg.promotion == 0){
+				if(arg.enhanceNature1){
+					return arg.def + 25;
+				}else{
+					return arg.def + 20;
+				}
+			}else if(arg.promotion == 1){
+				if(arg.enhanceNature1){
+					return arg.def + 45;
+				}else{
+					return arg.def + 40;
+				}
+			}else if(arg.promotion == 2){
+				if(arg.enhanceNature1){
+					return arg.def + 65;
+				}else{
+					return arg.def + 60;
+				}
+			}
+		},
 		speedUp:function(arg){
 			if(arg.promotion == 2){
 				if(!arg.enhanceNature2){
@@ -1590,6 +1611,27 @@ const operator = {
 				}
 			}
 		],
+		resUp:function(arg){
+			if(arg.promotion == 0){
+				if(arg.enhanceNature1){
+					return arg.res + 7;
+				}else{
+					return arg.res + 5;
+				}
+			}else if(arg.promotion == 1){
+				if(arg.enhanceNature1){
+					return arg.res + 12;
+				}else{
+					return arg.res + 10;
+				}
+			}else if(arg.promotion == 2){
+				if(arg.enhanceNature1){
+					return arg.res + 17;
+				}else{
+					return arg.res + 15;
+				}
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
