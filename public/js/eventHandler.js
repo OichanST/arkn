@@ -2738,11 +2738,13 @@ function graphDPS(){
 			ctx.closePath();
 			
 			ctx.beginPath();
+			
 			if(data.job == "医療"){
 				ctx.strokeStyle = "#00c000";
 			}else{
 				ctx.strokeStyle = "#000000";
 			}
+			
 			ctx.moveTo(basePos.x + i * baseScale.x, basePos.y - ttlDmg / baseScale.y);
 		}
 		
@@ -2772,7 +2774,7 @@ function graphDPS(){
 					ctx.strokeStyle = "#ff0000";
 					
 					ctx.moveTo(basePos.x + i * baseScale.x, basePos.y - ttlDmg / baseScale.y);
-				
+					
 					let sCnt = 1;
 					if(skillEffect.cnt){
 						sCnt = skillEffect.cnt;
@@ -2810,7 +2812,11 @@ function graphDPS(){
 					}
 					skillEffect.need = baseNeed;
 				}else{
-					ttlDmg += dmg * atkCnt;
+					if(skillInfo.activate){
+						ttlDmg += skillInfo.dmg * skillInfo.cnt;
+					}else{
+						ttlDmg += dmg * atkCnt;
+					}
 				}
 			}else{
 				if(skillInfo.activate){
