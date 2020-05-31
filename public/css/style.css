@@ -432,3 +432,6 @@ button:disabled{
 #searchResult{
 	table-layout:fixed;
 }
+#skillActivate:disabled + span{
+	display:none;
+}

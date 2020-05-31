@@ -59,6 +59,7 @@ function init(){
 			thead.size("70.0em");
 			ById("wrapper").style.width = "calc(70em - 1px)";
 		}
+		ById("dmgGraphArea").style.display = "none";
 		// ヘッダ生成
 		hrow.addHeader("所持", {width:"2.9em"});
 		if(isMobile){
@@ -99,6 +100,7 @@ function init(){
 			thead.size("51.3em");
 			ById("wrapper").style.width = "calc(51.3em - 1px)";
 		}
+		ById("dmgGraphArea").style.display = "none";
 		// ヘッダ生成
 		hrow.addHeader("レア度", {width:"6.0em"});
 		hrow.addHeader("コードネーム", {width:"9.5em"});
@@ -120,8 +122,31 @@ function init(){
 		ById('matrixArea').style.display = 'none';
 		// 求人募集検索の表示
 		ById('tagSearch').style.display = 'block';
+		
+		ById("dmgGraphArea").style.display = "none";
 		// 処理終了
 		return;
+	}else if(type == "4"){
+	
+		const opeSel = ById("graphOperator");
+
+		opeSel.innerHTML = "";
+
+		for(let name in operator){
+			opeSel.appendChild(new Option(name, name));
+		}
+		
+		setGraphSkill();
+		// 設定ボタンの非表示
+		ById("btnSetting").style.display = "none";
+		// オペレーター一覧の非表示
+		ById('operatorList').style.display = 'none';
+		// 集計情報の非表示
+		ById('matrixArea').style.display = 'none';
+		// 求人募集検索の非表示
+		ById('tagSearch').style.display = 'none';
+		
+		ById("dmgGraphArea").style.display = "block";
 	}
 	// リストヘッダに行追加
 	thead.addHeader(hrow);
@@ -2334,4 +2359,546 @@ function recruitment(){
 		out.appendChild(row);
 		out.appendChild(row2);
 	}
+}
+function setGraphSkill(){
+	
+	const name = ById("graphOperator").value;
+	
+	const sel = ById("graphSkill");
+	
+	sel.innerHTML = "";
+	
+	for(let sname in operator[name].skill){
+		sel.appendChild(new Option(sname, sname));
+	}
+	if(Object.keys(operator[name].skill).length > 0){
+		sel.style.display = "inline-block";
+	}else{
+		sel.style.display = "none";
+	}
+	
+	changeSkill();
+}
+
+function changeSkill(){
+	ById("skillActivate").checked = false;
+	graphDPS();
+}
+
+function graphDPS(){
+	const canvasWidth = 1200;
+	const canvasHeight = 800;
+	const basePos = {
+		x:50,
+		y:750
+	};
+	const mesureY = parseInt(ById("mesure").value);
+	const mesure = {
+		x:30,
+		y:mesureY
+	};
+	// グラフの目盛幅
+	const baseScale = {
+		x:1.2,
+		y:mesureY * 1.4
+	};
+	const frameRatio = 30;
+	
+	const dmgRatio = 1000;
+	
+	const graph = ById("dmgGraph");
+	graph.setAttribute("width", canvasWidth);
+	graph.setAttribute("height", canvasHeight);
+	graph.style.width = canvasWidth + "px";
+	graph.style.height = canvasHeight + "px";
+	// コンテキスト取得
+	const ctx = graph.getContext("2d");
+	// 描画領域のクリア
+	ctx.clearRect(0 , 0, canvasWidth, canvasHeight);
+	// 線色設定
+	ctx.strokeStyle = "#000000";
+	// 線種設定
+	ctx.setLineDash([0,0,0,0]);
+	// 描画開始
+	ctx.beginPath();
+	// 基点に移動
+	ctx.moveTo(basePos.x, basePos.y);
+	// X軸線追加
+	ctx.lineTo(basePos.x + baseScale.x * frameRatio * mesure.x, basePos.y);
+	// 基点に移動
+	ctx.moveTo(basePos.x, basePos.y);
+	// Y軸線追加
+	ctx.lineTo(basePos.x, 5);
+	// X軸目盛追加
+	for(let i = 1; i <= mesure.x ;i++){
+		// 目盛位置に移動
+		ctx.moveTo(basePos.x + i * frameRatio * baseScale.x, basePos.y);
+		// 目盛描画
+		ctx.lineTo(basePos.x + i * frameRatio * baseScale.x, basePos.y + 5);
+		// テキスト追加
+		ctx.strokeText(i + "s", basePos.x - 5 + i * frameRatio * baseScale.x, basePos.y + 16);
+	}
+	// Y軸目盛追加
+	for(let i = 1; i <= mesure.y; i++){
+		// 目盛位置に移動
+		ctx.moveTo(basePos.x, basePos.y - (dmgRatio * i) / baseScale.y);
+		// 目盛描画
+		ctx.lineTo(basePos.x - 10, basePos.y - (dmgRatio * i) / baseScale.y);
+		// テキスト追加
+		ctx.strokeText(dmgRatio * i, 6, basePos.y + 4 - (dmgRatio * i) / baseScale.y);
+	}
+	// 描画
+	ctx.stroke();
+	// 描画終了
+	ctx.closePath();
+	
+	const name = ById("graphOperator").value;
+	
+	// 該当オペレータのデータ取得
+	const data = operator[name];
+	// 各最大値、最小値の取得
+	const stat = calcLvStat(name);
+	// 昇進状態の取得
+	const promotion = sto.data[name].promotion;
+	// 潜在能力の取得
+	const potential = sto.data[name].potential;
+	// LVの取得
+	const lv = sto.data[name].lv;
+	// 敵物理防御を取得
+	const eneDef = ById("eneDef").value ? parseInt(ById("eneDef").value) : 0;
+	// 敵術耐性を取得
+	const eneRes = ById("eneRes").value ? parseInt(ById("eneRes").value) : 0;
+	// 範囲内の敵数取得
+	const eneCnt = ById("eneCnt").value ? parseInt(ById("eneCnt").value) : 0;
+	// 潜在能力による素質1or2強化
+	let enhanceNature1 = false;
+	let enhanceNature2 = false;
+	// 潜在能力による強化
+	for(let i = 1; i < potential; i++){
+		const pt = data.potential[i - 1];
+		if(typeof pt["nature"] != "undefined"){
+			if(pt.nature == 1){
+				enhanceNature1 = true;
+			}else if(pt.nature == 2){
+				enhanceNature2 = true;
+			}
+		}
+	}
+	// 引数を作成
+	const arg = {
+      	atk:stat.atk,
+      	promotion:promotion,
+      	lv:lv,
+      	block:data.stat[promotion].block,
+    	eneDef:eneDef,
+      	eneRes:eneRes,
+      	eneCnt:eneCnt,
+		enhanceNature1:enhanceNature1,
+		enhanceNature2:enhanceNature2
+	};
+	// 条件付き計算可否
+	let isCalc = true;
+	// 条件付きの場合
+	if(operator[name].cond && operator[name].cond(arg)){
+		// フラグOFFの場合は条件付きの計算は含まない
+		isCalc = false;
+	}
+	// 素質による攻撃力強化分の計上 ※条件付きの場合考慮しない
+	if(isCalc && operator[name].atkUp && operator[name].atkUp(arg) != null){
+		stat.atk = operator[name].atkUp(arg);
+	}
+	// 攻撃回数
+	let atkCnt = (operator[name].cnt && operator[name].cnt(arg) != null)
+	               ? operator[name].cnt(arg)
+	               : 1;
+	// ダメージ値
+	let dmg;
+	// 術攻撃オペレータの場合
+	if(data.job == "術師" || data.job == "補助" || name == "ムース" || name == "アステシア"){
+		/*
+		dmg = (isCalc && operator[name].dmgUp && operator[name].dmgUp(arg) != null)
+		      ? operator[name].dmgUp(arg)
+		      : (
+		        (operator[name].dmgDefault && operator[name].dmgDefault(arg) != null)
+		        ? operator[name].dmgDefault(arg)
+		        : Math.round(stat.atk * (100 - eneRes) / 100)
+		      );
+		*/
+		dmg = Math.round(stat.atk * (100 - eneRes) / 100);
+	// 医療オペレータの場合
+	}else if(data.job == "医療"){
+		// 単純に攻撃力で計算
+		dmg = stat.atk;
+		ctx.strokeStyle = "#00c000";
+	// それ以外＝物理攻撃オペレータの場合
+	}else{
+		/*
+		dmg = (isCalc && operator[name].dmgUp && operator[name].dmgUp(arg) != null)
+		      ? operator[name].dmgUp(arg)
+		      : (
+		        (operator[name].dmgDefault && operator[name].dmgDefault(arg) != null)
+		        ? operator[name].dmgDefault(arg)
+		        : stat.atk - eneDef
+		      );
+		*/
+		dmg = stat.atk - eneDef;
+	}
+	// 範囲内の同時攻撃数
+	const target = (operator[name].target && operator[name].target(arg) != null)
+	               ? operator[name].target(arg)
+	               : 1;
+	// 保証ダメージの計算
+	const limit = (isCalc && operator[name].limitUp && operator[name].limitUp(arg) != null)
+	              ? operator[name].limitUp(arg)
+	              : 0.05;
+	// 攻撃時のダメージ値が保証ダメージ未満の場合
+	if(dmg < stat.atk * limit){
+		// 保証ダメージによる計算
+		dmg = parseInt(stat.atk * limit);
+	}
+	// 攻撃速度上昇
+	let speedUp = (isCalc && operator[name].speedUp && operator[name].speedUp(arg) != null)
+	                ? operator[name].speedUp(arg)
+	                : 0;
+	
+	// 攻撃間隔延長
+	let intervalUp = (isCalc && operator[name].intervalUp && operator[name].intervalUp(arg) != null)
+	                ? operator[name].intervalUp(arg)
+	                : 0;
+	
+	// スリップダメージ
+	const slipDmg = (isCalc && operator[name].slipDmg && operator[name].slipDmg(arg) != null)
+	                ? operator[name].slipDmg(arg)
+	                : 0;
+	
+	const sname = ById("graphSkill").value;
+	
+	if(name == "アンジェリーナ" && sname != "秘杖・急収束"){
+		dmg = 0;
+	}
+	
+	let splv = 0;
+	let spidx = 0;
+	
+	for(let lpname in operator[name].skill){
+		if(lpname == sname){
+			break;
+		}
+		spidx++;
+	}
+	if(spidx < Object.keys(operator[name].skill).length){
+		splv = sto.data[name].sp[spidx];
+	}
+	
+	let skillData = {};
+	let skillEffect = [];
+	if(sname != "" && operator[name].skill){
+		skillData = JSON.parse(JSON.stringify(operator[name].skill[sname]));
+		skillEffect = skillData.effect[sto.data[name].slv - 1 + splv];
+	}
+	if(skillData.passive){
+		ById("recoverText").innerText = "パッシブ";
+		ById("activateText").style.display = "none";
+	}else if(skillData.recover){
+		const recoverConv = {
+			"auto":"自動回復",
+			"attack":"攻撃回復",
+			"damage":"被撃回復"
+		};
+
+		const activateConv = {
+			"auto":"自動発動",
+			"manual":"手動発動"
+		};
+
+		ById("recoverText").innerText = recoverConv[skillData.recover];
+		ById("activateText").innerText = activateConv[skillData.activate];
+		ById("recoverText").style.display = "block";
+		ById("activateText").style.display = "block";
+	}else{
+		ById("recoverText").style.display = "none";
+		ById("activateText").style.display = "none";
+	}
+
+	if(skillEffect.pers){
+		ById("skillPers").innerText = skillEffect.pers + "秒";
+		ById("skillPers").style.display = "block";
+	}else{
+		ById("skillPers").innerText = "";
+		ById("skillPers").style.display = "none";
+	}
+	
+	let exp = skillData.exp;
+	
+	if(exp){
+		for(let key in skillEffect){
+			if(exp.indexOf("@" + key) >= 0){
+				while(exp.indexOf("@" + key) >= 0){
+					exp = exp.replace("@" + key, skillEffect[key]);
+				}
+			}
+		}
+
+		ById("skillExp").innerHTML = exp;
+		ById("skillExp").style.display = "block";
+	}else{
+		ById("skillExp").style.display = "none";
+	}
+	if(!skillData.activate || (skillData.activate == "auto" && !skillData.infinity)){
+		ById("skillActivate").disabled = true;
+	}else{
+		ById("skillActivate").disabled = false;
+	}
+	
+	const baseNeed = skillEffect.need;
+
+	if(typeof skillEffect.start != "undefined" && typeof skillEffect.need != "undefined"){
+		skillEffect.need = skillEffect.need - skillEffect.start;
+	}
+	
+	let interval = 1;	
+
+	let speed = Math.round((data.speed + intervalUp) * interval * (100 / (100 + speedUp)) * frameRatio);
+	
+	const skillInfo = {
+		activate:false,
+		dmg:dmg,
+		cnt:1,
+		speed:speed,
+		pers:0
+	};
+	
+	if(
+		(
+			ById("skillActivate").checked && 
+			(
+				(skillData.activate == "manual" && skillEffect.pers > 0) ||
+				skillData.infinity
+			)
+		) ||
+		(skillData.passive && (skillEffect.pers > 0 || skillEffect.time > 0))
+	){
+		skillInfo.activate = true;
+		
+		if(skillEffect.atk){
+			skillInfo.dmg = stat.atk * skillEffect.atk / 100;
+		}else if(skillEffect.atkadd){
+			skillInfo.dmg = stat.atk * (1 + skillEffect.atkadd / 100);
+		}
+		// 攻撃時のダメージ値が保証ダメージ未満の場合
+		if(skillInfo.dmg < stat.atk * limit){
+			// 保証ダメージによる計算
+			skillInfo.dmg = parseInt(stat.atk * limit);
+		}
+		if(skillData.noAttack){
+			skillInfo.dmg = 0;
+		}
+		
+		if(skillEffect.speed){
+			speedUp += skillEffect.speed;
+		}
+		if(skillEffect.interval){
+			interval = skillEffect.interval;
+		}
+		if(skillEffect.intervaladd){
+			intervalUp += skillEffect.intervaladd;
+		}
+		if(skillEffect.cnt){
+			skillInfo.cnt = skillEffect.cnt;
+		}
+		
+		skillInfo.speed = Math.round((data.speed + intervalUp) * interval * (100 / (100 + speedUp)) * frameRatio);
+		
+		skillInfo.pers = skillEffect.pers;
+		
+		if(skillData.passive && !skillEffect.pers && skillEffect.time > 0){
+			skillInfo.pers = skillEffect.time;
+		}
+		
+		ctx.strokeStyle = "#ff3000";
+	}
+	
+	// 描画開始
+	ctx.beginPath();
+	// 基点に移動
+	ctx.moveTo(basePos.x, basePos.y);
+	
+	let ttlDmg = 0;
+	
+	for(let i = 0; i < frameRatio * mesure.x; i++){
+		
+		ctx.lineTo(basePos.x + i * baseScale.x, basePos.y - ttlDmg / baseScale.y);
+		
+		if(skillInfo.activate && skillInfo.pers <= 0){
+			skillInfo.activate = false;
+			
+			// 描画
+			ctx.stroke();
+			// 描画終了
+			ctx.closePath();
+			
+			ctx.beginPath();
+			if(data.job == "医療"){
+				ctx.strokeStyle = "#00c000";
+			}else{
+				ctx.strokeStyle = "#000000";
+			}
+			ctx.moveTo(basePos.x + i * baseScale.x, basePos.y - ttlDmg / baseScale.y);
+		}
+		
+		if(
+			(!skillInfo.activate && i % speed == 0) ||
+			(skillInfo.activate && i % skillInfo.speed == 0)
+		){
+			if(skillData.recover == "attack" && typeof skillEffect.need != "undefined"){
+				skillEffect.need = skillEffect.need - 1;
+			}
+			
+			if(typeof skillEffect.pers == "undefined" && typeof skillEffect.need != "undefined"){
+				if(
+					skillEffect.need <= 0 &&
+					(
+						skillData.activate == "auto" ||
+						(skillData.activate == "manual" && ById("skillActivate").checked)
+					)
+				){
+					// 描画
+					ctx.stroke();
+					// 描画終了
+					ctx.closePath();
+					
+					ctx.beginPath();
+					
+					ctx.strokeStyle = "#ff0000";
+					
+					ctx.moveTo(basePos.x + i * baseScale.x, basePos.y - ttlDmg / baseScale.y);
+				
+					let sCnt = 1;
+					if(skillEffect.cnt){
+						sCnt = skillEffect.cnt;
+					}
+					if(skillEffect.atk > 0){
+						// 術攻撃オペレータの場合
+						if(data.job == "術師" || data.job == "補助" || name == "ムース" || name == "アステシア" || skillData.res){
+							ttlDmg += Math.round(stat.atk * skillEffect.atk / 100) * ((100 - eneRes) / 100) * sCnt;
+						// 医療オペレータの場合
+						}else if(data.job == "医療"){
+							ttlDmg += Math.round(stat.atk * skillEffect.atk / 100) * sCnt;
+						}else if(skillData.multi){
+							ttlDmg += Math.round(stat.atk * skillEffect.atk / 100) * ((100 - eneRes) / 100) * sCnt;
+							ttlDmg += (Math.round(stat.atk * skillEffect.atk / 100) - eneDef) * sCnt;
+						// それ以外＝物理攻撃オペレータの場合
+						}else{
+							ttlDmg += (Math.round(stat.atk * skillEffect.atk / 100) - eneDef) * sCnt;
+						}
+					}else if(skillEffect.atkadd > 0){
+						// 術攻撃オペレータの場合
+						if(data.job == "術師" || data.job == "補助" || name == "ムース" || name == "アステシア" || skillData.res){
+							ttlDmg += Math.round(stat.atk * (1 + skillEffect.atkadd / 100) * ((100 - eneRes) / 100)) * sCnt;
+						// 医療オペレータの場合
+						}else if(data.job == "医療"){
+							ttlDmg += Math.round(stat.atk * (1 + skillEffect.atkadd / 100)) * sCnt;
+						}else if(skillData.multi){
+							ttlDmg += Math.round(stat.atk * (1 + skillEffect.atkadd / 100) * ((100 - eneRes) / 100)) * sCnt;
+							ttlDmg += (Math.round(stat.atk * (1 + skillEffect.atkadd / 100)) - eneDef)  * sCnt;
+						// それ以外＝物理攻撃オペレータの場合
+						}else{
+							ttlDmg += (Math.round(stat.atk * (1 + skillEffect.atkadd / 100)) - eneDef)  * sCnt;
+						}
+					}else{
+						ttlDmg += dmg * sCnt;
+					}
+					skillEffect.need = baseNeed;
+				}else{
+					ttlDmg += dmg * atkCnt;
+				}
+			}else{
+				if(skillInfo.activate){
+					ttlDmg += skillInfo.dmg * skillInfo.cnt;
+				}else{
+					ttlDmg += dmg * atkCnt;
+				}
+			}
+			ctx.lineTo(basePos.x + i * baseScale.x, basePos.y - ttlDmg / baseScale.y);
+			
+			if(ctx.strokeStyle == "#ff0000"){
+				// 描画
+				ctx.stroke();
+				// 描画終了
+				ctx.closePath();
+				
+				ctx.beginPath();
+				if(data.job == "医療"){
+					ctx.strokeStyle = "#00c000";
+				}else{
+					ctx.strokeStyle = "#000000";
+				}
+				ctx.moveTo(basePos.x + i * baseScale.x, basePos.y - ttlDmg / baseScale.y);
+
+			}
+		}
+		if(skillData.recover == "auto" && typeof skillEffect.need != "undefined" && (i != 0 && i % 30 == 0)){
+			skillEffect.need = skillEffect.need - 1;
+		}
+		
+		if(skillData.activate == "auto" && !skillInfo.activate && skillEffect.need <= 0 && skillEffect.pers){
+
+			skillInfo.activate = true;
+
+			// 描画
+			ctx.stroke();
+			// 描画終了
+			ctx.closePath();
+			
+			ctx.beginPath();
+			
+			ctx.strokeStyle = "#ff3000";
+			
+			ctx.moveTo(basePos.x + i * baseScale.x, basePos.y - ttlDmg / baseScale.y);
+
+			if(skillEffect.atk){
+				skillInfo.dmg = stat.atk * skillEffect.atk / 100;
+			}else if(skillEffect.atkadd){
+				skillInfo.dmg = stat.atk * (1 + skillEffect.atkadd / 100);
+			}
+			// 攻撃時のダメージ値が保証ダメージ未満の場合
+			if(skillInfo.dmg < stat.atk * limit){
+				// 保証ダメージによる計算
+				skillInfo.dmg = parseInt(stat.atk * limit);
+			}
+			if(skillData.noAttack){
+				skillInfo.dmg = 0;
+			}
+			
+			if(skillEffect.speed){
+				speedUp += skillEffect.speed;
+			}
+			if(skillEffect.interval){
+				interval = skillEffect.interval;
+			}
+			if(skillEffect.intervaladd){
+				intervalUp += skillEffect.intervaladd;
+			}
+			if(skillEffect.cnt){
+				skillInfo.cnt = skillEffect.cnt;
+			}
+			
+			skillInfo.speed = Math.round((data.speed + intervalUp) * interval * (100 / (100 + speedUp)) * frameRatio);
+			
+			console.log(skillInfo.speed);
+			
+			skillInfo.pers = skillEffect.pers;
+		}
+		
+		if(skillInfo.activate && i != 0 && i % 30 == 0){
+			skillInfo.pers = skillInfo.pers - 1;
+		}
+	}
+	
+	ById("ttl").innerText = Math.round(ttlDmg);
+	
+	// 描画
+	ctx.stroke();
+	// 描画終了
+	ctx.closePath();
 }

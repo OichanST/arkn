@@ -37,6 +37,7 @@
 							<option value="1">オペレーター管理</option>
 							<option value="2">一覧</option>
 							<option value="3">公開求人検索</option>
+							<option value="4">ダメージグラフ(β)</option>
 						</select>
 					</div>
 					<div style="text-align:right;">
@@ -366,9 +367,42 @@
 				</div>
 			</div>
 			<div>
-				<table id="searchResult">
-				</table>
+				<table id="searchResult"></table>
 			</div>
+		</div>
+		<div id="dmgGraphArea" style="display:none;width:1200px;margin-left:50%;transform:translateX(-50%);">
+			<div class="flexbetween" style="height:2em;align-items:center;">
+				<div>
+					<select id="graphOperator" onchange="setGraphSkill();"></select>
+					<select id="graphSkill" onchange="changeSkill();"></select>
+					<label><input id="skillActivate" type="checkbox" onchange="graphDPS()"><span>スキル発動状態</span></label>
+				</div>
+				<div class="flex">
+					<div>
+						最大表示ダメージ：
+						<select id="mesure" onchange="graphDPS();">
+							<option value="10">10000</option>
+							<option value="15">15000</option>
+							<option value="20">20000</option>
+							<option value="25">25000</option>
+							<option value="30">30000</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="flexbetween">
+				
+				<div class="flex">
+					<div id="recoverText" class="card"></div>
+					<div id="activateText" class="card"></div>
+					<div id="skillPers" class="card"></div>
+				</div>
+				<div>
+					総合ダメージ：<span id="ttl"></span>
+				</div>
+			</div>
+			<div id="skillExp" class="card" style="background:black;width:30em;height:4.5em;"></div>
+			<canvas id="dmgGraph" style="background:white;"></canvas>
 		</div>
 	</body>
 </html>
