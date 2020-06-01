@@ -137,8 +137,8 @@ function init(){
 		}
 		
 		setGraphSkill();
-		// 設定ボタンの非表示
-		ById("btnSetting").style.display = "none";
+		// 設定ボタンの表示
+		ById("btnSetting").style.display = "block";
 		// オペレーター一覧の非表示
 		ById('operatorList').style.display = 'none';
 		// 集計情報の非表示
