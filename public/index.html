@@ -121,6 +121,41 @@
 					<table id="operator" class="list body" style="width:100%;"></table>
 				</div>
 			</div>
+			<div id="dmgGraphArea" style="display:none;">
+				<div class="flexbetween" style="height:2em;align-items:center;">
+					<div>
+						<select id="graphOperator" onchange="setGraphSkill();"></select>
+						<select id="graphSkill" onchange="changeSkill();"></select>
+						<label><input id="skillActivate" type="checkbox" onchange="graphDPS()"><span>スキル発動状態</span></label>
+					</div>
+					<div class="flex">
+						<div>
+							最大表示ダメージ：
+							<select id="mesure" onchange="graphDPS();">
+								<option value="5">5000</option>
+								<option value="10">10000</option>
+								<option value="15">15000</option>
+								<option value="20">20000</option>
+								<option value="25">25000</option>
+								<option value="30">30000</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="flexbetween">
+					
+					<div class="flex">
+						<div id="recoverText" class="card"></div>
+						<div id="activateText" class="card"></div>
+						<div id="skillPers" class="card"></div>
+					</div>
+					<div>
+						総合ダメージ：<span id="ttl"></span>
+					</div>
+				</div>
+				<div id="skillExp" class="card" style="background:black;width:30em;height:4.5em;"></div>
+				<canvas id="dmgGraph" style="background:white;"></canvas>
+			</div>
 		</div>
 		<div id="selectorForMobile" style="position:absolute;width:6em;top:50%;margin-left:50%;font-size:1.5em;transform:translate(-50%,-50%);text-align:center;left:0;z-index:99;display:none;background:white;border:1px solid black;padding:4em;">
 			<button type="button" onclick="ById('selectorForMobile').style.display='none';showSettingForMoble();">設定変更</button>
@@ -369,40 +404,6 @@
 			<div>
 				<table id="searchResult"></table>
 			</div>
-		</div>
-		<div id="dmgGraphArea" style="display:none;width:1200px;margin-left:50%;transform:translateX(-50%);">
-			<div class="flexbetween" style="height:2em;align-items:center;">
-				<div>
-					<select id="graphOperator" onchange="setGraphSkill();"></select>
-					<select id="graphSkill" onchange="changeSkill();"></select>
-					<label><input id="skillActivate" type="checkbox" onchange="graphDPS()"><span>スキル発動状態</span></label>
-				</div>
-				<div class="flex">
-					<div>
-						最大表示ダメージ：
-						<select id="mesure" onchange="graphDPS();">
-							<option value="10">10000</option>
-							<option value="15">15000</option>
-							<option value="20">20000</option>
-							<option value="25">25000</option>
-							<option value="30">30000</option>
-						</select>
-					</div>
-				</div>
-			</div>
-			<div class="flexbetween">
-				
-				<div class="flex">
-					<div id="recoverText" class="card"></div>
-					<div id="activateText" class="card"></div>
-					<div id="skillPers" class="card"></div>
-				</div>
-				<div>
-					総合ダメージ：<span id="ttl"></span>
-				</div>
-			</div>
-			<div id="skillExp" class="card" style="background:black;width:30em;height:4.5em;"></div>
-			<canvas id="dmgGraph" style="background:white;"></canvas>
 		</div>
 	</body>
 </html>
