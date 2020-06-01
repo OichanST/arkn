@@ -2597,21 +2597,30 @@ function graphDPS(){
 		skillEffect = skillData.effect[sto.data[name].slv - 1 + splv];
 	}
 	if(skillData.passive){
-		ById("recoverText").innerText = "パッシブ";
-		ById("activateText").style.display = "none";
+		ById("recoverText").style.display = "none";
+		ById("activateText").innerText = "パッシブ";
 	}else if(skillData.recover){
 		const recoverConv = {
-			"auto":"自動回復",
-			"attack":"攻撃回復",
-			"damage":"被撃回復"
+			"auto":{
+				txt:"自動回復",
+				color:"rgb(160,205,64)"
+			},
+			"attack":{
+				txt:"攻撃回復",
+				color:"rgb(255,128,64)"
+			},
+			"damage":{
+				txt:"被撃回復",
+				color:"#FFCC00"
+			}
 		};
 
 		const activateConv = {
 			"auto":"自動発動",
 			"manual":"手動発動"
 		};
-
-		ById("recoverText").innerText = recoverConv[skillData.recover];
+		ById("recoverText").innerText = recoverConv[skillData.recover].txt;
+		ById("recoverText").style.background = recoverConv[skillData.recover].color;
 		ById("activateText").innerText = activateConv[skillData.activate];
 		ById("recoverText").style.display = "block";
 		ById("activateText").style.display = "block";
@@ -2622,10 +2631,10 @@ function graphDPS(){
 
 	if(skillEffect.pers){
 		ById("skillPers").innerText = skillEffect.pers + "秒";
-		ById("skillPers").style.display = "block";
+		ById("skillPersArea").style.display = "flex";
 	}else{
 		ById("skillPers").innerText = "";
-		ById("skillPers").style.display = "none";
+		ById("skillPersArea").style.display = "none";
 	}
 	
 	let exp = skillData.exp;

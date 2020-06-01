@@ -122,38 +122,51 @@
 				</div>
 			</div>
 			<div id="dmgGraphArea" style="display:none;">
-				<div class="flexbetween" style="height:2em;align-items:center;">
-					<div>
-						<select id="graphOperator" onchange="setGraphSkill();"></select>
-						<select id="graphSkill" onchange="changeSkill();"></select>
-						<label><input id="skillActivate" type="checkbox" onchange="graphDPS()"><span>スキル発動状態</span></label>
-					</div>
-					<div class="flex">
-						<div>
-							最大表示ダメージ：
-							<select id="mesure" onchange="graphDPS();">
-								<option value="5">5000</option>
-								<option value="10">10000</option>
-								<option value="15">15000</option>
-								<option value="20">20000</option>
-								<option value="25">25000</option>
-								<option value="30">30000</option>
-							</select>
-						</div>
-					</div>
-				</div>
 				<div class="flexbetween">
-					
-					<div class="flex">
-						<div id="recoverText" class="card"></div>
-						<div id="activateText" class="card"></div>
-						<div id="skillPers" class="card"></div>
+					<div style="border:1px solid black;border-radius:5px;padding:0.5em;">
+						<div class="flexbetween" style="height:2em;align-items:center;">
+							<div>
+								<select id="graphOperator" onchange="setGraphSkill();"></select>
+								<select id="graphSkill" onchange="changeSkill();"></select>
+							</div>
+							<div>
+								<label><input id="skillActivate" type="checkbox" onchange="graphDPS()"><span>スキル発動状態</span></label>
+							</div>
+						</div>
+						<div class="flex" style="align-items:center;">
+							<div id="recoverText" class="card"></div>
+							<div id="activateText" class="card"></div>
+							<div id="skillPersArea" class="card" style="position:relative;">
+								<div><img src="icon/clock.png" height="18" style="position:absolute;margin-top:2px;"/></div>
+								<div id="skillPers" style="margin-left:1.4em;"></div>
+							</div>
+						</div>
+						<div id="skillExp" class="card" style="background:black;width:30em;height:4.5em;"></div>
 					</div>
 					<div>
-						総合ダメージ：<span id="ttl"></span>
+						<table>
+							<tr>
+								<td style="text-align:right;">最大表示ダメージ</td>
+								<td>：</td>
+								<td style="text-align:right;">
+									<select id="mesure" onchange="graphDPS();">
+										<option value="5">5000</option>
+										<option value="10">10000</option>
+										<option value="15">15000</option>
+										<option value="20">20000</option>
+										<option value="25">25000</option>
+										<option value="30">30000</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align:right;">総合ダメージ</td>
+								<td>：</td>
+								<td id="ttl" style="text-align:right;"></td>
+							</tr>
+						</table>
 					</div>
 				</div>
-				<div id="skillExp" class="card" style="background:black;width:30em;height:4.5em;"></div>
 				<canvas id="dmgGraph" style="background:white;"></canvas>
 			</div>
 		</div>
