@@ -5875,15 +5875,15 @@ const operator = {
 		],
 		defUp:function(arg){
 			if(arg.promotion == 2){
-				return arg.def * -0.2;
+				return arg.def * 0.8;
 			}
 		},
 		hpUp:function(arg){
 			if(arg.promotion == 2){
 				if(!arg.enhanceNature1){
-					return arg.hp * 0.2;
+					return arg.hp * 1.2;
 				}else{
-					return arg.hp * 0.23;
+					return arg.hp * 1.23;
 				}
 			}
 		},
