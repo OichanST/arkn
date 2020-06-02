@@ -5880,7 +5880,7 @@ const operator = {
 		},
 		hpUp:function(arg){
 			if(arg.promotion == 2){
-				if(!enhanceNature1){
+				if(!arg.enhanceNature1){
 					return arg.hp * 0.2;
 				}else{
 					return arg.hp * 0.23;
