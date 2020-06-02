@@ -1699,7 +1699,7 @@ function slide(val){
 				nextNum = 3;
 			}
 		}else{
-			if(sto.data[name].promotion < 2 && nextNum == 1){
+			if(operator[name].rare >= 4 && sto.data[name].promotion < 2 && nextNum == 1){
 				nextNum = 2;
 			}
 		}
@@ -1734,7 +1734,7 @@ function slide(val){
 				prevNum = sto.data[name].promotion;
 			}
 		}else{
-			if(sto.data[name].promotion < 2 && prevNum == 1){
+			if(operator[name].rare >= 4 && sto.data[name].promotion < 2 && prevNum == 1){
 				prevNum = 0;
 			}
 		}
@@ -2915,8 +2915,6 @@ function graphDPS(){
 			}
 			
 			skillInfo.speed = Math.round((data.speed + intervalUp) * interval * (100 / (100 + speedUp)) * frameRatio);
-			
-			console.log(skillInfo.speed);
 			
 			skillInfo.pers = skillEffect.pers;
 		}
