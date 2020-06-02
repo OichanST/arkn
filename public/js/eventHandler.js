@@ -514,9 +514,11 @@ function showDetail(name){
 		img.setAttribute("src", "image/" + data.en + "_1.png");
 		imgList.push(img);
 	}
-	img = Elem("img");
-	img.setAttribute("src", "image/" + data.en + "_2.png");
-	imgList.push(img);
+	if(data.rare >= 4){
+		img = Elem("img");
+		img.setAttribute("src", "image/" + data.en + "_2.png");
+		imgList.push(img);
+	}
 	
 	if(data.outfit){
 		for(let i = 0; i < data.outfit.length; i++){
@@ -2765,6 +2767,8 @@ function graphDPS(){
 				skillEffect.need = skillEffect.need - 1;
 			}
 			
+			let tmpDmg;
+			
 			if(typeof skillEffect.pers == "undefined" && typeof skillEffect.need != "undefined"){
 				if(
 					skillEffect.need <= 0 &&
@@ -2791,31 +2795,43 @@ function graphDPS(){
 					if(skillEffect.atk > 0){
 						// 術攻撃オペレータの場合
 						if(data.job == "術師" || data.job == "補助" || name == "ムース" || name == "アステシア" || skillData.res){
-							ttlDmg += Math.round(stat.atk * skillEffect.atk / 100) * ((100 - eneRes) / 100) * sCnt;
+							tmpDmg = Math.round(stat.atk * skillEffect.atk / 100) * ((100 - eneRes) / 100) * sCnt;
 						// 医療オペレータの場合
 						}else if(data.job == "医療"){
-							ttlDmg += Math.round(stat.atk * skillEffect.atk / 100) * sCnt;
+							tmpDmg = Math.round(stat.atk * skillEffect.atk / 100) * sCnt;
 						}else if(skillData.multi){
-							ttlDmg += Math.round(stat.atk * skillEffect.atk / 100) * ((100 - eneRes) / 100) * sCnt;
-							ttlDmg += (Math.round(stat.atk * skillEffect.atk / 100) - eneDef) * sCnt;
+							tmpDmg = Math.round(stat.atk * skillEffect.atk / 100) * ((100 - eneRes) / 100) * sCnt;
+							tmpDmg += (Math.round(stat.atk * skillEffect.atk / 100) - eneDef) * sCnt;
 						// それ以外＝物理攻撃オペレータの場合
 						}else{
-							ttlDmg += (Math.round(stat.atk * skillEffect.atk / 100) - eneDef) * sCnt;
+							tmpDmg = (Math.round(stat.atk * skillEffect.atk / 100) - eneDef) * sCnt;
 						}
+						// 攻撃時のダメージ値が保証ダメージ未満の場合
+						if(tmpDmg < stat.atk * limit){
+							// 保証ダメージによる計算
+							tmpDmg = parseInt(stat.atk * limit);
+						}
+						ttlDmg += tmpDmg;
 					}else if(skillEffect.atkadd > 0){
 						// 術攻撃オペレータの場合
 						if(data.job == "術師" || data.job == "補助" || name == "ムース" || name == "アステシア" || skillData.res){
-							ttlDmg += Math.round(stat.atk * (1 + skillEffect.atkadd / 100) * ((100 - eneRes) / 100)) * sCnt;
+							tmpDmg = Math.round(stat.atk * (1 + skillEffect.atkadd / 100) * ((100 - eneRes) / 100)) * sCnt;
 						// 医療オペレータの場合
 						}else if(data.job == "医療"){
-							ttlDmg += Math.round(stat.atk * (1 + skillEffect.atkadd / 100)) * sCnt;
+							tmpDmg = Math.round(stat.atk * (1 + skillEffect.atkadd / 100)) * sCnt;
 						}else if(skillData.multi){
-							ttlDmg += Math.round(stat.atk * (1 + skillEffect.atkadd / 100) * ((100 - eneRes) / 100)) * sCnt;
-							ttlDmg += (Math.round(stat.atk * (1 + skillEffect.atkadd / 100)) - eneDef)  * sCnt;
+							tmpDmg = Math.round(stat.atk * (1 + skillEffect.atkadd / 100) * ((100 - eneRes) / 100)) * sCnt;
+							tmpDmg += (Math.round(stat.atk * (1 + skillEffect.atkadd / 100)) - eneDef)  * sCnt;
 						// それ以外＝物理攻撃オペレータの場合
 						}else{
-							ttlDmg += (Math.round(stat.atk * (1 + skillEffect.atkadd / 100)) - eneDef)  * sCnt;
+							tmpDmg = (Math.round(stat.atk * (1 + skillEffect.atkadd / 100)) - eneDef)  * sCnt;
 						}
+						// 攻撃時のダメージ値が保証ダメージ未満の場合
+						if(tmpDmg < stat.atk * limit){
+							// 保証ダメージによる計算
+							tmpDmg = parseInt(stat.atk * limit);
+						}
+						ttlDmg += tmpDmg;
 					}else{
 						ttlDmg += dmg * sCnt;
 					}
