@@ -9171,7 +9171,13 @@ const operator = {
 				}
 			}
 		],
-		potential:[],
+		potential:[
+			{},
+			{},
+			{},
+			{},
+			{}
+		],
 		skill:{},
 		outfit:["summer"]
 	},
@@ -9190,7 +9196,13 @@ const operator = {
 				}
 			}
 		],
-		potential:[],
+		potential:[
+			{},
+			{},
+			{},
+			{},
+			{}
+		],
 		skill:{}
 	}
 };
