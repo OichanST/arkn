@@ -1563,7 +1563,11 @@ function change(key){
 			inputs[2].style.color = "rgb(" + Math.round((inputs[2].value / inputs[2].max) * 255) + ",0,0)";
 		}else if(key == "potential"){
 			const selects = r.getElementsByTagName("select");
-			selects[1].style.color = "rgb(" + Math.round(selects[1].value / 6 * 255) + ",0,0)";
+			let idx = 1;
+			if(operator[operatorName].rare <= 2){
+				idx = 0;
+			}
+			selects[idx].style.color = "rgb(" + Math.round(selects[idx].value / 6 * 255) + ",0,0)";
 		}else if(key == "trust"){
 			const inputs = r.getElementsByTagName("input");
 			inputs[4].style.color = "rgb(" + Math.round((inputs[4].value / inputs[4].max) * 255) + ",0,0)";
