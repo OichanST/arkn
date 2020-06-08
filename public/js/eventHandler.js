@@ -894,8 +894,34 @@ function showNature(){
 		if(idx > 1){
 			html += "<br/><br/>";
 		}
-		// 素質の追加
-		html += div(natureName, {display:"inline-block"}, {class:"whitelabel"});
+		if(operator[name].rare == 1){
+			let tmp = natureName;
+			switch(sto.data[name].potential){
+				case 1:
+					tmp = tmp.replace("Ｎ","Ⅰ");
+					break;
+				case 2:
+					tmp = tmp.replace("Ｎ","Ⅱ");
+					break;
+				case 3:
+					tmp = tmp.replace("Ｎ","Ⅲ");
+					break;
+				case 4:
+					tmp = tmp.replace("Ｎ","Ⅳ");
+					break;
+				case 5:
+					tmp = tmp.replace("Ｎ","Ⅴ");
+					break;
+				case 6:
+					tmp = tmp.replace("Ｎ","Ⅵ");
+					break;
+			}
+			// 素質の追加
+			html += div(tmp, {display:"inline-block"}, {class:"whitelabel"});
+		}else{
+			// 素質の追加
+			html += div(natureName, {display:"inline-block"}, {class:"whitelabel"});
+		}
 		if(operator[name].rare >= 3 && sto.data[name].promotion == 0){
 			html += "<span class='merit' style='margin-left:0.5em;'>昇進段階1強化</span>";
 		}else if(operator[name].rare > 3 && sto.data[name].promotion == 1){
@@ -905,59 +931,64 @@ function showNature(){
 		}
 		html += "<br/>";
 		let exp = nature[natureName].exp;
-		if(
-			(idx == 1 && enhanceNature1) ||
-			(idx == 2 && enhanceNature2)
-		){
-			if(nature[natureName].base && nature[natureName].base.length){
-				for(let i = 0; i < nature[natureName].base.length; i++){
-					let base = nature[natureName].base[i];
-					if(operator[name].rare == 3 && sto.data[name].lv == 55){
-						base += nature[natureName].lv55[i];
-					}
-					while(exp.indexOf("@base" + i) >= 0){
-						exp = exp.replace("@base" + i, base + nature[natureName].padd[i]);
-					}
-					while(exp.indexOf("@pexp" + i) >= 0){
-						exp = exp.replace("@pexp" + i, "<span class='charge'>" + nature[natureName].pexp[i].replace("@padd", nature[natureName].padd[i]) + "</span>");
-					}
-				}
-			}else{
-				let base = nature[natureName].base;
-				if(operator[name].rare == 3 && sto.data[name].lv == 55){
-					base += nature[natureName].lv55;
-				}
-				while(exp.indexOf("@base") >= 0){
-					exp = exp.replace("@base", base + nature[natureName].padd);
-				}
-				while(exp.indexOf("@pexp") >= 0){
-					exp = exp.replace("@pexp", "<span class='charge'>" + nature[natureName].pexp.replace("@padd", nature[natureName].padd) + "</span>");
-				}
-			}
+		if(operator[name].rare == 1){
+			let base = nature[natureName].base[sto.data[name].potential - 1];
+			exp = exp.replace("@base", base);
 		}else{
-			if(nature[natureName].base && nature[natureName].base.length){
-				for(let i = 0; i < nature[natureName].base.length; i++){
-					let base = nature[natureName].base[i];
+			if(
+				(idx == 1 && enhanceNature1) ||
+				(idx == 2 && enhanceNature2)
+			){
+				if(nature[natureName].base && nature[natureName].base.length){
+					for(let i = 0; i < nature[natureName].base.length; i++){
+						let base = nature[natureName].base[i];
+						if(operator[name].rare == 3 && sto.data[name].lv == 55){
+							base += nature[natureName].lv55[i];
+						}
+						while(exp.indexOf("@base" + i) >= 0){
+							exp = exp.replace("@base" + i, base + nature[natureName].padd[i]);
+						}
+						while(exp.indexOf("@pexp" + i) >= 0){
+							exp = exp.replace("@pexp" + i, "<span class='charge'>" + nature[natureName].pexp[i].replace("@padd", nature[natureName].padd[i]) + "</span>");
+						}
+					}
+				}else{
+					let base = nature[natureName].base;
 					if(operator[name].rare == 3 && sto.data[name].lv == 55){
-						base += nature[natureName].lv55[i];
+						base += nature[natureName].lv55;
 					}
-					while(exp.indexOf("@base" + i) >= 0){
-						exp = exp.replace("@base" + i, base);
+					while(exp.indexOf("@base") >= 0){
+						exp = exp.replace("@base", base + nature[natureName].padd);
 					}
-					while(exp.indexOf("@pexp" + i) >= 0){
-						exp = exp.replace("@pexp" + i, "");
+					while(exp.indexOf("@pexp") >= 0){
+						exp = exp.replace("@pexp", "<span class='charge'>" + nature[natureName].pexp.replace("@padd", nature[natureName].padd) + "</span>");
 					}
 				}
 			}else{
-				let base = nature[natureName].base;
-				if(operator[name].rare == 3 && sto.data[name].lv == 55){
-					base += nature[natureName].lv55;
-				}
-				while(exp.indexOf("@base") >= 0){
-					exp = exp.replace("@base", base);
-				}
-				while(exp.indexOf("@pexp") >= 0){
-					exp = exp.replace("@pexp", "");
+				if(nature[natureName].base && nature[natureName].base.length){
+					for(let i = 0; i < nature[natureName].base.length; i++){
+						let base = nature[natureName].base[i];
+						if(operator[name].rare == 3 && sto.data[name].lv == 55){
+							base += nature[natureName].lv55[i];
+						}
+						while(exp.indexOf("@base" + i) >= 0){
+							exp = exp.replace("@base" + i, base);
+						}
+						while(exp.indexOf("@pexp" + i) >= 0){
+							exp = exp.replace("@pexp" + i, "");
+						}
+					}
+				}else{
+					let base = nature[natureName].base;
+					if(operator[name].rare == 3 && sto.data[name].lv == 55){
+						base += nature[natureName].lv55;
+					}
+					while(exp.indexOf("@base") >= 0){
+						exp = exp.replace("@base", base);
+					}
+					while(exp.indexOf("@pexp") >= 0){
+						exp = exp.replace("@pexp", "");
+					}
 				}
 			}
 		}

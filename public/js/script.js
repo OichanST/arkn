@@ -248,6 +248,37 @@ function ValueConverter(name, key, val){
 						ret += div(subKey, {display:"inline-block"}, {class:"graylabel"});
 					}
 				}
+			}else if(operator[name].rare == 1){
+				
+				// 素質ループ
+				for(let subKey in val){
+					if(ret != ""){
+						ret += "<br/>";
+					}
+					let tmp = subKey;
+					switch(sto.data[name].potential){
+						case 1:
+							tmp = tmp.replace("Ｎ","Ⅰ");
+							break;
+						case 2:
+							tmp = tmp.replace("Ｎ","Ⅱ");
+							break;
+						case 3:
+							tmp = tmp.replace("Ｎ","Ⅲ");
+							break;
+						case 4:
+							tmp = tmp.replace("Ｎ","Ⅳ");
+							break;
+						case 5:
+							tmp = tmp.replace("Ｎ","Ⅴ");
+							break;
+						case 6:
+							tmp = tmp.replace("Ｎ","Ⅵ");
+							break;
+					}
+					// タグを生成して追加
+					ret += div(tmp, {display:"inline-block"}, {class:"whitelabel"});
+				}
 			}else{
 				// 素質ループ
 				for(let subKey in val){
