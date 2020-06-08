@@ -14,7 +14,7 @@ if(sto.isEmpty){
 		for(let operatorName in operator){
 			// 各オペレータの初期ハッシュを生成
 			ret[operatorName] = {
-				have:operatorName == "アーミヤ" ? true : false,
+				have:(operatorName == "アーミヤ" || operator[operatorName].rare == 2) ? true : false,
 				promotion:0,
 				lv:1,
 				potential:1,
@@ -1024,6 +1024,7 @@ function calcDPS(name, enableCond){
 	}
 	// 範囲内の敵数取得
 	let eneCnt = ById("eneCnt").value;
+	// 数値変換
 	if(eneCnt){
 		eneCnt = parseInt(eneCnt);
 	}else{
@@ -1118,7 +1119,6 @@ function calcDPS(name, enableCond){
 	const intervalUp = (isCalc && operator[name].intervalUp && operator[name].intervalUp(arg) != null)
 	                ? operator[name].intervalUp(arg)
 	                : 0;
-	
 	// スリップダメージ
 	const slipDmg = (isCalc && operator[name].slipDmg && operator[name].slipDmg(arg) != null)
 	                ? operator[name].slipDmg(arg)
@@ -1130,8 +1130,8 @@ function calcDPS(name, enableCond){
  * マトリクスの生成
  */
 function makeMatrix(){
-
-	const css = {display:"inline-block",width:"19px",textAlign:"right",paddingRight:"2px"};
+	// CSS定義
+	const css = {display:"inline-block", width:"19px", textAlign:"right", paddingRight:"2px"};
 	// レアリティ別集計リスト生成
 	const matrix = new Array();
 	const haveMatrix = new Array();
@@ -1139,10 +1139,10 @@ function makeMatrix(){
 	const prom2Matrix = new Array();
 	// リストの初期化
 	for(let i = 0; i < 6; i++){
-		matrix.push({"先鋒":0,"前衛":0,"重装":0,"狙撃":0,"術師":0,"医療":0,"特殊":0,"補助":0});
-		haveMatrix.push({"先鋒":0,"前衛":0,"重装":0,"狙撃":0,"術師":0,"医療":0,"特殊":0,"補助":0});
-		prom1Matrix.push({"先鋒":0,"前衛":0,"重装":0,"狙撃":0,"術師":0,"医療":0,"特殊":0,"補助":0});
-		prom2Matrix.push({"先鋒":0,"前衛":0,"重装":0,"狙撃":0,"術師":0,"医療":0,"特殊":0,"補助":0});
+		matrix.push({"先鋒":0, "前衛":0, "重装":0, "狙撃":0, "術師":0, "医療":0, "特殊":0, "補助":0});
+		haveMatrix.push({"先鋒":0, "前衛":0, "重装":0, "狙撃":0, "術師":0, "医療":0, "特殊":0, "補助":0});
+		prom1Matrix.push({"先鋒":0, "前衛":0, "重装":0, "狙撃":0, "術師":0, "医療":0, "特殊":0, "補助":0});
+		prom2Matrix.push({"先鋒":0, "前衛":0, "重装":0, "狙撃":0, "術師":0, "医療":0, "特殊":0, "補助":0});
 	}
 	// オペレータループ
 	for(let name in operator){
@@ -1176,10 +1176,10 @@ function makeMatrix(){
 	// ヘッダ行追加
 	t.addHeader(hrow);
 	// 職業別集計値
-	const summary = {"先鋒":0,"前衛":0,"重装":0,"狙撃":0,"術師":0,"医療":0,"特殊":0,"補助":0};
-	const haveSum =  {"先鋒":0,"前衛":0,"重装":0,"狙撃":0,"術師":0,"医療":0,"特殊":0,"補助":0};
-	const prom1Sum = {"先鋒":0,"前衛":0,"重装":0,"狙撃":0,"術師":0,"医療":0,"特殊":0,"補助":0};
-	const prom2Sum = {"先鋒":0,"前衛":0,"重装":0,"狙撃":0,"術師":0,"医療":0,"特殊":0,"補助":0};
+	const summary = {"先鋒":0, "前衛":0, "重装":0, "狙撃":0, "術師":0, "医療":0, "特殊":0, "補助":0};
+	const haveSum =  {"先鋒":0, "前衛":0, "重装":0, "狙撃":0, "術師":0, "医療":0, "特殊":0, "補助":0};
+	const prom1Sum = {"先鋒":0, "前衛":0, "重装":0, "狙撃":0, "術師":0, "医療":0, "特殊":0, "補助":0};
+	const prom2Sum = {"先鋒":0, "前衛":0, "重装":0, "狙撃":0, "術師":0, "医療":0, "特殊":0, "補助":0};
 	// 集計データループ
 	for(let i = 0; i < matrix.length; i++){
 		// 行生成
@@ -1193,7 +1193,6 @@ function makeMatrix(){
 			prom1:0,
 			prom2:0
 		};
-		
 		// 各職業の件数追加
 		for(let job in matrix[i]){
 
@@ -1224,7 +1223,9 @@ function makeMatrix(){
 		}
 		
 		const css2 = JSON.parse(JSON.stringify(css));
+		
 		css2.width = "25px";
+		
 		let txt = span(rareSum.operator, css2) + "/" + span(rareSum.have, css2);
 		if(i >= 2){
 			txt +=  "/" + span(rareSum.prom1, css2);
