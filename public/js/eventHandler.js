@@ -528,7 +528,7 @@ function showDetail(name){
 		}
 	}
 	
-	if(!sto.data[name].img){
+	if(!sto.data[name].img || imgList.length <= sto.data[name].img){
 		sto.data[name].img = 0;
 	}
 	
