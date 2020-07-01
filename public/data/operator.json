@@ -584,6 +584,106 @@ const operator = {
 			}
 		}
 	},
+	"ブレイズ":{
+		en:"Blaze",
+		rare:6,job:"前衛",relocation:70,speed:1.2.trust:{atk:60,def:45},tag:["近距離","火力","生存"],
+		characteristic:"ブロック中の<span class='merit'>敵全員</span>を同時に攻撃",
+		stat:[
+			{
+				min:{hp:1286,atk:308,def:156},
+				max:{hp:1649,atk:429,def:224},
+				res:0,cost:20,block:2,range:[[1,0]],
+				nature:{}
+			},
+			{
+				hp:2115,atk:581,def:303,
+				res:0,cost:22,block:2,range:[[1,0]],
+				nature:{
+					"緊急蘇生術":{
+						exp:"HPが25%を下回る時、1度だけHPを50%回復し、@base@pexp秒間HPが50%未満にならない",
+						base:3,
+						pexp:"(+@padd%)",
+						padd:1
+					}
+				}
+			},
+			{
+				hp:2821,atk:765,def:370,
+				res:0,cost:24,block:3,range:[[1,0]],
+				nature:{
+					"緊急蘇生術":{
+						exp:"HPが25%を下回る時、1度だけHPを50%回復し、@base@pexp秒間HPが50%未満にならない",
+						base:6,
+						pexp:"(+@padd)",
+						padd:1
+					},
+					"スパルタ訓練の成果":{
+						exp:"配置から@base@pexp秒後、自身にレジスト（スタン、寒冷、凍結の継続時間が50%減少）を付与",
+						base:15,
+						pexp:"(@padd)",
+						padd:-3
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{nature:1},
+			{atk:28},
+			{nature:2},
+			{cost:-1}
+		],
+		skill:{
+			"強撃γ":{
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>210%</span>まで上昇",
+				recover:"attack",activate:"auto",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"鎖鋸拡張モジュール":{
+				exp:"攻撃力<span class='merit'>+60%</span>、防御力<span class='merit'>+15%</span>、攻撃範囲<span class='merit'>拡大</span><br/><span class='charge'>退場まで効果継続</span>",
+				recover:"auto",activate:"auto",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"ボイリングバースト":{
+				exp:"攻撃力と防御力が徐々に<span class='merit'>+50%</span>まで上昇し、前方1マスにいる敵全員を攻撃。効果時間終了後、一定範囲内の敵全員に攻撃力の<span class='merit'>320%</span>の物理ダメージを与え、自身のHPが<span class='demerit'>25%</span>減少",
+				recover:"",activate:"",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		}
+	},
 	"ホシグマ":{
 		en:"Hoshiguma",
 		rare:6,job:"重装",relocation:70,speed:1.2,trust:{atk:60,def:60},tag:["近距離","防御","火力"],
@@ -3818,6 +3918,78 @@ const operator = {
 		],
 		skill:{}
 	},
+	"グレースロート":{
+		en:"GreyThroat",
+		rare:5,job:"狙撃",relocation:70,speed:1.0,trust:{atk:75},tag:["遠距離","火力"],
+		characteristic:"飛行ユニットを優先して攻撃",
+		stat:[
+			{
+				min:{hp:667,atk:173,def:53},
+				max:{hp:954,atk:289,def:89},
+				res:0,cost:11,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				nature:{}
+			},
+			{
+				hp:1224,atk:420,def:128,
+				res:0,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				nature:{
+					"追い風":{
+						exp:"攻撃速度+6"
+					}
+				}
+			},
+			{
+				hp:1493,atk:513,def:152,
+				res:0,cost:11,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				nature:{
+					"追い風":{
+						exp:"攻撃速度+6、攻撃時15%の確率でその攻撃のみ攻撃力が150%まで上昇"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:23},
+			{relocation:-6},
+			{cost:-1}
+		],
+		skill:{
+			"風切":{
+				exp:"次の通常攻撃時、<span class='merit'>2</span>回連続で攻撃力の115%の物理ダメージを与える<br/><span class='charge'>1回チャージ可能</span>",
+				recover:"auto",activate:"auto",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"羽嵐":{
+				exp:"攻撃力span class='merit'>+15%</span>、通常攻撃がspan class='merit'>3連撃</span>になる",
+				recover:"attack",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		}
+	},
 	"アーミヤ":{
 		en:"Amiya",
 		rare:5,job:"術師",relocation:70,speed:1.6,trust:{hp:200,atk:70},tag:["遠距離","火力"],
@@ -6984,6 +7156,77 @@ const operator = {
 					{need:23,pers:28,intervaladd:0.5,atkadd:100,slow:0.9,stan:1.1},
 					{need:22,pers:29,intervaladd:0.5,atkadd:110,slow:0.9,stan:1.1},
 					{need:20,pers:30,intervaladd:0.5,atkadd:120,slow:  1,stan:1.2}
+				]
+			}
+		}
+	},
+	"アンブリエル":{
+		en:"Ambriel",
+		rare:4,job:"狙撃",relocation:70,speed:2.7,trust:{atk:75},tag:["遠距離","火力","減速"],
+		characteristic:"攻撃範囲内の<span class='merit'>防御力が一番低い</span>敵を優先して攻撃",
+		stat:[
+			{
+				min:{hp:785,atk:437,def:60},
+				max:{hp:1020,atk:608,def:80},
+				res:0,cost:18,block:1,range:[[0,1],[1,1],[2,1],[3,1],[1,0],[2,0],[3,0],[0,-1],[1,-1],[2,-1],[3,-1]],
+				nature:{}
+			},
+			{
+				hp:1276,atk:801,def:100,
+				res:0,cost:20,block:1,range:[[0,2],[1,2],[2,2],[0,1],[1,1],[2,1],[3,1],[1,0],[2,0],[3,0],[4,0],[0,-1],[1,-1],[2,-1],[3,-1],[0,-2],[1,-2],[2,-2]],
+				nature:{}
+			},
+			{
+				hp:1595,atk:977,def:122,
+				res:0,cost:20,block:1,range:[[0,2],[1,2],[2,2],[0,1],[1,1],[2,1],[3,1],[1,0],[2,0],[3,0],[4,0],[0,-1],[1,-1],[2,-1],[3,-1],[0,-2],[1,-2],[2,-2]],
+				nature:{
+					"超長距離狙撃":{
+						exp:"通常の攻撃範囲以外の敵を攻撃時、@base%@pexpの確率で2秒スタンさせる",
+						base:25,
+						pexp:"(+@padd%)",
+						padd:3
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{speed:6},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"妨害弾":{
+				exp:"攻撃範囲<span class='merit'>+1</span>、攻撃対象を<span class='merit'>0.6</span>秒足止めする",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"全方位レーダー":{
+				exp:"通常攻撃の間隔が<span class='demerit'>わずかに延長</span>し、攻撃力<span class='merit'>+40%</span>、攻撃範囲が<span class='merit'>戦場全体まで拡大</span>。通常時の攻撃範囲外の敵を攻撃する時、攻撃の予備動作に要する時間が<span class='demerit'>延長</span>する",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
 				]
 			}
 		}
