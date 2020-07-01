@@ -123,7 +123,8 @@ const operator = {
 					{start:25,need:30,pers:25,atk:380,stan:1.5,intervaladd:1}
 				]
 			}
-		}
+		},
+		outfit:["wild"]
 	},
 	"スカジ":{
 		en:"Skadi",
@@ -356,7 +357,8 @@ const operator = {
 					{start:75,need:90,pers:30,defadd:-70,atkadd:200,target:6}
 				]
 			}
-		}
+		},
+		outfit:["snow"]
 	},
 	"チェン":{
 		en:"Ch'en",
@@ -1189,7 +1191,8 @@ const operator = {
 					{start:12,need:25,pers:25,range:4,intervaladd:0.4,atkadd:180,nature:100}
 				]
 			}
-		}
+		},
+		outfit:["snow"]
 	},
 	"エイヤフィヤトラ":{
 		en:"Eyjafjalla",
@@ -4942,7 +4945,8 @@ const operator = {
 					{start:20,need:40,pers:25,defdown:-60,resdown:-30}
 				]
 			}
-		}
+		},
+		outfit:["snow"]
 	},
 	"グラウコス":{
 		en:"Glaucus",
@@ -5222,7 +5226,8 @@ const operator = {
 					{need:15,atk:250,pow:"力強く",time:5,down:-30}
 				]
 			}
-		}
+		},
+		outfit:["marthe"]
 	},
 	"クリフハート":{
 		en:"Cliffheart",
