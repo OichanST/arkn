@@ -127,15 +127,15 @@ function init(){
 		// 処理終了
 		return;
 	}else if(type == "4"){
-	
+		// グラフのオペレーター選択取得
 		const opeSel = ById("graphOperator");
-
+		// グラフのオペレーター選択初期化
 		opeSel.innerHTML = "";
-
+		// グラフのオペレーター選択生成
 		for(let name in operator){
 			opeSel.appendChild(new Option(name, name));
 		}
-		
+		// スキル選択生成
 		setGraphSkill();
 		// 設定ボタンの表示
 		ById("btnSetting").style.display = "block";
@@ -145,8 +145,10 @@ function init(){
 		ById('matrixArea').style.display = 'none';
 		// 求人募集検索の非表示
 		ById('tagSearch').style.display = 'none';
-		
+		// グラフエリアの表示
 		ById("dmgGraphArea").style.display = "block";
+		// 処理終了
+		return;
 	}
 	// リストヘッダに行追加
 	thead.addHeader(hrow);
@@ -256,11 +258,11 @@ function init(){
 				// 行を非活性化
 				r.attr("class", "notHave");
 			}
-			// アーミヤ
-			if(operatorName == "アーミヤ"){
+			// アーミヤ＋初期所持ユニット(レアリティ2）
+			if(operatorName == "アーミヤ" || data.rare == 2){
 				// 絶対持っているので所持ボタンを無効化
 				r.add("<label><input type='checkbox' disabled='disabled' " + (haveOperator ? "checked": "") + "><span>所持</span></label>", {width:"2.9em"});
-			// アーミヤ以外
+			// アーミヤ、初期所持ユニット以外
 			}else{
 				// 所持ボタン生成
 				r.add("<label><input type='checkbox' " + (haveOperator ? "checked": "") + " onchange='changeHave();'><span>所持</span></label>", {width:"2.9em"});
@@ -390,17 +392,20 @@ function init(){
 			if(data.rare > 2){
 				// スキルレベルコンボ生成
 				sel = Elem("select");
+				// 昇進前ならLV4まで
 				optList = [
 					{label:1,value:1},
 					{label:2,value:2},
 					{label:3,value:3},
 					{label:4,value:4}
 				];
+				// 昇進1以上ならLV7まで
 				if(sto.data[operatorName].promotion >= 1){
 					optList.push({label:5,value:5});
 					optList.push({label:6,value:6});
 					optList.push({label:7,value:7});
 				}
+				// コンボに追加
 				for(let i = 0; i < optList.length; i++){
 					const opt = new Option(optList[i].label, optList[i].value);
 					if(sto.data[operatorName].slv == optList[i].value){
@@ -490,49 +495,67 @@ function init(){
 		return r;
 	}
 }
-
+// 表示する画像リスト
 let imgList;
+// 表示番号
 let dispNum;
 /**
  * 詳細表示
  */
 function showDetail(name){
+	// 他のオーバレイを非表示にする
 	hide();
+	// 
 	ById("skillSp").style.display = "none";
+	// スライド中の処理抑制用
 	slideFlg = false;
 	// 該当のオペレーターのデータ取得
 	const data = operator[name];
-
-	
+	// 画像リストの初期化
 	imgList = new Array();
+	// イメージタグ生成
 	let img = Elem("img");
+	// 対象の画像（初期状態）の設定
 	img.setAttribute("src", "image/" + data.en + ".png");
+	// 画像リストに追加
 	imgList.push(img);
+	// アーミヤの場合
 	if(name == "アーミヤ"){
 		// イメージタグ生成
 		img = Elem("img");
+		// 昇進１画像の設定
 		img.setAttribute("src", "image/" + data.en + "_1.png");
+		// 画像リストに追加
 		imgList.push(img);
 	}
+	// レアリティ4以上の場合
 	if(data.rare >= 4){
+		// イメージタグ生成
 		img = Elem("img");
+		// 昇進２画像の設定
 		img.setAttribute("src", "image/" + data.en + "_2.png");
+		// 画像リストに追加
 		imgList.push(img);
 	}
-	
+	// コーデがあるユニットの場合
 	if(data.outfit){
+		// コーデ分ループ
 		for(let i = 0; i < data.outfit.length; i++){
+			// イメージタグ生成
 			img = Elem("img");
+			// コーデ画像の設定
 			img.setAttribute("src", "image/" + data.en + "_" + data.outfit[i] + ".png");
+			// 画像リストに追加
 			imgList.push(img);
 		}
 	}
-	
-	if(!sto.data[name].img){
+	// エラーの補正用
+	if(!sto.data[name].img || imgList.length <= sto.data[name].img){
 		sto.data[name].img = 0;
 	}
-	
+	// イメージ表示領域のクリア
 	ById("img").innerHTML = "";
+	// 表示画像の設定
 	ById("img").appendChild(imgList[sto.data[name].img]);
 	// イメージのオーバレイの色彩設定
 	ById("imageBack").setAttribute("class", "rare" + data.rare);
@@ -544,15 +567,22 @@ function showDetail(name){
 	ById("cond").innerHTML = "";
 	ById("effect").innerHTML = "-";
 	ById("lv").innerText = sto.data[name].lv;
+	// 昇進１の場合
 	if(sto.data[name].promotion == 1){
+		// 昇進１画像の設定
 		ById("promotion").style.display = "block";
 		ById("promotion").setAttribute("src", "icon/promotion1.png");
+	// 昇進２の場合
 	}else if(sto.data[name].promotion == 2){
+		// 昇進２画像の設定
 		ById("promotion").style.display = "block";
 		ById("promotion").setAttribute("src", "icon/promotion2.png");
+	// 上記以外
 	}else{
+		// 昇進画像を表示しない
 		ById("promotion").style.display = "none";
 	}
+	// 最大LVとスキルRANKの設定
 	ById("maxLv").innerText = calcLvMax(operator[name].rare, sto.data[name].promotion);
 	ById("rank").innerText = sto.data[name].slv;
 	// オペレーターデータループ
@@ -611,7 +641,7 @@ function showDetail(name){
 	}else{
 		html = stat.hp + stat.def;
 	}
-	
+	// 物理耐久
 	ById("pEndurance").innerHTML = html;
 	// 術耐久
 	let res = data.stat[sto.data[name].promotion].res + resAdd;
@@ -894,8 +924,34 @@ function showNature(){
 		if(idx > 1){
 			html += "<br/><br/>";
 		}
-		// 素質の追加
-		html += div(natureName, {display:"inline-block"}, {class:"whitelabel"});
+		if(operator[name].rare == 1){
+			let tmp = natureName;
+			switch(sto.data[name].potential){
+				case 1:
+					tmp = tmp.replace("Ｎ","Ⅰ");
+					break;
+				case 2:
+					tmp = tmp.replace("Ｎ","Ⅱ");
+					break;
+				case 3:
+					tmp = tmp.replace("Ｎ","Ⅲ");
+					break;
+				case 4:
+					tmp = tmp.replace("Ｎ","Ⅳ");
+					break;
+				case 5:
+					tmp = tmp.replace("Ｎ","Ⅴ");
+					break;
+				case 6:
+					tmp = tmp.replace("Ｎ","Ⅵ");
+					break;
+			}
+			// 素質の追加
+			html += div(tmp, {display:"inline-block"}, {class:"whitelabel"});
+		}else{
+			// 素質の追加
+			html += div(natureName, {display:"inline-block"}, {class:"whitelabel"});
+		}
 		if(operator[name].rare >= 3 && sto.data[name].promotion == 0){
 			html += "<span class='merit' style='margin-left:0.5em;'>昇進段階1強化</span>";
 		}else if(operator[name].rare > 3 && sto.data[name].promotion == 1){
@@ -905,59 +961,64 @@ function showNature(){
 		}
 		html += "<br/>";
 		let exp = nature[natureName].exp;
-		if(
-			(idx == 1 && enhanceNature1) ||
-			(idx == 2 && enhanceNature2)
-		){
-			if(nature[natureName].base && nature[natureName].base.length){
-				for(let i = 0; i < nature[natureName].base.length; i++){
-					let base = nature[natureName].base[i];
-					if(operator[name].rare == 3 && sto.data[name].lv == 55){
-						base += nature[natureName].lv55[i];
-					}
-					while(exp.indexOf("@base" + i) >= 0){
-						exp = exp.replace("@base" + i, base + nature[natureName].padd[i]);
-					}
-					while(exp.indexOf("@pexp" + i) >= 0){
-						exp = exp.replace("@pexp" + i, "<span class='charge'>" + nature[natureName].pexp[i].replace("@padd", nature[natureName].padd[i]) + "</span>");
-					}
-				}
-			}else{
-				let base = nature[natureName].base;
-				if(operator[name].rare == 3 && sto.data[name].lv == 55){
-					base += nature[natureName].lv55;
-				}
-				while(exp.indexOf("@base") >= 0){
-					exp = exp.replace("@base", base + nature[natureName].padd);
-				}
-				while(exp.indexOf("@pexp") >= 0){
-					exp = exp.replace("@pexp", "<span class='charge'>" + nature[natureName].pexp.replace("@padd", nature[natureName].padd) + "</span>");
-				}
-			}
+		if(operator[name].rare == 1){
+			let base = nature[natureName].base[sto.data[name].potential - 1];
+			exp = exp.replace("@base", base);
 		}else{
-			if(nature[natureName].base && nature[natureName].base.length){
-				for(let i = 0; i < nature[natureName].base.length; i++){
-					let base = nature[natureName].base[i];
+			if(
+				(idx == 1 && enhanceNature1) ||
+				(idx == 2 && enhanceNature2)
+			){
+				if(nature[natureName].base && nature[natureName].base.length){
+					for(let i = 0; i < nature[natureName].base.length; i++){
+						let base = nature[natureName].base[i];
+						if(operator[name].rare == 3 && sto.data[name].lv == 55){
+							base += nature[natureName].lv55[i];
+						}
+						while(exp.indexOf("@base" + i) >= 0){
+							exp = exp.replace("@base" + i, base + nature[natureName].padd[i]);
+						}
+						while(exp.indexOf("@pexp" + i) >= 0){
+							exp = exp.replace("@pexp" + i, "<span class='charge'>" + nature[natureName].pexp[i].replace("@padd", nature[natureName].padd[i]) + "</span>");
+						}
+					}
+				}else{
+					let base = nature[natureName].base;
 					if(operator[name].rare == 3 && sto.data[name].lv == 55){
-						base += nature[natureName].lv55[i];
+						base += nature[natureName].lv55;
 					}
-					while(exp.indexOf("@base" + i) >= 0){
-						exp = exp.replace("@base" + i, base);
+					while(exp.indexOf("@base") >= 0){
+						exp = exp.replace("@base", base + nature[natureName].padd);
 					}
-					while(exp.indexOf("@pexp" + i) >= 0){
-						exp = exp.replace("@pexp" + i, "");
+					while(exp.indexOf("@pexp") >= 0){
+						exp = exp.replace("@pexp", "<span class='charge'>" + nature[natureName].pexp.replace("@padd", nature[natureName].padd) + "</span>");
 					}
 				}
 			}else{
-				let base = nature[natureName].base;
-				if(operator[name].rare == 3 && sto.data[name].lv == 55){
-					base += nature[natureName].lv55;
-				}
-				while(exp.indexOf("@base") >= 0){
-					exp = exp.replace("@base", base);
-				}
-				while(exp.indexOf("@pexp") >= 0){
-					exp = exp.replace("@pexp", "");
+				if(nature[natureName].base && nature[natureName].base.length){
+					for(let i = 0; i < nature[natureName].base.length; i++){
+						let base = nature[natureName].base[i];
+						if(operator[name].rare == 3 && sto.data[name].lv == 55){
+							base += nature[natureName].lv55[i];
+						}
+						while(exp.indexOf("@base" + i) >= 0){
+							exp = exp.replace("@base" + i, base);
+						}
+						while(exp.indexOf("@pexp" + i) >= 0){
+							exp = exp.replace("@pexp" + i, "");
+						}
+					}
+				}else{
+					let base = nature[natureName].base;
+					if(operator[name].rare == 3 && sto.data[name].lv == 55){
+						base += nature[natureName].lv55;
+					}
+					while(exp.indexOf("@base") >= 0){
+						exp = exp.replace("@base", base);
+					}
+					while(exp.indexOf("@pexp") >= 0){
+						exp = exp.replace("@pexp", "");
+					}
 				}
 			}
 		}
@@ -1532,7 +1593,11 @@ function change(key){
 			inputs[2].style.color = "rgb(" + Math.round((inputs[2].value / inputs[2].max) * 255) + ",0,0)";
 		}else if(key == "potential"){
 			const selects = r.getElementsByTagName("select");
-			selects[1].style.color = "rgb(" + Math.round(selects[1].value / 6 * 255) + ",0,0)";
+			let idx = 1;
+			if(operator[operatorName].rare <= 2){
+				idx = 0;
+			}
+			selects[idx].style.color = "rgb(" + Math.round(selects[idx].value / 6 * 255) + ",0,0)";
 		}else if(key == "trust"){
 			const inputs = r.getElementsByTagName("input");
 			inputs[4].style.color = "rgb(" + Math.round((inputs[4].value / inputs[4].max) * 255) + ",0,0)";

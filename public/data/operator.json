@@ -9410,16 +9410,19 @@ const operator = {
 				max:{hp:1106,atk:316,def:90},
 				res:0,cost:3,block:1,range:[[1,0]],
 				nature:{
-					"戦術立案Ⅰ":{exp:"配置後10秒間味方【近距離】ユニットの攻撃力と防御力+10%"}
+					"戦術立案Ｎ":{
+						exp:"配置後10秒間味方【近距離】ユニットの攻撃力と防御力+@base%",
+						base:[10,12,14,16,18,20]
+					}
 				}
 			}
 		],
 		potential:[
-			{},
-			{},
-			{},
-			{},
-			{}
+			{nature:0},
+			{nature:0},
+			{nature:0},
+			{nature:0},
+			{nature:0}
 		],
 		skill:{},
 		outfit:["summer"]
@@ -9435,16 +9438,19 @@ const operator = {
 				max:{hp:435,atk:70,def:27},
 				res:0,cost:3,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
 				nature:{
-					"救急スプレーⅠ":{exp:"配置後味方全員のHPを200/260/320/380/440/500回復"}
+					"救急スプレーＮ":{
+						exp:"配置後味方全員のHPを@base回復",
+						base:[200,260,320,380,440,500]
+					}
 				}
 			}
 		],
 		potential:[
-			{},
-			{},
-			{},
-			{},
-			{}
+			{nature:0},
+			{nature:0},
+			{nature:0},
+			{nature:0},
+			{nature:0}
 		],
 		skill:{}
 	}
