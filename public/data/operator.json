@@ -637,51 +637,51 @@ const operator = {
 		],
 		skill:{
 			"強撃γ":{
-				exp:"次の通常攻撃時、攻撃力が<span class='merit'>210%</span>まで上昇",
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇",
 				recover:"attack",activate:"auto",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{need:4,atk:190},
+					{need:4,atk:195},
+					{need:4,atk:200},
+					{need:3,atk:205},
+					{need:3,atk:210},
+					{need:3,atk:215},
+					{need:3,atk:225},
+					{need:3,atk:245},
+					{need:3,atk:265},
+					{need:2,atk:290}
 				]
 			},
 			"鎖鋸拡張モジュール":{
-				exp:"攻撃力<span class='merit'>+60%</span>、防御力<span class='merit'>+15%</span>、攻撃範囲<span class='merit'>拡大</span><br/><span class='charge'>退場まで効果継続</span>",
-				recover:"auto",activate:"auto",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、防御力<span class='merit'>+@defadd%</span>、攻撃範囲<span class='merit'>拡大</span><br/><span class='charge'>退場まで効果継続</span>",
+				recover:"auto",activate:"auto",infinity:true,
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{need:90,atkadd:40,defadd:10},
+					{need:89,atkadd:45,defadd:10},
+					{need:88,atkadd:50,defadd:10},
+					{need:85,atkadd:55,defadd:15},
+					{need:84,atkadd:60,defadd:15},
+					{need:83,atkadd:65,defadd:15},
+					{need:80,atkadd:70,defadd:20},
+					{need:77,atkadd:80,defadd:25},
+					{need:74,atkadd:90,defadd:30},
+					{need:70,atkadd:100,defadd:35}
 				]
 			},
 			"ボイリングバースト":{
-				exp:"攻撃力と防御力が徐々に<span class='merit'>+50%</span>まで上昇し、前方1マスにいる敵全員を攻撃。効果時間終了後、一定範囲内の敵全員に攻撃力の<span class='merit'>320%</span>の物理ダメージを与え、自身のHPが<span class='demerit'>25%</span>減少",
+				exp:"攻撃力と防御力が徐々に<span class='merit'>+@atkadd%</span>まで上昇し、前方1マスにいる敵全員を攻撃。効果時間終了後、一定範囲内の敵全員に攻撃力の<span class='merit'>@dmg%</span>の物理ダメージを与え、自身のHPが<span class='demerit'>25%</span>減少",
 				recover:"",activate:"",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:15,need:45,pers:10,atkadd:30,defadd:30,dmg:300},
+					{start:15,need:44,pers:10,atkadd:35,defadd:35,dmg:300},
+					{start:15,need:43,pers:10,atkadd:40,defadd:40,dmg:300},
+					{start:17,need:42,pers:10,atkadd:45,defadd:45,dmg:320},
+					{start:17,need:41,pers:10,atkadd:50,defadd:50,dmg:320},
+					{start:17,need:40,pers:10,atkadd:55,defadd:55,dmg:320},
+					{start:19,need:39,pers:10,atkadd:60,defadd:60,dmg:340},
+					{start:21,need:38,pers:10,atkadd:65,defadd:65,dmg:360},
+					{start:23,need:37,pers:10,atkadd:70,defadd:70,dmg:380},
+					{start:25,need:35,pers:10,atkadd:80,defadd:80,dmg:400}
 				]
 			}
 		}
@@ -3951,6 +3951,20 @@ const operator = {
 				}
 			}
 		],
+		speedUp:function(arg){
+			if(arg.promotion >= 1){
+				return 6;
+			}
+		},
+		dmgUp:function(arg){
+			if(arg.promotion == 2){
+				// 物理防御による計算(効果+50%×確率15%)
+				return arg.atk + (arg.atk) * 0.5 * 0.15  - arg.eneDef;
+			}else{
+				// 物理防御による計算
+				return arg.atk - arg.eneDef;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -3960,35 +3974,35 @@ const operator = {
 		],
 		skill:{
 			"風切":{
-				exp:"次の通常攻撃時、<span class='merit'>2</span>回連続で攻撃力の115%の物理ダメージを与える<br/><span class='charge'>1回チャージ可能</span>",
+				exp:"次の通常攻撃時、<span class='merit'>@cnt</span>回連続で攻撃力の@atk%の物理ダメージを与える<br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"auto",activate:"auto",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{need:6,cnt:2,atk:100,charge:1},
+					{need:6,cnt:2,atk:105,charge:1},
+					{need:6,cnt:2,atk:110,charge:1},
+					{need:5,cnt:2,atk:110,charge:1},
+					{need:5,cnt:2,atk:115,charge:1},
+					{need:5,cnt:2,atk:120,charge:1},
+					{need:5,cnt:2,atk:125,charge:2},
+					{need:5,cnt:2,atk:130,charge:2},
+					{need:5,cnt:2,atk:135,charge:3},
+					{need:4,cnt:2,atk:140,charge:3}
 				]
 			},
 			"羽嵐":{
-				exp:"攻撃力span class='merit'>+15%</span>、通常攻撃がspan class='merit'>3連撃</span>になる",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<span class='merit'>@cnt連撃</span>になる",
 				recover:"attack",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:10,need:40,pers:15,atkadd:10,cnt:3},
+					{start:10,need:39,pers:15,atkadd:10,cnt:3},
+					{start:10,need:38,pers:15,atkadd:10,cnt:3},
+					{start:11,need:37,pers:16,atkadd:15,cnt:3},
+					{start:11,need:36,pers:16,atkadd:15,cnt:3},
+					{start:11,need:35,pers:16,atkadd:15,cnt:3},
+					{start:12,need:34,pers:17,atkadd:20,cnt:3},
+					{start:13,need:33,pers:18,atkadd:25,cnt:3},
+					{start:14,need:32,pers:19,atkadd:30,cnt:3},
+					{start:15,need:30,pers:20,atkadd:40,cnt:3}
 				]
 			}
 		}
@@ -7203,35 +7217,35 @@ const operator = {
 		],
 		skill:{
 			"妨害弾":{
-				exp:"攻撃範囲<span class='merit'>+1</span>、攻撃対象を<span class='merit'>0.6</span>秒足止めする",
+				exp:"攻撃範囲<span class='merit'>+@range</span>、攻撃対象を<span class='merit'>@stan</span>秒足止めする",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:10,need:35,pers:26,range:1,stan:0.6},
+					{start:10,need:34,pers:26,range:1,stan:0.6},
+					{start:10,need:33,pers:26,range:1,stan:0.6},
+					{start:10,need:32,pers:28,range:1,stan:0.7},
+					{start:10,need:31,pers:28,range:1,stan:0.7},
+					{start:10,need:30,pers:28,range:1,stan:0.7},
+					{start:10,need:29,pers:30,range:1,stan:0.8},
+					{start:10,need:28,pers:32,range:1,stan:0.8},
+					{start:10,need:27,pers:34,range:1,stan:1},
+					{start:10,need:25,pers:36,range:1,stan:1.2}
 				]
 			},
 			"全方位レーダー":{
-				exp:"通常攻撃の間隔が<span class='demerit'>わずかに延長</span>し、攻撃力<span class='merit'>+40%</span>、攻撃範囲が<span class='merit'>戦場全体まで拡大</span>。通常時の攻撃範囲外の敵を攻撃する時、攻撃の予備動作に要する時間が<span class='demerit'>延長</span>する",
+				exp:"通常攻撃の間隔が<span class='demerit'>わずかに延長</span>し、攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲が<span class='merit'>戦場全体まで拡大</span>。通常時の攻撃範囲外の敵を攻撃する時、攻撃の予備動作に要する時間が<span class='demerit'>延長</span>する",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:10,need:25,pers:26,atkadd:40,intervaladd:0.9},
+					{start:10,need:25,pers:27,atkadd:40,intervaladd:0.9},
+					{start:10,need:25,pers:28,atkadd:40,intervaladd:0.9},
+					{start:10,need:25,pers:30,atkadd:50,intervaladd:0.9},
+					{start:10,need:25,pers:31,atkadd:50,intervaladd:0.9},
+					{start:10,need:25,pers:32,atkadd:50,intervaladd:0.9},
+					{start:10,need:25,pers:34,atkadd:60,intervaladd:0.9},
+					{start:10,need:25,pers:36,atkadd:70,intervaladd:0.9},
+					{start:10,need:25,pers:38,atkadd:80,intervaladd:0.9},
+					{start:10,need:25,pers:40,atkadd:100,intervaladd:0.9}
 				]
 			}
 		}
