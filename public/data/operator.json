@@ -670,7 +670,7 @@ const operator = {
 			},
 			"ボイリングバースト":{
 				exp:"攻撃力と防御力が徐々に<span class='merit'>+@atkadd%</span>まで上昇し、前方1マスにいる敵全員を攻撃。効果時間終了後、一定範囲内の敵全員に攻撃力の<span class='merit'>@dmg%</span>の物理ダメージを与え、自身のHPが<span class='demerit'>25%</span>減少",
-				recover:"",activate:"",
+				recover:"auto",activate:"manual",
 				effect:[
 					{start:15,need:45,pers:10,atkadd:30,defadd:30,dmg:300},
 					{start:15,need:44,pers:10,atkadd:35,defadd:35,dmg:300},
