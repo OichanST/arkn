@@ -3923,7 +3923,7 @@ const operator = {
 			"フルチョーク":{
 				exp:"攻撃力<span class='merit'>@atk%</span>、特性効果の攻撃対象が攻撃範囲内の敵全員になる",
 				recover:"auto",activate:"manual",
-				effect[
+				effect:[
 					{atk:0},
 					{atk:0},
 					{atk:0},
