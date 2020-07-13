@@ -3919,7 +3919,40 @@ const operator = {
 			{nature:1},
 			{cost:-1}
 		],
-		skill:{}
+		skill:{
+			"フルチョーク":{
+				exp:"攻撃力<span class='merit'>@atk%</span>、特性効果の攻撃対象が攻撃範囲内の敵全員になる",
+				recover:"auto",activate:"manual",
+				effect[
+					{atk:0},
+					{atk:0},
+					{atk:0},
+					{atk:0},
+					{atk:140},
+					{atk:0},
+					{atk:0},
+					{atk:0},
+					{atk:0},
+					{atk:0}
+				]
+			},
+			"終焉の旅路":{
+				exp:"通常攻撃が2回攻撃になり、攻撃間隔が<span class='merit'>やや短縮</span>",
+				recover:"auto",activate:"manual",
+				effect[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		}
 	},
 	"グレースロート":{
 		en:"GreyThroat",
