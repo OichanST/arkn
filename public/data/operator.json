@@ -3924,32 +3924,32 @@ const operator = {
 				exp:"攻撃力<span class='merit'>@atk%</span>、特性効果の攻撃対象が攻撃範囲内の敵全員になる",
 				recover:"auto",activate:"manual",
 				effect:[
-					{atk:0},
-					{atk:0},
-					{atk:0},
-					{atk:0},
-					{atk:140},
-					{atk:0},
-					{atk:0},
-					{atk:0},
-					{atk:0},
-					{atk:0}
+					{start:11,need:45,pers:25,atk:120},
+					{start:12,need:45,pers:26,atk:125},
+					{start:13,need:45,pers:27,atk:130},
+					{start:15,need:45,pers:28,atk:135},
+					{start:16,need:45,pers:29,atk:140},
+					{start:17,need:45,pers:30,atk:145},
+					{start:19,need:45,pers:31,atk:150},
+					{start:21,need:45,pers:32,atk:155},
+					{start:23,need:45,pers:33,atk:160},
+					{start:25,need:45,pers:35,atk:170}
 				]
 			},
 			"終焉の旅路":{
-				exp:"通常攻撃が2回攻撃になり、攻撃間隔が<span class='merit'>やや短縮</span>",
+				exp:"通常攻撃が@cnt回攻撃になり、攻撃間隔が<span class='merit'>やや短縮</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:21,need:80,pers:15,cnt:2,intervaladd:-0.2},
+					{start:22,need:79,pers:15,cnt:2,intervaladd:-0.2},
+					{start:23,need:78,pers:15,cnt:2,intervaladd:-0.2},
+					{start:25,need:77,pers:16,cnt:2,intervaladd:-0.5},
+					{start:26,need:76,pers:16,cnt:2,intervaladd:-0.5},
+					{start:27,need:75,pers:16,cnt:2,intervaladd:-0.5},
+					{start:29,need:74,pers:17,cnt:2,intervaladd:-0.7},
+					{start:31,need:73,pers:18,cnt:2,intervaladd:-0.7},
+					{start:33,need:72,pers:19,cnt:2,intervaladd:-0.9},
+					{start:35,need:70,pers:20,cnt:2,intervaladd:-0.9}
 				]
 			}
 		}
