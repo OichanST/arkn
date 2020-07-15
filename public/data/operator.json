@@ -2249,6 +2249,78 @@ const operator = {
 			}
 		},
 	},
+	"リード":{
+		en:"Reed",
+		rare:5,job:"先鋒",relocation:70,speed:1.0,trust:{atk:70},tag:["近距離","COST回復","火力"],
+		characteristic:"敵を倒す度にコスト+1<br/>撤退時に初期配置時のコストを返却",
+		stat:[
+			{
+				min:{hp: 870,atk:240,def:164},
+				max:{hp:1209,atk:354,def:229},
+				res:0,cost:10,block:1,range:[[1,0]],
+				nature:{}
+			},
+			{
+				hp:1550,atk:472,def:298,res:0,cost:12,block:1,range:[[1,0]],
+				material:{},
+				nature:{
+					"退魔の血":{
+						exp:"術耐性+10"
+					}
+				}
+			},
+			{
+				hp:2215,atk:562,def:364,res:0,cost:12,block:1,range:[[1,0]],
+				material:{},
+				nature:{
+					"退魔の血":{
+						exp:"術耐性+20"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:25},
+			{relocation:-6},
+			{cost:-1}
+		],
+		skill:{
+			"迅速攻撃γ":{
+				exp:"攻撃力<span class='merit'>@atk%</span>、攻撃速度<span class='merit'>@spd</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"マナスパーク":{
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃する度追加で攻撃力の<span class='merit'>@art%</span>の術ダメージを敵に与える。敵を倒す度さらに所持コスト<span class='merit'>+1</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		}
+	},
 	"インドラ":{
 		en:"Indra",
 		rare:5,job:"前衛",relocation:70,speed:0.78,trust:{atk:75},tag:["近距離","火力","生存"],
@@ -2941,6 +3013,78 @@ const operator = {
 					{start: 7,need:23,pers:13,atkadd:65,defadd:65},
 					{start: 8,need:22,pers:14,atkadd:70,defadd:70},
 					{start:10,need:20,pers:15,atkadd:80,defadd:80}
+				]
+			}
+		}
+	},
+	"ブローカ":{
+		en:"Broca",
+		rare:5,job:"前衛",relocation:70,speed:1.2,trust:{atk:19},tag:["近距離","範囲攻撃","生存"],
+		characteristic:"ブロック中の<span class='merit'>敵全員</span>を同時に攻撃",
+		stat:[
+			{
+				min:{hp:1064,atk:308,def:155},
+				max:{hp:1365,atk:428,def:222},
+				res:0,cost:19,block:2,range:[[1,0]],
+				nature:{}
+			},
+			{
+				hp:1751,atk:579,def:300,res:0,cost:21,block:2,range:[[1,0]],
+				material:{},
+				nature:{
+					"ドリル強化":{
+						exp:"敵を2体以上ブロック時、攻撃力、防御力+6%"
+					}
+				}
+			},
+			{
+				hp:2335,atk:762,def:366,res:0,cost:23,block:3,range:[[1,0]],
+				material:{},
+				nature:{
+					"ドリル強化":{
+						exp:"敵を2体以上ブロック時、攻撃力、防御力+12%"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:28},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"ターンオン":{
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<span class=''>術攻撃</span>になる",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"ハイボルテージ":{
+				exp:"通常攻撃の間隔が<span class='merit'>延長</span>。攻撃範囲<span class=''>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<spann class='merit'>術攻撃</span>になり、攻撃対象を<span class='merit'>0.8</span>秒足止めする<br/><span class='charge'>効果時間終了後7秒スタンする</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
 				]
 			}
 		}
