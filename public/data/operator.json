@@ -3019,7 +3019,7 @@ const operator = {
 	},
 	"ブローカ":{
 		en:"Broca",
-		rare:5,job:"前衛",relocation:70,speed:1.2,trust:{atk:19},tag:["近距離","範囲攻撃","生存"],
+		rare:5,job:"前衛",relocation:70,speed:1.2,trust:{atk:80},tag:["近距離","範囲攻撃","生存"],
 		characteristic:"ブロック中の<span class='merit'>敵全員</span>を同時に攻撃",
 		stat:[
 			{
