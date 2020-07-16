@@ -2279,6 +2279,13 @@ const operator = {
 				}
 			}
 		],
+		resUp:function(arg){
+			if(arg.promotion == 1){
+				return arg.res + 10;
+			}else if(arg.promotion == 2){
+				return arg.res + 20;
+			}
+		},
 		potential:[
 			{cost:-1},
 			{relocation:-4},
@@ -2288,35 +2295,35 @@ const operator = {
 		],
 		skill:{
 			"迅速攻撃γ":{
-				exp:"攻撃力<span class='merit'>@atk%</span>、攻撃速度<span class='merit'>@spd</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:45,pers:35,atkadd:20,speed:20},
+					{start:0,need:44,pers:35,atkadd:22,speed:20},
+					{start:0,need:43,pers:35,atkadd:24,speed:20},
+					{start:5,need:42,pers:35,atkadd:27,speed:25},
+					{start:5,need:41,pers:35,atkadd:29,speed:25},
+					{start:5,need:40,pers:35,atkadd:31,speed:25},
+					{start:10,need:39,pers:35,atkadd:34,speed:35},
+					{start:10,need:38,pers:35,atkadd:37,speed:35},
+					{start:10,need:37,pers:35,atkadd:40,speed:35},
+					{start:15,need:35,pers:35,atkadd:45,speed:45}
 				]
 			},
 			"マナスパーク":{
-				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃する度追加で攻撃力の<span class='merit'>@art%</span>の術ダメージを敵に与える。敵を倒す度さらに所持コスト<span class='merit'>+1</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃する度追加で攻撃力の<span class='merit'>@arts%</span>の術ダメージを敵に与える。敵を倒す度さらに所持コスト<span class='merit'>+1</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:10,need:40,pers:20,atkadd:30,arts:15},
+					{start:11,need:40,pers:21,atkadd:35,arts:15},
+					{start:12,need:40,pers:22,atkadd:40,arts:15},
+					{start:13,need:39,pers:23,atkadd:45,arts:20},
+					{start:14,need:39,pers:24,atkadd:50,arts:20},
+					{start:15,need:39,pers:25,atkadd:55,arts:20},
+					{start:16,need:38,pers:26,atkadd:60,arts:25},
+					{start:17,need:37,pers:27,atkadd:65,arts:30},
+					{start:18,need:36,pers:28,atkadd:70,arts:35},
+					{start:20,need:35,pers:30,atkadd:80,arts:35}
 				]
 			}
 		}
