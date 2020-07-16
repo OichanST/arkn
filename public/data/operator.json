@@ -3120,7 +3120,7 @@ const operator = {
 				]
 			},
 			"ハイボルテージ":{
-				exp:"通常攻撃の間隔が<span class='merit'>延長</span>。攻撃範囲<span class=''>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<spann class='merit'>術攻撃</span>になり、攻撃対象を<span class='merit'>@stop</span>秒足止めする<br/><span class='charge'>効果時間終了後@stan秒スタンする</span>",
+				exp:"通常攻撃の間隔が<span class='merit'>延長</span>。攻撃範囲<span class=''>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<span class='merit'>術攻撃</span>になり、攻撃対象を<span class='merit'>@stop</span>秒足止めする<br/><span class='charge'>効果時間終了後@stan秒スタンする</span>",
 				recover:"auto",activate:"manual",res:true,
 				effect:[
 					{start:10,need:45,pers:25,intervaladd:0.78,atkadd:80,stop:0.7,stan:8},
