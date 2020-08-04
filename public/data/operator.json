@@ -7354,7 +7354,7 @@ const operator = {
 				]
 			}
 		},
-		outfit:["sweep","wild"]
+		outfit:["sweep","wild","nian"]
 	},
 	"メテオ":{
 		en:"Meteor",
