@@ -478,7 +478,8 @@ const operator = {
 					{start:20,need:30,atk:320,cnt:10,stan:4}
 				]
 			}
-		}
+		},
+		outfit:["nian"]
 	},
 	"ヘラグ":{
 		en:"Hellagur",
@@ -2955,7 +2956,8 @@ const operator = {
 					{start:20,need:45,pers:30,atkadd:80,nature:3}
 				]
 			}
-		}
+		},
+		outfit:["nian"]
 	},
 	"ラップランド":{
 		en:"Lappland",
@@ -3285,7 +3287,7 @@ const operator = {
 		}
 	},
 	"リスカム":{
-		en:"Liskanm",
+		en:"Liskarm",
 		rare:5,job:"重装",relocation:70,speed:1.2,trust:{atk:45,def:45},tag:["近距離","防御","火力"],
 		recruitment:true,
 		characteristic:"敵を３体までブロック",
@@ -3366,7 +3368,8 @@ const operator = {
 					{need:34,pers:20,atkadd:200,target:4,stan:25,interval:1.7}
 				]
 			}
-		}
+		},
+		outfit:["nian"]
 	},
 	"クロワッサン":{
 		en:"Croissant",
