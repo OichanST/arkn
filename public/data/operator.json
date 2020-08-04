@@ -942,6 +942,103 @@ const operator = {
 			}
 		}
 	},
+	"ニェン":{
+		en:"Nian",
+		rare:6,job:"重装",relocation:70,speed:1.5,trust:{hp:400,def:70},tag:["近距離","防御","支援"],
+		characteristic:"敵を３体までブロック",
+		stat:[
+			{
+				min:{hp:1539,atk:295,def:254},
+				max:{hp:2080,atk:405,def:380},
+				res:0,cost:19,block:3,range:[[1,0]],
+				nature:{}
+			},
+			{
+				hp:2737,atk:513,def:529,res:0,cost:21,block:3,range:[[1,0]],
+				material:{},
+				nature:{
+					"金城鉄壁":{
+						exp:"編成中、味方【重装】の最大HP@base%@pexp",
+						base:8,
+						pexp:"(+@padd%)",
+						padd:4
+					}
+				}
+			},
+			{
+				hp:3699,atk:619,def:726,res:0,cost:23,block:3,range:[[1,0]],
+				material:{},
+				nature:{
+					"金城鉄壁":{
+						exp:"編成中、味方【重装】の最大HP@base%@pexp",
+						base:16,
+						pexp:"(+@padd%)",
+						padd:4
+					}
+					"赤鉄明鏡":{
+						exp:"配置後、シールドを３枚形成する（３回目まで攻撃をガード）"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{atk:24},
+			{def:30},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"錫灼":{
+				exp:"防御力<span class='merit'>+@defadd%</span>、攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<span class='merit'>術攻撃</span>になる",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:20,need:50,pers:20,defadd:35,atkadd:10},
+					{start:20,need:49,pers:21,defadd:40,atkadd:10},
+					{start:20,need:48,pers:22,defadd:45,atkadd:10},
+					{start:20,need:47,pers:23,defadd:50,atkadd:20},
+					{start:20,need:46,pers:24,defadd:55,atkadd:20},
+					{start:20,need:45,pers:25,defadd:60,atkadd:20},
+					{start:20,need:44,pers:26,defadd:65,atkadd:30},
+					{start:20,need:43,pers:27,defadd:70,atkadd:30},
+					{start:20,need:42,pers:28,defadd:75,atkadd:30},
+					{start:20,need:40,pers:30,defadd:80,atkadd:40}
+				]
+			},
+			"鋼印":{
+				exp:"<span class='demerit'>攻撃しなくなる</span>。防御力<span class='merit'>+@defadd%</span>、ブロック数<span class='merit'>+1</span>、攻撃される度自身の攻撃力の<span class='merit'>70%</span>の術ダメージで敵に反撃し、対象の一部の特殊能力を<span class='merit'>3</span>秒間無効化する",
+				recover:"auto",activate:"manual",
+				effect:[
+					{defadd: 5,reflect: 50},
+					{defadd: 7,reflect: 55},
+					{defadd: 9,reflect: 60},
+					{defadd:13,reflect: 65},
+					{defadd:15,reflect: 70},
+					{defadd:17,reflect: 75},
+					{defadd:21,reflect: 80},
+					{defadd:24,reflect: 85},
+					{defadd:27,reflect: 90},
+					{defadd:30,reflect:100}
+				]
+			},
+			"鉄御":{
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>。周囲一定範囲内、自分以外の味方の防御力<span class='merit'>+@defadd%</span>、ブロック数<span class='merit'>+1</span>、<span class='merit'>レジスト</span>（スタン、寒冷、凍結の継続時間が50%減少）を付与される",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:20,need:60,pers:25,atkadd: 65,defadd:40},
+					{start:20,need:59,pers:25,atkadd: 70,defadd:40},
+					{start:20,need:58,pers:25,atkadd: 75,defadd:40},
+					{start:23,need:57,pers:25,atkadd: 80,defadd:40},
+					{start:23,need:56,pers:25,atkadd: 85,defadd:50},
+					{start:23,need:55,pers:25,atkadd: 90,defadd:50},
+					{start:26,need:54,pers:25,atkadd: 95,defadd:60},
+					{start:27,need:53,pers:25,atkadd:110,defadd:70},
+					{start:28,need:52,pers:25,atkadd:125,defadd:80},
+					{start:30,need:50,pers:25,atkadd:140,defadd:90}
+				]
+			}
+		}
+	},
 	"エクシア":{
 		en:"Exusiai",
 		rare:6,job:"狙撃",relocation:70,speed:1.0,trust:{atk:90},tag:["遠距離","火力"],
@@ -2011,6 +2108,104 @@ const operator = {
 				]
 			}
 		}
+	},
+	"ア":{
+		en:"Aak",
+		rare:6,job:"特殊",relocation:70,speed:1.3,trust:{hp:300,atk:50},tag["遠距離","支援","火力"],
+		characteristic:"HPが徐々に減少",
+		stat:{
+			{
+				min:{hp: 865,atk:247,def: 58},
+				max:{hp:1236,atk:413,def: 90},
+				res:10,cost:11,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				nature:{
+					"混合薬物弾":{
+						exp:"攻撃時ランダムで次の効果から１つを発動：自身のHPを13%回復／その攻撃のみ攻撃力が130%まで上昇／対象を1秒足止めする／対象を0.6秒間スタンさせる"
+					}
+				}
+			},
+			{
+				hp:1627,atk:583,def:121,res:10,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],,
+				material:{},
+				nature:{
+					"混合薬物弾":{
+						exp:"攻撃時ランダムで次の効果から１つを発動：自身のHPを14%回復／その攻撃のみ攻撃力が140%まで上昇／対象を1.2秒足止めする／対象を0.8秒間スタンさせる"
+					}
+				}
+			},
+			{
+				hp:2034,atk:703,def:152,res:10,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],,
+				material:{},
+				nature:{
+					"混合薬物弾":{
+						exp:"攻撃時ランダムで次の効果から１つを発動：自身のHPを15%回復／その攻撃のみ攻撃力が150%まで上昇／対象を1.4秒足止めする／対象を1秒間スタンさせる"
+					},
+					"薬物散布":{
+						exp:"自身が受ける回復量+@base%@padd",
+						base:20,
+						pexp:"(+@padd%)",
+						padd:5
+					}
+				}
+			}
+		},
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{hp:150},
+			{nature:2},
+			{cost:-1}
+		],
+		skill:{
+			"高速射撃":{
+				exp:"攻撃速度<span class='merit'>+12</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:10,need:44},
+					{start:10,need:43},
+					{start:10,need:42},
+					{start:12,need:41},
+					{start:12,need:40},
+					{start:12,need:39},
+					{start:14,need:38},
+					{start:16,need:37},
+					{start:18,need:36},
+					{start:20,need:35}
+				]
+			},
+			"劇性増強剤・γ":{
+				exp:"前方にいる最も近い味方１人（真正面を優先する）に<span class='merit'>500</span>の攻撃力で<span class='merit'>15回</span>攻撃し、その後効果時間終了まで自身と対象の防御力、最大HP<span class='merit'>+50%</span>",
+				recover:"auto",activate:"manual",res:true,
+				effect:[
+					{start:20,need:40,cost: 9,cnt:2,atk:105,stan:2},
+					{start:21,need:40,cost: 9,cnt:2,atk:110,stan:2},
+					{start:22,need:40,cost: 9,cnt:2,atk:115,stan:2},
+					{start:23,need:40,cost:10,cnt:2,atk:120,stan:2},
+					{start:24,need:40,cost:10,cnt:2,atk:125,stan:2},
+					{start:25,need:40,cost:10,cnt:2,atk:130,stan:2},
+					{start:26,need:40,cost:11,cnt:2,atk:135,stan:2},
+					{start:27,need:40,cost:11,cnt:2,atk:140,stan:3},
+					{start:28,need:40,cost:11,cnt:2,atk:155,stan:3},
+					{start:30,need:40,cost:12,cnt:2,atk:175,stan:3}
+				]
+			},
+			"劇性増強剤・ドリアン":{
+				exp:"前方にいる最も近い味方１人（真正面を優先する）に<span class='merit'>500</span>の攻撃力で<span class='merit'>15回</span>攻撃し、その後効果時間終了まで自身と対象の攻撃力<span class='merit'>+50%</span>、攻撃速度<span class='merit'>+50</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:10,need:44},
+					{start:10,need:43},
+					{start:10,need:42},
+					{start:12,need:41},
+					{start:12,need:40},
+					{start:12,need:39},
+					{start:14,need:38},
+					{start:16,need:37},
+					{start:18,need:36},
+					{start:20,need:35}
+				]
+			}
+		},
 	},
 	"テキサス":{
 		en:"Texas",
@@ -3516,6 +3711,84 @@ const operator = {
 					{start:17,need:53,pers:40,defadd:90,rangedefadd:25},
 					{start:18,need:52,pers:40,defadd:100,rangedefadd:25},
 					{start:20,need:50,pers:40,defadd:120,rangedefadd:30}
+				]
+			}
+		}
+	},
+	"ウン":{
+		en:"Hung",
+		rare:5,job:"重装",relocation:70,speed:1.2,trust:{hp:200,def:60},tag:["近距離","防御","治療"],
+		characteristic:"ＨＰ回復スキルを所持",
+		stat:[
+			{
+				min:{hp:1172,atk:182,def:244},
+				max:{hp:1564,atk:261,def:359},
+				res:10,cost:17,block:2,range:[],
+				nature:{}
+			},
+			{
+				hp:2032,atk:353,def:479,res:10,cost:19,block:3,range:[],
+				material:{},
+				nature:{
+					"仁王立ち":{
+						exp:"防御力+@base%@pexp",
+						base:6,
+						pexp:"(+@padd%)",
+						padd:2
+					}
+				}
+			},
+			{
+				hp:2823,atk:442,def:585,res:10,cost:21,block:3,range:[],
+				material:{},
+				nature:{
+					"仁王立ち":{
+						exp:"防御力+@base0%@pexp0、自身の後ろ1マスの高台に配置されている味方を回復時、回復効果が@base1%@pexp1上昇",
+						base:[6,75],
+						pexp:["(+@padd%)","(+@padd%)"],
+						padd:[2,10]
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{def:25},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"応急処置・受動":{
+				exp:"次の通常攻撃時、近くの味方1人に自身の攻撃力の<span class='merit'>@atk%</span>のHPを回復",
+				recover:"damange",activate:"auto",heal:true,
+				effect:[
+					{need:6,atk:110,charge:1},
+					{need:6,atk:115,charge:1},
+					{need:6,atk:120,charge:1},
+					{need:5,atk:130,charge:1},
+					{need:5,atk:135,charge:1},
+					{need:5,atk:140,charge:1},
+					{need:5,atk:150,charge:2},
+					{need:4,atk:160,charge:2},
+					{need:4,atk:170,charge:2},
+					{need:4,atk:180,charge:3}
+				]
+			},
+			"医療態勢・受動":{
+				exp:"攻撃力、防御力<span class='merit'>+@atkadd%</span>、攻撃しなくなり回復行動のみ行い、回復時その対象のSPを<span class='merit'>1</span>回復",
+				recover:"damange",activate:"manual",heal:true,
+				effect:[
+					{start:20,need:60,pers:40,atkadd:20},
+					{start:20,need:59,pers:40,atkadd:25},
+					{start:20,need:58,pers:40,atkadd:30},
+					{start:25,need:55,pers:40,atkadd:35},
+					{start:25,need:54,pers:40,atkadd:40},
+					{start:25,need:53,pers:40,atkadd:45},
+					{start:30,need:52,pers:40,atkadd:50},
+					{start:30,need:50,pers:40,atkadd:60},
+					{start:30,need:45,pers:40,atkadd:70},
+					{start:30,need:40,pers:40,atkadd:80}
 				]
 			}
 		}
@@ -5741,6 +6014,84 @@ const operator = {
 					{atk:255,seal:7},
 					{atk:270,seal:7},
 					{atk:290,seal:8}
+				]
+			}
+		}
+	},
+	"スノーズント":{
+		en:"Snowsant",
+		rare:5,job:"特殊",relocation:80,speed:1.8,trust:{hp:300,def:40},tag:["近距離","強制移動","減速"],
+		characteristic:"<span class='merit'>強制移動</span>スキルを所持<br/>遠距離マスにも配置可能",
+		stat:[
+			{
+				min:{hp: 794,atk:320,def:155},
+				max:{hp:1073,atk:458,def:228},
+				res:0,cost:13,block:2,range:[[1,0],[2,0]],
+				nature:{}
+			},
+			{
+				hp:1394,atk:596,def:301,res:0,cost:15,block:2,range:[[1,0],[2,0],[3,0]],
+				material:{},
+				nature:{
+					"ムシ対策専門家":{
+						exp:"【感染生物】を引き寄せる時、対象の一部の特殊能力を+@base%@pexp秒間無効化する",
+						base:4,
+						pexp:"(+@padd)",
+						padd:4
+					}
+				}
+			},
+			{
+				hp:1835,atk:745,def:355,res:0,cost:15,block:2,range:[[1,0],[2,0],[3,0]],
+				material:{},
+				nature:{
+					"ムシ対策専門家":{
+						exp:"【感染生物】を引き寄せる時、力加減が1ランク上昇、対象の一部の特殊能力を+@base%@pexp秒間無効化する",
+						base:4,
+						pexp:"(+@padd)",
+						padd:4
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{cost:-1},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"フックキャッチ":{
+				exp:"次の通常攻撃時、敵を<span class='merit'>@powで</span>引き寄せ、攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>1</span>秒足止めする",
+				recover:"auto",activate:"auto",
+				effect:[
+					{need:7,atk:115,pow:"わずかな力"},
+					{need:7,atk:118,pow:"わずかな力"},
+					{need:7,atk:120,pow:"わずかな力"},
+					{need:6,atk:125,pow:"相当の力"},
+					{need:6,atk:128,pow:"相当の力"},
+					{need:6,atk:130,pow:"相当の力"},
+					{need:5,atk:135,pow:"相当の力"},
+					{need:5,atk:150,pow:"相当の力"},
+					{need:5,atk:165,pow:"相当の力"},
+					{need:4,atk:180,pow:"かなりの力"}
+				]
+			},
+			"ネットキャプチャー":{
+				exp:"捕獲ネットを発射し、目標地点周囲一定範囲内の敵を<span class='merit'>@powで</span>引き寄せ、攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、<span class='merit'>@stan</span>秒足止めする",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:10,need:25,target:2,atk:130,pow:"わずかな力",stan:1.5},
+					{start:10,need:24,target:2,atk:135,pow:"わずかな力",stan:1.5},
+					{start:10,need:23,target:2,atk:140,pow:"わずかな力",stan:1.5},
+					{start:10,need:22,target:2,atk:150,pow:"相当の力",stan:1.5},
+					{start:10,need:21,target:2,atk:155,pow:"相当の力",stan:1.5},
+					{start:10,need:20,target:2,atk:160,pow:"相当の力",stan:1.5},
+					{start:10,need:19,target:2,atk:170,pow:"相当の力",stan:1.5},
+					{start:10,need:18,target:3,atk:180,pow:"相当の力",stan:2},
+					{start:10,need:17,target:3,atk:190,pow:"相当の力",stan:2.5},
+					{start:10,need:15,target:3,atk:200,pow:"かなりの力",stan:3}
 				]
 			}
 		}
