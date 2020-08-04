@@ -2113,7 +2113,7 @@ const operator = {
 		en:"Aak",
 		rare:6,job:"特殊",relocation:70,speed:1.3,trust:{hp:300,atk:50},tag:["遠距離","支援","火力"],
 		characteristic:"HPが徐々に減少",
-		stat:{
+		stat:[
 			{
 				min:{hp: 865,atk:247,def: 58},
 				max:{hp:1236,atk:413,def: 90},
@@ -2148,7 +2148,7 @@ const operator = {
 					}
 				}
 			}
-		},
+		],
 		potential:[
 			{cost:-1},
 			{relocation:-4},
