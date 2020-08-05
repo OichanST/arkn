@@ -3763,35 +3763,35 @@ const operator = {
 		],
 		skill:{
 			"応急処置・受動":{
-				exp:"次の通常攻撃時、近くの味方1人に自身の攻撃力の<span class='merit'>@atk%</span>のHPを回復",
+				exp:"次の通常攻撃時、近くの味方1人に自身の攻撃力の<span class='merit'>@heal%</span>のHPを回復",
 				recover:"damange",activate:"auto",heal:true,
 				effect:[
-					{need:6,atk:110,charge:1},
-					{need:6,atk:115,charge:1},
-					{need:6,atk:120,charge:1},
-					{need:5,atk:130,charge:1},
-					{need:5,atk:135,charge:1},
-					{need:5,atk:140,charge:1},
-					{need:5,atk:150,charge:2},
-					{need:4,atk:160,charge:2},
-					{need:4,atk:170,charge:2},
-					{need:4,atk:180,charge:3}
+					{start:0,need:6,heal:100},
+					{start:0,need:6,heal:105},
+					{start:0,need:6,heal:110},
+					{start:1,need:6,heal:120},
+					{start:1,need:6,heal:125},
+					{start:1,need:6,heal:130},
+					{start:2,need:5,heal:140},
+					{start:3,need:5,heal:150},
+					{start:4,need:5,heal:160},
+					{start:4,need:4,heal:170}
 				]
 			},
 			"医療態勢・受動":{
 				exp:"攻撃力、防御力<span class='merit'>+@atkadd%</span>、攻撃しなくなり回復行動のみ行い、回復時その対象のSPを<span class='merit'>1</span>回復",
-				recover:"damange",activate:"manual",heal:true,
+				recover:"damange",activate:"manual",heal:true,noAttack:true,heal:true,
 				effect:[
-					{start:20,need:60,pers:40,atkadd:20},
-					{start:20,need:59,pers:40,atkadd:25},
-					{start:20,need:58,pers:40,atkadd:30},
-					{start:25,need:55,pers:40,atkadd:35},
-					{start:25,need:54,pers:40,atkadd:40},
-					{start:25,need:53,pers:40,atkadd:45},
-					{start:30,need:52,pers:40,atkadd:50},
-					{start:30,need:50,pers:40,atkadd:60},
-					{start:30,need:45,pers:40,atkadd:70},
-					{start:30,need:40,pers:40,atkadd:80}
+					{start:10,need:25,pers:20,atkadd:30,defadd:30},
+					{start:10,need:25,pers:20,atkadd:35,defadd:35},
+					{start:10,need:25,pers:20,atkadd:40,defadd:40},
+					{start:11,need:24,pers:22,atkadd:45,defadd:45},
+					{start:11,need:24,pers:22,atkadd:50,defadd:50},
+					{start:11,need:24,pers:22,atkadd:55,defadd:55},
+					{start:12,need:23,pers:24,atkadd:60,defadd:60},
+					{start:14,need:22,pers:26,atkadd:65,defadd:65},
+					{start:16,need:21,pers:28,atkadd:70,defadd:70},
+					{start:18,need:20,pers:30,atkadd:80,defadd:80}
 				]
 			}
 		}
