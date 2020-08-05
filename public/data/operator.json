@@ -2159,51 +2159,51 @@ const operator = {
 		],
 		skill:{
 			"高速射撃":{
-				exp:"攻撃速度<span class='merit'>+12</span>",
+				exp:"攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:10,need:44},
-					{start:10,need:43},
-					{start:10,need:42},
-					{start:12,need:41},
-					{start:12,need:40},
-					{start:12,need:39},
-					{start:14,need:38},
-					{start:16,need:37},
-					{start:18,need:36},
-					{start:20,need:35}
+					{start:15,need:30,pers:20,speed:30},
+					{start:15,need:30,pers:21,speed:35},
+					{start:15,need:30,pers:22,speed:40},
+					{start:16,need:30,pers:23,speed:50},
+					{start:16,need:30,pers:24,speed:55},
+					{start:16,need:30,pers:25,speed:60},
+					{start:17,need:30,pers:26,speed:70},
+					{start:18,need:30,pers:27,speed:80},
+					{start:19,need:30,pers:28,speed:90},
+					{start:20,need:30,pers:30,speed:100}
 				]
 			},
 			"劇性増強剤・γ":{
-				exp:"前方にいる最も近い味方１人（真正面を優先する）に<span class='merit'>500</span>の攻撃力で<span class='merit'>15回</span>攻撃し、その後効果時間終了まで自身と対象の防御力、最大HP<span class='merit'>+50%</span>",
+				exp:"前方にいる最も近い味方１人（真正面を優先する）に<span class='merit'>500</span>の攻撃力で<span class='merit'>15回</span>攻撃し、その後効果時間終了まで自身と対象の防御力、最大HP<span class='merit'>+@defadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:20,need:40,cost: 9,cnt:2,atk:105,stan:2},
-					{start:21,need:40,cost: 9,cnt:2,atk:110,stan:2},
-					{start:22,need:40,cost: 9,cnt:2,atk:115,stan:2},
-					{start:23,need:40,cost:10,cnt:2,atk:120,stan:2},
-					{start:24,need:40,cost:10,cnt:2,atk:125,stan:2},
-					{start:25,need:40,cost:10,cnt:2,atk:130,stan:2},
-					{start:26,need:40,cost:11,cnt:2,atk:135,stan:2},
-					{start:27,need:40,cost:11,cnt:2,atk:140,stan:3},
-					{start:28,need:40,cost:11,cnt:2,atk:155,stan:3},
-					{start:30,need:40,cost:12,cnt:2,atk:175,stan:3}
+					{start:20,need:40,pers:30,defadd:30,hpadd:30},
+					{start:20,need:39,pers:30,defadd:30,hpadd:30},
+					{start:20,need:38,pers:30,defadd:30,hpadd:30},
+					{start:21,need:37,pers:30,defadd:40,hpadd:40},
+					{start:21,need:36,pers:30,defadd:40,hpadd:40},
+					{start:21,need:35,pers:30,defadd:40,hpadd:40},
+					{start:22,need:34,pers:30,defadd:50,hpadd:50},
+					{start:23,need:33,pers:30,defadd:60,hpadd:60},
+					{start:24,need:32,pers:30,defadd:70,hpadd:70},
+					{start:25,need:30,pers:30,defadd:80,hpadd:80}
 				]
 			},
 			"劇性増強剤・ドリアン":{
-				exp:"前方にいる最も近い味方１人（真正面を優先する）に<span class='merit'>500</span>の攻撃力で<span class='merit'>15回</span>攻撃し、その後効果時間終了まで自身と対象の攻撃力<span class='merit'>+50%</span>、攻撃速度<span class='merit'>+50</span>",
+				exp:"前方にいる最も近い味方１人（真正面を優先する）に<span class='merit'>500</span>の攻撃力で<span class='merit'>15回</span>攻撃し、その後効果時間終了まで自身と対象の攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:10,need:44},
-					{start:10,need:43},
-					{start:10,need:42},
-					{start:12,need:41},
-					{start:12,need:40},
-					{start:12,need:39},
-					{start:14,need:38},
-					{start:16,need:37},
-					{start:18,need:36},
-					{start:20,need:35}
+					{start:25,need:47,pers:20,atkadd:25,speed:25},
+					{start:25,need:46,pers:20,atkadd:25,speed:25},
+					{start:25,need:45,pers:20,atkadd:25,speed:25},
+					{start:26,need:44,pers:20,atkadd:30,speed:30},
+					{start:26,need:43,pers:20,atkadd:30,speed:30},
+					{start:26,need:42,pers:20,atkadd:30,speed:30},
+					{start:27,need:41,pers:20,atkadd:35,speed:35},
+					{start:28,need:39,pers:20,atkadd:40,speed:40},
+					{start:29,need:37,pers:20,atkadd:45,speed:45},
+					{start:30,need:35,pers:20,atkadd:50,speed:50}
 				]
 			}
 		},
