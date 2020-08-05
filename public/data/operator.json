@@ -992,50 +992,50 @@ const operator = {
 		skill:{
 			"錫灼":{
 				exp:"防御力<span class='merit'>+@defadd%</span>、攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<span class='merit'>術攻撃</span>になる",
-				recover:"auto",activate:"manual",
+				recover:"auto",activate:"manual",res:true,
 				effect:[
-					{start:20,need:50,pers:20,defadd:35,atkadd:10},
-					{start:20,need:49,pers:21,defadd:40,atkadd:10},
-					{start:20,need:48,pers:22,defadd:45,atkadd:10},
-					{start:20,need:47,pers:23,defadd:50,atkadd:20},
-					{start:20,need:46,pers:24,defadd:55,atkadd:20},
-					{start:20,need:45,pers:25,defadd:60,atkadd:20},
-					{start:20,need:44,pers:26,defadd:65,atkadd:30},
-					{start:20,need:43,pers:27,defadd:70,atkadd:30},
-					{start:20,need:42,pers:28,defadd:75,atkadd:30},
-					{start:20,need:40,pers:30,defadd:80,atkadd:40}
+					{start:10,need:30,pers:20,defadd:25,atkadd:10},
+					{start:10,need:30,pers:21,defadd:30,atkadd:10},
+					{start:10,need:30,pers:22,defadd:35,atkadd:10},
+					{start:10,need:30,pers:23,defadd:40,atkadd:20},
+					{start:10,need:30,pers:24,defadd:45,atkadd:20},
+					{start:10,need:30,pers:25,defadd:50,atkadd:20},
+					{start:10,need:30,pers:26,defadd:55,atkadd:30},
+					{start:10,need:30,pers:27,defadd:60,atkadd:35},
+					{start:10,need:30,pers:28,defadd:65,atkadd:40},
+					{start:10,need:30,pers:30,defadd:70,atkadd:45}
 				]
 			},
 			"鋼印":{
-				exp:"<span class='demerit'>攻撃しなくなる</span>。防御力<span class='merit'>+@defadd%</span>、ブロック数<span class='merit'>+1</span>、攻撃される度自身の攻撃力の<span class='merit'>70%</span>の術ダメージで敵に反撃し、対象の一部の特殊能力を<span class='merit'>3</span>秒間無効化する",
-				recover:"auto",activate:"manual",
+				exp:"<span class='demerit'>攻撃しなくなる</span>。防御力<span class='merit'>+@defadd%</span>、ブロック数<span class='merit'>+1</span>、攻撃される度自身の攻撃力の<span class='merit'>@reflect%</span>の術ダメージで敵に反撃し、対象の一部の特殊能力を<span class='merit'>@seal</span>秒間無効化する",
+				recover:"auto",activate:"manual",noAttack:true,res:true,
 				effect:[
-					{defadd: 5,reflect: 50},
-					{defadd: 7,reflect: 55},
-					{defadd: 9,reflect: 60},
-					{defadd:13,reflect: 65},
-					{defadd:15,reflect: 70},
-					{defadd:17,reflect: 75},
-					{defadd:21,reflect: 80},
-					{defadd:24,reflect: 85},
-					{defadd:27,reflect: 90},
-					{defadd:30,reflect:100}
+					{start:25,eed:50,pers:30,defadd: 60,reflect: 50,seal:3},
+					{start:26,eed:50,pers:30,defadd: 65,reflect: 50,seal:3},
+					{start:27,eed:50,pers:30,defadd: 70,reflect: 50,seal:3},
+					{start:28,eed:50,pers:31,defadd: 80,reflect: 60,seal:3},
+					{start:29,eed:50,pers:31,defadd: 85,reflect: 60,seal:3},
+					{start:30,eed:50,pers:31,defadd: 90,reflect: 60,seal:3},
+					{start:31,eed:50,pers:32,defadd:100,reflect: 70,seal:3},
+					{start:32,eed:50,pers:33,defadd:110,reflect: 70,seal:4},
+					{start:33,eed:50,pers:34,defadd:120,reflect: 80,seal:4},
+					{start:35,eed:50,pers:35,defadd:130,reflect: 90,seal:5}
 				]
 			},
 			"鉄御":{
 				exp:"攻撃力<span class='merit'>+@atkadd%</span>。周囲一定範囲内、自分以外の味方の防御力<span class='merit'>+@defadd%</span>、ブロック数<span class='merit'>+1</span>、<span class='merit'>レジスト</span>（スタン、寒冷、凍結の継続時間が50%減少）を付与される",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:20,need:60,pers:25,atkadd: 65,defadd:40},
-					{start:20,need:59,pers:25,atkadd: 70,defadd:40},
-					{start:20,need:58,pers:25,atkadd: 75,defadd:40},
-					{start:23,need:57,pers:25,atkadd: 80,defadd:40},
-					{start:23,need:56,pers:25,atkadd: 85,defadd:50},
-					{start:23,need:55,pers:25,atkadd: 90,defadd:50},
-					{start:26,need:54,pers:25,atkadd: 95,defadd:60},
-					{start:27,need:53,pers:25,atkadd:110,defadd:70},
-					{start:28,need:52,pers:25,atkadd:125,defadd:80},
-					{start:30,need:50,pers:25,atkadd:140,defadd:90}
+					{start:40,need:85,pers:40,atkadd: 55,defadd:30},
+					{start:42,need:85,pers:40,atkadd: 55,defadd:30},
+					{start:44,need:85,pers:40,atkadd: 60,defadd:30},
+					{start:48,need:85,pers:40,atkadd: 65,defadd:40},
+					{start:50,need:85,pers:40,atkadd: 70,defadd:40},
+					{start:52,need:85,pers:40,atkadd: 75,defadd:40},
+					{start:56,need:85,pers:40,atkadd: 80,defadd:50},
+					{start:60,need:85,pers:41,atkadd: 90,defadd:60},
+					{start:64,need:85,pers:42,atkadd:100,defadd:70},
+					{start:70,need:85,pers:45,atkadd:120,defadd:80}
 				]
 			}
 		}
@@ -2176,7 +2176,7 @@ const operator = {
 			},
 			"劇性増強剤・γ":{
 				exp:"前方にいる最も近い味方１人（真正面を優先する）に<span class='merit'>500</span>の攻撃力で<span class='merit'>15回</span>攻撃し、その後効果時間終了まで自身と対象の防御力、最大HP<span class='merit'>+50%</span>",
-				recover:"auto",activate:"manual",res:true,
+				recover:"auto",activate:"manual",
 				effect:[
 					{start:20,need:40,cost: 9,cnt:2,atk:105,stan:2},
 					{start:21,need:40,cost: 9,cnt:2,atk:110,stan:2},
