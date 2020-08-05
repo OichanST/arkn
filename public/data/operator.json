@@ -6066,35 +6066,35 @@ const operator = {
 		],
 		skill:{
 			"フックキャッチ":{
-				exp:"次の通常攻撃時、敵を<span class='merit'>@powで</span>引き寄せ、攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>1</span>秒足止めする",
+				exp:"次の通常攻撃時、敵を<span class='merit'>@powで</span>引き寄せ、攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>@stop</span>秒足止めする",
 				recover:"auto",activate:"auto",
 				effect:[
-					{need:7,atk:115,pow:"わずかな力"},
-					{need:7,atk:118,pow:"わずかな力"},
-					{need:7,atk:120,pow:"わずかな力"},
-					{need:6,atk:125,pow:"相当の力"},
-					{need:6,atk:128,pow:"相当の力"},
-					{need:6,atk:130,pow:"相当の力"},
-					{need:5,atk:135,pow:"相当の力"},
-					{need:5,atk:150,pow:"相当の力"},
-					{need:5,atk:165,pow:"相当の力"},
-					{need:4,atk:180,pow:"かなりの力"}
+					{need:7,atk:110,pow:"わずかな力",stop:1},
+					{need:7,atk:115,pow:"わずかな力",stop:1},
+					{need:7,atk:120,pow:"わずかな力",stop:1},
+					{need:6,atk:125,pow:"相当の力",stop:1},
+					{need:6,atk:130,pow:"相当の力",stop:1},
+					{need:6,atk:135,pow:"相当の力",stop:1},
+					{need:5,atk:140,pow:"相当の力",stop:1},
+					{need:5,atk:150,pow:"相当の力",stop:1.2},
+					{need:5,atk:160,pow:"相当の力",stop:1.4},
+					{need:5,atk:170,pow:"かなりの力",stop:1.6}
 				]
 			},
 			"ネットキャプチャー":{
 				exp:"捕獲ネットを発射し、目標地点周囲一定範囲内の敵を<span class='merit'>@powで</span>引き寄せ、攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、<span class='merit'>@stan</span>秒足止めする",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:10,need:25,target:2,atk:130,pow:"わずかな力",stan:1.5},
-					{start:10,need:24,target:2,atk:135,pow:"わずかな力",stan:1.5},
-					{start:10,need:23,target:2,atk:140,pow:"わずかな力",stan:1.5},
-					{start:10,need:22,target:2,atk:150,pow:"相当の力",stan:1.5},
-					{start:10,need:21,target:2,atk:155,pow:"相当の力",stan:1.5},
-					{start:10,need:20,target:2,atk:160,pow:"相当の力",stan:1.5},
-					{start:10,need:19,target:2,atk:170,pow:"相当の力",stan:1.5},
-					{start:10,need:18,target:3,atk:180,pow:"相当の力",stan:2},
-					{start:10,need:17,target:3,atk:190,pow:"相当の力",stan:2.5},
-					{start:10,need:15,target:3,atk:200,pow:"かなりの力",stan:3}
+					{start:10,need:27,atk:130,pow:"わずかな力",stan:2.1},
+					{start:10,need:26,atk:135,pow:"わずかな力",stan:2.1},
+					{start:10,need:25,atk:140,pow:"わずかな力",stan:2.1},
+					{start:10,need:24,atk:145,pow:"相当の力",stan:2.3},
+					{start:10,need:23,atk:150,pow:"相当の力",stan:2.3},
+					{start:10,need:22,atk:155,pow:"相当の力",stan:2.3},
+					{start:10,need:21,atk:160,pow:"相当の力",stan:2.5},
+					{start:10,need:20,atk:170,pow:"相当の力",stan:2.8},
+					{start:10,need:19,atk:180,pow:"相当の力",stan:3.1},
+					{start:10,need:17,atk:200,pow:"かなりの力",stan:3.5}
 				]
 			}
 		}
