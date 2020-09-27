@@ -126,6 +126,102 @@ const operator = {
 		},
 		outfit:["wild"]
 	},
+	"バグパイプ":{
+		en:"Bagpipe",
+		rare:6,job:"先鋒",relocation:70,speed:1,trust:{atk:85},tag:["近距離","COST回復","火力"],
+		recruitment:true,
+		characteristic:"敵を倒す時度所持コスト＋１<br/>撤退時に初期配置時のコストを返却",
+		stat:[
+			{
+				min:{hp: 975,atk:250,def:173},
+				max:{hp:1355,atk:369,def:241},
+				res:0,cost:11,block:1,range:[[1,0]],
+				nature:{}
+			},
+			{
+				hp:1738,atk:492,def:313,res:0,cost:13,block:1,range:[[1,0]],
+				material:{},
+				nature:{
+					"精密装填":{
+						exp:"攻撃時@base%@pexpの確率でその攻撃のみ攻撃力が110%まで上昇し、追加でもう一人の敵に攻撃する",
+						base:25,
+						pexp:"(+@padd%)",
+						padd:3
+					}
+				}
+			},
+			{
+				hp:2484,atk:586,def:382,res:0,cost:13,block:1,range:[[1,0]],
+				material:{},
+				nature:{
+					"精密装填":{
+						exp:"攻撃時@base%@pexpの確率でその攻撃のみ攻撃力が130%まで上昇し、追加でもう一人の敵に攻撃する",
+						base:25,
+						pexp:"(+@padd%)",
+						padd:3
+					},
+					"軍人の作法":{exp:"編成中、味方【先鋒】のストックSP+6"}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{nature:1},
+			{atk:25},
+			{nature:2},
+			{cost:-1}
+		],
+		skill:{
+			"迅速攻撃γ":{
+				exp:"攻撃力<span class='merit'>+@atkadd</span>、攻撃速度<span class='merit'>@speed</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start: 0,need:45,atkadd:20,speed:20},
+					{start: 0,need:44,atkadd:22,speed:20},
+					{start: 0,need:43,atkadd:24,speed:20},
+					{start: 5,need:42,atkadd:27,speed:25},
+					{start: 5,need:41,atkadd:29,speed:25},
+					{start: 5,need:40,atkadd:31,speed:25},
+					{start:10,need:39,atkadd:34,speed:35},
+					{start:10,need:38,atkadd:37,speed:35},
+					{start:10,need:37,atkadd:40,speed:35},
+					{start:15,need:35,atkadd:45,speed:45}
+				]
+			},
+			"ハイパーインパクト":{
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk</span>まで上昇し、追加でもう一度攻撃する<br/><span class='charge'>@charge回チャージ可能</span>",
+				recover:"auto",activate:"auto",
+				effect:[
+					{start:0,need: 7,atk:130,charge:1},
+					{start:0,need: 7,atk:135,charge:1},
+					{start:0,need: 7,atk:140,charge:1},
+					{start:0,need: 6,atk:145,charge:1},
+					{start:0,need: 6,atk:150,charge:1},
+					{start:0,need: 6,atk:155,charge:1},
+					{start:0,need: 5,atk:160,charge:2},
+					{start:0,need: 5,atk:170,charge:2},
+					{start:0,need: 5,atk:180,charge:3},
+					{start:0,need: 4,atk:200,charge:3}
+				]
+			},
+			"クローズドボルト連射":{
+				exp:"攻撃感覚が<span class='demerit'>延長</span>。ブロック数<span class='merit'>+1</span>、攻撃力、防御力<span class='merit'>+@atkadd</span>、通常攻撃が<span class='merit'>3連撃</span>になる",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start: 9,need:40,atkadd:30,defadd:30,intervaladd:0.7},
+					{start:10,need:40,atkadd:40,defadd:40,intervaladd:0.7},
+					{start:11,need:40,atkadd:50,defadd:50,intervaladd:0.7},
+					{start:12,need:40,atkadd:60,defadd:60,intervaladd:0.7},
+					{start:13,need:40,atkadd:70,defadd:70,intervaladd:0.7},
+					{start:14,need:40,atkadd:80,defadd:80,intervaladd:0.7},
+					{start:15,need:40,atkadd:90,defadd:90,intervaladd:0.7},
+					{start:18,need:40,atkadd:100,defadd:100,intervaladd:0.7},
+					{start:21,need:40,atkadd:110,defadd:110,intervaladd:0.7},
+					{start:25,need:40,atkadd:120,defadd:120,intervaladd:0.7}
+				]
+			}
+		}
+	},
 	"スカジ":{
 		en:"Skadi",
 		rare:6,job:"前衛",relocation:70,speed:1.5,trust:{atk:80,def:40},tag:["近距離","火力","生存"],
@@ -810,7 +906,8 @@ const operator = {
 					{start:30,need:50,pers:25,atkadd:140,defadd:90}
 				]
 			}
-		}
+		},
+		outfit:["nian"]
 	},
 	"サリア":{
 		en:"Saria",
@@ -1626,6 +1723,103 @@ const operator = {
 			}
 		}
 	},
+	"ケオベ":{
+		en:"Ceobe",
+		rare:6,job:"術師",relocation:70,speed:1.6,trust:{atk:90},tag:["遠距離","火力","牽制"],
+		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える",
+		stat:[
+			{
+				min:{hp: 657,atk:302,def: 48},
+				max:{hp: 939,atk:420,def: 82},
+				res:10,cost:19,block:1,range:[[0,1],[1,1],[2,1],[1,0],[2,0],[0,-1],[1,-1],[2,-1]],
+				nature:{}
+			},
+			{
+				hp:1220,atk:553,def:114,res:15,cost:21,block:1,range:[[0,1],[1,1],[2,1],[1,0],[2,0],[3,0],[0,-1],[1,-1],[2,-1]],
+				material:{},
+				nature:{
+					"そぎおとし":{
+						exp:"攻撃時、追加で攻撃対象の防御力の@base%@pexpの術ダメージを与える",
+						base:25,
+						pexp:"(+@padd%)",
+						padd:4
+					}
+				}
+			},
+			{
+				hp:1565,atk:667,def:128,res:20,cost:21,block:1,range:[[0,1],[1,1],[2,1],[1,0],[2,0],[3,0],[0,-1],[1,-1],[2,-1]],
+				material:{},
+				nature:{
+					"そぎおとし":{
+						exp:"攻撃時、追加で攻撃対象の防御力の@base%@pexpの術ダメージを与える",
+						base:40,
+						pexp:"(+@padd%)",
+						padd:4
+					},
+					"ひとりたび":{
+						exp:"隣接4マスに味方がいない時、攻撃力+8%、攻撃速度+8"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:27},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"「つめたいおの」":{
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk</span>まで上昇し、攻撃対象に<span class='merit'>@bind</span>秒のバインド（移動停止）を付与。ブロックされていない敵を優先して攻撃する<br/><span class='charge'>@charge回チャージ可能</span>",
+				recover:"auto",activate:"auto",
+				effect:[
+					{start: 0,need: 8,atk:150,bind:1.5,charge:1},
+					{start: 0,need: 8,atk:155,bind:1.5,charge:1},
+					{start: 0,need: 8,atk:160,bind:1.5,charge:1},
+					{start: 0,need: 7,atk:165,bind:  2,charge:1},
+					{start: 0,need: 7,atk:170,bind:  2,charge:1},
+					{start: 0,need: 7,atk:175,bind:  2,charge:1},
+					{start: 0,need: 7,atk:180,bind:2.5,charge:2},
+					{start: 0,need: 7,atk:190,bind:2.5,charge:2},
+					{start: 0,need: 7,atk:200,bind:2.5,charge:3},
+					{start: 0,need: 6,atk:210,bind:  3,charge:3}
+				]
+			},
+			"「あついないふ」":{
+				exp:"通常攻撃の間隔を<span class='merit'>かなり短縮</span>し、防御力が一番高い敵を優先して攻撃する",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:10,need:50,pers:30,interval:1.12},
+					{start:11,need:49,pers:31,interval:1.12},
+					{start:12,need:48,pers:32,interval:1.12},
+					{start:13,need:47,pers:33,interval:0.96},
+					{start:14,need:46,pers:34,interval:0.96},
+					{start:15,need:45,pers:35,interval:0.96},
+					{start:16,need:44,pers:36,interval:0.64},
+					{start:18,need:43,pers:37,interval:0.576},
+					{start:20,need:42,pers:38,interval:0.576},
+					{start:25,need:40,pers:40,interval:0.528}
+				]
+			},
+			"「おもたいやり」":{
+				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atkadd</span>、通常攻撃が物理攻撃になり、防御力が一番低い敵を優先して攻撃し、対象の一部の特殊能力を<span class='merit'>@time</span>秒間無効化する",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:35,need:80,pers:55,atkadd:100,time:2},
+					{start:37,need:80,pers:55,atkadd:110,time:2},
+					{start:39,need:80,pers:55,atkadd:120,time:2},
+					{start:41,need:80,pers:56,atkadd:130,time:2.5},
+					{start:43,need:80,pers:56,atkadd:140,time:2.5},
+					{start:45,need:80,pers:56,atkadd:150,time:2.5},
+					{start:47,need:80,pers:57,atkadd:160,time:3},
+					{start:49,need:80,pers:58,atkadd:175,time:3.5},
+					{start:52,need:80,pers:59,atkadd:190,time:4},
+					{start:55,need:80,pers:60,atkadd:210,time:5}
+				]
+			}
+		}
+	},
 	"シャイニング":{
 		en:"Shining",
 		rare:6,job:"医療",relocation:70,speed:2.85,trust:{atk:80,def:20},tag:["遠距離","治療","支援"],
@@ -2350,7 +2544,8 @@ const operator = {
 					{start:20,need:35,pers:20,cost:12,atkadd:60,defadd:60}
 				]
 			}
-		}
+		},
+		outfit:["marthe"]
 	},
 	"グラニ":{
 		en:"Grani",
@@ -3271,6 +3466,85 @@ const operator = {
 			"ハイボルテージ":{
 				exp:"通常攻撃の間隔が<span class='merit'>延長</span>。攻撃範囲<span class=''>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<spann class='merit'>術攻撃</span>になり、攻撃対象を<span class='merit'>0.8</span>秒足止めする<br/><span class='charge'>効果時間終了後7秒スタンする</span>",
 				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		}
+	},
+	"バイビーク":{
+		en:"Bibeak",
+		rare:5,job:"前衛",relocation:70,speed:1.3,trust:{atk:80},tag:["近距離","爆発力","火力"],
+		characteristic:"通常攻撃時、１回の攻撃で<span class='merit'>２回</span>ダメージを与える",
+		stat:[
+			{
+				min:{hp:1089,atk:245,def:146},
+				max:{hp:1492,atk:356,def:209},
+				res:0,cost:18,block:2,range:[[1,0]],
+				nature:{}
+			},
+			{
+				hp:1938,atk:463,def:272,res:0,cost:20,block:2,range:[[1,0]],
+				material:{},
+				nature:{
+					"吸魂":{
+						exp:"敵を倒す度攻撃速度+4（最大@base@pexp回まで）",
+						base:5,
+						pexp:"(+@padd)",
+						padd:1
+					}
+				}
+			},
+			{
+				hp:2550,atk:602,def:332,res:0,cost:22,block:2,range:[[1,0]],
+				material:{},
+				nature:{
+					"吸魂":{
+						exp:"敵を倒す度攻撃速度+6（最大@base@pexp回まで）",
+						base:5,
+						pexp:"(+@padd)",
+						padd:1
+					}
+
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:22},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"剣羽飛針":{
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'></span>まで上昇。前方にいるもう一人の敵に攻撃力の<span class='merit'></span>の術ダメージを与える",
+				recover:"attack",activate:"auto",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"異刃斬":{
+				exp:"前方一定範囲内の敵最大<span class='merit'></span>体に攻撃力の<span class='merit'></span>の<span class='demerit'>術</span>ダメージを与え、<span class='merit'></span>秒間スタンさせる<br/><span class='charge'>@charge回チャージ可能</span>",
+				recover:"attack",activate:"manual",
 				effect:[
 					{},
 					{},
@@ -4460,6 +4734,84 @@ const operator = {
 			}
 		}
 	},
+	"シェーシャ":{
+		en:"Sesa",
+		rare:5,job:"狙撃",relocation:70,speed:2.8,trust:{atk:85},tag:["遠距離","火力"],
+		characteristic:"敵に<span class='merit'>範囲物理ダメージ</span>を与える",
+		stat:[
+			{
+				min:{hp:847,atk:363,def:63},
+				max:{hp:1059,atk:519,def:82},
+				res:0,cost:24,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				nature:{}
+			},
+			{
+				hp:1324,atk:649,def:104,
+				res:0,cost:26,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[4,0],[0,1],[1,1],[2,1],[3,1]],
+				nature:{
+					"弱点分析":{
+						exp:"配置中、ブロックされている敵が受ける物理ダメージ+@base%@pexp",
+						base:7,
+						pexp:"(+@padd%)",
+						padd:2
+					}
+				}
+			},
+			{
+				hp:1655,atk:833,def:123,
+				res:0,cost:28,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[4,-1],[1,0],[2,0],[3,0],[4,0],[0,1],[1,1],[2,1],[3,1],[4,1]],
+				nature:{
+					"弱点分析":{
+						exp:"配置中、ブロックされている敵が受ける物理ダメージ+@base%@pexp",
+						base:14,
+						pexp:"(+@padd%)",
+						padd:2
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:33},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"攻撃力強化γ":{
+				exp:"攻撃力<span class='merit'></span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"ディレイドボンバー":{
+				exp:"遅延で起爆する榴弾を発射し、爆発時攻撃力の<span class='merit'></span>の物理ダメージを与え、攻撃対象の攻撃速度を<span class='merit'></span>秒間<span class='merit'></span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		}
+	},
 	"アーミヤ":{
 		en:"Amiya",
 		rare:5,job:"術師",relocation:70,speed:1.6,trust:{hp:200,atk:70},tag:["遠距離","火力"],
@@ -4742,6 +5094,84 @@ const operator = {
 		},
 		outfit:["summer"]
 	},
+	"レイズ":{
+		en:"Leizi",
+		rare:5,job:"術師",relocation:70,speed:2.3,trust:{atk:75},tag:["遠距離","火力"],
+		characteristic:"<span class='merit'>4</span>体目まで跳躍していく<span class='merit'>術ダメージ</span>を敵に与え、跳躍する度ダメージが25%減衰し、敵を一瞬<span class='merit'>足止め</span>",
+		stat:[
+			{
+				min:{hp: 590,atk:266,def: 47},
+				max:{hp: 843,atk:370,def: 72},
+				res:10,cost:29,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[0,1],[1,1],[2,1]],
+				nature:{}
+			},
+			{
+				hp:1096,atk:475,def:99,res:15,cost:32,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				material:{},
+				nature:{
+					"雷行自在":{
+						exp:"うロックされていない敵を攻撃時攻撃力+@base%@pexp",
+						base:10,
+						pexp:"(+@padd%)",
+						padd:3
+					}
+				}
+			},
+			{
+				hp:1443,atk:573,def:11,res:20,cost:20,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				material:{},
+				nature:{
+					"雷行自在":{
+						exp:"うロックされていない敵を攻撃時攻撃力+@base%@pexp",
+						base:20,
+						pexp:"(+@padd%)",
+						padd:3
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:28},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"攻撃力強化γ":{
+				exp:"攻撃力<span class='merit'></span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"初雷":{
+				exp:"攻撃力<span class='merit'></span>、跳躍時のダメージ減衰が<span class='merit'>発生しなくなる</span>",
+				recover:"auto",activate:"auto",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		}
+	},
 	"サイレンス":{
 		en:"Silence",
 		rare:5,job:"医療",relocation:70,speed:2.85,trust:{atk:75},tag:["遠距離","治療"],
@@ -4974,7 +5404,8 @@ const operator = {
 					{start:85,need:100,pers:40,down:"超短縮",intervaladd:-2.1}
 				]
 			}
-		}
+		},
+		outfit:["epoque"]
 	},
 	"セイロン":{
 		en:"Ceylon",
@@ -5167,7 +5598,46 @@ const operator = {
 			}
 		},
 		potential:[
-		]
+			{cost:-1},
+			{relocation:-4},
+			{atk:23},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"一心不乱":{
+				exp:"通常攻撃の間隔を<span class='merit'>かなり短縮</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"嵐より生まれしもの":{
+				exp:"攻撃力<span class='merit'></span>、攻撃範囲<span class='merit'>拡大</span>、敵<span class='merit'>3</span>体を同時に攻撃",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		}
 	},
 	"メイヤー":{
 		en:"Mayer",
@@ -6953,6 +7423,83 @@ const operator = {
 			}
 		}
 	},
+	"ウタゲ":{
+		en:"Utage",
+		rare:4,job:"前衛",relocation:70,speed:1.2,trust:{hp:350},tag:["近距離","火力","生存"],
+		recruitment:true,
+		characteristic:"味方の治療対象にならない<br/>敵を攻撃する度HPを<span class='merit'></span><br/>（昇進２で効果強化）",
+		stat:[
+			{
+				min:{hp:1140,atk:278,def:133},
+				max:{hp:1462,atk:387,def:190},
+				res:0,cost:18,block:2,range:[[1,0]],
+				nature:{}
+			},
+			{
+				hp:1875,atk:524,def:258,res:0,cost:20,block:2,range:[[1,0]],
+				nature:{
+					"自然治癒能力":{
+						exp:"周囲8マス内で敵が倒れた時、自身のHPが最大値の@base%@pexp回復",
+						base:7,
+						pexp:"(+@padd%)",
+						padd:2
+					}
+				}
+			},
+			{
+				hp:2500,atk:690,def:315,res:0,cost:22,block:3,range:[[1,0]],
+				nature:{
+					"自然治癒能力":{
+						exp:"周囲8マス内で敵が倒れた時、自身のHPが最大値の@base%@pexp回復",
+						base:12,
+						pexp:"(+@padd%)",
+						padd:2
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:23},
+			{relocation:-6},
+			{cost:-1}
+		],
+		skill:{
+			"サボり":{
+				exp:"攻撃しなくなる。ブロック数が<span class='merit'>0</span>になり、防御力<span class='merit'></span>、1秒ごとにHPが最大の<span class='merit'></span>回復",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start: 0,need:40,pers:25,atkadd:20},
+					{start: 0,need:40,pers:25,atkadd:25},
+					{start: 0,need:40,pers:25,atkadd:30},
+					{start: 0,need:37,pers:25,atkadd:35},
+					{start: 0,need:37,pers:25,atkadd:40},
+					{start: 0,need:37,pers:25,atkadd:45},
+					{start: 5,need:37,pers:25,atkadd:50},
+					{start: 5,need:37,pers:25,atkadd:60},
+					{start: 5,need:37,pers:25,atkadd:70},
+					{start:10,need:35,pers:25,atkadd:80}
+				]
+			},
+			"落地斬・突破":{
+				exp:"配置後HPが<span class='demerit'>50%</span>減少、<span class='merit'></span>秒間攻撃力<span class='merit'></span>、通常攻撃が<span class='merit'>術攻撃</span>になる",
+				passive:true,
+				effect:[
+					{start:10,need:25,pers:15,atkadd:85},
+					{start:10,need:25,pers:15,atkadd:90},
+					{start:10,need:25,pers:15,atkadd:95},
+					{start:10,need:24,pers:15,atkadd:100},
+					{start:10,need:24,pers:15,atkadd:105},
+					{start:10,need:24,pers:15,atkadd:110},
+					{start:10,need:23,pers:15,atkadd:115},
+					{start:10,need:22,pers:15,atkadd:125},
+					{start:10,need:21,pers:15,atkadd:135},
+					{start:10,need:20,pers:15,atkadd:150}
+				]
+			}
+		}
+	},
 	"クオーラ":{
 		en:"Cuora",
 		rare:4,job:"重装",
@@ -7941,7 +8488,8 @@ const operator = {
 					{start:50,need: 85,pers:30,atkadd:100,stop:10}
 				]
 			}
-		}
+		},
+		outfit:["epoque"]
 	},
 	"グレイ":{
 		en:"Greyy",
@@ -8127,7 +8675,8 @@ const operator = {
 					{start:50,need:60,rjn:30,pow:80,time:10}
 				]
 			}
-		}
+		},
+		outfit:["epoque"]
 	},
 	"ミルラ":{
 		en:"Myrrh",
