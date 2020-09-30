@@ -1389,6 +1389,97 @@ const operator = {
 		},
 		outfit:["snow"]
 	},
+	"ロサ":{
+		en:"Роса",
+		rare:6,job:"狙撃",relocation:70,speed:2.4,trust:{atk:110},tag:["遠距離","火力","牽制"],
+		characteristic:"重量が最も重い敵を優先して攻撃",
+		stat:[
+			{
+				min:{hp: 800,atk:492,def: 60},
+				max:{hp:1067,atk:684,def: 80},
+				res: 0,cost:22,block:1,range:[[2,-1],[3,-1],[4,-1],[2,0],[3,0],[4,0],[2,1],[3,1],[4,1]],
+				nature:{}
+			},
+			{
+				hp:1351,atk:856,def:100,res:0,cost:24,block:1,range:[[2,-2],[3,-2],[2,-1],[3,-1],[4,-1],[2,0],[3,0],[4,0],[2,1],[3,1],[4,1],[2,2],[3,2]],
+				material:{},
+				nature:{
+					"大物猟":{
+						exp:"重量ランクが3以上の敵を攻撃時、敵の防御力を40%無視"
+					}
+				}
+			},
+			{
+				hp:1755,atk:1032,def:122,res:0,cost:24,block:1,range:[[2,-2],[3,-2],[2,-1],[3,-1],[4,-1],[2,0],[3,0],[4,0],[2,1],[3,1],[4,1],[2,2],[3,2]],
+				material:{},
+				nature:{
+					"大物猟":{
+						exp:"重量ランクが3以上の敵を攻撃時、敵の防御力を40%無視"
+					},
+					"学生の鑑":{
+						exp:"編成中、味方【ウルサス学生団】の攻撃力+8%"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:24},
+			{nature:2},
+			{cost:-1}
+		],
+		skill:{
+			"攻撃力強化γ":{
+				recover:"auto",activate:"manual",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
+				effect:[
+					{start:0,need:40,pers:30,atkadd:30},
+					{start:0,need:40,pers:30,atkadd:35},
+					{start:0,need:40,pers:30,atkadd:40},
+					{start:5,need:37,pers:30,atkadd:45},
+					{start:5,need:37,pers:30,atkadd:50},
+					{start:5,need:37,pers:30,atkadd:55},
+					{start:10,need:35,pers:30,atkadd:60},
+					{start:10,need:34,pers:30,atkadd:75},
+					{start:10,need:33,pers:30,atkadd:90},
+					{start:15,need:30,pers:30,atkadd:100}
+				]
+			},
+			"スプリットショット":{
+				recover:"auto",activate:"manual",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、敵<span class='merit'>@target</span>体を同時に攻撃",
+				effect:[
+					{start:39, need:80,pers:60,atkadd:30,target:2},
+					{start:40, need:80,pers:60,atkadd:35,target:2},
+					{start:41, need:80,pers:60,atkadd:40,target:2},
+					{start:42, need:80,pers:60,atkadd:45,target:2},
+					{start:43, need:80,pers:60,atkadd:50,target:2},
+					{start:44, need:80,pers:60,atkadd:55,target:2},
+					{start:45, need:80,pers:60,atkadd:60,target:2},
+					{start:45, need:75,pers:60,atkadd:70,target:2},
+					{start:45, need:70,pers:60,atkadd:80,target:2},
+					{start:45, need:65,pers:60,atkadd:90,target:2}
+				]
+			},
+			"ラヴィーナシュート":{
+				recover:"auto",activate:"manual",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、重量ランクが最も高い敵最大<span class='merit'>@target</span>体にバインドランスを発射する。効果時間内、バインドランスが命中した対象すべてに<span class='merit'>バインド</span>効果を付与し、1秒ごとに攻撃力の100%の物理ダメージを与える",
+				effect:[
+					{start:10,need:40,pers:6,atkadd:10,target:3},
+					{start:10,need:39,pers:6,atkadd:10,target:3},
+					{start:10,need:38,pers:6,atkadd:10,target:3},
+					{start:11,need:37,pers:6,atkadd:10,target:3},
+					{start:11,need:36,pers:6,atkadd:10,target:3},
+					{start:11,need:35,pers:6,atkadd:10,target:3},
+					{start:12,need:34,pers:7,atkadd:10,target:3},
+					{start:13,need:33,pers:7,atkadd:15,target:3},
+					{start:14,need:32,pers:7,atkadd:20,target:4},
+					{start:15,need:30,pers:8,atkadd:25,target:4}
+				]
+			}
+		}
+	},
 	"エイヤフィヤトラ":{
 		en:"Eyjafjalla",
 		rare:6,job:"術師",relocation:70,speed:1.6,trust:{atk:90},tag:["遠距離","火力","弱化"],
@@ -4827,7 +4918,7 @@ const operator = {
 				hp:1198,atk:514,def:110,res:15,cost:20,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
 				material:{"初級装置":4,"初級異鉄":4},
 				nature:{
-					"？？？":"？？？？？"
+					"？？？":{exp:"？？？？？"}
 				}
 			},
 			{
@@ -5110,7 +5201,7 @@ const operator = {
 				material:{},
 				nature:{
 					"雷行自在":{
-						exp:"うロックされていない敵を攻撃時攻撃力+@base%@pexp",
+						exp:"ブロックされていない敵を攻撃時攻撃力+@base%@pexp",
 						base:10,
 						pexp:"(+@padd%)",
 						padd:3
@@ -5122,7 +5213,7 @@ const operator = {
 				material:{},
 				nature:{
 					"雷行自在":{
-						exp:"うロックされていない敵を攻撃時攻撃力+@base%@pexp",
+						exp:"ブロックされていない敵を攻撃時攻撃力+@base%@pexp",
 						base:20,
 						pexp:"(+@padd%)",
 						padd:3
@@ -5156,7 +5247,7 @@ const operator = {
 			},
 			"初雷":{
 				exp:"攻撃力<span class='merit'></span>、跳躍時のダメージ減衰が<span class='merit'>発生しなくなる</span>",
-				recover:"auto",activate:"auto",
+				recover:"auto",activate:"manual",
 				effect:[
 					{},
 					{},
@@ -5171,6 +5262,169 @@ const operator = {
 				]
 			}
 		}
+	},
+	"レオンハルト":{
+		en:"Leonhardt",
+		rare:5,job:"術師",relocation:70,speed:2.9,trust:{atk:90},tag:["遠距離","範囲攻撃","爆発力"],
+		characteristic:"敵に<span class='merit'>範囲術ダメージ</span>を与える",
+		stat:[
+			{
+				min:{hp: 696,atk:328,def: 47},
+				max:{hp: 967,atk:462,def: 72},
+				res:10,cost:30,block:1,range:[[0,-1],[1,-1],[1,0],[2,0],[0,1],[1,1]],
+				nature:{}
+			},
+			{
+				hp:1209,atk:593,def:100,res:15,cost:33,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[0,1],[1,1],[2,1]],
+				material:{},
+				nature:{
+					"破片爆散":{
+						exp:"攻撃範囲内の敵の数と同じ回数、自身の攻撃力3%（最大@base回まで@pexp）",
+						base:5,
+						pexp:"(+@padd)",
+						padd:1
+					}
+				}
+			},
+			{
+				hp:1550,atk:707,def:120,res:20,cost:33,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[0,1],[1,1],[2,1]],
+				material:{},
+				nature:{
+					"破片爆散":{
+						exp:"攻撃範囲内の敵の数と同じ回数、自身の攻撃力3%（最大@base回まで@pexp）",
+						base:5,
+						pexp:"(+@padd)",
+						padd:1
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:32},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"攻撃力強化γ":{
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start: 0,need:40,pers:30,atkadd:30},
+					{start: 0,need:40,pers:30,atkadd:35},
+					{start: 0,need:40,pers:30,atkadd:40},
+					{start: 5,need:37,pers:30,atkadd:45},
+					{start: 5,need:37,pers:30,atkadd:50},
+					{start: 5,need:37,pers:30,atkadd:55},
+					{start:10,need:35,pers:30,atkadd:60},
+					{start:10,need:34,pers:30,atkadd:75},
+					{start:10,need:33,pers:90,atkadd:90},
+					{start:15,need:30,pers:30,atkadd:100}
+				]
+			},
+			"弱点解析＆爆破":{
+				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃範囲内のすべての敵に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、<span class='merit'>@time</span>秒間術耐性<span class='merit'>@resdown%</span><br/><span class='charge'>@charge回チャージ可能</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:0,need:15,atk:150,time:6,resdown:-5,charge:1},
+					{start:0,need:15,atk:155,time:6,resdown:-5,charge:1},
+					{start:0,need:15,atk:160,time:6,resdown:-5,charge:1},
+					{start:0,need:14,atk:170,time:6,resdown:-5,charge:2},
+					{start:0,need:14,atk:180,time:6,resdown:-8,charge:2},
+					{start:0,need:14,atk:190,time:6,resdown:-8,charge:2},
+					{start:0,need:13,atk:200,time:6,resdown:-12,charge:2},
+					{start:0,need:12,atk:210,time:6,resdown:-13,charge:3},
+					{start:0,need:11,atk:220,time:6,resdown:-14,charge:3},
+					{start:0,need:10,atk:230,time:6,resdown:-15,charge:3}
+				]
+			}
+		}
+	},
+	"アブサント":{
+		en:"Absinthe",
+		rare:5,job:"術師",relocation:70,speed:1.6,trust:{hp:200,atk:70},tag:["遠距離","火力"],
+		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える",
+		stat:[
+			{
+				min:{hp: 699,atk:276,def: 48},
+				max:{hp: 958,atk:390,def: 81},
+				res:10,cost:18,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[0,1],[1,1],[2,1]],
+				nature:{}
+			},
+			{
+				hp:1198,atk:514,def:110,res:15,cost:20,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				material:{},
+				nature:{}
+			},
+			{
+				hp:1480,atk:612,def:121,res:20,cost:20,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				material:{},
+				nature:{
+					"法の執行者":{
+						exp:"HPが40%未満の敵を攻撃時、与えるダメージ+12%"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-10},
+			{cost:-1},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"執行態勢":{
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、残りのHPの比率が一番少ない敵を優先して攻撃する<br/><span class='charge'>退場まで効果継続</span>",
+				recover:"auto",activate:"auto",infinity:true,
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"告死の弾雨":{
+				exp:"通常攻撃が攻撃力の<span class='merit'>@atk%</span>での<span class='merit'>@cnt</span>回連続攻撃になり、HPが<span class='merit'>@hp%</span>以上の敵を攻撃しなくなる",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"キメラ":{
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、最大HP<span class='merit'>+@hpadd%</span>、攻撃範囲が<span class='merit'>拡大</span>し、<span class='merit'>防御力と術耐性を無視して</span>攻撃する<br/><span class='charge'>効果時間終了後強制退場</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{need:120,pers:30,atkadd:100,hpadd:25},
+					{need:120,pers:30,atkadd:110,hpadd:25},
+					{need:120,pers:30,atkadd:120,hpadd:50},
+					{need:120,pers:30,atkadd:130,hpadd:50},
+					{need:120,pers:30,atkadd:140,hpadd:50},
+					{need:120,pers:30,atkadd:150,hpadd:50},
+					{need:120,pers:30,atkadd:160,hpadd:75},
+					{need:120,pers:30,atkadd:180,hpadd:75},
+					{need:120,pers:30,atkadd:200,hpadd:75},
+					{need:120,pers:30,atkadd:230,hpadd:100}
+				]
+			}
+		},
+		outfit:["winter"]
 	},
 	"サイレンス":{
 		en:"Silence",
@@ -9056,6 +9310,72 @@ const operator = {
 					{start:54,need:80,pers:47,dodge:40},
 					{start:56,need:80,pers:51,dodge:45},
 					{start:60,need:80,pers:55,dodge:50}
+				]
+			}
+		}
+	},
+	"ポデンコ":{
+		en:"Podenco",
+		rare:4,job:"補助",relocation:70,speed:1.9,trust:{atk:50},tag:["遠距離","減速","治療"],
+		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える<br/>攻撃時、敵を一瞬<span class='merit'>足止め</span>",
+		stat:[
+			{
+				min:{hp: 548,atk:202,def: 46},
+				max:{hp: 751,atk:298,def: 66},
+				res:10,cost:12,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
+				nature:{}
+			},
+			{
+				hp: 964,atk:398,def: 85,res:15,cost:14,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
+				nature:{}
+			},
+			{
+				hp:1205,atk:480,def:101,res:20,cost:14,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
+				nature:{
+					"地質調査":{
+						exp:"特性による足止め効果の時間をわずかに延長"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:21},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"アロマセラピー":{
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃しなくなり回復行動のみ行う",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"胞子飛散":{
+				exp:"胞子瓶を投げ、目標に命中後、一定範囲内で<span class='demerit'></span>秒継続する胞子を散布<br/>胞子範囲内の敵全員を足止めし、一部の特殊能力を無効化、更に1秒ごとに攻撃力の<span class='merit'>@slip%</span>の術ダメージを与える",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
 				]
 			}
 		}
