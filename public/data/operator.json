@@ -2445,6 +2445,98 @@ const operator = {
 			}
 		}
 	},
+	"スズラン":{
+		en:"Suzuran",
+		rare:6,job:"補助",relocation:70,speed:1.9,trust:{atk:75},tag:["遠距離","減速","支援","火力"],
+		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える<br/>攻撃時、敵を一瞬<span class='merit'>足止め</span>",
+		stat:[
+			{
+				min:{hp:673,atk:220,def: 57},
+				max:{hp:922,atk:324,def: 83},
+				res:15,cost:14,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
+				nature:{}
+			},
+			{
+				hp:1184,atk:432,def:107,
+				res:20,cost:16,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
+				material:{},
+				nature:{
+					"スキルブースト・補助":{exp:"配置中、味方【補助】のSPの自然回復速度+0.2sp/秒（同種の効果は高いほうのみ適用）"}
+				}
+			},
+			{
+				hp:1480,atk:521,def:128,
+				res:25,cost:16,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
+				material:{},
+				nature:{
+					"スキルブースト・補助":{exp:"配置中、味方【補助】のSPの自然回復速度+0.4sp/秒（同種の効果は高いほうのみ適用）"},
+					"狐の祟り":{
+						exp:"攻撃範囲内の敵が足止めされた時、次の瞬間から足止めと同じ効果の【脆弱（被ダメージ@base@%pexp上昇）】も付与される（同種の効果は高いほうのみ適用）",
+						base:20,
+						pexp:"(+@padd%)",
+						padd:3
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:25},
+			{nature:2},
+			{cost:-1}
+		],
+		skill:{
+			"全身全霊":{
+				exp:"攻撃力<span class='merit'>+@atk%</span>、攻撃速度<span class='merit'>+@speed</span>",
+				recover:"auto",activate:"auto",
+				effect:[
+					{start:10,need:30,pers:15,slow:0.7,bind:1.6},
+					{start:11,need:30,pers:15,slow:0.7,bind:1.7},
+					{start:12,need:30,pers:15,slow:0.7,bind:1.8},
+					{start:13,need:30,pers:15,slow:0.8,bind:1.9},
+					{start:14,need:30,pers:15,slow:0.8,bind:2.0},
+					{start:15,need:30,pers:15,slow:0.8,bind:2.1},
+					{start:16,need:30,pers:15,slow:0.9,bind:2.2},
+					{start:17,need:30,pers:15,slow:0.9,bind:2.3},
+					{start:18,need:30,pers:15,slow:0.9,bind:2.4},
+					{start:20,need:30,pers:15,slow:1.0,bind:2.5}
+				]
+			},
+			"過ぎし日の舞":{
+				exp:"攻撃力<span class='merit'>+@atk%</span>、敵<span class='merit'>2</span>体を同時に攻撃<br/><span class='charge'>退場まで効果継続</span>",
+				recover:"auto",activate:"auto",
+				effect:[
+					{start:25,need:50,pers:15,speed:60},
+					{start:25,need:49,pers:15,speed:65},
+					{start:25,need:48,pers:15,speed:70},
+					{start:25,need:47,pers:15,speed:80},
+					{start:25,need:46,pers:15,speed:85},
+					{start:25,need:45,pers:15,speed:90},
+					{start:25,need:44,pers:15,speed:100},
+					{start:25,need:42,pers:15,speed:115},
+					{start:25,need:40,pers:15,speed:130},
+					{start:25,need:38,pers:15,speed:150}
+				]
+			},
+			"渺然たる狐火":{
+				exp:"<span class='demerit'>攻撃しなくなり</span>、攻撃範囲<span class='merit'>拡大</span>、第二素質の効果が<span class='merit'>1.7</span>倍まで上昇、攻撃範囲内の敵全員が<span class='merit'>足止め</span>され、範囲内の味方全員のHPを１秒ごとに自身の攻撃力の<span class='merit'>11%</span>回復",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:25,need:50,pers:15,atkadd:60},
+					{start:25,need:49,pers:15,atkadd:65},
+					{start:25,need:48,pers:15,atkadd:70},
+					{start:25,need:47,pers:15,atkadd:80},
+					{start:25,need:46,pers:15,atkadd:85},
+					{start:25,need:45,pers:15,atkadd:90},
+					{start:25,need:44,pers:15,atkadd:100},
+					{start:25,need:42,pers:15,atkadd:115},
+					{start:25,need:40,pers:15,atkadd:130},
+					{start:25,need:38,pers:15,atkadd:150}
+				]
+			}
+		}
+	},
 	"ア":{
 		en:"Aak",
 		rare:6,job:"特殊",relocation:70,speed:1.3,trust:{hp:300,atk:50},tag:["遠距離","支援","火力"],
@@ -3727,6 +3819,156 @@ const operator = {
 			}
 		}
 	},
+	"ウタゲ":{
+		en:"Utage",
+		rare:6,job:"前衛",relocation:70,speed:1.2,trust:{atk:30,def:40},tag:["近距離","火力","生存"],
+		characteristic:"味方の治療対象にならない<br/>敵を攻撃する度自身のHPを<span class='merit'>@heal</span>回復",
+		stat:[
+			{
+				min:{hp:1413,atk:309,def:150},
+				max:{hp:1963,atk:442,def:206},
+				res:0,cost:20,block:1,range:[[1,0]],
+				nature:{
+					"マジモード":{exp:"HPの減少量に応じて攻撃速度が上昇(上昇最大値：HPが50％減少時、攻撃速度＋50)"}
+				}
+			},
+			{
+				hp:2583,atk:575,def:265,
+				res:0,cost:22,block:1,range:[[1,0]],
+				material:{},
+				nature:{
+					"マジモード":{exp:"HPの減少量に応じて攻撃速度が上昇(上昇最大値：HPが60％減少時、攻撃速度＋75)"}
+				}
+			},
+			{
+				hp:3444,atk:693,def:312,
+				res:0,cost:26,block:1,range:[[1,0]],
+				material:{},
+				nature:{
+					"マジモード":{exp:"HPの減少量に応じて攻撃速度が上昇(上昇最大値：HPが70％減少時、攻撃速度＋100)"}
+				}
+			},
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:23},
+			{relocation:-6},
+			{cost:-1}
+		],
+		skill:{
+			"サボり":{
+				exp:"攻撃しなくなる。ブロック数が<span class='merit'>0</span>になり、防御力<span class='merit'>+130%</span>、1秒ごとにHPが最大値の<span class='merit'>7%</span>回復",
+				recover:"auto",activate:"manual",
+				effect:[
+					{need:4,atk:110,cnt:2},
+					{need:4,atk:115,cnt:2},
+					{need:4,atk:120,cnt:2},
+					{need:3,atk:125,cnt:2},
+					{need:3,atk:130,cnt:2},
+					{need:3,atk:135,cnt:2},
+					{need:3,atk:145,cnt:2},
+					{need:3,atk:155,cnt:2},
+					{need:3,atk:165,cnt:2},
+					{need:2,atk:175,cnt:2}
+				]
+			},
+			"落地斬・突破":{
+				exp:"配置後HPが<span class='demerit'>50%</span>減少。<span class='merit'>14</span>秒間攻撃力<span class='merit'>+65%</span>、通常攻撃が<span class='merit'>術攻撃</span>になる",
+				passive:true,
+				effect:[
+					{start: 0,need:35,pers:10,atkadd:20,cnt:2,dodge:75},
+					{start: 0,need:34,pers:10,atkadd:25,cnt:2,dodge:75},
+					{start: 0,need:33,pers:10,atkadd:30,cnt:2,dodge:75},
+					{start: 5,need:32,pers:11,atkadd:35,cnt:2,dodge:75},
+					{start: 5,need:31,pers:11,atkadd:40,cnt:2,dodge:75},
+					{start: 5,need:30,pers:11,atkadd:45,cnt:2,dodge:75},
+					{start:10,need:29,pers:12,atkadd:50,cnt:2,dodge:75},
+					{start:11,need:28,pers:12,atkadd:60,cnt:2,dodge:75},
+					{start:12,need:27,pers:12,atkadd:70,cnt:2,dodge:75},
+					{start:15,need:25,pers:13,atkadd:80,cnt:2,dodge:75}
+				]
+			}
+		}
+	},
+	"エアースカーペ":{
+		en:"Ayerscarpe",
+		rare:5,job:"前衛",relocate:70,speed:1.3,trust:{atk:75},tag:["近距離","火力","範囲攻撃"],
+		characteristic:"８０％の攻撃力で<span class='merit'>遠距離攻撃</span>も行える",
+		stat:[
+			{
+				min:{hp:1016,atk:279,def:178},
+				max:{hp:1452,atk:417,def:245},
+				res:5,cost:17,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[0,1],[1,1]],
+				nature:{}
+			},
+			{
+				hp:1911,atk:542,def:311,res:10,cost:19,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[3,0],[0,1],[1,1]],
+				material:{},
+				nature:{
+					"索敵支援":{
+						exp:"自身と周囲８マスの味方の攻撃速度+@base@pexp",
+						base:4,
+						pexp:"(+@padd)",
+						padd:2
+					}
+				}
+			},
+			{
+				hp:2420,atk:670,def:375,res:10,cost:19,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[3,0],[0,1],[1,1]],
+				material:{},
+				nature:{
+					"索敵支援":{
+						exp:"自身と周囲８マスの味方の攻撃速度+@base@pexp",
+						base:8,
+						pexp:"(+@padd)",
+						padd:2
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:26},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"多目標型散弾":{
+				exp:"次の通常攻撃時、攻撃範囲内の敵最大<span class='merit'>2</span>体に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、<span class='merit'>1.0</span>秒間足止め",
+				recover:"attack",activate:"auto",infinity:true,
+				effect:[
+					{need:40,atkadd:30,guard:20},
+					{need:40,atkadd:33,guard:20},
+					{need:40,atkadd:37,guard:20},
+					{need:37,atkadd:43,guard:25},
+					{need:37,atkadd:47,guard:25},
+					{need:37,atkadd:50,guard:25},
+					{need:33,atkadd:55,guard:30},
+					{need:32,atkadd:60,guard:33},
+					{need:31,atkadd:65,guard:36},
+					{need:30,atkadd:70,guard:40}
+				]
+			},
+			"ブレイドビット起動":{
+				exp:"攻撃範囲<span class='merit'>拡大</span>、通常攻撃が<span class='merit'>術攻撃</span>になり、攻撃時周囲８マスにいる味方がブロック中の敵にも攻撃力の<span class='merit'>110%</span>の術ダメージを与える(近距離攻撃と見なす)",
+				recover:"attack",activate:"manual",
+				effect:[
+					{need:30,pers:15,atkadd:60},
+					{need:29,pers:15,atkadd:65},
+					{need:28,pers:15,atkadd:70},
+					{need:27,pers:15,atkadd:75},
+					{need:26,pers:15,atkadd:80},
+					{need:25,pers:15,atkadd:85},
+					{need:24,pers:17,atkadd:90},
+					{need:22,pers:17,atkadd:100},
+					{need:20,pers:17,atkadd:110},
+					{need:17,pers:20,atkadd:120}
+				]
+			}
+		}
+	},
 	"リスカム":{
 		en:"Liskarm",
 		rare:5,job:"重装",relocation:70,speed:1.2,trust:{atk:45,def:45},tag:["近距離","防御","火力"],
@@ -4242,6 +4484,80 @@ const operator = {
 					{start:14,need:22,pers:26,atkadd:65,defadd:65},
 					{start:16,need:21,pers:28,atkadd:70,defadd:70},
 					{start:18,need:20,pers:30,atkadd:80,defadd:80}
+				]
+			}
+		}
+	},
+	"アスベストス":{
+		en:"Asbestos",
+		rare:5,job:"重装",relocation:70,speed:1.6,trust:{atk:40,def:40},tag:["近距離","防御","火力"],
+		characteristic:"スキル発動中、敵に術ダメージを与える",
+		stat:[
+			{
+				min:{hp:1252,atk:265,def:223},
+				max:{hp:1692,atk:379,def:328},
+				res:5,cost:21,block:3,range:[],
+				nature:{}
+			},
+			{
+				hp:2257,atk:506,def:444,
+				res:10,cost:23,block:3,range:[],
+				material:{},
+				nature:{
+					"体表粘液":{
+						exp:"術耐性+5、敵の通常攻撃からの術ダメージを受けた時、SPが1回復"
+					}
+				}
+			},
+			{
+				hp:3135,atk:633,def:5551,
+				res:15,cost:25,block:3,range:[],
+				material:{},
+				nature:{
+					"体表粘液":{
+						exp:"術耐性+10、敵の通常攻撃からの術ダメージを受けた時、SPが3回復"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{hp:210},
+			{relocation:-6},
+			{cost:-1}
+		],
+		skill:{
+			"堅守モードγ":{
+				recover:"auto",activate:"manual",
+				exp:"次に受ける<span class='merit'>術</span>ダメージをガードし、効果時間内受ける<span class='merit'>術</span>ダメージ<span class='merit'>-10%</span>",
+				effect:[
+					{start: 0,need:45,pers:40,defadd:30},
+					{start: 0,need:45,pers:40,defadd:35},
+					{start: 0,need:45,pers:40,defadd:40},
+					{start: 5,need:40,pers:40,defadd:45},
+					{start: 5,need:40,pers:40,defadd:50},
+					{start: 5,need:40,pers:40,defadd:55},
+					{start:10,need:35,pers:40,defadd:60},
+					{start:10,need:34,pers:40,defadd:75},
+					{start:10,need:33,pers:40,defadd:90},
+					{start:15,need:30,pers:40,defadd:100}
+				]
+			},
+			"爆炎モード":{
+				recover:"auto",activate:"manual",
+				exp:"通常攻撃の間隔が<span class='demerit'>延長</span>し、攻撃力<span class='merit'>+35%</span>、防御力<span class='merit'>+25%</span>、攻撃範囲<span class='merit'>拡大</span>、攻撃が敵に範囲ダメージを与える",
+				effect:[
+					{start:10,need:60,pers:40,defadd:50,rangedefadd:15},
+					{start:10,need:59,pers:40,defadd:55,rangedefadd:15},
+					{start:10,need:58,pers:40,defadd:60,rangedefadd:15},
+					{start:13,need:57,pers:40,defadd:65,rangedefadd:20},
+					{start:13,need:56,pers:40,defadd:70,rangedefadd:20},
+					{start:13,need:55,pers:40,defadd:75,rangedefadd:20},
+					{start:16,need:54,pers:40,defadd:80,rangedefadd:25},
+					{start:17,need:53,pers:40,defadd:90,rangedefadd:25},
+					{start:18,need:52,pers:40,defadd:100,rangedefadd:25},
+					{start:20,need:50,pers:40,defadd:120,rangedefadd:30}
 				]
 			}
 		}
@@ -5898,6 +6214,81 @@ const operator = {
 			}
 		}
 	},
+	"フォリニック":{
+		en:"Folinic",
+		rare:5,job:"医療",relocation:70,speed:2.85,trust:{atk:75},tag:["遠距離","治療","火力"],
+		characteristic:"味方のＨＰを回復",
+		stat:[
+			{
+				min:{hp: 839,atk:163,def: 58},
+				max:{hp:1183,atk:268,def: 84},
+				res:0,cost:19,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				nature:{}
+			},
+			{
+				hp:1426,atk:383,def:106,res:0,cost:21,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				material:{},
+				nature:{
+					"薬物遮断技術":{
+						exp:"配置後、自身に【レジスト（スタン、寒冷、凍結の継続時間が50%減少）】を付与"
+					}
+				}
+			},
+			{
+				hp:1585,atk:479,def:133,res:0,cost:21,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				material:{},
+				nature:{
+					"薬物遮断技術":{
+						exp:"配置後、自身に【レジスト（スタン、寒冷、凍結の継続時間が50%減少）】を付与、自然環境からの被ダメージ-@base@pexp%",
+						base:40,
+						pexp:"(+@padd%)",
+						padd:10
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-10},
+			{cost:-1},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"最大限度量投薬":{
+				exp:"攻撃範囲<span class='merit'>+1</span>、攻撃力<span class='merit'>+40%</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{need:4,heal:12,charge:2},
+					{need:4,heal:13,charge:2},
+					{need:4,heal:13,charge:2},
+					{need:4,heal:15,charge:2},
+					{need:4,heal:16,charge:2},
+					{need:4,heal:17,charge:2},
+					{need:4,heal:19,charge:3},
+					{need:4,heal:21,charge:3},
+					{need:4,heal:23,charge:3},
+					{need:4,heal:25,charge:4}
+				]
+			},
+			"特製薬刃弾":{
+				exp:"通常攻撃が薬刃弾射撃（攻撃範囲内の敵を優先して攻撃）になり、薬刃弾命中時、一定範囲内の味方全員のHPを攻撃力の<span class='merit'>105%</span>回復、敵全員に攻撃力の<span class='merit'>140%</span>の術ダメージを与える",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:35,need:60,enhanceatkadd:30},
+					{start:35,need:60,enhanceatkadd:35},
+					{start:35,need:60,enhanceatkadd:40},
+					{start:40,need:60,enhanceatkadd:45},
+					{start:40,need:60,enhanceatkadd:50},
+					{start:40,need:60,enhanceatkadd:55},
+					{start:45,need:60,enhanceatkadd:60},
+					{start:45,need:60,enhanceatkadd:70},
+					{start:45,need:60,enhanceatkadd:80},
+					{start:50,need:60,enhanceatkadd:90}
+				]
+			}
+		}
+	},
 	"イースチナ":{
 		en:"Истна",
 		rare:5,job:"補助",relocation:70,speed:1.9,trust:{atk:65},tag:["遠距離","減速","火力"],
@@ -6321,6 +6712,84 @@ const operator = {
 					{start:17,need:33,atk:340,bind:5},
 					{start:18,need:32,atk:360,bind:5.5},
 					{start:20,need:30,atk:400,bind:6}
+				]
+			}
+		}
+	},
+	"ツキノギ":{
+		en:"Tsukinogi",
+		rare:5,job:"補助",relocation:70,speed:1.6,trust:{hp:300,atk:40},tag:["遠距離","支援","生存"],
+		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える",
+		stat:[
+			{
+				min:{hp: 635,atk:173,def: 81},
+				max:{hp: 934,atk:248,def:117},
+				res:15,cost:10,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
+				nature:{}
+			},
+			{
+				hp:1263,atk:319,def:154,res:20,cost:12,block:1,range:[[0,-2],[1,-2],[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1],[0,2],[1,2]],
+				material:{},
+				nature:{
+					"祝":{
+						exp:"攻撃範囲内のHPが40%以下の味方に【加護（受ける物理と術ダメージ-@base%@pexp）】を付与",
+						base:12,
+						pexp:"(+@padd%)",
+						padd:2
+					}
+				}
+			},
+			{
+				hp:1620,atk:385,def:175,res:25,cost:12,block:1,range:[[0,-2],[1,-2],[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1],[0,2],[1,2]],
+				material:{},
+				nature:{
+					"祝":{
+						exp:"攻撃範囲内のHPが40%以下の味方に【加護（受ける物理と術ダメージ-@base%@pexp）】を付与",
+						base:18,
+						pexp:"(+@padd%)",
+						padd:2
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{hp:160},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"跡無":{
+				exp:"攻撃範囲内の味方の物理回避と術回避+<span class='merit'>28%</span>、敵のステルス効果を無効にする",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:10,need:40,pers:10,speeddown:-30},
+					{start:10,need:40,pers:11,speeddown:-30},
+					{start:10,need:40,pers:12,speeddown:-30},
+					{start:15,need:40,pers:13,speeddown:-40},
+					{start:15,need:40,pers:14,speeddown:-40},
+					{start:15,need:40,pers:15,speeddown:-40},
+					{start:20,need:40,pers:16,speeddown:-50},
+					{start:20,need:40,pers:17,speeddown:-53},
+					{start:20,need:40,pers:18,speeddown:-56},
+					{start:25,need:40,pers:20,speeddown:-60}
+				]
+			},
+			"森廻":{
+				exp:"攻撃しなくなる。<br/>素質の発動条件がHPの<span class='merit'>50%</span>になり、加護の効果が<span class='merit'>1.8倍</span>まで上昇、攻撃範囲内の味方全員のHPを1秒ごとにツキノギの攻撃力の<span class='merit'>8%</span>上昇",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:10,need:40,pers:10,defdown:-35,resdown:-20},
+					{start:11,need:40,pers:11,defdown:-35,resdown:-20},
+					{start:12,need:40,pers:12,defdown:-35,resdown:-20},
+					{start:13,need:40,pers:14,defdown:-40,resdown:-23},
+					{start:14,need:40,pers:15,defdown:-40,resdown:-23},
+					{start:15,need:40,pers:16,defdown:-40,resdown:-23},
+					{start:16,need:40,pers:18,defdown:-45,resdown:-26},
+					{start:17,need:40,pers:20,defdown:-50,resdown:-26},
+					{start:18,need:40,pers:22,defdown:-55,resdown:-26},
+					{start:20,need:40,pers:25,defdown:-60,resdown:-30}
 				]
 			}
 		}
@@ -8897,6 +9366,76 @@ const operator = {
 					{need:60,pers:27,speed:70,nature:1.8},
 					{need:60,pers:28,speed:75,nature:1.9},
 					{need:60,pers:30,speed:80,nature:2}
+				]
+			}
+		}
+	},
+	"カシャ":{
+		en:"Click",
+		rare:4,job:"術師",relocation:70,speed:1.3,trust:{atk:60},tag:["遠距離","火力","牽制"],
+		characteristic:"<span class='merit'>ドローン</span>を操作して敵に<span class='merit'>術ダメージ</span>を与える<br/>ドローンが連続で同一目標を攻撃時、与ダメージが上昇（最大は攻撃力の110%まで）",
+		stat:[
+			{
+				min:{hp: 589,atk:145,def: 47},
+				max:{hp: 842,atk:205,def: 72},
+				res:10,cost:18,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[0,1],[1,1],[2,1]],
+				nature:{}
+			},
+			{
+				hp:1094,atk:264,def:100,res:15,cost:20,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				nature:{
+					"シンクロ":{
+						exp:"自身とドローンの攻撃速度+6"
+					}
+				}
+			},
+			{
+				hp:1440,atk:315,def:120,res:20,cost:20,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				nature:{
+					"シンクロ":{
+						exp:"自身とドローンの攻撃速度+12"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{speed:6},
+			{relocation:-6},
+			{cost:-1}
+		],
+		skill:{
+			"攻撃力強化β":{
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start: 0,need:40,pers:25,atkadd:20},
+					{start: 0,need:40,pers:25,atkadd:25},
+					{start: 0,need:40,pers:25,atkadd:30},
+					{start: 0,need:37,pers:25,atkadd:35},
+					{start: 0,need:37,pers:25,atkadd:40},
+					{start: 0,need:37,pers:25,atkadd:45},
+					{start: 5,need:37,pers:25,atkadd:50},
+					{start: 5,need:37,pers:25,atkadd:60},
+					{start: 5,need:37,pers:25,atkadd:70},
+					{start:10,need:35,pers:25,atkadd:80},
+				]
+			},
+			"同調索敵攻撃":{
+				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+40%</span>、自動索敵して攻撃するドローンを放出し、自身とドローン攻撃時<span class='merit'>20%</span>の確率で敵を<span class='merit'>0.4</span>秒間スタンさせる<br/><span class='charge'>索敵中のドローンは目標が倒された時あるいは効果時間終了時、索敵を中断する</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{need:35,pers:25,hpadd:-75,atkadd:15,speed:35},
+					{need:35,pers:25,hpadd:-75,atkadd:20,speed:35},
+					{need:35,pers:25,hpadd:-75,atkadd:25,speed:35},
+					{need:35,pers:25,hpadd:-75,atkadd:30,speed:40},
+					{need:35,pers:25,hpadd:-75,atkadd:35,speed:40},
+					{need:35,pers:25,hpadd:-75,atkadd:40,speed:40},
+					{need:30,pers:25,hpadd:-75,atkadd:45,speed:45},
+					{need:30,pers:25,hpadd:-75,atkadd:50,speed:50},
+					{need:30,pers:25,hpadd:-75,atkadd:55,speed:55},
+					{need:25,pers:25,hpadd:-75,atkadd:60,speed:60}
 				]
 			}
 		}
