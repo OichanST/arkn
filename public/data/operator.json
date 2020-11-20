@@ -1862,7 +1862,8 @@ const operator = {
 					{start: 80,need:110,pers:27,atkadd:170,nature:3,pow:"普通の力で"}
 				]
 			}
-		}
+		},
+		outfit:["epoque"]
 	},
 	"ケオベ":{
 		en:"Ceobe",
@@ -2443,7 +2444,8 @@ const operator = {
 					{start:25,need:38,pers:15,atkadd:150}
 				]
 			}
-		}
+		},
+		outfit:["kitchen"]
 	},
 	"スズラン":{
 		en:"Suzuran",
@@ -6367,7 +6369,8 @@ const operator = {
 					{}
 				]
 			}
-		}
+		},
+		outfit:["kitchen"]
 	},
 	"メイヤー":{
 		en:"Mayer",
@@ -7195,7 +7198,8 @@ const operator = {
 					{start:10,need:20,pers:40,atkadd:90,stan:1,intervaladd:1.7}
 				]
 			}
-		}
+		},
+		outfit:["epoque"]
 	},
 	"ワイフー":{
 		en:"Waai Fu",
@@ -7843,7 +7847,8 @@ const operator = {
 					{need:20,pers:10,txt:"大幅に短縮",interval:0.4}
 				]
 			}
-		}
+		},
+		outfit:["kitchen"]
 	},
 	"マトイマル":{
 		en:"Matoimaru",
