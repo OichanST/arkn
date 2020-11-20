@@ -3649,7 +3649,8 @@ const operator = {
 					{start:10,need:20,pers:15,atkadd:80,defadd:80}
 				]
 			}
-		}
+		},
+		outfit:["epoque"]
 	},
 	"ブローカ":{
 		en:"Broca",
@@ -4512,7 +4513,7 @@ const operator = {
 				}
 			},
 			{
-				hp:3135,atk:633,def:5551,
+				hp:3135,atk:633,def:551,
 				res:15,cost:25,block:3,range:[],
 				material:{},
 				nature:{
@@ -4530,7 +4531,7 @@ const operator = {
 			{cost:-1}
 		],
 		skill:{
-			"堅守モードγ":{
+			"堅守モード":{
 				recover:"auto",activate:"manual",
 				exp:"次に受ける<span class='merit'>術</span>ダメージをガードし、効果時間内受ける<span class='merit'>術</span>ダメージ<span class='merit'>-10%</span>",
 				effect:[
@@ -5808,22 +5809,6 @@ const operator = {
 					{},
 					{},
 					{}
-				]
-			},
-			"キメラ":{
-				exp:"攻撃力<span class='merit'>+@atkadd%</span>、最大HP<span class='merit'>+@hpadd%</span>、攻撃範囲が<span class='merit'>拡大</span>し、<span class='merit'>防御力と術耐性を無視して</span>攻撃する<br/><span class='charge'>効果時間終了後強制退場</span>",
-				recover:"auto",activate:"manual",
-				effect:[
-					{need:120,pers:30,atkadd:100,hpadd:25},
-					{need:120,pers:30,atkadd:110,hpadd:25},
-					{need:120,pers:30,atkadd:120,hpadd:50},
-					{need:120,pers:30,atkadd:130,hpadd:50},
-					{need:120,pers:30,atkadd:140,hpadd:50},
-					{need:120,pers:30,atkadd:150,hpadd:50},
-					{need:120,pers:30,atkadd:160,hpadd:75},
-					{need:120,pers:30,atkadd:180,hpadd:75},
-					{need:120,pers:30,atkadd:200,hpadd:75},
-					{need:120,pers:30,atkadd:230,hpadd:100}
 				]
 			}
 		},
