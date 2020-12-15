@@ -2637,6 +2637,101 @@ const operator = {
 			}
 		}
 	},
+	"ファントム":{
+		en:"Phantom",
+		rare:6,job:"特殊",relocation:40,speed:1.3,trust:{hp:300,atk:50},tag:["遠距離","高速再配置","牽制","火力"],
+		characteristic:"再配置までの時間が極めて<span class='merit'>短い</span>",
+		stat:[
+			{
+				min:{hp: 865,atk:247,def: 58},
+				max:{hp:1236,atk:413,def: 90},
+				res:10,cost:11,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				nature:{
+					"鏡映虚影":{
+						exp:"「鏡映虚影」が１体配置可能。虚影は本体と同じスキルを持ち、再配置時間は本体と別に計算する"
+					}
+				}
+			},
+			{
+				hp:1627,atk:583,def:121,res:10,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				material:{},
+				nature:{
+					"鏡映虚影":{
+						exp:"「鏡映虚影」が１体配置可能。虚影は本体と同じスキルを持ち、再配置時間は本体と別に計算する"
+					}
+				}
+			},
+			{
+				hp:2034,atk:703,def:152,res:10,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				material:{},
+				nature:{
+					"鏡映虚影":{
+						exp:"「鏡映虚影」が１体配置可能。虚影は本体と同じスキルを持ち、再配置時間は本体と別に計算する"
+					},
+					"虚影の操演者":{
+						exp:""
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{atk:22},
+			{relocation:-2},
+			{hp:130},
+			{cost:-1}
+		],
+		skill:{
+			"闇夜の影法師":{
+				exp:"配置後の<span class='merit'>10</span>秒間、物理回避<span class='merit'>+30%</span>、最大HP<span class='merit'>40%</span>の物理ダメージを吸収するシールドを形成する",
+				passive:true,
+				effect:[
+					{start:15,need:30,pers:20,speed:30},
+					{start:15,need:30,pers:21,speed:35},
+					{start:15,need:30,pers:22,speed:40},
+					{start:16,need:30,pers:23,speed:50},
+					{start:16,need:30,pers:24,speed:55},
+					{start:16,need:30,pers:25,speed:60},
+					{start:17,need:30,pers:26,speed:70},
+					{start:18,need:30,pers:27,speed:80},
+					{start:19,need:30,pers:28,speed:90},
+					{start:20,need:30,pers:30,speed:100}
+				]
+			},
+			"血染めの楽章":{
+				exp:"配置後、攻撃力<span class='merit'>+14%</span>の効果を<span class='merit'>8</span>回獲得（攻撃する度に回数を１回消費する）",
+				passive:true,
+				effect:[
+					{start:20,need:40,pers:30,defadd:30,hpadd:30},
+					{start:20,need:39,pers:30,defadd:30,hpadd:30},
+					{start:20,need:38,pers:30,defadd:30,hpadd:30},
+					{start:21,need:37,pers:30,defadd:40,hpadd:40},
+					{start:21,need:36,pers:30,defadd:40,hpadd:40},
+					{start:21,need:35,pers:30,defadd:40,hpadd:40},
+					{start:22,need:34,pers:30,defadd:50,hpadd:50},
+					{start:23,need:33,pers:30,defadd:60,hpadd:60},
+					{start:24,need:32,pers:30,defadd:70,hpadd:70},
+					{start:25,need:30,pers:30,defadd:80,hpadd:80}
+				]
+			},
+			"襲来の悪夢":{
+				exp:"配置後周囲一定範囲内の敵全員を<span class='merit'>普通の力で</span>突き飛ばし、攻撃力の<span class='merit'>220%</span>のダメージを与え、そしてランダムで次の効果（足止め、バインド、スタン）から一つを<span class='merit'>2.5</span>秒間付与される",
+				passive:true,
+				effect:[
+					{start:25,need:47,pers:20,atkadd:25,speed:25},
+					{start:25,need:46,pers:20,atkadd:25,speed:25},
+					{start:25,need:45,pers:20,atkadd:25,speed:25},
+					{start:26,need:44,pers:20,atkadd:30,speed:30},
+					{start:26,need:43,pers:20,atkadd:30,speed:30},
+					{start:26,need:42,pers:20,atkadd:30,speed:30},
+					{start:27,need:41,pers:20,atkadd:35,speed:35},
+					{start:28,need:39,pers:20,atkadd:40,speed:40},
+					{start:29,need:37,pers:20,atkadd:45,speed:45},
+					{start:30,need:35,pers:20,atkadd:50,speed:50}
+				]
+			}
+		}
+	},
 	"テキサス":{
 		en:"Texas",
 		rare:5,job:"先鋒",relocation:70,speed:1.05,trust:{atk:70},tag:["近距離","COST回復","牽制"],
@@ -2874,6 +2969,7 @@ const operator = {
 				]
 			}
 		},
+		outfit:["poque"]
 	},
 	"リード":{
 		en:"Reed",
@@ -2938,6 +3034,78 @@ const operator = {
 			},
 			"マナスパーク":{
 				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃する度追加で攻撃力の<span class='merit'>@art%</span>の術ダメージを敵に与える。敵を倒す度さらに所持コスト<span class='merit'>+1</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		}
+	},
+	"キアーベ":{
+		en:"Chiave",
+		rare:5,job:"先鋒",relocation:70,speed:1.0,trust:{atk:70},tag:["近距離","COST回復","火力"],
+		characteristic:"敵を２体までブロック",
+		stat:[
+			{
+				min:{hp: 870,atk:240,def:164},
+				max:{hp:1209,atk:354,def:229},
+				res:0,cost:10,block:1,range:[[1,0]],
+				nature:{}
+			},
+			{
+				hp:1550,atk:472,def:298,res:0,cost:12,block:1,range:[[1,0]],
+				material:{},
+				nature:{
+					"機械整備":{
+						exp:"配置中、★１ユニットの再配置時間-75%<br/>配置中の★１ユニット１体につき、自身の攻撃力と防御力＋１１％"
+					}
+				}
+			},
+			{
+				hp:2215,atk:562,def:364,res:0,cost:12,block:1,range:[[1,0]],
+				material:{},
+				nature:{
+					"機械整備":{
+						exp:"配置中、★１ユニットの再配置時間-75%<br/>配置中の★１ユニット１体につき、自身の攻撃力と防御力＋１１％"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:24},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"突撃指令γ":{
+				exp:"所持コスト<span class='merit'>+12</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"火炎剥離":{
+				exp:"所持コスト<span class='merit'>+11</span><br/>周囲にいる敵全員に攻撃力の<span class='merit'>260%</span>の術ダメージを与え、<span class='merit'>6</span>秒間術耐性<span class='merit'>+10%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{},
@@ -3968,6 +4136,71 @@ const operator = {
 					{need:22,pers:17,atkadd:100},
 					{need:20,pers:17,atkadd:110},
 					{need:17,pers:20,atkadd:120}
+				]
+			}
+		}
+	},
+	"シデロカ":{
+		en:"Sideroca",
+		rare:5,job:"前衛",relocation:70,speed:1.25,trust:{atk:30,def:55},tag:["近距離","生存","火力"],
+		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える",
+		stat:[
+			{
+				min:{hp:1150,atk:283,def:177},
+				max:{hp:1514,atk:411,def:254},
+				res:10,cost:19,block:1,range:[[1,0]],
+				nature:{}
+			},
+			{
+				hp:1917,atk:534,def:326,res:10,cost:21,block:1,range:[[1,0]],
+				material:{}
+			},
+			{
+				hp:2523,atk:660,def:393,res:15,cost:21,block:1,range:[[1,0]],
+				material:{},
+				nature:{
+					"傭兵の意地":{exp:""}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-10},
+			{cost:-1},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"HP回復γ":{
+				exp:"自身のHPが最大値の<span class='merit'>33%</span>回復",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start: 0,need:40,pers:30,atkadd:20,defadd:30},
+					{start: 0,need:39,pers:30,atkadd:20,defadd:35},
+					{start: 0,need:38,pers:30,atkadd:20,defadd:40},
+					{start: 3,need:37,pers:30,atkadd:30,defadd:45},
+					{start: 3,need:36,pers:30,atkadd:30,defadd:50},
+					{start: 3,need:35,pers:30,atkadd:30,defadd:55},
+					{start: 6,need:34,pers:30,atkadd:40,defadd:60},
+					{start: 7,need:33,pers:30,atkadd:43,defadd:65},
+					{start: 8,need:32,pers:30,atkadd:46,defadd:70},
+					{start:10,need:30,pers:30,atkadd:50,defadd:80}
+				]
+			},
+			"裂波奮迅":{
+				exp:"攻撃範囲<span class='demerit'>縮小</span>、攻撃力<span class='merit'>+45%</span>１秒ごとにHPが最大値の<span class='merit'>5%</span>回復",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start: 0,need:30,pers:10,atkadd:30,defadd:30},
+					{start: 1,need:30,pers:10,atkadd:35,defadd:35},
+					{start: 2,need:30,pers:10,atkadd:40,defadd:40},
+					{start: 3,need:27,pers:11,atkadd:45,defadd:45},
+					{start: 4,need:27,pers:11,atkadd:50,defadd:50},
+					{start: 5,need:27,pers:11,atkadd:55,defadd:55},
+					{start: 6,need:24,pers:12,atkadd:60,defadd:60},
+					{start: 7,need:23,pers:13,atkadd:65,defadd:65},
+					{start: 8,need:22,pers:14,atkadd:70,defadd:70},
+					{start:10,need:20,pers:15,atkadd:80,defadd:80}
 				]
 			}
 		}
@@ -5165,7 +5398,7 @@ const operator = {
 			},
 			{
 				hp:1493,atk:513,def:152,
-				res:0,cost:11,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				res:0,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
 					"追い風":{
 						exp:"攻撃速度+6、攻撃時15%の確率でその攻撃のみ攻撃力が150%まで上昇"
@@ -5747,22 +5980,22 @@ const operator = {
 	},
 	"アブサント":{
 		en:"Absinthe",
-		rare:5,job:"術師",relocation:70,speed:1.6,trust:{hp:200,atk:70},tag:["遠距離","火力"],
+		rare:5,job:"術師",relocation:80,speed:1.6,trust:{atk:70},tag:["遠距離","火力"],
 		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える",
 		stat:[
 			{
-				min:{hp: 699,atk:276,def: 48},
-				max:{hp: 958,atk:390,def: 81},
-				res:10,cost:18,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[0,1],[1,1],[2,1]],
+				min:{hp: 619,atk:286,def: 47},
+				max:{hp: 885,atk:403,def: 80},
+				res:10,cost:20,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[0,1],[1,1],[2,1]],
 				nature:{}
 			},
 			{
-				hp:1198,atk:514,def:110,res:15,cost:20,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				hp:1150,atk:531,def:111,res:15,cost:22,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
 				material:{},
 				nature:{}
 			},
 			{
-				hp:1480,atk:612,def:121,res:20,cost:20,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				hp:1420,atk:633,def:124,res:20,cost:22,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
 				material:{},
 				nature:{
 					"法の執行者":{
@@ -5797,6 +6030,79 @@ const operator = {
 			},
 			"告死の弾雨":{
 				exp:"通常攻撃が攻撃力の<span class='merit'>@atk%</span>での<span class='merit'>@cnt</span>回連続攻撃になり、HPが<span class='merit'>@hp%</span>以上の敵を攻撃しなくなる",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		},
+		outfit:["winter"]
+	},
+	"ビーズワクス":{
+		en:"Beeswax",
+		rare:5,job:"術師",relocation:80,speed:1.6,trust:{atk:70},tag:["遠距離","火力"],
+		characteristic:"通常時<span class='merit'>攻撃しない</span>、防御力と術耐性大幅<span class='merit'>上昇</span><br/>スキル発動中、通常攻撃が攻撃範囲内の敵全員に<span class='merit'>範囲術ダメージ</span>を与える",
+		stat:[
+			{
+				min:{hp: 619,atk:286,def: 47},
+				max:{hp: 885,atk:403,def: 80},
+				res:10,cost:20,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[0,1],[1,1],[2,1]],
+				nature:{}
+			},
+			{
+				hp:1150,atk:531,def:111,res:15,cost:22,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				material:{},
+				nature:{
+					"砂原の加護":{
+						exp:"スキル未発動時、1秒ごとHPが最大値の4%回復"
+					}
+				}
+			},
+			{
+				hp:1420,atk:633,def:124,res:20,cost:22,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				material:{},
+				nature:{
+					"砂原の加護":{
+						exp:"スキル未発動時、1秒ごとHPが最大値の4%回復"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:30},
+			{relocation:-6},
+			{cost:-1}
+		],
+		skill:{
+			"砂嵐拡散":{
+				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃力+30%",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"オベリスク召喚":{
+				exp:"攻撃範囲内の近接距離配置マスに敵をブロック可能の「砂の碑」を召喚。「砂の碑」出現時、周囲にいる敵全員に攻撃力の<span class='merit'>210%</span>の術ダメージを与え、<span class='merit'>1</span>秒間スタンさせる",
 				recover:"auto",activate:"manual",
 				effect:[
 					{},
@@ -6073,7 +6379,7 @@ const operator = {
 				}
 			},
 			{
-				hp:1251,atk:353,def:100,res:5,cost:22,block:1,range:[[0,-2],[1,-2],[2,-2],[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1],[0,2],[1,2],[2,2]],
+				hp:1455,atk:442,def:126,res:5,cost:22,block:1,range:[[0,-2],[1,-2],[2,-2],[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1],[0,2],[1,2],[2,2]],
 				material:{"上級異鉄":7,"中級アケトン":10},
 				nature:{
 					"湖畔の散策者":{
@@ -6203,7 +6509,7 @@ const operator = {
 	},
 	"フォリニック":{
 		en:"Folinic",
-		rare:5,job:"医療",relocation:70,speed:2.85,trust:{atk:75},tag:["遠距離","治療","火力"],
+		rare:5,job:"医療",relocation:70,speed:2.85,trust:{hp:200,atk:50},tag:["遠距離","治療","火力"],
 		characteristic:"味方のＨＰを回復",
 		stat:[
 			{
@@ -6311,7 +6617,7 @@ const operator = {
 		},
 		defUp:function(arg){
 			if(arg.promotion == 2){
-				return arg.def * -0.35;
+				return arg.def * 0.65;
 			}
 		},
 		potential:[
@@ -6766,6 +7072,78 @@ const operator = {
 			},
 			"森廻":{
 				exp:"攻撃しなくなる。<br/>素質の発動条件がHPの<span class='merit'>50%</span>になり、加護の効果が<span class='merit'>1.8倍</span>まで上昇、攻撃範囲内の味方全員のHPを1秒ごとにツキノギの攻撃力の<span class='merit'>8%</span>上昇",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:10,need:40,pers:10,defdown:-35,resdown:-20},
+					{start:11,need:40,pers:11,defdown:-35,resdown:-20},
+					{start:12,need:40,pers:12,defdown:-35,resdown:-20},
+					{start:13,need:40,pers:14,defdown:-40,resdown:-23},
+					{start:14,need:40,pers:15,defdown:-40,resdown:-23},
+					{start:15,need:40,pers:16,defdown:-40,resdown:-23},
+					{start:16,need:40,pers:18,defdown:-45,resdown:-26},
+					{start:17,need:40,pers:20,defdown:-50,resdown:-26},
+					{start:18,need:40,pers:22,defdown:-55,resdown:-26},
+					{start:20,need:40,pers:25,defdown:-60,resdown:-30}
+				]
+			}
+		}
+	},
+	"シャマレ":{
+		en:"Shamare",
+		rare:5,job:"補助",relocation:70,speed:1.6,trust:{hp:300,atk:40},tag:["遠距離","弱化"],
+		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える",
+		stat:[
+			{
+				min:{hp: 635,atk:173,def: 81},
+				max:{hp: 934,atk:248,def:117},
+				res:15,cost:10,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
+				nature:{}
+			},
+			{
+				hp:1263,atk:319,def:154,res:20,cost:12,block:1,range:[[0,-2],[1,-2],[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1],[0,2],[1,2]],
+				material:{},
+				nature:{
+					"潰敗への誘い":{
+						exp:"攻撃範囲内のHP40%未満の敵に【脆弱（被ダメージが20%上昇）】を付与（同種の効果は高いほうのみ適用）"
+					}
+				}
+			},
+			{
+				hp:1620,atk:385,def:175,res:25,cost:12,block:1,range:[[0,-2],[1,-2],[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1],[0,2],[1,2]],
+				material:{},
+				nature:{
+					"潰敗への誘い":{
+						exp:"攻撃範囲内のHP40%未満の敵に【脆弱（被ダメージが20%上昇）】を付与（同種の効果は高いほうのみ適用）"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{hp:160},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"不治の呪い":{
+				exp:"攻撃力<span class='merit'>+30%</span>、素質の被ダメージ上昇効果を<span class='merit'>1.4</span>倍まで上昇<br/><span class='charge'>退場まで効果継続</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:10,need:40,pers:10,speeddown:-30},
+					{start:10,need:40,pers:11,speeddown:-30},
+					{start:10,need:40,pers:12,speeddown:-30},
+					{start:15,need:40,pers:13,speeddown:-40},
+					{start:15,need:40,pers:14,speeddown:-40},
+					{start:15,need:40,pers:15,speeddown:-40},
+					{start:20,need:40,pers:16,speeddown:-50},
+					{start:20,need:40,pers:17,speeddown:-53},
+					{start:20,need:40,pers:18,speeddown:-56},
+					{start:25,need:40,pers:20,speeddown:-60}
+				]
+			},
+			"呪いの人形":{
+				exp:"「呪いの人形」１体が配置可能になる（上限１体）<br/><span class='charge'>「呪いの人形」の周囲の敵全員の攻撃力と防御力</span><span class='merit'>-25%</span><span class='charge'>、配置から15秒後消滅する<span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:10,need:40,pers:10,defdown:-35,resdown:-20},
@@ -8294,6 +8672,84 @@ const operator = {
 					{start:10,need:22,pers:15,atkadd:125},
 					{start:10,need:21,pers:15,atkadd:135},
 					{start:10,need:20,pers:15,atkadd:150}
+				]
+			}
+		}
+	},
+	"カッター":{
+		en:"Cutter",
+		rare:4,job:"前衛",relocation:70,speed:1.3,trust:{atk:80},tag:["近距離","爆発力","火力"],
+		characteristic:"通常攻撃時、１回の攻撃で<span class='merit'>２回</span>ダメージを与える",
+		stat:[
+			{
+				min:{hp:1089,atk:245,def:146},
+				max:{hp:1492,atk:356,def:209},
+				res:0,cost:18,block:2,range:[[1,0]],
+				nature:{}
+			},
+			{
+				hp:1938,atk:463,def:272,res:0,cost:20,block:2,range:[[1,0]],
+				material:{},
+				nature:{
+					"マスクアライナー":{
+						exp:"通常攻撃で敵に命中時、@base@pexpの確率でSPを1回復",
+						base:12,
+						pexp:"(+@padd)",
+						padd:3
+					}
+				}
+			},
+			{
+				hp:2550,atk:602,def:332,res:0,cost:22,block:2,range:[[1,0]],
+				material:{},
+				nature:{
+					"マスクアライナー":{
+						exp:"通常攻撃で敵に命中時、@base@pexpの確率でSPを1回復",
+						base:12,
+						pexp:"(+@padd)",
+						padd:3
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:21},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"レッドシフト":{
+				exp:"<span class='merit'>4</span>本のナイフを投げて前方一定範囲内の敵をランダムに攻撃し、命中した敵に攻撃力の<span class='merit'>240%</span>の物理ダメージを与える",
+				recover:"attack",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"スカーレットエッジ":{
+				exp:"周囲一定範囲内の敵最大<span class='merit'>5</span>体に攻撃力の<span class='merit'>340%</span>の物理ダメージを与える<br/><span class='charge'>攻撃対象が飛行ユニットの場合、攻撃力のダメージ計算係数倍増</span>",
+				recover:"attack",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
 				]
 			}
 		}
