@@ -1530,6 +1530,97 @@ const operator = {
 			}
 		}
 	},
+	"Ｗ":{
+		en:"W",
+		rare:6,job:"狙撃",relocation:70,speed:2.4,trust:{atk:110},tag:["遠距離","火力","牽制"],
+		characteristic:"敵に<span class='merit'>範囲物理ダメージ</span>を与える",
+		stat:[
+			{
+				min:{hp: 800,atk:492,def: 60},
+				max:{hp:1067,atk:684,def: 80},
+				res: 0,cost:22,block:1,range:[[2,-1],[3,-1],[4,-1],[2,0],[3,0],[4,0],[2,1],[3,1],[4,1]],
+				nature:{}
+			},
+			{
+				hp:1351,atk:856,def:100,res:0,cost:24,block:1,range:[[2,-2],[3,-2],[2,-1],[3,-1],[4,-1],[2,0],[3,0],[4,0],[2,1],[3,1],[4,1],[2,2],[3,2]],
+				material:{},
+				nature:{
+					"潜伏":{
+						exp:"配置から10秒後、物理回避と術回避+60%、敵に狙われにくくなる"
+					}
+				}
+			},
+			{
+				hp:1755,atk:1032,def:122,res:0,cost:24,block:1,range:[[2,-2],[3,-2],[2,-1],[3,-1],[4,-1],[2,0],[3,0],[4,0],[2,1],[3,1],[4,1],[2,2],[3,2]],
+				material:{},
+				nature:{
+					"潜伏":{
+						exp:"配置から10秒後、物理回避と術回避+60%、敵に狙われにくくなる"
+					},
+					"悪巧み":{
+						exp:"攻撃範囲内のスタン状態の敵が受ける物理ダメージ+18%"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:35},
+			{nature:2},
+			{cost:-1}
+		],
+		skill:{
+			"ハートのＫ":{
+				recover:"auto",activate:"manual",
+				exp:"榴弾を発射し、爆破範囲内の敵全員に攻撃力の<span class='merit'>310%</span>の物理ダメージを与え、<span class='merit'>2.1</span>秒間スタンさせる",
+				effect:[
+					{start:0,need:40,pers:30,atkadd:30},
+					{start:0,need:40,pers:30,atkadd:35},
+					{start:0,need:40,pers:30,atkadd:40},
+					{start:5,need:37,pers:30,atkadd:45},
+					{start:5,need:37,pers:30,atkadd:50},
+					{start:5,need:37,pers:30,atkadd:55},
+					{start:10,need:35,pers:30,atkadd:60},
+					{start:10,need:34,pers:30,atkadd:75},
+					{start:10,need:33,pers:30,atkadd:90},
+					{start:15,need:30,pers:30,atkadd:100}
+				]
+			},
+			"びっくり箱":{
+				recover:"auto",activate:"auto",
+				exp:"次の通常攻撃時、攻撃範囲内の配置可能マスに存続時間120秒の地雷を設置。敵が地雷の付近にいる時、地雷が爆発し、周囲一定範囲内の敵全員に攻撃力の<span class='merit'>250%</span>の物理ダメージを与え、<span class='merit'>1.8</span>秒間スタンさせる",
+				effect:[
+					{start:39, need:80,pers:60,atkadd:30,target:2},
+					{start:40, need:80,pers:60,atkadd:35,target:2},
+					{start:41, need:80,pers:60,atkadd:40,target:2},
+					{start:42, need:80,pers:60,atkadd:45,target:2},
+					{start:43, need:80,pers:60,atkadd:50,target:2},
+					{start:44, need:80,pers:60,atkadd:55,target:2},
+					{start:45, need:80,pers:60,atkadd:60,target:2},
+					{start:45, need:75,pers:60,atkadd:70,target:2},
+					{start:45, need:70,pers:60,atkadd:80,target:2},
+					{start:45, need:65,pers:60,atkadd:90,target:2}
+				]
+			},
+			"Ｄ１２":{
+				recover:"auto",activate:"manual",
+				exp:"攻撃範囲内のHPが最も高い敵<span class='merit'>3</span>体に爆弾を付着する。爆弾は一定時間後爆発し、周囲一定範囲内の敵全員に攻撃力の<span class='merit'>280%</span>の物理ダメージを与え、<span class='merit'>4</span>秒間スタンさせる",
+				effect:[
+					{start:10,need:40,pers:6,atkadd:10,target:3},
+					{start:10,need:39,pers:6,atkadd:10,target:3},
+					{start:10,need:38,pers:6,atkadd:10,target:3},
+					{start:11,need:37,pers:6,atkadd:10,target:3},
+					{start:11,need:36,pers:6,atkadd:10,target:3},
+					{start:11,need:35,pers:6,atkadd:10,target:3},
+					{start:12,need:34,pers:7,atkadd:10,target:3},
+					{start:13,need:33,pers:7,atkadd:15,target:3},
+					{start:14,need:32,pers:7,atkadd:20,target:4},
+					{start:15,need:30,pers:8,atkadd:25,target:4}
+				]
+			}
+		}
+	},
 	"エイヤフィヤトラ":{
 		en:"Eyjafjalla",
 		rare:6,job:"術師",relocation:70,speed:1.6,trust:{atk:90},tag:["遠距離","火力","弱化"],
@@ -2732,6 +2823,101 @@ const operator = {
 			}
 		}
 	},
+	"ウィーディ":{
+		en:"Weedy",
+		rare:6,job:"特殊",relocation:40,speed:1.3,trust:{hp:300,atk:50},tag:["近距離","強制移動","火力","牽制"],
+		characteristic:"ブロック中の<span class='merit'>敵全員</span>を同時に攻撃<br/>遠距離マスにも配置可能",
+		stat:[
+			{
+				min:{hp: 865,atk:247,def: 58},
+				max:{hp:1236,atk:413,def: 90},
+				res:10,cost:11,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				nature:{
+					"工事用蓄水砲":{
+						exp:"「工事用蓄水砲」が１体召喚可能（配置から20秒後強制退場）。蓄水砲は敵1体を攻撃し、攻撃対象を普通の力で吹き飛ばす"
+					}
+				}
+			},
+			{
+				hp:1627,atk:583,def:121,res:10,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				material:{},
+				nature:{
+					"工事用蓄水法":{
+						exp:"「工事用蓄水砲」が１体召喚可能（配置から20秒後強制退場）。蓄水砲は敵1体を攻撃し、攻撃対象を普通の力で吹き飛ばす"
+					}
+				}
+			},
+			{
+				hp:2034,atk:703,def:152,res:10,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				material:{},
+				nature:{
+					"工事用蓄水法":{
+						exp:"「工事用蓄水砲」が１体召喚可能（配置から20秒後強制退場）。蓄水砲は敵1体を攻撃し、攻撃対象を普通の力で吹き飛ばす"
+					},
+					"蓄水砲強化":{
+						exp:"蓄水砲の通常攻撃とスキル発射時の力加減が1ランク上昇。隣接4マスにウィーディがいる時、3秒ごとにウィーディのSPを1回復する"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{speed:8},
+			{hp:140},
+			{cost:-1}
+		],
+		skill:{
+			"砲身強打":{
+				recover:"auto",activate:"auto",
+				exp:"次の通常攻撃時、敵を<span class='merit'>相当の力で</span>吹き飛ばし、攻撃力の<span class='merit'>135%</span>の物理ダメージを与え、<span class='merit'>0.9</span>秒間スタンさせる",
+				effect:[
+					{start:15,need:30,pers:20,speed:30},
+					{start:15,need:30,pers:21,speed:35},
+					{start:15,need:30,pers:22,speed:40},
+					{start:16,need:30,pers:23,speed:50},
+					{start:16,need:30,pers:24,speed:55},
+					{start:16,need:30,pers:25,speed:60},
+					{start:17,need:30,pers:26,speed:70},
+					{start:18,need:30,pers:27,speed:80},
+					{start:19,need:30,pers:28,speed:90},
+					{start:20,need:30,pers:30,speed:100}
+				]
+			},
+			"ハイドロキャノン":{
+				recover:"auto",activate:"auto",
+				exp:"通常攻撃の間隔が<span class='demerit'>延長</span>し、攻撃力<span class='merit'>+170%</span>、攻撃範囲<span class='merit'>+1</span>マス、通常攻撃が遠距離範囲攻撃になり、攻撃対象を<span class='merit'>普通の力で</span>突き飛ばす<br/><span class='charge'>退場まで効果継続</span>",
+				effect:[
+					{start:20,need:40,pers:30,defadd:30,hpadd:30},
+					{start:20,need:39,pers:30,defadd:30,hpadd:30},
+					{start:20,need:38,pers:30,defadd:30,hpadd:30},
+					{start:21,need:37,pers:30,defadd:40,hpadd:40},
+					{start:21,need:36,pers:30,defadd:40,hpadd:40},
+					{start:21,need:35,pers:30,defadd:40,hpadd:40},
+					{start:22,need:34,pers:30,defadd:50,hpadd:50},
+					{start:23,need:33,pers:30,defadd:60,hpadd:60},
+					{start:24,need:32,pers:30,defadd:70,hpadd:70},
+					{start:25,need:30,pers:30,defadd:80,hpadd:80}
+				]
+			},
+			"LN2キャノン":{
+				recover:"auto",activate:"manual",
+				exp:"圧縮液体窒素砲を発射し、攻撃対象とその周囲の敵全員に攻撃力の<span class='merit'>320%</span>の範囲術ダメージを与え、<span class='merit'>かなりの力で</span>突き飛ばし、次の状態を付与：<span class='merit'>6</span>秒間、移動郷里に応じて<span class='merit'>確定</span>ダメージを受ける<br/><span class='charge'>自身の隣接4マス内の蓄水砲も同時に圧縮液体窒素砲を発射する</span>",
+				effect:[
+					{start:25,need:47,pers:20,atkadd:25,speed:25},
+					{start:25,need:46,pers:20,atkadd:25,speed:25},
+					{start:25,need:45,pers:20,atkadd:25,speed:25},
+					{start:26,need:44,pers:20,atkadd:30,speed:30},
+					{start:26,need:43,pers:20,atkadd:30,speed:30},
+					{start:26,need:42,pers:20,atkadd:30,speed:30},
+					{start:27,need:41,pers:20,atkadd:35,speed:35},
+					{start:28,need:39,pers:20,atkadd:40,speed:40},
+					{start:29,need:37,pers:20,atkadd:45,speed:45},
+					{start:30,need:35,pers:20,atkadd:50,speed:50}
+				]
+			}
+		}
+	},
 	"テキサス":{
 		en:"Texas",
 		rare:5,job:"先鋒",relocation:70,speed:1.05,trust:{atk:70},tag:["近距離","COST回復","牽制"],
@@ -3106,6 +3292,78 @@ const operator = {
 			},
 			"火炎剥離":{
 				exp:"所持コスト<span class='merit'>+11</span><br/>周囲にいる敵全員に攻撃力の<span class='merit'>260%</span>の術ダメージを与え、<span class='merit'>6</span>秒間術耐性<span class='merit'>+10%</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		}
+	},
+	"エリジウム":{
+		en:"Elysium",
+		rare:5,job:"先鋒",relocation:70,speed:1.0,trust:{atk:70},tag:["近距離","COST回復","支援"],
+		characteristic:"スキル発動中、ブロック数が0になる",
+		stat:[
+			{
+				min:{hp: 870,atk:240,def:164},
+				max:{hp:1209,atk:354,def:229},
+				res:0,cost:10,block:1,range:[[1,0]],
+				nature:{}
+			},
+			{
+				hp:1550,atk:472,def:298,res:0,cost:12,block:1,range:[[1,0]],
+				material:{},
+				nature:{
+					"狙撃支援":{
+						exp:"配置中、味方【狙撃】のコスト-2<br/>スキル発動中、味方【狙撃】の攻撃速度+23"
+					}
+				}
+			},
+			{
+				hp:2215,atk:562,def:364,res:0,cost:12,block:1,range:[[1,0]],
+				material:{},
+				nature:{
+					"狙撃支援":{
+						exp:"配置中、味方【狙撃】のコスト-2<br/>スキル発動中、味方【狙撃】の攻撃速度+23"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{def:23},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"支援指令γ":{
+				exp:"攻撃しなくなり、効果時間内所持コストが徐々に増加(合計<span class='merit'>18</span>)",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"集音":{
+				exp:"効果時間内所持コストが徐々に増加(合計<span class='merit'>20</span>)<br/>攻撃しなくなり、周囲最大<span class='merit'>3</span>体の敵をマークする<br/>マークされた敵は効果時間内で移動速度<span class='merit'>-60%</span>、防御力<span class='merit'>-22%</span>、ステルス効果が無効化される",
 				recover:"auto",activate:"manual",
 				effect:[
 					{},
@@ -11929,6 +12187,33 @@ const operator = {
 				nature:{
 					"救急スプレーＮ":{
 						exp:"配置後味方全員のHPを@base回復",
+						base:[200,260,320,380,440,500]
+					}
+				}
+			}
+		],
+		potential:[
+			{nature:0},
+			{nature:0},
+			{nature:0},
+			{nature:0},
+			{nature:0}
+		],
+		skill:{}
+	},
+	"THRM-EX":{
+		en:"Thermal-EX",
+		rare:1,job:"特殊",relocation:200,speed:2.85,trust:{hp:100,atk:40},tag:["遠距離","爆発力"],
+		recruitment:true,
+		characteristic:"攻撃しない<br/><span class='merit'>配置可能数</span>にカウントされない<br/>再配置までの時間が極めて長い",
+		stat:[
+			{
+				min:{hp:261,atk:42,def:16},
+				max:{hp:435,atk:70,def:27},
+				res:0,cost:3,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				nature:{
+					"遅延起爆Ｎ":{
+						exp:"配置から3秒後、周囲8マスの敵に攻撃力の320%の物理ダメージを与え、8秒間【脆弱（被ダメージが18%上昇）】を付与（同種の効果は高いほうのみ適用）。効果発射後強制退場",
 						base:[200,260,320,380,440,500]
 					}
 				}
