@@ -1547,7 +1547,7 @@ const operator = {
 				material:{},
 				nature:{
 					"潜伏":{
-						exp:"配置から10秒後、物理回避と術回避+60%、敵に狙われにくくなる"
+						exp:"配置から10秒後、物理回避と術回避+40%、敵に狙われにくくなる"
 					}
 				}
 			},
@@ -1559,7 +1559,10 @@ const operator = {
 						exp:"配置から10秒後、物理回避と術回避+60%、敵に狙われにくくなる"
 					},
 					"悪巧み":{
-						exp:"攻撃範囲内のスタン状態の敵が受ける物理ダメージ+18%"
+						exp:"攻撃範囲内のスタン状態の敵が受ける物理ダメージ+@base%@pexp",
+						base:18,
+						pexp:"(+@padd%)",
+						padd:3
 					}
 				}
 			}
@@ -1574,50 +1577,50 @@ const operator = {
 		skill:{
 			"ハートのＫ":{
 				recover:"auto",activate:"manual",
-				exp:"榴弾を発射し、爆破範囲内の敵全員に攻撃力の<span class='merit'>310%</span>の物理ダメージを与え、<span class='merit'>2.1</span>秒間スタンさせる",
+				exp:"榴弾を発射し、爆破範囲内の敵全員に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる",
 				effect:[
-					{start:0,need:40,pers:30,atkadd:30},
-					{start:0,need:40,pers:30,atkadd:35},
-					{start:0,need:40,pers:30,atkadd:40},
-					{start:5,need:37,pers:30,atkadd:45},
-					{start:5,need:37,pers:30,atkadd:50},
-					{start:5,need:37,pers:30,atkadd:55},
-					{start:10,need:35,pers:30,atkadd:60},
-					{start:10,need:34,pers:30,atkadd:75},
-					{start:10,need:33,pers:30,atkadd:90},
-					{start:15,need:30,pers:30,atkadd:100}
+					{start:0,need:25,atk:230,stan:1.5},
+					{start:0,need:24,atk:240,stan:1.5},
+					{start:0,need:23,atk:250,stan:1.5},
+					{start:0,need:22,atk:270,stan:1.8},
+					{start:0,need:21,atk:280,stan:1.8},
+					{start:0,need:20,atk:290,stan:1.8},
+					{start:0,need:19,atk:310,stan:2.1},
+					{start:0,need:18,atk:320,stan:2.4},
+					{start:0,need:17,atk:330,stan:2.7},
+					{start:0,need:16,atk:350,stan:3}
 				]
 			},
 			"びっくり箱":{
 				recover:"auto",activate:"auto",
-				exp:"次の通常攻撃時、攻撃範囲内の配置可能マスに存続時間120秒の地雷を設置。敵が地雷の付近にいる時、地雷が爆発し、周囲一定範囲内の敵全員に攻撃力の<span class='merit'>250%</span>の物理ダメージを与え、<span class='merit'>1.8</span>秒間スタンさせる",
+				exp:"次の通常攻撃時、攻撃範囲内の配置可能マスに存続時間120秒の地雷を設置。敵が地雷の付近にいる時、地雷が爆発し、周囲一定範囲内の敵全員に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる",
 				effect:[
-					{start:39, need:80,pers:60,atkadd:30,target:2},
-					{start:40, need:80,pers:60,atkadd:35,target:2},
-					{start:41, need:80,pers:60,atkadd:40,target:2},
-					{start:42, need:80,pers:60,atkadd:45,target:2},
-					{start:43, need:80,pers:60,atkadd:50,target:2},
-					{start:44, need:80,pers:60,atkadd:55,target:2},
-					{start:45, need:80,pers:60,atkadd:60,target:2},
-					{start:45, need:75,pers:60,atkadd:70,target:2},
-					{start:45, need:70,pers:60,atkadd:80,target:2},
-					{start:45, need:65,pers:60,atkadd:90,target:2}
+					{start:0,need:12,atk:190,stan:1.4},
+					{start:0,need:12,atk:200,stan:1.4},
+					{start:0,need:12,atk:210,stan:1.4},
+					{start:0,need:11,atk:220,stan:1.6},
+					{start:0,need:11,atk:230,stan:1.6},
+					{start:0,need:11,atk:240,stan:1.6},
+					{start:0,need:10,atk:250,stan:1.8},
+					{start:0,need: 9,atk:260,stan:1.8},
+					{start:0,need: 9,atk:270,stan:2},
+					{start:0,need: 8,atk:280,stan:2.2}
 				]
 			},
 			"Ｄ１２":{
 				recover:"auto",activate:"manual",
-				exp:"攻撃範囲内のHPが最も高い敵<span class='merit'>3</span>体に爆弾を付着する。爆弾は一定時間後爆発し、周囲一定範囲内の敵全員に攻撃力の<span class='merit'>280%</span>の物理ダメージを与え、<span class='merit'>4</span>秒間スタンさせる",
+				exp:"攻撃範囲内のHPが最も高い敵<span class='merit'>@target</span>体に爆弾を付着する。爆弾は一定時間後爆発し、周囲一定範囲内の敵全員に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる",
 				effect:[
-					{start:10,need:40,pers:6,atkadd:10,target:3},
-					{start:10,need:39,pers:6,atkadd:10,target:3},
-					{start:10,need:38,pers:6,atkadd:10,target:3},
-					{start:11,need:37,pers:6,atkadd:10,target:3},
-					{start:11,need:36,pers:6,atkadd:10,target:3},
-					{start:11,need:35,pers:6,atkadd:10,target:3},
-					{start:12,need:34,pers:7,atkadd:10,target:3},
-					{start:13,need:33,pers:7,atkadd:15,target:3},
-					{start:14,need:32,pers:7,atkadd:20,target:4},
-					{start:15,need:30,pers:8,atkadd:25,target:4}
+					{start:11,need:45,target:3,atk:220,stan:3},
+					{start:12,need:44,target:3,atk:230,stan:3},
+					{start:13,need:43,target:3,atk:240,stan:3},
+					{start:14,need:42,target:3,atk:250,stan:3.5},
+					{start:15,need:41,target:3,atk:260,stan:3.5},
+					{start:16,need:40,target:3,atk:270,stan:3.5},
+					{start:17,need:39,target:3,atk:280,stan:4},
+					{start:18,need:37,target:3,atk:290,stan:4},
+					{start:19,need:35,target:4,atk:300,stan:4.5},
+					{start:20,need:33,target:4,atk:310,stan:5}
 				]
 			}
 		}
