@@ -1059,7 +1059,8 @@ const operator = {
 					{start:70,need:80,pers:30,heal:35,res:55,slow:-60}
 				]
 			}
-		}
+		},
+		outfit:["boc"]
 	},
 	"ニェン":{
 		en:"Nian",
@@ -2435,7 +2436,8 @@ const operator = {
 					{start:10,need:25,pers:25,atkadd:150,target:5}
 				]
 			}
-		}
+		},
+		outfit:["boc"]
 	},
 	"マゼラン":{
 		en:"Magallan",
@@ -3903,7 +3905,8 @@ const operator = {
 					{need:17,pers:20,atkadd:120}
 				]
 			}
-		}
+		},
+		outfit:["boc"]
 	},
 	"エンカク":{
 		en:"Flamebringer",
@@ -5632,7 +5635,8 @@ const operator = {
 					{start:35,need:70,pers:20,cnt:2,intervaladd:-0.9}
 				]
 			}
-		}
+		},
+		outfit:["boc"]
 	},
 	"グレースロート":{
 		en:"GreyThroat",
@@ -5718,7 +5722,8 @@ const operator = {
 					{start:15,need:30,pers:20,atkadd:40,cnt:3}
 				]
 			}
-		}
+		},
+		outfit:["boc"]
 	},
 	"シェーシャ":{
 		en:"Sesa",
@@ -5886,7 +5891,7 @@ const operator = {
 				]
 			}
 		},
-		outfit:["winter"]
+		outfit:["winter","epoque"]
 	},
 	"ナイトメア":{
 		en:"Nightmare",
@@ -11387,7 +11392,8 @@ const operator = {
 					{start:30,need:70,pers:40,atkadd:35}
 				]
 			}
-		}
+		},
+		outfit:["boc"]
 	},
 	"ビーグル":{
 		en:"Beagle",
@@ -11442,7 +11448,8 @@ const operator = {
 					{need:40,pers:30,defadd:50}
 				]
 			}
-		}
+		},
+		outfit:["boc"]
 	},
 	"カーディ":{
 		en:"Cardigan",
