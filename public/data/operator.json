@@ -2735,21 +2735,17 @@ const operator = {
 	},
 	"ファントム":{
 		en:"Phantom",
-		rare:6,job:"特殊",relocation:40,speed:1.3,trust:{hp:300,atk:50},tag:["遠距離","高速再配置","牽制","火力"],
+		rare:6,job:"特殊",relocation:18,speed:0.93,trust:{atk:90},tag:["遠距離","高速再配置","牽制","火力"],
 		characteristic:"再配置までの時間が極めて<span class='merit'>短い</span>",
 		stat:[
 			{
-				min:{hp: 865,atk:247,def: 58},
-				max:{hp:1236,atk:413,def: 90},
-				res:10,cost:11,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
-				nature:{
-					"鏡映虚影":{
-						exp:"「鏡映虚影」が１体配置可能。虚影は本体と同じスキルを持ち、再配置時間は本体と別に計算する"
-					}
-				}
+				min:{hp: 769,atk:215,def:144},
+				max:{hp:1026,atk:317,def:207},
+				res:0,cost:8,block:1,range:[[1,0]],
+				nature:{}
 			},
 			{
-				hp:1627,atk:583,def:121,res:10,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				hp:1283,atk:435,def:270,res:0,cost:10,block:1,range:[[1,0]],
 				material:{},
 				nature:{
 					"鏡映虚影":{
@@ -2758,14 +2754,14 @@ const operator = {
 				}
 			},
 			{
-				hp:2034,atk:703,def:152,res:10,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				hp:1645,atk:558,def:322,res:0,cost:10,block:1,range:[[1,0]],
 				material:{},
 				nature:{
 					"鏡映虚影":{
 						exp:"「鏡映虚影」が１体配置可能。虚影は本体と同じスキルを持ち、再配置時間は本体と別に計算する"
 					},
 					"虚影の操演者":{
-						exp:""
+						exp:"虚影の再配置時間-10秒"
 					}
 				}
 			}
@@ -2779,51 +2775,51 @@ const operator = {
 		],
 		skill:{
 			"闇夜の影法師":{
-				exp:"配置後の<span class='merit'>10</span>秒間、物理回避<span class='merit'>+30%</span>、最大HP<span class='merit'>40%</span>の物理ダメージを吸収するシールドを形成する",
+				exp:"配置後の<span class='merit'>10</span>秒間、物理回避<span class='merit'>+@dodge%</span>、最大HP<span class='merit'>@shild%</span>の物理ダメージを吸収するシールドを形成する",
 				passive:true,
 				effect:[
-					{start:15,need:30,pers:20,speed:30},
-					{start:15,need:30,pers:21,speed:35},
-					{start:15,need:30,pers:22,speed:40},
-					{start:16,need:30,pers:23,speed:50},
-					{start:16,need:30,pers:24,speed:55},
-					{start:16,need:30,pers:25,speed:60},
-					{start:17,need:30,pers:26,speed:70},
-					{start:18,need:30,pers:27,speed:80},
-					{start:19,need:30,pers:28,speed:90},
-					{start:20,need:30,pers:30,speed:100}
+					{dodge:20,shild:20},
+					{dodge:20,shild:25},
+					{dodge:20,shild:30},
+					{dodge:30,shild:35},
+					{dodge:30,shild:40},
+					{dodge:30,shild:45},
+					{dodge:40,shild:50},
+					{dodge:40,shild:60},
+					{dodge:40,shild:70},
+					{dodge:50,shild:80}
 				]
 			},
 			"血染めの楽章":{
-				exp:"配置後、攻撃力<span class='merit'>+14%</span>の効果を<span class='merit'>8</span>回獲得（攻撃する度に回数を１回消費する）",
+				exp:"配置後、攻撃力<span class='merit'>+atkadd%</span>の効果を<span class='merit'>@num</span>回獲得（攻撃する度に回数を１回消費する）",
 				passive:true,
 				effect:[
-					{start:20,need:40,pers:30,defadd:30,hpadd:30},
-					{start:20,need:39,pers:30,defadd:30,hpadd:30},
-					{start:20,need:38,pers:30,defadd:30,hpadd:30},
-					{start:21,need:37,pers:30,defadd:40,hpadd:40},
-					{start:21,need:36,pers:30,defadd:40,hpadd:40},
-					{start:21,need:35,pers:30,defadd:40,hpadd:40},
-					{start:22,need:34,pers:30,defadd:50,hpadd:50},
-					{start:23,need:33,pers:30,defadd:60,hpadd:60},
-					{start:24,need:32,pers:30,defadd:70,hpadd:70},
-					{start:25,need:30,pers:30,defadd:80,hpadd:80}
+					{atkadd:10,num:7},
+					{atkadd:11,num:7},
+					{atkadd:12,num:7},
+					{atkadd:13,num:8},
+					{atkadd:14,num:8},
+					{atkadd:15,num:8},
+					{atkadd:16,num:9},
+					{atkadd:17,num:9},
+					{atkadd:18,num:9},
+					{atkadd:20,num:10}
 				]
 			},
 			"襲来の悪夢":{
-				exp:"配置後周囲一定範囲内の敵全員を<span class='merit'>普通の力で</span>突き飛ばし、攻撃力の<span class='merit'>220%</span>のダメージを与え、そしてランダムで次の効果（足止め、バインド、スタン）から一つを<span class='merit'>2.5</span>秒間付与される",
+				exp:"配置後周囲一定範囲内の敵全員を<span class='merit'>@pow</span>突き飛ばし、攻撃力の<span class='merit'>@atk%</span>のダメージを与え、そしてランダムで次の効果（足止め、バインド、スタン）から一つを<span class='merit'>@time</span>秒間付与される",
 				passive:true,
 				effect:[
-					{start:25,need:47,pers:20,atkadd:25,speed:25},
-					{start:25,need:46,pers:20,atkadd:25,speed:25},
-					{start:25,need:45,pers:20,atkadd:25,speed:25},
-					{start:26,need:44,pers:20,atkadd:30,speed:30},
-					{start:26,need:43,pers:20,atkadd:30,speed:30},
-					{start:26,need:42,pers:20,atkadd:30,speed:30},
-					{start:27,need:41,pers:20,atkadd:35,speed:35},
-					{start:28,need:39,pers:20,atkadd:40,speed:40},
-					{start:29,need:37,pers:20,atkadd:45,speed:45},
-					{start:30,need:35,pers:20,atkadd:50,speed:50}
+					{pow:"普通の力で",atk:180,time:2},
+					{pow:"普通の力で",atk:190,time:2},
+					{pow:"普通の力で",atk:200,time:2},
+					{pow:"普通の力で",atk:210,time:2.5},
+					{pow:"普通の力で",atk:220,time:2.5},
+					{pow:"普通の力で",atk:230,time:2.5},
+					{pow:"普通の力で",atk:240,time:3},
+					{pow:"普通の力で",atk:260,time:3.5},
+					{pow:"普通の力で",atk:280,time:4},
+					{pow:"普通の力で",atk:300,time:4.5}
 				]
 			}
 		}
