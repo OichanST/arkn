@@ -437,10 +437,10 @@ function ValueConverter(name, key, val){
 			}
 			arg = {
 				promotion:sto.data[name].promotion,
-				res:val
+				res:ret
 			};
 			if(operator[name].resUp && operator[name].resUp(arg)){
-				ret = val + "/<span class='merit'>" + operator[name].resUp(arg) + "</span>";
+				ret = ret + "/<span class='merit'>" + operator[name].resUp(arg) + "</span>";
 			}
 			return ret;
 		case "trust":
