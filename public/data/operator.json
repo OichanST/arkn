@@ -2791,7 +2791,7 @@ const operator = {
 				]
 			},
 			"血染めの楽章":{
-				exp:"配置後、攻撃力<span class='merit'>+atkadd%</span>の効果を<span class='merit'>@num</span>回獲得（攻撃する度に回数を１回消費する）",
+				exp:"配置後、攻撃力<span class='merit'>+@atkadd%</span>の効果を<span class='merit'>@num</span>回獲得（攻撃する度に回数を１回消費する）",
 				passive:true,
 				effect:[
 					{atkadd:10,num:7},
@@ -3152,7 +3152,7 @@ const operator = {
 				]
 			}
 		},
-		outfit:["poque"]
+		outfit:["epoque"]
 	},
 	"リード":{
 		en:"Reed",
