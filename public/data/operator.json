@@ -2826,30 +2826,26 @@ const operator = {
 	},
 	"ウィーディ":{
 		en:"Weedy",
-		rare:6,job:"特殊",relocation:40,speed:1.3,trust:{hp:300,atk:50},tag:["近距離","強制移動","火力","牽制"],
+		rare:6,job:"特殊",relocation:40,speed:1.2,trust:{atk:45,def:45},tag:["近距離","強制移動","火力","牽制"],
 		characteristic:"ブロック中の<span class='merit'>敵全員</span>を同時に攻撃<br/>遠距離マスにも配置可能",
 		stat:[
 			{
-				min:{hp: 865,atk:247,def: 58},
-				max:{hp:1236,atk:413,def: 90},
-				res:10,cost:11,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
-				nature:{
-					"工事用蓄水砲":{
-						exp:"「工事用蓄水砲」が１体召喚可能（配置から20秒後強制退場）。蓄水砲は敵1体を攻撃し、攻撃対象を普通の力で吹き飛ばす"
-					}
-				}
+				min:{hp: 984,atk:295,def:163},
+				max:{hp:1313,atk:411,def:248},
+				res:0,cost:19,block:2,range:[[1,0]],
+				nature:{}
 			},
 			{
-				hp:1627,atk:583,def:121,res:10,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				hp:1663,atk:548,def:327,res:0,cost:21,block:2,range:[[1,0]],
 				material:{},
 				nature:{
 					"工事用蓄水法":{
-						exp:"「工事用蓄水砲」が１体召喚可能（配置から20秒後強制退場）。蓄水砲は敵1体を攻撃し、攻撃対象を普通の力で吹き飛ばす"
+						exp:"「工事用蓄水砲」が１体召喚可能（配置から15秒後強制退場）。蓄水砲は敵1体を攻撃し、攻撃対象を普通の力で吹き飛ばす"
 					}
 				}
 			},
 			{
-				hp:2034,atk:703,def:152,res:10,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				hp:2133,atk:677,def:394,res:0,cost:21,block:2,range:[[1,0]],
 				material:{},
 				nature:{
 					"工事用蓄水法":{
@@ -2871,39 +2867,39 @@ const operator = {
 		skill:{
 			"砲身強打":{
 				recover:"auto",activate:"auto",
-				exp:"次の通常攻撃時、敵を<span class='merit'>相当の力で</span>吹き飛ばし、攻撃力の<span class='merit'>135%</span>の物理ダメージを与え、<span class='merit'>0.9</span>秒間スタンさせる",
+				exp:"次の通常攻撃時、敵を<span class='merit'>@pow</span>吹き飛ばし、攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる",
 				effect:[
-					{start:15,need:30,pers:20,speed:30},
-					{start:15,need:30,pers:21,speed:35},
-					{start:15,need:30,pers:22,speed:40},
-					{start:16,need:30,pers:23,speed:50},
-					{start:16,need:30,pers:24,speed:55},
-					{start:16,need:30,pers:25,speed:60},
-					{start:17,need:30,pers:26,speed:70},
-					{start:18,need:30,pers:27,speed:80},
-					{start:19,need:30,pers:28,speed:90},
-					{start:20,need:30,pers:30,speed:100}
+					{pow:"普通の力で",start:0,need:6,atk:105,stan:0.5},
+					{pow:"普通の力で",start:0,need:6,atk:110,stan:0.8},
+					{pow:"普通の力で",start:0,need:6,atk:115,stan:0.8},
+					{pow:"相当の力で",start:0,need:6,atk:120,stan:0.8},
+					{pow:"相当の力で",start:0,need:6,atk:125,stan:0.8},
+					{pow:"相当の力で",start:0,need:6,atk:130,stan:0.8},
+					{pow:"相当の力で",start:0,need:6,atk:135,stan:0.9},
+					{pow:"相当の力で",start:0,need:5,atk:140,stan:1},
+					{pow:"相当の力で",start:0,need:5,atk:145,stan:1.1},
+					{pow:"かなりの力で",start:0,need:5,atk:150,stan:1.2}
 				]
 			},
 			"ハイドロキャノン":{
 				recover:"auto",activate:"auto",
-				exp:"通常攻撃の間隔が<span class='demerit'>延長</span>し、攻撃力<span class='merit'>+170%</span>、攻撃範囲<span class='merit'>+1</span>マス、通常攻撃が遠距離範囲攻撃になり、攻撃対象を<span class='merit'>普通の力で</span>突き飛ばす<br/><span class='charge'>退場まで効果継続</span>",
+				exp:"通常攻撃の間隔が<span class='demerit'>延長</span>し、攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>+1</span>マス、通常攻撃が遠距離範囲攻撃になり、攻撃対象を<span class='merit'>普通の力で</span>突き飛ばす<br/><span class='charge'>退場まで効果継続</span>",
 				effect:[
-					{start:20,need:40,pers:30,defadd:30,hpadd:30},
-					{start:20,need:39,pers:30,defadd:30,hpadd:30},
-					{start:20,need:38,pers:30,defadd:30,hpadd:30},
-					{start:21,need:37,pers:30,defadd:40,hpadd:40},
-					{start:21,need:36,pers:30,defadd:40,hpadd:40},
-					{start:21,need:35,pers:30,defadd:40,hpadd:40},
-					{start:22,need:34,pers:30,defadd:50,hpadd:50},
-					{start:23,need:33,pers:30,defadd:60,hpadd:60},
-					{start:24,need:32,pers:30,defadd:70,hpadd:70},
-					{start:25,need:30,pers:30,defadd:80,hpadd:80}
+					{start:0,need:6,atkadd:30,hpadd:30},
+					{start:0,need:9,atkadd:30,hpadd:30},
+					{start:0,need:8,atkadd:30,hpadd:30},
+					{start:1,need:7,atkadd:40,hpadd:40},
+					{start:1,need:6,atkadd:40,hpadd:40},
+					{start:1,need:5,atkadd:40,hpadd:40},
+					{start:2,need:4,atkadd:50,hpadd:50},
+					{start:3,need:3,atkadd:60,hpadd:60},
+					{start:4,need:2,atkadd:70,hpadd:70},
+					{start:5,need:0,atkadd:80,hpadd:80}
 				]
 			},
 			"LN2キャノン":{
 				recover:"auto",activate:"manual",
-				exp:"圧縮液体窒素砲を発射し、攻撃対象とその周囲の敵全員に攻撃力の<span class='merit'>320%</span>の範囲術ダメージを与え、<span class='merit'>かなりの力で</span>突き飛ばし、次の状態を付与：<span class='merit'>6</span>秒間、移動郷里に応じて<span class='merit'>確定</span>ダメージを受ける<br/><span class='charge'>自身の隣接4マス内の蓄水砲も同時に圧縮液体窒素砲を発射する</span>",
+				exp:"圧縮液体窒素砲を発射し、攻撃対象とその周囲の敵全員に攻撃力の<span class='merit'>320%</span>の範囲術ダメージを与え、<span class='merit'>かなりの力で</span>突き飛ばし、次の状態を付与：<span class='merit'>6</span>秒間、移動距離に応じて<span class='merit'>確定</span>ダメージを受ける<br/><span class='charge'>自身の隣接4マス内の蓄水砲も同時に圧縮液体窒素砲を発射する</span>",
 				effect:[
 					{start:25,need:47,pers:20,atkadd:25,speed:25},
 					{start:25,need:46,pers:20,atkadd:25,speed:25},
