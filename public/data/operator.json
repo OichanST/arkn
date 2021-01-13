@@ -3200,65 +3200,71 @@ const operator = {
 		],
 		skill:{
 			"迅速攻撃γ":{
-				exp:"攻撃力<span class='merit'>@atk%</span>、攻撃速度<span class='merit'>@spd</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start: 0,need:45,pers:35,atkadd:20,speed:20},
+					{start: 0,need:44,pers:35,atkadd:22,speed:20},
+					{start: 0,need:43,pers:35,atkadd:24,speed:20},
+					{start: 5,need:42,pers:35,atkadd:27,speed:25},
+					{start: 5,need:41,pers:35,atkadd:29,speed:25},
+					{start: 5,need:40,pers:35,atkadd:31,speed:25},
+					{start:10,need:39,pers:35,atkadd:34,speed:35},
+					{start:10,need:38,pers:35,atkadd:37,speed:35},
+					{start:10,need:37,pers:35,atkadd:40,speed:35},
+					{start:15,need:35,pers:35,atkadd:45,speed:45}
 				]
 			},
 			"マナスパーク":{
-				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃する度追加で攻撃力の<span class='merit'>@art%</span>の術ダメージを敵に与える。敵を倒す度さらに所持コスト<span class='merit'>+1</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃する度追加で攻撃力の<span class='merit'>@arts%</span>の術ダメージを敵に与える。敵を倒す度さらに所持コスト<span class='merit'>+1</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:10,need:40,pers:20,atkadd:30,arts:15},
+					{start:11,need:40,pers:21,atkadd:35,arts:15},
+					{start:12,need:40,pers:22,atkadd:40,arts:15},
+					{start:13,need:39,pers:23,atkadd:45,arts:20},
+					{start:14,need:39,pers:24,atkadd:50,arts:20},
+					{start:15,need:39,pers:25,atkadd:55,arts:20},
+					{start:16,need:38,pers:26,atkadd:60,arts:25},
+					{start:17,need:37,pers:27,atkadd:65,arts:30},
+					{start:18,need:36,pers:28,atkadd:70,arts:35},
+					{start:20,need:35,pers:30,atkadd:80,arts:35}
 				]
 			}
 		}
 	},
 	"キアーベ":{
 		en:"Chiave",
-		rare:5,job:"先鋒",relocation:70,speed:1.0,trust:{atk:70},tag:["近距離","COST回復","火力"],
+		rare:5,job:"先鋒",relocation:70,speed:1.05,trust:{atk:70},tag:["近距離","COST回復","火力"],
 		characteristic:"敵を２体までブロック",
 		stat:[
 			{
-				min:{hp: 870,atk:240,def:164},
-				max:{hp:1209,atk:354,def:229},
-				res:0,cost:10,block:1,range:[[1,0]],
+				min:{hp:679,atk:212,def:138},
+				max:{hp:931,atk:312,def:207},
+				res:0,cost:11,block:2,range:[[1,0]],
 				nature:{}
 			},
 			{
-				hp:1550,atk:472,def:298,res:0,cost:12,block:1,range:[[1,0]],
+				hp:1276,atk:428,def:273,res:0,cost:13,block:2,range:[[1,0]],
 				material:{},
 				nature:{
 					"機械整備":{
-						exp:"配置中、★１ユニットの再配置時間-75%<br/>配置中の★１ユニット１体につき、自身の攻撃力と防御力＋１１％"
+						exp:"配置中、★１ユニットの再配置時間-75%<br/>配置中の★１ユニット１体につき、自身の攻撃力と防御力+@base%@pexp",
+						base:7,
+						pexp:"(+@padd%)",
+						padd:2
 					}
 				}
 			},
 			{
-				hp:2215,atk:562,def:364,res:0,cost:12,block:1,range:[[1,0]],
+				hp:1824,atk:522,def:342,res:0,cost:13,block:2,range:[[1,0]],
 				material:{},
 				nature:{
 					"機械整備":{
-						exp:"配置中、★１ユニットの再配置時間-75%<br/>配置中の★１ユニット１体につき、自身の攻撃力と防御力＋１１％"
+						exp:"配置中、★１ユニットの再配置時間-75%<br/>配置中の★１ユニット１体につき、自身の攻撃力と防御力+@base%@pexp",
+						base:11,
+						pexp:"(+@padd%)",
+						padd:2
 					}
 				}
 			}
@@ -3275,32 +3281,32 @@ const operator = {
 				exp:"所持コスト<span class='merit'>+12</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:10,need:44},
+					{start:10,need:43},
+					{start:10,need:42},
+					{start:12,need:41},
+					{start:12,need:40},
+					{start:12,need:39},
+					{start:14,need:38},
+					{start:16,need:37},
+					{start:18,need:36},
+					{start:20,need:35}
 				]
 			},
 			"火炎剥離":{
-				exp:"所持コスト<span class='merit'>+11</span><br/>周囲にいる敵全員に攻撃力の<span class='merit'>260%</span>の術ダメージを与え、<span class='merit'>6</span>秒間術耐性<span class='merit'>+10%</span>",
+				exp:"所持コスト<span class='merit'>+@cost</span><br/>周囲にいる敵全員に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、<span class='merit'>@time</span>秒間術耐性<span class='merit'>@resdown%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:25,need:45,pers:5,cost:10,atk:220,time:5,resdown:-10},
+					{start:26,need:45,pers:5,cost:10,atk:230,time:5,resdown:-10},
+					{start:27,need:45,pers:5,cost:10,atk:240,time:5,resdown:-10},
+					{start:28,need:45,pers:6,cost:11,atk:250,time:6,resdown:-10},
+					{start:29,need:45,pers:6,cost:11,atk:260,time:6,resdown:-10},
+					{start:30,need:45,pers:6,cost:11,atk:270,time:6,resdown:-10},
+					{start:31,need:45,pers:7,cost:12,atk:280,time:7,resdown:-10},
+					{start:32,need:45,pers:7,cost:12,atk:300,time:7,resdown:-13},
+					{start:33,need:45,pers:7,cost:12,atk:320,time:7,resdown:-16},
+					{start:35,need:45,pers:8,cost:13,atk:350,time:8,resdown:-20}
 				]
 			}
 		}
