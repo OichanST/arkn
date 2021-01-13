@@ -3617,6 +3617,7 @@ const operator = {
 			}
 		},
 		potential:[
+			{atk:35}
 		],
 		skill:{
 			"強撃β":{
