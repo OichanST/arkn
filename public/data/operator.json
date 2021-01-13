@@ -3297,46 +3297,52 @@ const operator = {
 				exp:"所持コスト<span class='merit'>+@cost</span><br/>周囲にいる敵全員に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、<span class='merit'>@time</span>秒間術耐性<span class='merit'>@resdown%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:25,need:45,pers:5,cost:10,atk:220,time:5,resdown:-10},
-					{start:26,need:45,pers:5,cost:10,atk:230,time:5,resdown:-10},
-					{start:27,need:45,pers:5,cost:10,atk:240,time:5,resdown:-10},
-					{start:28,need:45,pers:6,cost:11,atk:250,time:6,resdown:-10},
-					{start:29,need:45,pers:6,cost:11,atk:260,time:6,resdown:-10},
-					{start:30,need:45,pers:6,cost:11,atk:270,time:6,resdown:-10},
-					{start:31,need:45,pers:7,cost:12,atk:280,time:7,resdown:-10},
-					{start:32,need:45,pers:7,cost:12,atk:300,time:7,resdown:-13},
-					{start:33,need:45,pers:7,cost:12,atk:320,time:7,resdown:-16},
-					{start:35,need:45,pers:8,cost:13,atk:350,time:8,resdown:-20}
+					{start:25,need:45,cost:10,atk:220,time:5,resdown:-10},
+					{start:26,need:45,cost:10,atk:230,time:5,resdown:-10},
+					{start:27,need:45,cost:10,atk:240,time:5,resdown:-10},
+					{start:28,need:45,cost:11,atk:250,time:6,resdown:-10},
+					{start:29,need:45,cost:11,atk:260,time:6,resdown:-10},
+					{start:30,need:45,cost:11,atk:270,time:6,resdown:-10},
+					{start:31,need:45,cost:12,atk:280,time:7,resdown:-10},
+					{start:32,need:45,cost:12,atk:300,time:7,resdown:-13},
+					{start:33,need:45,cost:12,atk:320,time:7,resdown:-16},
+					{start:35,need:45,cost:13,atk:350,time:8,resdown:-20}
 				]
 			}
 		}
 	},
 	"エリジウム":{
 		en:"Elysium",
-		rare:5,job:"先鋒",relocation:70,speed:1.0,trust:{atk:70},tag:["近距離","COST回復","支援"],
+		rare:5,job:"先鋒",relocation:70,speed:1.3,trust:{def:60},tag:["近距離","COST回復","支援"],
 		characteristic:"スキル発動中、ブロック数が0になる",
 		stat:[
 			{
-				min:{hp: 870,atk:240,def:164},
-				max:{hp:1209,atk:354,def:229},
-				res:0,cost:10,block:1,range:[[1,0]],
+				min:{hp:702,atk:237,def:154},
+				max:{hp:962,atk:339,def:215},
+				res:0,cost:9,block:1,range:[[1,0]],
 				nature:{}
 			},
 			{
-				hp:1550,atk:472,def:298,res:0,cost:12,block:1,range:[[1,0]],
+				hp:1218,atk:447,def:284,res:0,cost:11,block:1,range:[[1,0]],
 				material:{},
 				nature:{
 					"狙撃支援":{
-						exp:"配置中、味方【狙撃】のコスト-2<br/>スキル発動中、味方【狙撃】の攻撃速度+23"
+						exp:"配置中、味方【狙撃】のコスト-1<br/>スキル発動中、味方【狙撃】の攻撃速度+@base@pexp",
+						base:10,
+						pexp:"(+@padd)",
+						padd:3
 					}
 				}
 			},
 			{
-				hp:2215,atk:562,def:364,res:0,cost:12,block:1,range:[[1,0]],
+				hp:1669,atk:533,def:335,res:0,cost:11,block:1,range:[[1,0]],
 				material:{},
 				nature:{
 					"狙撃支援":{
-						exp:"配置中、味方【狙撃】のコスト-2<br/>スキル発動中、味方【狙撃】の攻撃速度+23"
+						exp:"配置中、味方【狙撃】のコスト-2<br/>スキル発動中、味方【狙撃】の攻撃速度+@base@pexp",
+						base:20,
+						pexp:"(+@padd)",
+						padd:3
 					}
 				}
 			}
@@ -3353,32 +3359,32 @@ const operator = {
 				exp:"攻撃しなくなり、効果時間内所持コストが徐々に増加(合計<span class='merit'>18</span>)",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:10,need:35,pers:8},
+					{start:10,need:34,pers:8},
+					{start:10,need:33,pers:8},
+					{start:11,need:32,pers:8},
+					{start:11,need:31,pers:8},
+					{start:11,need:30,pers:8},
+					{start:12,need:29,pers:8},
+					{start:13,need:28,pers:8},
+					{start:14,need:27,pers:8},
+					{start:15,need:26,pers:8}
 				]
 			},
 			"集音":{
-				exp:"効果時間内所持コストが徐々に増加(合計<span class='merit'>20</span>)<br/>攻撃しなくなり、周囲最大<span class='merit'>3</span>体の敵をマークする<br/>マークされた敵は効果時間内で移動速度<span class='merit'>-60%</span>、防御力<span class='merit'>-22%</span>、ステルス効果が無効化される",
+				exp:"効果時間内所持コストが徐々に増加(合計<span class='merit'>20</span>)<br/>攻撃しなくなり、周囲最大<span class='merit'>@target</span>体の敵をマークする<br/>マークされた敵は効果時間内で移動速度<span class='merit'>@spddown%</span>、防御力<span class='merit'>@defdown%</span>、ステルス効果が無効化される",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start: 6,need:40,pers:15,target:3,spddown:-60,defdown:-20},
+					{start: 6,need:39,pers:15,target:3,spddown:-60,defdown:-20},
+					{start: 6,need:38,pers:15,target:3,spddown:-60,defdown:-20},
+					{start: 8,need:37,pers:15,target:3,spddown:-60,defdown:-22},
+					{start: 8,need:36,pers:15,target:3,spddown:-60,defdown:-22},
+					{start: 8,need:35,pers:15,target:3,spddown:-60,defdown:-22},
+					{start:10,need:34,pers:15,target:4,spddown:-60,defdown:-25},
+					{start:12,need:33,pers:15,target:4,spddown:-60,defdown:-28},
+					{start:14,need:32,pers:15,target:4,spddown:-60,defdown:-31},
+					{start:16,need:30,pers:15,target:4,spddown:-60,defdown:-35}
 				]
 			}
 		}
