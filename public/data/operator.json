@@ -4411,24 +4411,29 @@ const operator = {
 	},
 	"シデロカ":{
 		en:"Sideroca",
-		rare:5,job:"前衛",relocation:70,speed:1.25,trust:{atk:30,def:55},tag:["近距離","生存","火力"],
+		rare:5,job:"前衛",relocation:70,speed:1.25,trust:{hp:500},tag:["近距離","生存","火力"],
 		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える",
 		stat:[
 			{
-				min:{hp:1150,atk:283,def:177},
-				max:{hp:1514,atk:411,def:254},
-				res:10,cost:19,block:1,range:[[1,0]],
+				min:{hp:1297,atk:266,def:166},
+				max:{hp:1707,atk:386,def:238},
+				res:10,cost:21,block:1,range:[[1,0]],
 				nature:{}
 			},
 			{
-				hp:1917,atk:534,def:326,res:10,cost:21,block:1,range:[[1,0]],
+				hp:2162,atk:502,def:306,res:10,cost:23,block:1,range:[[1,0]],
 				material:{}
 			},
 			{
-				hp:2523,atk:660,def:393,res:15,cost:21,block:1,range:[[1,0]],
+				hp:2845,atk:620,def:369,res:15,cost:23,block:1,range:[[1,0]],
 				material:{},
 				nature:{
-					"傭兵の意地":{exp:""}
+					"傭兵の意地":{
+						exp:"敵を@base@padd体倒した後、自身に【レジスト（スタン、寒冷、凍結状態の継続時間が50%短縮）】を付与、攻撃速度+15",
+						base:7,
+						pexp:"(@padd)",
+						padd:-2
+					}
 				}
 			}
 		],
@@ -4441,35 +4446,35 @@ const operator = {
 		],
 		skill:{
 			"HP回復γ":{
-				exp:"自身のHPが最大値の<span class='merit'>33%</span>回復",
+				exp:"自身のHPが最大値の<span class='merit'>@heal%</span>回復",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:40,pers:30,atkadd:20,defadd:30},
-					{start: 0,need:39,pers:30,atkadd:20,defadd:35},
-					{start: 0,need:38,pers:30,atkadd:20,defadd:40},
-					{start: 3,need:37,pers:30,atkadd:30,defadd:45},
-					{start: 3,need:36,pers:30,atkadd:30,defadd:50},
-					{start: 3,need:35,pers:30,atkadd:30,defadd:55},
-					{start: 6,need:34,pers:30,atkadd:40,defadd:60},
-					{start: 7,need:33,pers:30,atkadd:43,defadd:65},
-					{start: 8,need:32,pers:30,atkadd:46,defadd:70},
-					{start:10,need:30,pers:30,atkadd:50,defadd:80}
+					{start: 5,need:30,heal:30},
+					{start: 5,need:29,heal:33},
+					{start: 5,need:28,heal:36},
+					{start: 8,need:27,heal:40},
+					{start: 8,need:26,heal:43},
+					{start: 8,need:25,heal:47},
+					{start: 9,need:24,heal:50},
+					{start:10,need:23,heal:55},
+					{start:11,need:22,heal:60},
+					{start:12,need:20,heal:70},
 				]
 			},
 			"裂波奮迅":{
-				exp:"攻撃範囲<span class='demerit'>縮小</span>、攻撃力<span class='merit'>+45%</span>１秒ごとにHPが最大値の<span class='merit'>5%</span>回復",
+				exp:"攻撃範囲<span class='demerit'>縮小</span>、攻撃力<span class='merit'>+@atkadd%</span>１秒ごとにHPが最大値の<span class='merit'>@heal%</span>回復",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:30,pers:10,atkadd:30,defadd:30},
-					{start: 1,need:30,pers:10,atkadd:35,defadd:35},
-					{start: 2,need:30,pers:10,atkadd:40,defadd:40},
-					{start: 3,need:27,pers:11,atkadd:45,defadd:45},
-					{start: 4,need:27,pers:11,atkadd:50,defadd:50},
-					{start: 5,need:27,pers:11,atkadd:55,defadd:55},
-					{start: 6,need:24,pers:12,atkadd:60,defadd:60},
-					{start: 7,need:23,pers:13,atkadd:65,defadd:65},
-					{start: 8,need:22,pers:14,atkadd:70,defadd:70},
-					{start:10,need:20,pers:15,atkadd:80,defadd:80}
+					{start:10,need:40,pers:25,atkadd:40,heal:5},
+					{start:10,need:39,pers:25,atkadd:45,heal:5},
+					{start:10,need:38,pers:25,atkadd:50,heal:5},
+					{start:10,need:37,pers:26,atkadd:60,heal:6},
+					{start:10,need:36,pers:26,atkadd:65,heal:6},
+					{start:10,need:35,pers:26,atkadd:70,heal:6},
+					{start:10,need:34,pers:27,atkadd:80,heal:7},
+					{start:10,need:33,pers:28,atkadd:90,heal:7},
+					{start:10,need:32,pers:29,atkadd:100,heal:7},
+					{start:10,need:30,pers:30,atkadd:110,heal:8}
 				]
 			}
 		}
