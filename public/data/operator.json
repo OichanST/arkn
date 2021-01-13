@@ -5045,7 +5045,7 @@ const operator = {
 					{start: 0,need:30,pers:20,rescut:10},
 					{start: 0,need:29,pers:20,rescut:10},
 					{start: 0,need:28,pers:20,rescut:10},
-					{start: 0,need:27,pers:20,rescut:15}
+					{start: 0,need:27,pers:20,rescut:15},
 					{start: 0,need:26,pers:20,rescut:15},
 					{start: 0,need:25,pers:20,rescut:15},
 					{start: 0,need:24,pers:20,rescut:20},
