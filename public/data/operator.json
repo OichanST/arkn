@@ -4429,7 +4429,7 @@ const operator = {
 				material:{},
 				nature:{
 					"傭兵の意地":{
-						exp:"敵を@base@padd体倒した後、自身に【レジスト（スタン、寒冷、凍結状態の継続時間が50%短縮）】を付与、攻撃速度+15",
+						exp:"敵を@base@pexp体倒した後、自身に【レジスト（スタン、寒冷、凍結状態の継続時間が50%短縮）】を付与、攻撃速度+15",
 						base:7,
 						pexp:"(@padd)",
 						padd:-2
@@ -5020,7 +5020,7 @@ const operator = {
 				}
 			},
 			{
-				hp:3135,atk:633,def:551,
+				hp:3135,atk:633,def:555,
 				res:15,cost:25,block:3,range:[],
 				material:{},
 				nature:{
@@ -5040,34 +5040,34 @@ const operator = {
 		skill:{
 			"堅守モード":{
 				recover:"auto",activate:"manual",
-				exp:"次に受ける<span class='merit'>術</span>ダメージをガードし、効果時間内受ける<span class='merit'>術</span>ダメージ<span class='merit'>-10%</span>",
+				exp:"次に受ける<span class='merit'>術</span>ダメージをガードし、効果時間内受ける<span class='merit'>術</span>ダメージ<span class='merit'>@rescut%</span>",
 				effect:[
-					{start: 0,need:45,pers:40,defadd:30},
-					{start: 0,need:45,pers:40,defadd:35},
-					{start: 0,need:45,pers:40,defadd:40},
-					{start: 5,need:40,pers:40,defadd:45},
-					{start: 5,need:40,pers:40,defadd:50},
-					{start: 5,need:40,pers:40,defadd:55},
-					{start:10,need:35,pers:40,defadd:60},
-					{start:10,need:34,pers:40,defadd:75},
-					{start:10,need:33,pers:40,defadd:90},
-					{start:15,need:30,pers:40,defadd:100}
+					{start: 0,need:30,pers:20,rescut:10},
+					{start: 0,need:29,pers:20,rescut:10},
+					{start: 0,need:28,pers:20,rescut:10},
+					{start: 0,need:27,pers:20,rescut:15}
+					{start: 0,need:26,pers:20,rescut:15},
+					{start: 0,need:25,pers:20,rescut:15},
+					{start: 0,need:24,pers:20,rescut:20},
+					{start: 0,need:23,pers:20,rescut:23},
+					{start: 0,need:22,pers:20,rescut:26},
+					{start: 0,need:20,pers:20,rescut:30}
 				]
 			},
 			"爆炎モード":{
 				recover:"auto",activate:"manual",
-				exp:"通常攻撃の間隔が<span class='demerit'>延長</span>し、攻撃力<span class='merit'>+35%</span>、防御力<span class='merit'>+25%</span>、攻撃範囲<span class='merit'>拡大</span>、攻撃が敵に範囲ダメージを与える",
+				exp:"通常攻撃の間隔が<span class='demerit'>延長</span>し、攻撃力<span class='merit'>+@atkadd%</span>、防御力<span class='merit'>+@defadd%</span>、攻撃範囲<span class='merit'>拡大</span>、攻撃が敵に範囲ダメージを与える",
 				effect:[
-					{start:10,need:60,pers:40,defadd:50,rangedefadd:15},
-					{start:10,need:59,pers:40,defadd:55,rangedefadd:15},
-					{start:10,need:58,pers:40,defadd:60,rangedefadd:15},
-					{start:13,need:57,pers:40,defadd:65,rangedefadd:20},
-					{start:13,need:56,pers:40,defadd:70,rangedefadd:20},
-					{start:13,need:55,pers:40,defadd:75,rangedefadd:20},
-					{start:16,need:54,pers:40,defadd:80,rangedefadd:25},
-					{start:17,need:53,pers:40,defadd:90,rangedefadd:25},
-					{start:18,need:52,pers:40,defadd:100,rangedefadd:25},
-					{start:20,need:50,pers:40,defadd:120,rangedefadd:30}
+					{start:10,need:60,pers:40,atkadd:30,defadd:25,intervaladd:40},
+					{start:12,need:59,pers:41,atkadd:35,defadd:25,intervaladd:40},
+					{start:14,need:58,pers:42,atkadd:40,defadd:25,intervaladd:40},
+					{start:16,need:57,pers:43,atkadd:45,defadd:35,intervaladd:40},
+					{start:18,need:56,pers:44,atkadd:50,defadd:35,intervaladd:40},
+					{start:20,need:55,pers:45,atkadd:55,defadd:35,intervaladd:40},
+					{start:22,need:54,pers:46,atkadd:60,defadd:45,intervaladd:40},
+					{start:24,need:53,pers:47,atkadd:70,defadd:50,intervaladd:40},
+					{start:26,need:52,pers:48,atkadd:80,defadd:55,intervaladd:40},
+					{start:30,need:50,pers:50,atkadd:90,defadd:60,intervaladd:40}
 				]
 			}
 		}
