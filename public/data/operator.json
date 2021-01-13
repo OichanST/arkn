@@ -5783,35 +5783,35 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化γ":{
-				exp:"攻撃力<span class='merit'></span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:40,pers:30,atkadd:30},
+					{start:0,need:40,pers:30,atkadd:35},
+					{start:0,need:40,pers:30,atkadd:40},
+					{start:5,need:37,pers:30,atkadd:45},
+					{start:5,need:37,pers:30,atkadd:50},
+					{start:5,need:37,pers:30,atkadd:55},
+					{start:10,need:35,pers:30,atkadd:60},
+					{start:10,need:34,pers:30,atkadd:75},
+					{start:10,need:33,pers:30,atkadd:90},
+					{start:15,need:30,pers:30,atkadd:100}
 				]
 			},
 			"ディレイドボンバー":{
-				exp:"遅延で起爆する榴弾を発射し、爆発時攻撃力の<span class='merit'></span>の物理ダメージを与え、攻撃対象の攻撃速度を<span class='merit'></span>秒間<span class='merit'></span>",
+				exp:"遅延で起爆する榴弾を発射し、爆発時攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、攻撃対象の攻撃速度を<span class='merit'>@time</span>秒間<span class='merit'>@spddown</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:10,need:50,pers:25,atk:170,time:3,spddown:-3},
+					{start:10,need:49,pers:25,atk:175,time:3,spddown:-3},
+					{start:10,need:48,pers:25,atk:180,time:3,spddown:-3},
+					{start:12,need:47,pers:26,atk:190,time:3,spddown:-6},
+					{start:12,need:46,pers:26,atk:195,time:3,spddown:-6},
+					{start:12,need:45,pers:26,atk:200,time:3,spddown:-6},
+					{start:14,need:44,pers:27,atk:210,time:3,spddown:-10},
+					{start:16,need:43,pers:28,atk:220,time:3,spddown:-13},
+					{start:18,need:42,pers:29,atk:230,time:3,spddown:-16},
+					{start:20,need:40,pers:30,atk:240,time:3,spddown:-20}
 				]
 			}
 		}
