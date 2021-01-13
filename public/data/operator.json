@@ -4375,35 +4375,35 @@ const operator = {
 		],
 		skill:{
 			"多目標型散弾":{
-				exp:"次の通常攻撃時、攻撃範囲内の敵最大<span class='merit'>2</span>体に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、<span class='merit'>1.0</span>秒間足止め",
+				exp:"次の通常攻撃時、攻撃範囲内の敵最大<span class='merit'>@target</span>体に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、<span class='merit'>1.0</span>秒間足止め",
 				recover:"attack",activate:"auto",infinity:true,
 				effect:[
-					{need:40,atkadd:30,guard:20},
-					{need:40,atkadd:33,guard:20},
-					{need:40,atkadd:37,guard:20},
-					{need:37,atkadd:43,guard:25},
-					{need:37,atkadd:47,guard:25},
-					{need:37,atkadd:50,guard:25},
-					{need:33,atkadd:55,guard:30},
-					{need:32,atkadd:60,guard:33},
-					{need:31,atkadd:65,guard:36},
-					{need:30,atkadd:70,guard:40}
+					{need:6,target:2,atk:110},
+					{need:6,target:2,atk:115},
+					{need:6,target:2,atk:120},
+					{need:5,target:2,atk:125},
+					{need:5,target:2,atk:130},
+					{need:5,target:2,atk:135},
+					{need:4,target:3,atk:140},
+					{need:4,target:3,atk:145},
+					{need:4,target:3,atk:150},
+					{need:3,target:3,atk:160}
 				]
 			},
 			"ブレイドビット起動":{
-				exp:"攻撃範囲<span class='merit'>拡大</span>、通常攻撃が<span class='merit'>術攻撃</span>になり、攻撃時周囲８マスにいる味方がブロック中の敵にも攻撃力の<span class='merit'>110%</span>の術ダメージを与える(近距離攻撃と見なす)",
-				recover:"attack",activate:"manual",
+				exp:"攻撃範囲<span class='merit'>拡大</span>、通常攻撃が<span class='merit'>術攻撃</span>になり、攻撃時周囲８マスにいる味方がブロック中の敵にも攻撃力の<span class='merit'>@atk%</span>の術ダメージを与える(近距離攻撃と見なす)",
+				recover:"auto",activate:"manual",res:true,
 				effect:[
-					{need:30,pers:15,atkadd:60},
-					{need:29,pers:15,atkadd:65},
-					{need:28,pers:15,atkadd:70},
-					{need:27,pers:15,atkadd:75},
-					{need:26,pers:15,atkadd:80},
-					{need:25,pers:15,atkadd:85},
-					{need:24,pers:17,atkadd:90},
-					{need:22,pers:17,atkadd:100},
-					{need:20,pers:17,atkadd:110},
-					{need:17,pers:20,atkadd:120}
+					{start:15,need:55,pers:20,atk:70},
+					{start:16,need:55,pers:20,atk:80},
+					{start:17,need:55,pers:20,atk:90},
+					{start:18,need:54,pers:20,atk:100},
+					{start:19,need:54,pers:20,atk:110},
+					{start:20,need:54,pers:20,atk:120},
+					{start:21,need:53,pers:21,atk:130},
+					{start:22,need:52,pers:22,atk:140},
+					{start:23,need:51,pers:23,atk:150},
+					{start:25,need:50,pers:25,atk:170}
 				]
 			}
 		}
