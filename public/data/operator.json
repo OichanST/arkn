@@ -8970,7 +8970,7 @@ const operator = {
 				nature:{}
 			},
 			{
-				hp:17363,atk:439,def:266,res:0,cost:19,block:2,range:[[1,0]],
+				hp:1763,atk:439,def:266,res:0,cost:19,block:2,range:[[1,0]],
 				material:{},
 				nature:{
 					"マスクアライナー":{
