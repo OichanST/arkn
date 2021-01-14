@@ -6325,7 +6325,7 @@ const operator = {
 	},
 	"ビーズワクス":{
 		en:"Beeswax",
-		rare:5,job:"術師",relocation:80,speed:1.6,trust:{atk:70},tag:["遠距離","火力"],
+		rare:5,job:"術師",relocation:70,speed:2,trust:{atk:70,def:20},tag:["遠距離","火力"],
 		characteristic:"通常時<span class='merit'>攻撃しない</span>、防御力と術耐性大幅<span class='merit'>上昇</span><br/>スキル発動中、通常攻撃が攻撃範囲内の敵全員に<span class='merit'>範囲術ダメージ</span>を与える",
 		stat:[
 			{
