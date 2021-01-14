@@ -6825,35 +6825,35 @@ const operator = {
 		],
 		skill:{
 			"最大限度量投薬":{
-				exp:"攻撃範囲<span class='merit'>+1</span>、攻撃力<span class='merit'>+40%</span>",
+				exp:"攻撃範囲<span class='merit'>+@range</span>、攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:4,heal:12,charge:2},
-					{need:4,heal:13,charge:2},
-					{need:4,heal:13,charge:2},
-					{need:4,heal:15,charge:2},
-					{need:4,heal:16,charge:2},
-					{need:4,heal:17,charge:2},
-					{need:4,heal:19,charge:3},
-					{need:4,heal:21,charge:3},
-					{need:4,heal:23,charge:3},
-					{need:4,heal:25,charge:4}
+					{start:10,need:40,range:1,atkadd:20},
+					{start:11,need:39,range:1,atkadd:25},
+					{start:12,need:38,range:1,atkadd:30},
+					{start:13,need:37,range:1,atkadd:35},
+					{start:14,need:36,range:1,atkadd:40},
+					{start:15,need:35,range:1,atkadd:45},
+					{start:16,need:34,range:1,atkadd:50},
+					{start:17,need:33,range:2,atkadd:60},
+					{start:18,need:32,range:2,atkadd:70},
+					{start:20,need:30,range:2,atkadd:80}
 				]
 			},
 			"特製薬刃弾":{
-				exp:"通常攻撃が薬刃弾射撃（攻撃範囲内の敵を優先して攻撃）になり、薬刃弾命中時、一定範囲内の味方全員のHPを攻撃力の<span class='merit'>105%</span>回復、敵全員に攻撃力の<span class='merit'>140%</span>の術ダメージを与える",
+				exp:"通常攻撃が薬刃弾射撃（攻撃範囲内の敵を優先して攻撃）になり、薬刃弾命中時、一定範囲内の味方全員のHPを攻撃力の<span class='merit'>@atk%</span>回復、敵全員に攻撃力の<span class='merit'>@arts%</span>の術ダメージを与える",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:35,need:60,enhanceatkadd:30},
-					{start:35,need:60,enhanceatkadd:35},
-					{start:35,need:60,enhanceatkadd:40},
-					{start:40,need:60,enhanceatkadd:45},
-					{start:40,need:60,enhanceatkadd:50},
-					{start:40,need:60,enhanceatkadd:55},
-					{start:45,need:60,enhanceatkadd:60},
-					{start:45,need:60,enhanceatkadd:70},
-					{start:45,need:60,enhanceatkadd:80},
-					{start:50,need:60,enhanceatkadd:90}
+					{start:10,need:50,pers:25,atk:80,arts:100},
+					{start:11,need:49,pers:25,atk:85,arts:110},
+					{start:12,need:48,pers:25,atk:90,arts:120},
+					{start:13,need:47,pers:26,atk:100,arts:130},
+					{start:14,need:46,pers:26,atk:105,arts:140},
+					{start:15,need:45,pers:26,atk:110,arts:150},
+					{start:16,need:44,pers:27,atk:120,arts:160},
+					{start:17,need:43,pers:28,atk:130,arts:170},
+					{start:18,need:42,pers:29,atk:140,arts:180},
+					{start:20,need:40,pers:30,atk:150,arts:200}
 				]
 			}
 		}
