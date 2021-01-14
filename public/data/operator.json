@@ -7366,7 +7366,7 @@ const operator = {
 	},
 	"シャマレ":{
 		en:"Shamare",
-		rare:5,job:"補助",relocation:70,speed:1.6,trust:{hp:300,atk:40},tag:["遠距離","弱化"],
+		rare:5,job:"補助",relocation:70,speed:1.6,trust:{atk:65},tag:["遠距離","弱化"],
 		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える",
 		stat:[
 			{
