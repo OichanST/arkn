@@ -6908,32 +6908,32 @@ const operator = {
 				exp:"通常攻撃の間隔を<span class='merit'>かなり短縮</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:20,need:50,pers:20,intervaladd:-0.8},
+					{start:20,need:49,pers:21,intervaladd:-0.8},
+					{start:20,need:48,pers:22,intervaladd:-0.8},
+					{start:20,need:47,pers:23,intervaladd:-0.9},
+					{start:20,need:46,pers:24,intervaladd:-0.9},
+					{start:20,need:45,pers:25,intervaladd:-0.9},
+					{start:20,need:44,pers:26,intervaladd:-1},
+					{start:20,need:43,pers:27,intervaladd:-1},
+					{start:20,need:42,pers:28,intervaladd:-1},
+					{start:20,need:40,pers:30,intervaladd:-1.1}
 				]
 			},
 			"嵐より生まれしもの":{
-				exp:"攻撃力<span class='merit'></span>、攻撃範囲<span class='merit'>拡大</span>、敵<span class='merit'>3</span>体を同時に攻撃",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>拡大</span>、敵<span class='merit'>3</span>体を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start: 0,need:50,pers:20,atkadd:20},
+					{start: 3,need:50,pers:20,atkadd:20},
+					{start: 6,need:50,pers:20,atkadd:20},
+					{start:10,need:50,pers:22,atkadd:25},
+					{start:13,need:50,pers:22,atkadd:25},
+					{start:16,need:50,pers:22,atkadd:25},
+					{start:20,need:50,pers:25,atkadd:30},
+					{start:23,need:50,pers:25,atkadd:45},
+					{start:26,need:50,pers:25,atkadd:60},
+					{start:30,need:50,pers:25,atkadd:75}
 				]
 			}
 		},
