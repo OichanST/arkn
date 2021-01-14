@@ -6292,32 +6292,32 @@ const operator = {
 				exp:"攻撃力<span class='merit'>+@atkadd%</span>、残りのHPの比率が一番少ない敵を優先して攻撃する<br/><span class='charge'>退場まで効果継続</span>",
 				recover:"auto",activate:"auto",infinity:true,
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:90,atkadd:30},
+					{start:0,need:88,atkadd:35},
+					{start:0,need:86,atkadd:40},
+					{start:0,need:84,atkadd:45},
+					{start:0,need:82,atkadd:50},
+					{start:0,need:80,atkadd:55},
+					{start:0,need:78,atkadd:60},
+					{start:0,need:76,atkadd:70},
+					{start:0,need:74,atkadd:80},
+					{start:0,need:70,atkadd:90}
 				]
 			},
 			"告死の弾雨":{
-				exp:"通常攻撃が攻撃力の<span class='merit'>@atk%</span>での<span class='merit'>@cnt</span>回連続攻撃になり、HPが<span class='merit'>@hp%</span>以上の敵を攻撃しなくなる",
+				exp:"通常攻撃が攻撃力の<span class='merit'>@atk%</span>での<span class='merit'>@cnt</span>回連続攻撃になり、HPが<span class='merit'>50%</span>以上の敵を攻撃しなくなる",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:11,need:60,pers:25,atk:55,cnt:4},
+					{start:12,need:59,pers:25,atk:58,cnt:4},
+					{start:13,need:58,pers:25,atk:61,cnt:4},
+					{start:15,need:57,pers:26,atk:65,cnt:4},
+					{start:16,need:56,pers:26,atk:68,cnt:4},
+					{start:17,need:55,pers:26,atk:71,cnt:4},
+					{start:19,need:54,pers:27,atk:75,cnt:4},
+					{start:22,need:53,pers:28,atk:80,cnt:4},
+					{start:25,need:52,pers:29,atk:85,cnt:4},
+					{start:28,need:50,pers:30,atk:90,cnt:4}
 				]
 			}
 		},
@@ -6329,22 +6329,22 @@ const operator = {
 		characteristic:"通常時<span class='merit'>攻撃しない</span>、防御力と術耐性大幅<span class='merit'>上昇</span><br/>スキル発動中、通常攻撃が攻撃範囲内の敵全員に<span class='merit'>範囲術ダメージ</span>を与える",
 		stat:[
 			{
-				min:{hp: 619,atk:286,def: 47},
-				max:{hp: 885,atk:403,def: 80},
-				res:10,cost:20,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[0,1],[1,1],[2,1]],
+				min:{hp:1052,atk:378,def:131},
+				max:{hp:1315,atk:505,def:153},
+				res:15,cost:21,block:1,range:[[-1,-1],[0,1],[1,-1],[-1,0],[1,0],[-1,1],[0,1],[1,1]],
 				nature:{}
 			},
 			{
-				hp:1150,atk:531,def:111,res:15,cost:22,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				hp:1644,atk:632,def:178,res:15,cost:23,block:1,range:[[-2,0],[-1,-1],[0,1],[1,-1],[-2,0],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,0]],
 				material:{},
 				nature:{
 					"砂原の加護":{
-						exp:"スキル未発動時、1秒ごとHPが最大値の4%回復"
+						exp:"スキル未発動時、1秒ごとHPが最大値の2.5%回復"
 					}
 				}
 			},
 			{
-				hp:1420,atk:633,def:124,res:20,cost:22,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				hp:2005,atk:735,def:205,res:15,cost:23,block:1,range:[[-2,0],[-1,-1],[0,1],[1,-1],[-2,0],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,0]],
 				material:{},
 				nature:{
 					"砂原の加護":{
@@ -6362,35 +6362,35 @@ const operator = {
 		],
 		skill:{
 			"砂嵐拡散":{
-				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃力+30%",
+				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃力+@atkadd%",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:6,need:28,pers:15,atkadd:10},
+					{start:6,need:28,pers:15,atkadd:15},
+					{start:6,need:28,pers:15,atkadd:20},
+					{start:6,need:26,pers:16,atkadd:25},
+					{start:6,need:26,pers:16,atkadd:30},
+					{start:6,need:26,pers:16,atkadd:35},
+					{start:8,need:24,pers:17,atkadd:40},
+					{start:8,need:22,pers:18,atkadd:45},
+					{start:8,need:20,pers:19,atkadd:50},
+					{start:8,need:18,pers:20,atkadd:60}
 				]
 			},
 			"オベリスク召喚":{
-				exp:"攻撃範囲内の近接距離配置マスに敵をブロック可能の「砂の碑」を召喚。「砂の碑」出現時、周囲にいる敵全員に攻撃力の<span class='merit'>210%</span>の術ダメージを与え、<span class='merit'>1</span>秒間スタンさせる",
+				exp:"攻撃範囲内の近接距離配置マスに敵をブロック可能の「砂の碑」を召喚。「砂の碑」出現時、周囲にいる敵全員に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:10,need:30,pers:20,atk:170,stan:1},
+					{start:10,need:30,pers:20,atk:180,stan:1},
+					{start:10,need:30,pers:20,atk:190,stan:1},
+					{start:10,need:28,pers:20,atk:200,stan:1},
+					{start:10,need:28,pers:20,atk:210,stan:1},
+					{start:10,need:28,pers:20,atk:220,stan:1},
+					{start:10,need:26,pers:20,atk:230,stan:1.5},
+					{start:10,need:24,pers:20,atk:250,stan:2},
+					{start:10,need:22,pers:20,atk:270,stan:2.5},
+					{start:10,need:20,pers:20,atk:300,stan:3}
 				]
 			}
 		},
