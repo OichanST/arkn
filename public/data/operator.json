@@ -6143,35 +6143,35 @@ const operator = {
 		],
 		skill:{
 			"攻撃力強化γ":{
-				exp:"攻撃力<span class='merit'></span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start: 0,need:40,pers:30,atkadd:30},
+					{start: 0,need:40,pers:30,atkadd:35},
+					{start: 0,need:40,pers:30,atkadd:40},
+					{start: 5,need:37,pers:30,atkadd:45},
+					{start: 5,need:37,pers:30,atkadd:50},
+					{start: 5,need:37,pers:30,atkadd:55},
+					{start:10,need:35,pers:30,atkadd:60},
+					{start:10,need:34,pers:30,atkadd:75},
+					{start:10,need:33,pers:30,atkadd:90},
+					{start:15,need:30,pers:30,atkadd:100}
 				]
 			},
 			"初雷":{
-				exp:"攻撃力<span class='merit'></span>、跳躍時のダメージ減衰が<span class='merit'>発生しなくなる</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd</span>、跳躍時のダメージ減衰が<span class='merit'>発生しなくなる</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:40,need:80,pers:30,atkadd:60},
+					{start:41,need:80,pers:30,atkadd:65},
+					{start:42,need:80,pers:30,atkadd:70},
+					{start:43,need:80,pers:31,atkadd:80},
+					{start:44,need:80,pers:31,atkadd:85},
+					{start:45,need:80,pers:31,atkadd:90},
+					{start:46,need:80,pers:32,atkadd:100},
+					{start:47,need:80,pers:33,atkadd:115},
+					{start:48,need:80,pers:34,atkadd:130},
+					{start:50,need:80,pers:35,atkadd:150}
 				]
 			}
 		}
