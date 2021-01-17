@@ -192,7 +192,7 @@ const operator = {
 		],
 		skill:{
 			"迅速攻撃γ":{
-				exp:"攻撃力<span class='merit'>+@atkadd</span>、攻撃速度<span class='merit'>@speed</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 0,need:45,atkadd:20,speed:20},
@@ -208,7 +208,7 @@ const operator = {
 				]
 			},
 			"ハイパーインパクト":{
-				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk</span>まで上昇し、追加でもう一度攻撃する<br/><span class='charge'>@charge回チャージ可能</span>",
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇し、追加でもう一度攻撃する<br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"auto",activate:"auto",
 				effect:[
 					{start:0,need: 7,atk:130,charge:1},
@@ -224,7 +224,7 @@ const operator = {
 				]
 			},
 			"クローズドボルト連射":{
-				exp:"攻撃感覚が<span class='demerit'>延長</span>。ブロック数<span class='merit'>+1</span>、攻撃力、防御力<span class='merit'>+@atkadd</span>、通常攻撃が<span class='merit'>3連撃</span>になる",
+				exp:"攻撃感覚が<span class='demerit'>延長</span>。ブロック数<span class='merit'>+1</span>、攻撃力、防御力<span class='merit'>+@atkadd%</span>、通常攻撃が<span class='merit'>3連撃</span>になる",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start: 9,need:40,atkadd:30,defadd:30,intervaladd:0.7},
@@ -359,7 +359,7 @@ const operator = {
 	"シルバーアッシュ":{
 		en:"SilverAsh",
 		rare:6,job:"前衛",relocation:70,speed:1.3,trust:{atk:50,def:50},tag:["近距離","火力","支援"],
-		characteristic:"８０％の攻撃力で<span class='merit'>遠距離攻撃</span>も行える",
+		characteristic:"80%の攻撃力で<span class='merit'>遠距離攻撃</span>も行える",
 		recruitment:true,
 		stat:[
 			{
@@ -478,7 +478,7 @@ const operator = {
 	"チェン":{
 		en:"Ch'en",
 		rare:6,job:"前衛",relocation:70,speed:1.3,trust:{atk:50,def:50},tag:["近距離","爆発力","火力"],
-		characteristic:"通常攻撃時、１回の攻撃で<span class='merit'>２回</span>ダメージを与える",
+		characteristic:"通常攻撃時、1回の攻撃で<span class='merit'>2回</span>ダメージを与える",
 		stat:[
 			{
 				min:{hp:1229,atk:249,def:154},
@@ -808,7 +808,7 @@ const operator = {
 		en:"Hoshiguma",
 		rare:6,job:"重装",relocation:70,speed:1.2,trust:{atk:60,def:60},tag:["近距離","防御","火力"],
 		recruitment:true,
-		characteristic:"敵を３体までブロック",
+		characteristic:"敵を3体までブロック",
 		stat:[
 			{
 				min:{hp:1602,atk:221,def:257},
@@ -934,7 +934,7 @@ const operator = {
 		en:"Saria",
 		rare:6,job:"重装",relocation:70,speed:1.2,trust:{atk:50,def:60},tag:["近距離","防御","治療","支援"],
 		recruitment:true,
-		characteristic:"ＨＰ回復スキルを所持",
+		characteristic:"HP回復スキルを所持",
 		stat:[
 			{
 				min:{hp:1309,atk:200,def:248},
@@ -1065,7 +1065,7 @@ const operator = {
 	"ニェン":{
 		en:"Nian",
 		rare:6,job:"重装",relocation:70,speed:1.5,trust:{hp:400,def:70},tag:["近距離","防御","支援"],
-		characteristic:"敵を３体までブロック",
+		characteristic:"敵を3体までブロック",
 		stat:[
 			{
 				min:{hp:1539,atk:295,def:254},
@@ -1096,7 +1096,7 @@ const operator = {
 						padd:4
 					},
 					"赤鉄明鏡":{
-						exp:"配置後、シールドを３枚形成する（３回目まで攻撃をガード）"
+						exp:"配置後、シールドを3枚形成する（3回目まで攻撃をガード）"
 					}
 				}
 			}
@@ -2040,7 +2040,7 @@ const operator = {
 				]
 			},
 			"「おもたいやり」":{
-				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atkadd</span>、通常攻撃が物理攻撃になり、防御力が一番低い敵を優先して攻撃し、対象の一部の特殊能力を<span class='merit'>@time</span>秒間無効化する",
+				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<span class='merit'>物理</span>攻撃になり、防御力が一番低い敵を優先して攻撃し、対象の一部の特殊能力を<span class='merit'>@time</span>秒間無効化する",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:35,need:80,pers:55,atkadd:100,time:2},
@@ -2061,7 +2061,7 @@ const operator = {
 		en:"Shining",
 		rare:6,job:"医療",relocation:70,speed:2.85,trust:{atk:80,def:20},tag:["遠距離","治療","支援"],
 		recruitment:true,
-		characteristic:"味方のＨＰを回復",
+		characteristic:"味方のHPを回復",
 		stat:[
 			{
 				min:{hp: 854,atk:180,def: 60},
@@ -2200,7 +2200,7 @@ const operator = {
 		en:"Nightingale",
 		rare:6,job:"医療",relocation:70,speed:2.85,trust:{atk:70},tag:["遠距離","治療","支援"],
 		recruitment:true,
-		characteristic:"同時に味方３人を回復",
+		characteristic:"同時に味方3人を回復",
 		stat:[
 			{
 				min:{hp: 796,atk:132,def: 80},
@@ -2326,7 +2326,7 @@ const operator = {
 	"アンジェリーナ":{
 		en:"Angelina",
 		rare:6,job:"補助",relocation:70,speed:1.9,trust:{atk:75},tag:["遠距離","減速","火力","支援"],
-		characteristic:"敵に術ダメージを与える<br/>攻撃時、敵を一瞬足止め",
+		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える<br/>攻撃時、敵を一瞬<span class='merit'>足止め</span>",
 		effect:function(arg){
 			return "鈍足";
 		},
@@ -2525,7 +2525,7 @@ const operator = {
 				]
 			},
 			"アサルトモジュール":{
-				exp:"パッシブ:ドローンが範囲物理攻撃を行い、近距離ユニットとして配置可能。スキル発動時、自身とドローンの攻撃力<span class='merit'>+@atkadd%</span>、ドローンの攻撃による爆破範囲が<span class='merit'>拡大</span>。<span class='charge'>効果時間終了後配置中の全てのドローンを回収</span>",
+				exp:"パッシブ:ドローンが範囲物理攻撃を行い、遠距離ユニットとして配置可能。スキル発動時、自身とドローンの攻撃力<span class='merit'>+@atkadd%</span>、ドローンの攻撃による爆破範囲が<span class='merit'>拡大</span>。<span class='charge'>効果時間終了後配置中の全てのドローンを回収</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:25,need:50,pers:15,atkadd:60},
@@ -2700,7 +2700,7 @@ const operator = {
 				]
 			},
 			"劇性増強剤・γ":{
-				exp:"前方にいる最も近い味方１人（真正面を優先する）に<span class='merit'>500</span>の攻撃力で<span class='merit'>15回</span>攻撃し、その後効果時間終了まで自身と対象の防御力、最大HP<span class='merit'>+@defadd%</span>",
+				exp:"前方にいる最も近い味方1人（真正面を優先する）に<span class='merit'>500</span>の攻撃力で<span class='merit'>15回</span>攻撃し、その後効果時間終了まで自身と対象の防御力、最大HP<span class='merit'>+@defadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:20,need:40,pers:30,defadd:30,hpadd:30},
@@ -2716,7 +2716,7 @@ const operator = {
 				]
 			},
 			"劇性増強剤・ドリアン":{
-				exp:"前方にいる最も近い味方１人（真正面を優先する）に<span class='merit'>500</span>の攻撃力で<span class='merit'>15回</span>攻撃し、その後効果時間終了まで自身と対象の攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>",
+				exp:"前方にいる最も近い味方1人（真正面を優先する）に<span class='merit'>500</span>の攻撃力で<span class='merit'>15回</span>攻撃し、その後効果時間終了まで自身と対象の攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:25,need:47,pers:20,atkadd:25,speed:25},
@@ -2749,7 +2749,7 @@ const operator = {
 				material:{},
 				nature:{
 					"鏡映虚影":{
-						exp:"「鏡映虚影」が１体配置可能。虚影は本体と同じスキルを持ち、再配置時間は本体と別に計算する"
+						exp:"「鏡映虚影」が1体配置可能。虚影は本体と同じスキルを持ち、再配置時間は本体と別に計算する"
 					}
 				}
 			},
@@ -2758,7 +2758,7 @@ const operator = {
 				material:{},
 				nature:{
 					"鏡映虚影":{
-						exp:"「鏡映虚影」が１体配置可能。虚影は本体と同じスキルを持ち、再配置時間は本体と別に計算する"
+						exp:"「鏡映虚影」が1体配置可能。虚影は本体と同じスキルを持ち、再配置時間は本体と別に計算する"
 					},
 					"虚影の操演者":{
 						exp:"虚影の再配置時間-10秒"
