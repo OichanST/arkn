@@ -2883,34 +2883,34 @@ const operator = {
 			},
 			"ハイドロキャノン":{
 				recover:"auto",activate:"auto",
-				exp:"通常攻撃の間隔が<span class='demerit'>延長</span>し、攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>+1</span>マス、通常攻撃が遠距離範囲攻撃になり、攻撃対象を<span class='merit'>普通の力で</span>突き飛ばす<br/><span class='charge'>退場まで効果継続</span>",
+				exp:"通常攻撃の間隔が<span class='demerit'>延長</span>し、攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>+1</span>マス、通常攻撃が遠距離範囲攻撃になり、攻撃対象を<span class='merit'>@pow</span>突き飛ばす<br/><span class='charge'>退場まで効果継続</span>",
 				effect:[
-					{start:0,need:6,atkadd:30,hpadd:30},
-					{start:0,need:9,atkadd:30,hpadd:30},
-					{start:0,need:8,atkadd:30,hpadd:30},
-					{start:1,need:7,atkadd:40,hpadd:40},
-					{start:1,need:6,atkadd:40,hpadd:40},
-					{start:1,need:5,atkadd:40,hpadd:40},
-					{start:2,need:4,atkadd:50,hpadd:50},
-					{start:3,need:3,atkadd:60,hpadd:60},
-					{start:4,need:2,atkadd:70,hpadd:70},
-					{start:5,need:0,atkadd:80,hpadd:80}
+					{start:0,need:90,atkadd:110,interval:3.2,pow:"かすかな力で"},
+					{start:0,need:88,atkadd:120,interval:3.2,pow:"かすかな力で"},
+					{start:0,need:86,atkadd:130,interval:3.2,pow:"かすかな力で"},
+					{start:0,need:84,atkadd:140,interval:3.2,pow:"普通の力で"},
+					{start:0,need:82,atkadd:150,interval:3.2,pow:"普通の力で"},
+					{start:0,need:80,atkadd:160,interval:3.2,pow:"普通の力で"},
+					{start:0,need:78,atkadd:170,interval:3.2,pow:"普通の力で"},
+					{start:0,need:76,atkadd:180,interval:3.2,pow:"普通の力で"},
+					{start:0,need:74,atkadd:190,interval:3.2,pow:"普通の力で"},
+					{start:0,need:70,atkadd:200,interval:3.2,pow:"相当の力で"}
 				]
 			},
 			"LN2キャノン":{
 				recover:"auto",activate:"manual",
-				exp:"圧縮液体窒素砲を発射し、攻撃対象とその周囲の敵全員に攻撃力の<span class='merit'>320%</span>の範囲術ダメージを与え、<span class='merit'>かなりの力で</span>突き飛ばし、次の状態を付与：<span class='merit'>6</span>秒間、移動距離に応じて<span class='merit'>確定</span>ダメージを受ける<br/><span class='charge'>自身の隣接4マス内の蓄水砲も同時に圧縮液体窒素砲を発射する</span>",
+				exp:"圧縮液体窒素砲を発射し、攻撃対象とその周囲の敵全員に攻撃力の<span class='merit'>320%</span>の範囲術ダメージを与え、<span class='merit'>@pow</span>突き飛ばし、次の状態を付与：<span class='merit'>6</span>秒間、移動距離に応じて<span class='merit'>確定</span>ダメージを受ける<br/><span class='charge'>自身の隣接4マス内の蓄水砲も同時に圧縮液体窒素砲を発射する</span>",
 				effect:[
-					{start:25,need:47,pers:20,atkadd:25,speed:25},
-					{start:25,need:46,pers:20,atkadd:25,speed:25},
-					{start:25,need:45,pers:20,atkadd:25,speed:25},
-					{start:26,need:44,pers:20,atkadd:30,speed:30},
-					{start:26,need:43,pers:20,atkadd:30,speed:30},
-					{start:26,need:42,pers:20,atkadd:30,speed:30},
-					{start:27,need:41,pers:20,atkadd:35,speed:35},
-					{start:28,need:39,pers:20,atkadd:40,speed:40},
-					{start:29,need:37,pers:20,atkadd:45,speed:45},
-					{start:30,need:35,pers:20,atkadd:50,speed:50}
+					{start:25,need:47,pers:20,atkadd:25,speed:25,pow:"相当の力で"},
+					{start:25,need:46,pers:20,atkadd:25,speed:25,pow:"相当の力で"},
+					{start:25,need:45,pers:20,atkadd:25,speed:25,pow:"相当の力で"},
+					{start:26,need:44,pers:20,atkadd:30,speed:30,pow:"相当の力で"},
+					{start:26,need:43,pers:20,atkadd:30,speed:30,pow:"相当の力で"},
+					{start:26,need:42,pers:20,atkadd:30,speed:30,pow:"相当の力で"},
+					{start:27,need:41,pers:20,atkadd:35,speed:35,pow:"かなりの力で"},
+					{start:28,need:39,pers:20,atkadd:40,speed:40,pow:"かなりの力で"},
+					{start:29,need:37,pers:20,atkadd:45,speed:45,pow:"かなりの力で"},
+					{start:30,need:35,pers:20,atkadd:50,speed:50,pow:"力強く"}
 				]
 			}
 		}
