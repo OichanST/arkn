@@ -8883,7 +8883,7 @@ const operator = {
 	},
 	"ウタゲ":{
 		en:"Utage",
-		rare:4,job:"前衛",relocation:70,speed:1.2,trust:{hp:350},tag:["近距離","火力","生存"],
+		rare:4,job:"前衛",relocation:70,speed:1.2,trust:{atk:30,def:40},tag:["近距離","火力","生存"],
 		recruitment:true,
 		characteristic:"味方の治療対象にならない<br/>敵を攻撃する度HPを<span class='merit'></span><br/>（昇進２で効果強化）",
 		stat:[
