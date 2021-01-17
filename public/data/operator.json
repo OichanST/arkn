@@ -4147,35 +4147,35 @@ const operator = {
 		],
 		skill:{
 			"ターンオン":{
-				exp:"攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<span class=''>術攻撃</span>になる",
-				recover:"auto",activate:"manual",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<span class='merit'>術攻撃</span>になる",
+				recover:"auto",activate:"manual",res:true,
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:50,pers:25,atkadd:20},
+					{start:1,need:50,pers:25,atkadd:20},
+					{start:2,need:50,pers:25,atkadd:30},
+					{start:5,need:50,pers:26,atkadd:35},
+					{start:6,need:50,pers:26,atkadd:40},
+					{start:7,need:50,pers:26,atkadd:45},
+					{start:10,need:50,pers:27,atkadd:50},
+					{start:13,need:50,pers:28,atkadd:60},
+					{start:16,need:50,pers:29,atkadd:70},
+					{start:20,need:50,pers:30,atkadd:80}
 				]
 			},
 			"ハイボルテージ":{
-				exp:"通常攻撃の間隔が<span class='merit'>延長</span>。攻撃範囲<span class=''>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<spann class='merit'>術攻撃</span>になり、攻撃対象を<span class='merit'>0.8</span>秒足止めする<br/><span class='charge'>効果時間終了後7秒スタンする</span>",
+				exp:"通常攻撃の間隔が<span class='merit'>延長</span>。攻撃範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<span class='merit'>術攻撃</span>になり、攻撃対象を<span class='merit'>@stop</span>秒足止めする<br/><span class='charge'>効果時間終了後@stan秒スタンする</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:10,need:45,pers:25,atkadd: 80,interval:1.65,stop:0.7,stan:8},
+					{start:11,need:44,pers:25,atkadd: 90,interval:1.65,stop:0.7,stan:8},
+					{start:12,need:43,pers:25,atkadd:100,interval:1.65,stop:0.7,stan:8},
+					{start:13,need:42,pers:25,atkadd:110,interval:1.65,stop:0.8,stan:7},
+					{start:14,need:41,pers:25,atkadd:120,interval:1.65,stop:0.8,stan:7},
+					{start:15,need:40,pers:25,atkadd:130,interval:1.65,stop:0.8,stan:7},
+					{start:16,need:39,pers:25,atkadd:140,interval:1.65,stop:0.9,stan:6},
+					{start:17,need:38,pers:25,atkadd:160,interval:1.65,stop:0.9,stan:6},
+					{start:18,need:37,pers:25,atkadd:170,interval:1.65,stop:1,stan:6},
+					{start:20,need:35,pers:25,atkadd:190,interval:1.65,stop:1,stan:5}
 				]
 			}
 		}
