@@ -4496,7 +4496,7 @@ const operator = {
 		en:"Croissant",
 		rare:5,job:"重装",relocation:70,speed:1.2,trust:{hp:150,def:60},tag:["近距離","防御","強制移動"],
 		recruitment:true,
-		characteristic:"敵を３体までブロック",
+		characteristic:"敵を3体までブロック",
 		stat:[
 			{
 				min:{hp:1503,atk:201,def:249},
@@ -4569,18 +4569,18 @@ const operator = {
 				]
 			},
 			"テスラハンマー":{
-				exp:"周囲一定範囲内の敵を<span class='merit'>@pow</span>で突き飛ばし、攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる",
+				exp:"周囲一定範囲内の敵を<span class='merit'>@pow</span>突き飛ばし、攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる",
 				recover:"attack",activate:"manual",
 				effect:[
-					{need:22,pow:"相当の力"  ,atk:240,stan:2.5},
-					{need:22,pow:"相当の力"  ,atk:260,stan:2.5},
-					{need:22,pow:"相当の力"  ,atk:280,stan:2.5},
-					{need:21,pow:"相当の力"  ,atk:300,stan:3},
-					{need:21,pow:"相当の力"  ,atk:320,stan:3},
-					{need:21,pow:"相当の力"  ,atk:340,stan:3},
-					{need:20,pow:"かなりの力",atk:360,stan:3.5},
-					{need:19,pow:"かなりの力",atk:400,stan:3.5},
-					{need:18,pow:"かなりの力",atk:440,stan:3.5},
+					{need:22,pow:"相当の力で"  ,atk:240,stan:2.5},
+					{need:22,pow:"相当の力で"  ,atk:260,stan:2.5},
+					{need:22,pow:"相当の力で"  ,atk:280,stan:2.5},
+					{need:21,pow:"相当の力で"  ,atk:300,stan:3},
+					{need:21,pow:"相当の力で"  ,atk:320,stan:3},
+					{need:21,pow:"相当の力で"  ,atk:340,stan:3},
+					{need:20,pow:"かなりの力で",atk:360,stan:3.5},
+					{need:19,pow:"かなりの力で",atk:400,stan:3.5},
+					{need:18,pow:"かなりの力で",atk:440,stan:3.5},
 					{need:17,pow:"力強く"    ,atk:480,stan:4}
 				]
 			}
@@ -4590,7 +4590,7 @@ const operator = {
 		en:"Nearl",
 		rare:5,job:"重装",relocation:70,speed:1.2,trust:{atk:40,def:50},tag:["近距離","防御","治療"],
 		recruitment:true,
-		characteristic:"ＨＰ回復スキルを所持",
+		characteristic:"HP回復スキルを所持",
 		stat:[
 			{
 				min:{hp:1154,atk:191,def:240},
@@ -4842,7 +4842,7 @@ const operator = {
 	"ウン":{
 		en:"Hung",
 		rare:5,job:"重装",relocation:70,speed:1.2,trust:{hp:200,def:60},tag:["近距離","防御","治療"],
-		characteristic:"ＨＰ回復スキルを所持",
+		characteristic:"HP回復スキルを所持",
 		stat:[
 			{
 				min:{hp:1172,atk:182,def:244},
@@ -4894,7 +4894,7 @@ const operator = {
 		skill:{
 			"応急処置・受動":{
 				exp:"次の通常攻撃時、近くの味方1人に自身の攻撃力の<span class='merit'>@heal%</span>のHPを回復",
-				recover:"damange",activate:"auto",heal:true,
+				recover:"damage",activate:"auto",heal:true,
 				effect:[
 					{start:0,need:6,heal:100},
 					{start:0,need:6,heal:105},
@@ -4910,7 +4910,7 @@ const operator = {
 			},
 			"医療態勢・受動":{
 				exp:"攻撃力、防御力<span class='merit'>+@atkadd%</span>、攻撃しなくなり回復行動のみ行い、回復時その対象のSPを<span class='merit'>1</span>回復",
-				recover:"damange",activate:"manual",heal:true,noAttack:true,heal:true,
+				recover:"damage",activate:"manual",heal:true,noAttack:true,
 				effect:[
 					{start:10,need:25,pers:20,atkadd:30,defadd:30},
 					{start:10,need:25,pers:20,atkadd:35,defadd:35},
