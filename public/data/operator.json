@@ -10151,19 +10151,19 @@ const operator = {
 				]
 			},
 			"同調索敵攻撃":{
-				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+40%</span>、自動索敵して攻撃するドローンを放出し、自身とドローン攻撃時<span class='merit'>20%</span>の確率で敵を<span class='merit'>0.4</span>秒間スタンさせる<br/><span class='charge'>索敵中のドローンは目標が倒された時あるいは効果時間終了時、索敵を中断する</span>",
+				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、自動索敵して攻撃するドローンを放出し、自身とドローン攻撃時<span class='merit'>@per%</span>の確率で敵を<span class='merit'>@stan</span>秒間スタンさせる<br/><span class='charge'>索敵中のドローンは目標が倒された時あるいは効果時間終了時、索敵を中断する</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:35,pers:25,hpadd:-75,atkadd:15,speed:35},
-					{need:35,pers:25,hpadd:-75,atkadd:20,speed:35},
-					{need:35,pers:25,hpadd:-75,atkadd:25,speed:35},
-					{need:35,pers:25,hpadd:-75,atkadd:30,speed:40},
-					{need:35,pers:25,hpadd:-75,atkadd:35,speed:40},
-					{need:35,pers:25,hpadd:-75,atkadd:40,speed:40},
-					{need:30,pers:25,hpadd:-75,atkadd:45,speed:45},
-					{need:30,pers:25,hpadd:-75,atkadd:50,speed:50},
-					{need:30,pers:25,hpadd:-75,atkadd:55,speed:55},
-					{need:25,pers:25,hpadd:-75,atkadd:60,speed:60}
+					{start:0,need:45,pers:20,atkadd:40,per:20,stan:0.4},
+					{start:0,need:45,pers:21,atkadd:43,per:20,stan:0.4},
+					{start:0,need:45,pers:22,atkadd:46,per:20,stan:0.4},
+					{start:5,need:45,pers:23,atkadd:49,per:23,stan:0.4},
+					{start:5,need:45,pers:24,atkadd:52,per:23,stan:0.4},
+					{start:5,need:45,pers:25,atkadd:55,per:23,stan:0.4},
+					{start:10,need:45,pers:26,atkadd:58,per:26,stan:0.7},
+					{start:13,need:45,pers:27,atkadd:62,per:27,stan:0.7},
+					{start:16,need:45,pers:28,atkadd:66,per:27,stan:0.7},
+					{start:20,need:45,pers:30,atkadd:70,per:30,stan:1}
 				]
 			}
 		}
