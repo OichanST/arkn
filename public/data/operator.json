@@ -4245,16 +4245,16 @@ const operator = {
 				exp:"前方一定範囲内の敵最大<span class='merit'>@target</span>体に攻撃力の<span class='merit'>@atk%</span>の<span class='demerit'>術</span>ダメージを与え、<span class='merit'>@stan</span>秒間スタンさせる<br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"attack",activate:"manual",
 				effect:[
-					{start:0,need:12,target:5,atk:130,stan:0.8},
-					{start:0,need:12,target:5,atk:135,stan:0.8},
-					{start:0,need:12,target:5,atk:140,stan:0.8},
-					{start:1,need:11,target:5,atk:150,stan:1},
-					{start:1,need:11,target:5,atk:155,stan:1},
-					{start:1,need:11,target:5,atk:160,stan:1},
-					{start:2,need:10,target:5,atk:170,stan:1.2},
-					{start:3,need: 9,target:6,atk:180,stan:1.4},
-					{start:4,need: 8,target:6,atk:190,stan:1.6},
-					{start:5,need: 7,target:6,atk:200,stan:1.8}
+					{start:0,need:12,target:5,atk:130,stan:0.8,charge:3},
+					{start:0,need:12,target:5,atk:135,stan:0.8,charge:3},
+					{start:0,need:12,target:5,atk:140,stan:0.8,charge:3},
+					{start:1,need:11,target:5,atk:150,stan:1,charge:3},
+					{start:1,need:11,target:5,atk:155,stan:1,charge:3},
+					{start:1,need:11,target:5,atk:160,stan:1,charge:3},
+					{start:2,need:10,target:5,atk:170,stan:1.2,charge:3},
+					{start:3,need: 9,target:6,atk:180,stan:1.4,charge:3},
+					{start:4,need: 8,target:6,atk:190,stan:1.6,charge:3},
+					{start:5,need: 7,target:6,atk:200,stan:1.8,charge:3}
 				]
 			}
 		}
