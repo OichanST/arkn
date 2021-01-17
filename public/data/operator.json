@@ -4259,82 +4259,10 @@ const operator = {
 			}
 		}
 	},
-	"ウタゲ":{
-		en:"Utage",
-		rare:6,job:"前衛",relocation:70,speed:1.2,trust:{atk:30,def:40},tag:["近距離","火力","生存"],
-		characteristic:"味方の治療対象にならない<br/>敵を攻撃する度自身のHPを<span class='merit'>@heal</span>回復",
-		stat:[
-			{
-				min:{hp:1413,atk:309,def:150},
-				max:{hp:1963,atk:442,def:206},
-				res:0,cost:20,block:1,range:[[1,0]],
-				nature:{
-					"マジモード":{exp:"HPの減少量に応じて攻撃速度が上昇(上昇最大値：HPが50％減少時、攻撃速度＋50)"}
-				}
-			},
-			{
-				hp:2583,atk:575,def:265,
-				res:0,cost:22,block:1,range:[[1,0]],
-				material:{},
-				nature:{
-					"マジモード":{exp:"HPの減少量に応じて攻撃速度が上昇(上昇最大値：HPが60％減少時、攻撃速度＋75)"}
-				}
-			},
-			{
-				hp:3444,atk:693,def:312,
-				res:0,cost:26,block:1,range:[[1,0]],
-				material:{},
-				nature:{
-					"マジモード":{exp:"HPの減少量に応じて攻撃速度が上昇(上昇最大値：HPが70％減少時、攻撃速度＋100)"}
-				}
-			},
-		],
-		potential:[
-			{cost:-1},
-			{relocation:-4},
-			{atk:23},
-			{relocation:-6},
-			{cost:-1}
-		],
-		skill:{
-			"サボり":{
-				exp:"攻撃しなくなる。ブロック数が<span class='merit'>0</span>になり、防御力<span class='merit'>+130%</span>、1秒ごとにHPが最大値の<span class='merit'>7%</span>回復",
-				recover:"auto",activate:"manual",
-				effect:[
-					{need:4,atk:110,cnt:2},
-					{need:4,atk:115,cnt:2},
-					{need:4,atk:120,cnt:2},
-					{need:3,atk:125,cnt:2},
-					{need:3,atk:130,cnt:2},
-					{need:3,atk:135,cnt:2},
-					{need:3,atk:145,cnt:2},
-					{need:3,atk:155,cnt:2},
-					{need:3,atk:165,cnt:2},
-					{need:2,atk:175,cnt:2}
-				]
-			},
-			"落地斬・突破":{
-				exp:"配置後HPが<span class='demerit'>50%</span>減少。<span class='merit'>14</span>秒間攻撃力<span class='merit'>+65%</span>、通常攻撃が<span class='merit'>術攻撃</span>になる",
-				passive:true,
-				effect:[
-					{start: 0,need:35,pers:10,atkadd:20,cnt:2,dodge:75},
-					{start: 0,need:34,pers:10,atkadd:25,cnt:2,dodge:75},
-					{start: 0,need:33,pers:10,atkadd:30,cnt:2,dodge:75},
-					{start: 5,need:32,pers:11,atkadd:35,cnt:2,dodge:75},
-					{start: 5,need:31,pers:11,atkadd:40,cnt:2,dodge:75},
-					{start: 5,need:30,pers:11,atkadd:45,cnt:2,dodge:75},
-					{start:10,need:29,pers:12,atkadd:50,cnt:2,dodge:75},
-					{start:11,need:28,pers:12,atkadd:60,cnt:2,dodge:75},
-					{start:12,need:27,pers:12,atkadd:70,cnt:2,dodge:75},
-					{start:15,need:25,pers:13,atkadd:80,cnt:2,dodge:75}
-				]
-			}
-		}
-	},
 	"エアースカーペ":{
 		en:"Ayerscarpe",
 		rare:5,job:"前衛",relocate:70,speed:1.3,trust:{atk:75},tag:["近距離","火力","範囲攻撃"],
-		characteristic:"８０％の攻撃力で<span class='merit'>遠距離攻撃</span>も行える",
+		characteristic:"80%の攻撃力で<span class='merit'>遠距離攻撃</span>も行える",
 		stat:[
 			{
 				min:{hp:1016,atk:279,def:178},
@@ -4462,7 +4390,7 @@ const operator = {
 				]
 			},
 			"裂波奮迅":{
-				exp:"攻撃範囲<span class='demerit'>縮小</span>、攻撃力<span class='merit'>+@atkadd%</span>１秒ごとにHPが最大値の<span class='merit'>@heal%</span>回復",
+				exp:"攻撃範囲<span class='demerit'>縮小</span>、攻撃力<span class='merit'>+@atkadd%</span>、1秒ごとにHPが最大値の<span class='merit'>@heal%</span>回復",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:10,need:40,pers:25,atkadd:40,heal:5},
@@ -4483,7 +4411,7 @@ const operator = {
 		en:"Liskarm",
 		rare:5,job:"重装",relocation:70,speed:1.2,trust:{atk:45,def:45},tag:["近距離","防御","火力"],
 		recruitment:true,
-		characteristic:"敵を３体までブロック",
+		characteristic:"敵を3体までブロック",
 		stat:[
 			{
 				min:{hp:1307,atk:219,def:256},
