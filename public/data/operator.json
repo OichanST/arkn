@@ -10672,17 +10672,17 @@ const operator = {
 		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える<br/>攻撃時、敵を一瞬<span class='merit'>足止め</span>",
 		stat:[
 			{
-				min:{hp: 548,atk:202,def: 46},
-				max:{hp: 751,atk:298,def: 66},
+				min:{hp: 528,atk:208,def: 43},
+				max:{hp: 724,atk:306,def: 62},
 				res:10,cost:12,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
 				nature:{}
 			},
 			{
-				hp: 964,atk:398,def: 85,res:15,cost:14,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
+				hp: 930,atk:408,def: 80,res:15,cost:14,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
 				nature:{}
 			},
 			{
-				hp:1205,atk:480,def:101,res:20,cost:14,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
+				hp:1163,atk:492,def:96,res:20,cost:14,block:1,range:[[-1,-1],[0,-1],[1,-1],[2,-1],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,1]],
 				nature:{
 					"地質調査":{
 						exp:"特性による足止め効果の時間をわずかに延長"
@@ -10702,32 +10702,32 @@ const operator = {
 				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃しなくなり回復行動のみ行う",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:35,pers:20,atkadd:10},
+					{start:1,need:34,pers:20,atkadd:10},
+					{start:2,need:33,pers:20,atkadd:10},
+					{start:3,need:32,pers:21,atkadd:20},
+					{start:4,need:31,pers:21,atkadd:20},
+					{start:5,need:30,pers:21,atkadd:20},
+					{start:6,need:29,pers:22,atkadd:30},
+					{start:7,need:28,pers:23,atkadd:40},
+					{start:8,need:27,pers:24,atkadd:50},
+					{start:10,need:25,pers:25,atkadd:60}
 				]
 			},
 			"胞子飛散":{
-				exp:"胞子瓶を投げ、目標に命中後、一定範囲内で<span class='demerit'></span>秒継続する胞子を散布<br/>胞子範囲内の敵全員を足止めし、一部の特殊能力を無効化、更に1秒ごとに攻撃力の<span class='merit'>@slip%</span>の術ダメージを与える",
+				exp:"胞子瓶を投げ、目標に命中後、一定範囲内で<span class='demerit'>@time</span>秒継続する胞子を散布<br/>胞子範囲内の敵全員を足止めし、一部の特殊能力を無効化、更に1秒ごとに攻撃力の<span class='merit'>@atk%</span>の術ダメージを与える",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:10,need:35,time:5,atk:40},
+					{start:10,need:34,time:5,atk:40},
+					{start:10,need:33,time:5,atk:40},
+					{start:10,need:32,time:5,atk:50},
+					{start:10,need:31,time:5,atk:50},
+					{start:10,need:30,time:5,atk:50},
+					{start:10,need:29,time:5,atk:60},
+					{start:10,need:27,time:6,atk:65},
+					{start:10,need:25,time:6,atk:70},
+					{start:10,need:23,time:6,atk:80}
 				]
 			}
 		}
