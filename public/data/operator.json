@@ -354,7 +354,8 @@ const operator = {
 					{start:70,need:90,pers:60,atkadd:130,defadd:130,hpadd:130}
 				]
 			}
-		}
+		},
+		outfit:["summer"]
 	},
 	"シルバーアッシュ":{
 		en:"SilverAsh",
@@ -800,6 +801,107 @@ const operator = {
 					{start:21,need:38,pers:10,atkadd:65,defadd:65,dmg:360},
 					{start:23,need:37,pers:10,atkadd:70,defadd:70,dmg:380},
 					{start:25,need:35,pers:10,atkadd:80,defadd:80,dmg:400}
+				]
+			}
+		}
+	},
+	"ソーンズ":{
+		en:"Thorns",
+		rare:6,job:"前衛",relocation:70,speed:1.3,trust:{atk:30,def:70},tag:["近距離","火力","防御"],
+		characteristic:"80%の攻撃力で<span class='merit'>遠距離攻撃</span>も行える",
+		recruitment:true,
+		stat:[
+			{
+				min:{hp:1096,atk:296,def:191},
+				max:{hp:1567,atk:442,def:263},
+				res: 5,cost:18,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[0,1],[1,1]],
+				nature:{}
+			},
+			{
+				hp:2063,atk:575,def:333,res:10,cost:20,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[3,0],[0,1],[1,1]],
+				material:{},
+				nature:{
+					"神経猛毒":{
+						exp:"敵を攻撃時、3秒間1秒ごとに@base@pexpの術ダメージを与える中毒状態にする（遠距離攻撃を行える敵に対する効果倍増）",
+						base:65,
+						pexp:"(+@padd)",
+						padd:15
+					}
+				}
+			},
+			{
+				hp:2612,atk:711,def:402,res:10,cost:20,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[3,0],[0,1],[1,1]],
+				material:{},
+				nature:{
+					"神経猛毒":{
+						exp:"敵を攻撃時、3秒間1秒ごとに@base@pexpの術ダメージを与える中毒状態にする（遠距離攻撃を行える敵に対する効果倍増）",
+						base:125,
+						pexp:"(+@padd)",
+						padd:15
+					},
+					"故郷の濤声":{
+						exp:"2秒間通常攻撃せずにいると、1秒ごとにHPが最大値の@base%@pexp回復",
+						base:3.5
+						pexp:"(+@padd%)",
+						padd:0.5
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{nature:2},
+			{atk:26},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"攻撃力強化γ":{
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:0,need:40,pers:30,atkadd:30},
+					{start:0,need:40,pers:30,atkadd:35},
+					{start:0,need:40,pers:30,atkadd:40},
+					{start:5,need:37,pers:30,atkadd:45},
+					{start:5,need:37,pers:30,atkadd:50},
+					{start:5,need:37,pers:30,atkadd:55},
+					{start:10,need:35,pers:30,atkadd:60},
+					{start:10,need:34,pers:30,atkadd:75},
+					{start:10,need:33,pers:30,atkadd:90},
+					{start:15,need:30,pers:30,atkadd:100}
+				]
+			},
+			"迎撃針棘":{
+				exp:"攻撃しなくなり、攻撃力<span class='merit'>+@atkadd%</span>、防御力<span class=''>+@defadd%</span>、敵の通常攻撃を受ける時、前方一定範囲内の敵最大<span class='merit'>@target</span>体に遠距離攻撃を1回行う（<span class='merit'>@time</span>秒内発動上限1回）",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:10,need:35,pers:30,atkadd:30,defadd:40,target:4,time:0.8},
+					{start:10,need:34,pers:31,atkadd:30,defadd:45,target:4,time:0.8},
+					{start:10,need:33,pers:32,atkadd:30,defadd:50,target:4,time:0.8},
+					{start:10,need:32,pers:33,atkadd:30,defadd:55,target:4,time:0.8},
+					{start:10,need:32,pers:34,atkadd:30,defadd:60,target:4,time:0.8},
+					{start:10,need:30,pers:35,atkadd:30,defadd:65,target:4,time:0.8},
+					{start:10,need:29,pers:36,atkadd:40,defadd:70,target:4,time:0.75},
+					{start:10,need:28,pers:37,atkadd:45,defadd:80,target:4,time:0.7},
+					{start:10,need:27,pers:38,atkadd:50,defadd:90,target:4,time:0.65},
+					{start:10,need:25,pers:40,atkadd:60,defadd:110,target:4,time:0.6}
+				]
+			},
+			"デストレッツァ":{
+				exp:"攻撃範囲内<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>、攻撃力の100%で遠距離攻撃を行う<br/><span class='charge'>2回目以降スキル使用時、攻撃力と攻撃速度のスキル効果が1回目の2倍になり、退場まで効果継続</span>",
+				recover:"attack",activate:"manual",
+				effect:[
+					{start:0,need:15,pers:30,atkadd:26,speed:12},
+					{start:0,need:15,pers:30,atkadd:28,speed:12},
+					{start:0,need:15,pers:30,atkadd:30,speed:12},
+					{start:0,need:15,pers:30,atkadd:33,speed:14},
+					{start:0,need:15,pers:30,atkadd:35,speed:14},
+					{start:0,need:15,pers:30,atkadd:37,speed:14},
+					{start:0,need:15,pers:30,atkadd:40,speed:16},
+					{start:0,need:15,pers:30,atkadd:45,speed:19},
+					{start:0,need:15,pers:30,atkadd:50,speed:22},
+					{start:0,need:15,pers:30,atkadd:60,speed:25}
 				]
 			}
 		}
@@ -5196,7 +5298,8 @@ const operator = {
 					{need:50,atkadd:100,speed:-20}
 				]
 			}
-		}
+		},
+		outfit:["summer"]
 	},
 	"メテオリーテ":{
 		en:"Meteorite",relocation:70,speed:2.8,trust:{atk:85},tag:["遠距離","範囲攻撃","弱化"],
@@ -5379,7 +5482,8 @@ const operator = {
 					{need:30,pers:35,atkadd:220}
 				]
 			}
-		}
+		},
+		outfit:["summer"]
 	},
 	"ファイヤーウォッチ":{
 		en:"Firewatch",
@@ -5740,6 +5844,85 @@ const operator = {
 					{start:16,need:43,pers:28,atk:220,time:3,spddown:-13},
 					{start:18,need:42,pers:29,atk:230,time:3,spddown:-16},
 					{start:20,need:40,pers:30,atk:240,time:3,spddown:-20}
+				]
+			}
+		}
+	},
+	"アンドレアナ":{
+		en:"Andreana",
+		rare:5,job:"狙撃",relocation:70,speed:2.7,trust:{hp:300,atk:40},tag:["遠距離","火力","減速"],
+		recruitment:true,
+		characteristic:"攻撃範囲内の<span class='merit'>防御力が一番低い</span>敵を優先して攻撃",
+		stat:[
+			{
+				min:{hp: 737,atk: 479,def: 62},
+				max:{hp: 958,atk: 666,def: 83},
+				res:0,cost:19,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				nature:{}
+			},
+			{
+				hp:1198,atk: 877,def:104,res:0,cost:21,block:1,range:[[0,-2],[1,-2],[2,-2],[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[4,0],[0,1],[1,1],[2,1],[3,1],[0,2],[1,2],[2,2]],
+				material:{},
+				nature:{
+					"深海の第六感":{
+						exp:"編成中、味方【アビサル】の攻撃速度+@base@pexp",
+						base:6,
+						pexp:"(+@padd)",
+						padd:2
+					}
+				}
+			},
+			{
+				hp:1498,atk:1070,def:128,res:0,cost:21,block:1,range:[[0,-2],[1,-2],[2,-2],[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[4,0],[0,1],[1,1],[2,1],[3,1],[0,2],[1,2],[2,2]],
+				material:{},
+				nature:{
+					"深海の第六感":{
+						exp:"編成中、味方【アビサル】の攻撃速度+@base@pexp",
+						base:12,
+						pexp:"(+@padd)",
+						padd:2
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:35},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"攻撃力強化γ":{
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:0,need:40,pers:30,atkadd:30},
+					{start:0,need:40,pers:30,atkadd:35},
+					{start:0,need:40,pers:30,atkadd:40},
+					{start:5,need:37,pers:30,atkadd:45},
+					{start:5,need:37,pers:30,atkadd:50},
+					{start:5,need:37,pers:30,atkadd:55},
+					{start:10,need:35,pers:30,atkadd:60},
+					{start:10,need:34,pers:30,atkadd:75},
+					{start:10,need:33,pers:30,atkadd:90},
+					{start:15,need:30,pers:30,atkadd:100}
+				]
+			},
+			"脅威妨害戦術":{
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、HPが<span class='merit'>50%</span>以下の敵を攻撃しなくなり、攻撃対象の移動速度が<span class='merit'>@time</span>秒間<span class='merit'>@spddown%</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:10,need:40,pers:30,atkadd:130,time:3,spddown:-20},
+					{start:10,need:39,pers:30,atkadd:140,time:3,spddown:-20},
+					{start:10,need:38,pers:30,atkadd:150,time:3,spddown:-20},
+					{start:11,need:37,pers:30,atkadd:160,time:3,spddown:-20},
+					{start:11,need:36,pers:30,atkadd:170,time:3,spddown:-20},
+					{start:11,need:35,pers:30,atkadd:180,time:3,spddown:-20},
+					{start:12,need:34,pers:30,atkadd:190,time:4,spddown:-30},
+					{start:13,need:33,pers:30,atkadd:205,time:4,spddown:-35},
+					{start:14,need:32,pers:30,atkadd:220,time:5,spddown:-35},
+					{start:15,need:30,pers:30,atkadd:240,time:6,spddown:-40}
 				]
 			}
 		}
@@ -10993,6 +11176,83 @@ const operator = {
 					{need:25,pers:26,atkadd:55,nature:2.5},
 					{need:25,pers:28,atkadd:60,nature:2.5},
 					{need:25,pers:30,atkadd:70,nature:3}
+				]
+			}
+		}
+	},
+	"ジェイ":{
+		en:"Jaye",
+		rare:4,job:"特殊",relocation:25,speed:1,trust:{hp:200,atk:40},tag:["近距離","高速再配置","火力"],
+		recruitment:true,
+		characteristic:"再配置までの時間が極めて<span class='merit'>短い</span><br/>撤退時に<span class='merit'>コスト</span>を返却しない<br/>配置中、3秒ごとにコストを3<span class='merit'>消費</span>（コスト不足時に自動に撤退）",
+		stat:[
+			{
+				min:{hp:1110,atk:321,def:195},
+				max:{hp:1461,atk:441,def:250},
+				res:0,cost:5,block:1,range:[[1,0]],
+				nature:{}
+			},
+			{
+				hp:1804,atk:559,def:321,res:0,cost:7,block:1,range:[[1,0]],
+				nature:{
+					"解体の達人":{
+						exp:"【感染生物】を攻撃時、攻撃力が@base%@pexpまで上昇",
+						base:125,
+						pexp:"(+padd%)",
+						padd:5
+					}
+				}
+			},
+			{
+				hp:2284,atk:674,def:378,res:0,cost:7,block:1,range:[[1,0]],
+				nature:{
+					"解体の達人":{
+						exp:"【感染生物】を攻撃時、攻撃力が@base%@pexpまで上昇",
+						base:145,
+						pexp:"(+padd%)",
+						padd:5
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-3},
+			{atk:23},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"蟹爪断ち":{
+				passive:true,
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃対象の一部の特殊能力を<span class='merit'>@time</span>秒間無効化する<br/><span class='charge'>退場まで効果継続</span>",
+				effect:[
+					{atkadd:15,time:1},
+					{atkadd:20,time:1},
+					{atkadd:25,time:1},
+					{atkadd:30,time:1},
+					{atkadd:35,time:1},
+					{atkadd:40,time:1},
+					{atkadd:45,time:1},
+					{atkadd:50,time:2},
+					{atkadd:60,time:2},
+					{atkadd:70,time:2}
+				]
+			},
+			"刺身・乱れ盛り":{
+				passive:true,
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃時周囲一定範囲内の味方1体のHPを与ダメージの<span class='merit'>@heal%</span>回復",
+				effect:[
+					{atkadd:20,heal:30},
+					{atkadd:23,heal:30},
+					{atkadd:26,heal:30},
+					{atkadd:30,heal:35},
+					{atkadd:33,heal:35},
+					{atkadd:36,heal:35},
+					{atkadd:40,heal:40},
+					{atkadd:50,heal:40},
+					{atkadd:55,heal:45},
+					{atkadd:60,heal:50}
 				]
 			}
 		}
