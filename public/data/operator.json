@@ -841,7 +841,7 @@ const operator = {
 					},
 					"故郷の濤声":{
 						exp:"2秒間通常攻撃せずにいると、1秒ごとにHPが最大値の@base%@pexp回復",
-						base:3.5
+						base:3.5,
 						pexp:"(+@padd%)",
 						padd:0.5
 					}
