@@ -5979,7 +5979,6 @@ const operator = {
 	"アンドレアナ":{
 		en:"Andreana",
 		rare:5,job:"狙撃",relocation:70,speed:2.7,trust:{hp:300,atk:40},tag:["遠距離","火力","減速"],
-		recruitment:true,
 		characteristic:"攻撃範囲内の<span class='merit'>防御力が一番低い</span>敵を優先して攻撃",
 		stat:[
 			{
@@ -9123,7 +9122,6 @@ const operator = {
 	"ウタゲ":{
 		en:"Utage",
 		rare:4,job:"前衛",relocation:70,speed:1.2,trust:{atk:30,def:40},tag:["近距離","火力","生存"],
-		recruitment:true,
 		characteristic:"味方の治療対象にならない<br/>敵を攻撃する度HPを<span class='merit'></span><br/>（昇進２で効果強化）",
 		stat:[
 			{
@@ -11311,7 +11309,6 @@ const operator = {
 	"ジェイ":{
 		en:"Jaye",
 		rare:4,job:"特殊",relocation:25,speed:1,trust:{hp:200,atk:40},tag:["近距離","高速再配置","火力"],
-		recruitment:true,
 		characteristic:"再配置までの時間が極めて<span class='merit'>短い</span><br/>撤退時に<span class='merit'>コスト</span>を返却しない<br/>配置中、3秒ごとにコストを3<span class='merit'>消費</span>（コスト不足時に自動に撤退）",
 		stat:[
 			{
@@ -11603,6 +11600,7 @@ const operator = {
 		en:"Popukar",
 		rare:3,job:"前衛",relocation:70,speed:1.2,trust:{atk:50},tag:["近距離","範囲攻撃","生存"],
 		characteristic:"ブロック中の<span class='merit'>敵全員</span>を同時に攻撃",
+		recruitment:true,
 		stat:[
 			{
 				min:{hp:1130,atk:263,def:126},
