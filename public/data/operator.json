@@ -7680,6 +7680,77 @@ const operator = {
 			}
 		}
 	},
+	"シーン":{
+		en:"Scene",
+		rare:5,job:"補助",relocation:70,speed:1.6,trust:{hp:200,def:35},tag:["遠距離","召喚","支援"],
+		recruitment:true,
+		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える<br/><span class='merit'>召喚ユニット</span>を使用可能",
+		stat:[
+			{
+				min:{hp: 496,atk:194,def: 67},
+				max:{hp: 671,atk:278,def: 96},
+				res:15,cost: 9,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[0,1],[1,1],[2,1]],
+				nature:{
+					"ロボット撮影隊":{exp:"「撮影ロボット」が最大3体召喚可能。撮影ロボットの周囲8マスにいる敵全員のステルス効果を無効にする"}
+				}
+			},
+			{
+				hp: 872,atk:371,def:128,res:20,cost:11,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				material:{},
+				nature:{
+					"ロボット撮影隊":{exp:"「撮影ロボット」が最大4体召喚可能。撮影ロボットの周囲8マスにいる敵全員のステルス効果を無効にする"}
+				}
+			},
+			{
+				hp:1105,atk:432,def:155,res:20,cost:11,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				material:{},
+				nature:{
+					"ロボット撮影隊":{exp:"「撮影ロボット」が最大5体召喚可能。撮影ロボットの周囲8マスにいる敵全員のステルス効果を無効にする"}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{res:8},
+			{relocation:-6},
+			{cost:-1}
+		],
+		skill:{
+			"擬態化機能":{
+				exp:"撮影ロボット全員の攻撃力<span class='merit'>+@atkadd%</span>、<span class='merit'>迷彩</span>（未ブロック時敵の遠距離攻撃の対象にならない、範囲ダメージを受ける）状態になる<br/><span class='charge'>退場まで効果継続</span>",
+				recover:"auto",activate:"auto",infinity:true,
+				effect:[
+					{start:0,need:90,atkadd:10},
+					{start:0,need:87,atkadd:10},
+					{start:0,need:84,atkadd:10},
+					{start:0,need:81,atkadd:20},
+					{start:0,need:78,atkadd:20},
+					{start:0,need:75,atkadd:20},
+					{start:0,need:72,atkadd:30},
+					{start:0,need:69,atkadd:40},
+					{start:0,need:66,atkadd:50},
+					{start:0,need:60,atkadd:60}
+				]
+			},
+			"フルパノラマ撮影":{
+				exp:"「撮影ロボット」が1体追加召喚可能、撮影ロボット全員のアンチステルス効果範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、防御力<span class='merit'>+@defadd%</span>、術耐性<span class='merit'>+@resadd</span><span class='charge'>スキルの効果時間終了後撮影ロボット全員が5秒間スタンする</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:5,need:30,pers:15,atkadd:50,defadd:50,resadd:10},
+					{start:5,need:30,pers:15,atkadd:55,defadd:55,resadd:10},
+					{start:5,need:30,pers:15,atkadd:60,defadd:60,resadd:10},
+					{start:7,need:30,pers:16,atkadd:65,defadd:65,resadd:10},
+					{start:7,need:30,pers:16,atkadd:70,defadd:70,resadd:10},
+					{start:7,need:30,pers:16,atkadd:75,defadd:75,resadd:10},
+					{start:9,need:30,pers:17,atkadd:80,defadd:80,resadd:15},
+					{start:11,need:30,pers:18,atkadd:95,defadd:95,resadd:15},
+					{start:13,need:30,pers:19,atkadd:110,defadd:110,resadd:15},
+					{start:15,need:30,pers:20,atkadd:130,defadd:130,resadd:20}
+				]
+			}
+		}
+	},
 	"レッド":{
 		en:"Projekt Red",
 		rare:5,job:"特殊",relocation:18,speed:0.93,trust:{atk:75},tag:["近距離","高速再配置","牽制"],
@@ -11842,6 +11913,7 @@ const operator = {
 		en:"Spot",
 		rare:3,job:"重装",relocation:70,speed:1.2,trust:{atk:30,def:30},tag:["近距離","防御","治療"],
 		characteristic:"ＨＰ回復スキルを所持",
+		recruitment:true,
 		stat:[
 			{
 				min:{hp:1057,atk:165,def:225},
