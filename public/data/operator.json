@@ -7734,7 +7734,7 @@ const operator = {
 				]
 			},
 			"フルパノラマ撮影":{
-				exp:"「撮影ロボット」が1体追加召喚可能、撮影ロボット全員のアンチステルス効果範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、防御力<span class='merit'>+@defadd%</span>、術耐性<span class='merit'>+@resadd</span><span class='charge'>スキルの効果時間終了後撮影ロボット全員が5秒間スタンする</span>",
+				exp:"「撮影ロボット」が1体追加召喚可能、撮影ロボット全員のアンチステルス効果範囲<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、防御力<span class='merit'>+@defadd%</span>、術耐性<span class='merit'>+@resadd</span><br/><span class='charge'>スキルの効果時間終了後撮影ロボット全員が5秒間スタンする</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:5,need:30,pers:15,atkadd:50,defadd:50,resadd:10},
