@@ -474,7 +474,7 @@ const operator = {
 				]
 			}
 		},
-		outfit:["snow"]
+		outfit:["snow","summer"]
 	},
 	"チェン":{
 		en:"Ch'en",
@@ -1274,6 +1274,103 @@ const operator = {
 			},
 			"鉄御":{
 				exp:"攻撃力<span class='merit'>+@atkadd%</span>。周囲一定範囲内、自分以外の味方の防御力<span class='merit'>+@defadd%</span>、ブロック数<span class='merit'>+1</span>、<span class='merit'>レジスト</span>（スタン、寒冷、凍結の継続時間が50%減少）を付与される",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start:40,need:85,pers:40,atkadd: 55,defadd:30},
+					{start:42,need:85,pers:40,atkadd: 55,defadd:30},
+					{start:44,need:85,pers:40,atkadd: 60,defadd:30},
+					{start:48,need:85,pers:40,atkadd: 65,defadd:40},
+					{start:50,need:85,pers:40,atkadd: 70,defadd:40},
+					{start:52,need:85,pers:40,atkadd: 75,defadd:40},
+					{start:56,need:85,pers:40,atkadd: 80,defadd:50},
+					{start:60,need:85,pers:41,atkadd: 90,defadd:60},
+					{start:64,need:85,pers:42,atkadd:100,defadd:70},
+					{start:70,need:85,pers:45,atkadd:120,defadd:80}
+				]
+			}
+		}
+	},
+	"ユーネクテス":{
+		en:"Eunectes",
+		rare:6,job:"重装",relocation:70,speed:1.6,trust:{atk:70,def:70},tag:["近距離","火力","生存","防御"],
+		characteristic:"敵をブロックしていない時、SPが回復しない",
+		stat:[
+			{
+				min:{hp:1882,atk:462,def:247},
+				max:{hp:2614,atk:651,def:364},
+				res:0,cost:29,block:1,range:[[1,0]],
+				nature:{}
+			},
+			{
+				hp:3440,atk:835,def:492,res:0,cost:31,block:1,range:[[1,0]],
+				material:{},
+				nature:{
+					"勇武無双":{
+						exp:"HPが最大値の50%を超える時、敵に与えるダメージが115%になる<br/>HPが最大値の50%以下時、自身に【加護（受ける物理と術ダメージ@base%@pexp）】を付与（同種の効果は高いほうのみ適用）",
+						base:-10,
+						pexp:"(@padd%)",
+						padd:-2
+					}
+				}
+			},
+			{
+				hp:4468,atk:1007,def:615,res:0,cost:33,block:1,range:[[1,0]],
+				material:{},
+				nature:{
+					"勇武無双":{
+						exp:"HPが最大値の50%を超える時、敵に与えるダメージが115%になる<br/>HPが最大値の50%以下時、自身に【加護（受ける物理と術ダメージ@base%@pexp）】を付与（同種の効果は高いほうのみ適用）",
+						base:-20,
+						pexp:"(@padd%)",
+						padd:-2
+					},
+					"闘争本能":{
+						exp:"敵をブロック中、自身のSP回復速度+0.2/秒"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{def:27},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"トマホーク":{
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、防御力<span class='merit'>+@defadd%</span>",
+				passive:true,
+				effect:[
+					{start:10,need:30,pers:20,defadd:25,atkadd:10},
+					{start:10,need:30,pers:21,defadd:30,atkadd:10},
+					{start:10,need:30,pers:22,defadd:35,atkadd:10},
+					{start:10,need:30,pers:23,defadd:40,atkadd:20},
+					{start:10,need:30,pers:24,defadd:45,atkadd:20},
+					{start:10,need:30,pers:25,defadd:50,atkadd:20},
+					{start:10,need:30,pers:26,defadd:55,atkadd:30},
+					{start:10,need:30,pers:27,defadd:60,atkadd:35},
+					{start:10,need:30,pers:28,defadd:65,atkadd:40},
+					{start:10,need:30,pers:30,defadd:70,atkadd:45}
+				]
+			},
+			"烈震崩撃":{
+				exp:"攻撃間隔が<span class='demerit'>わずかに延長</span>、攻撃力<span class='merit'>+@atkadd%</span>。効果時間内、自身がブロック中の敵全員をスタンさせる",
+				recover:"auto",activate:"manual",noAttack:true,res:true,
+				effect:[
+					{start:25,eed:50,pers:30,defadd: 60,reflect: 50,seal:3},
+					{start:26,eed:50,pers:30,defadd: 65,reflect: 50,seal:3},
+					{start:27,eed:50,pers:30,defadd: 70,reflect: 50,seal:3},
+					{start:28,eed:50,pers:31,defadd: 80,reflect: 60,seal:3},
+					{start:29,eed:50,pers:31,defadd: 85,reflect: 60,seal:3},
+					{start:30,eed:50,pers:31,defadd: 90,reflect: 60,seal:3},
+					{start:31,eed:50,pers:32,defadd:100,reflect: 70,seal:3},
+					{start:32,eed:50,pers:33,defadd:110,reflect: 70,seal:4},
+					{start:33,eed:50,pers:34,defadd:120,reflect: 80,seal:4},
+					{start:35,eed:50,pers:35,defadd:130,reflect: 90,seal:5}
+				]
+			},
+			"鋼鉄の意思":{
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、防御力<span class='merit'>+@defadd%</span>、ブロック数<span class='merit'>+@block%</span>、1秒ごとにHPを最大値の<span class='merit'>@heal%</span>回復<br/><span class='charge'>スキルの効果時間終了後5秒間スタンする</span>",
 				recover:"auto",activate:"manual",
 				effect:[
 					{start:40,need:85,pers:40,atkadd: 55,defadd:30},
@@ -2220,7 +2317,8 @@ const operator = {
 					{start:55,need:80,pers:60,atkadd:210,time:5}
 				]
 			}
-		}
+		},
+		outfit:["summer"]
 	},
 	"シャイニング":{
 		en:"Shining",
@@ -4637,6 +4735,86 @@ const operator = {
 			}
 		}
 	},
+	"フリント":{
+		en:"Flint",
+		rare:5,job:"前衛",relocation:70,speed:0.78,trust:{atk:75},tag:["近距離","火力"],
+		recruitment:true,
+		characteristic:"敵を１体までブロック",
+		stat:[
+			{
+				min:{hp:1180,atk:224,def:144},
+				max:{hp:1595,atk:330,def:207},
+				res:0,cost: 8,block:1,range:[[1,0]],
+				nature:{}
+			},
+			{
+				hp:2045,atk:441,def:280,res:0,cost:10,block:1,range:[[1,0]],
+				material:{},
+				nature:{
+					"アウトボクシング":{
+						exp:"自身にブロックされていない敵に与えるダメージ+@base%@pexp",
+						base:20,
+						pexp:"(+@padd%)",
+						padd:5
+					}
+				}
+			},
+			{
+				hp:2495,atk:545,def:334,res:0,cost:10,block:1,range:[[1,0]],
+				material:{},
+				nature:{
+					"アウトボクシング":{
+						exp:"自身にブロックされていない敵に与えるダメージ+@base%@pexp",
+						base:40,
+						pexp:"(+@padd%)",
+						padd:5
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:24},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"ストマックブロー":{
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇し、敵を攻撃方向に<span class='merit'>@pow</span>突き飛ばし、1秒足止めする",
+				recover:"attack",activate:"auto",
+				effect:[
+					{need:4,atkadd: 50,penetrate:35},
+					{need:4,atkadd: 60,penetrate:35},
+					{need:4,atkadd: 70,penetrate:35},
+					{need:4,atkadd: 80,penetrate:40},
+					{need:4,atkadd: 90,penetrate:40},
+					{need:4,atkadd:100,penetrate:40},
+					{need:4,atkadd:110,penetrate:45},
+					{need:4,atkadd:120,penetrate:50},
+					{need:4,atkadd:130,penetrate:55},
+					{need:4,atkadd:140,penetrate:60}
+				]
+			},
+			"鳥舞蜂刺":{
+				exp:"ブロック数が0になり、攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>、攻撃対象を0.3秒足止めする",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start: 0,need:50,pers:25,atkadd: 45,heal:10},
+					{start: 0,need:50,pers:25,atkadd: 50,heal:10},
+					{start: 0,need:50,pers:25,atkadd: 55,heal:10},
+					{start: 5,need:50,pers:25,atkadd: 60,heal:15},
+					{start: 5,need:50,pers:25,atkadd: 65,heal:15},
+					{start: 5,need:50,pers:25,atkadd: 70,heal:15},
+					{start:10,need:50,pers:25,atkadd: 75,heal:20},
+					{start:15,need:50,pers:25,atkadd: 90,heal:20},
+					{start:20,need:50,pers:25,atkadd:105,heal:20},
+					{start:25,need:50,pers:25,atkadd:120,heal:25}
+				]
+			},
+		}
+		
+	},
 	"リスカム":{
 		en:"Liskarm",
 		rare:5,job:"重装",relocation:70,speed:1.2,trust:{atk:45,def:45},tag:["近距離","防御","火力"],
@@ -4814,7 +4992,8 @@ const operator = {
 					{need:17,pow:"力強く"    ,atk:480,stan:4}
 				]
 			}
-		}
+		},
+		outfit:["summer"]
 	},
 	"二アール":{
 		en:"Nearl",
@@ -6631,8 +6810,92 @@ const operator = {
 					{start:10,need:20,pers:20,atk:300,stan:3}
 				]
 			}
-		},
-		outfit:["winter"]
+		}
+	},
+	"トミミ":{
+		en:"Tomimi",
+		rare:5,job:"術師",relocation:80,speed:1.6,trust:{hp:200,atk:35},tag:["遠距離","火力","生存"],
+		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える",
+		stat:[
+			{
+				min:{hp: 837,atk:271,def: 45},
+				max:{hp:1197,atk:383,def: 76},
+				res:10,cost:20,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[0,1],[1,1],[2,1]],
+				nature:{
+					"荒野術師流戦法":{
+						exp:"スキル発動中、通常攻撃が物理攻撃になる（飛行ユニットを攻撃不可）、攻撃力+@base%@pexp",
+						base:50,
+						pexp:"(+@padd%)",
+						padd:20
+					}
+				}
+			},
+			{
+				hp:1555,atk:504,def:106,res:15,cost:22,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				material:{},
+				nature:{
+					"荒野術師流戦法":{
+						exp:"スキル発動中、通常攻撃が物理攻撃になる（飛行ユニットを攻撃不可）、攻撃力+@base%@pexp",
+						base:75,
+						pexp:"(+@padd%)",
+						padd:20
+					}
+				}
+			},
+			{
+				hp:1920,atk:600,def:119,res:20,cost:22,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				material:{},
+				nature:{
+					"荒野術師流戦法":{
+						exp:"スキル発動中、通常攻撃が物理攻撃になる（飛行ユニットを攻撃不可）、攻撃力+@base%@pexp",
+						base:100,
+						pexp:"(+@padd%)",
+						padd:20
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-10},
+			{cost:-1},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"部族の教え":{
+				exp:"攻撃速度<span class='merit'>+@speed</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start: 0,need:40,pers:30,speed:30},
+					{start: 0,need:40,pers:30,speed:35},
+					{start: 0,need:40,pers:30,speed:40},
+					{start: 5,need:35,pers:30,speed:45},
+					{start: 5,need:35,pers:30,speed:50},
+					{start: 5,need:35,pers:30,speed:55},
+					{start:10,need:32,pers:30,speed:60},
+					{start:10,need:32,pers:30,speed:70},
+					{start:10,need:32,pers:30,speed:80},
+					{start:15,need:30,pers:30,speed:90}
+				]
+			},
+			"ガヴィル保護プラン":{
+				exp:"攻撃時<span class='merit'>@atk%</span>での確率で次の効果からランダムで一つ発動する：攻撃対象を<span class='merit'>@stan</span>秒間スタンさせる/その攻撃のみ攻撃力が<span class='merit'>@atk%</span>まで上昇/その攻撃のみ範囲ダメージを与える",
+				recover:"auto",activate:"manual",
+				effect:[
+					{need:100,pers:25,atk:33,cnt:6},
+					{need:100,pers:25,atk:35,cnt:6},
+					{need:100,pers:25,atk:37,cnt:6},
+					{need:100,pers:25,atk:39,cnt:7},
+					{need:100,pers:25,atk:41,cnt:7},
+					{need:100,pers:25,atk:43,cnt:7},
+					{need:100,pers:25,atk:45,cnt:7},
+					{need:100,pers:25,atk:50,cnt:8},
+					{need:100,pers:25,atk:55,cnt:8},
+					{need:100,pers:25,atk:60,cnt:8}
+				]
+			}
+		}
 	},
 	"サイレンス":{
 		en:"Silence",
@@ -9264,7 +9527,8 @@ const operator = {
 					{time:16,atkadd:110}
 				]
 			}
-		}
+		},
+		outfit:["summer"]
 	},
 	"カッター":{
 		en:"Cutter",
@@ -10168,6 +10432,78 @@ const operator = {
 					{start:10,need:25,pers:36,atkadd:70,intervaladd:0.9},
 					{start:10,need:25,pers:38,atkadd:80,intervaladd:0.9},
 					{start:10,need:25,pers:40,atkadd:100,intervaladd:0.9}
+				]
+			}
+		}
+	},
+	"アシッドドロップ":{
+		en:"Aciddrop",
+		rare:4,job:"狙撃",relocation:70,speed:1.6,trust:{atk:80},tag:["遠距離","火力"],
+		characteristic:"高威力の中距離射撃",
+		stat:[
+			{
+				min:{hp: 617,atk:313,def: 79},
+				max:{hp: 933,atk:429,def:114},
+				res:0,cost:14,block:1,range:[[0,-1],[1,-1],[1,0],[2,0],[0,1],[1,1]],
+				nature:{}
+			},
+			{
+				hp:1197,atk:565,def:152,res:0,cost:16,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[0,1],[1,1],[2,1]],
+				material:{},
+				nature:{
+					"スライドショット":{
+						exp:"敵を攻撃時、必ず攻撃力の20%以上のダメージを与える（攻撃対象が前方直線2マスにいる時、効果が30%に上昇する）"
+					}
+				}
+			},
+			{
+				hp:1576,atk:735,def:209,res:0,cost:18,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[0,1],[1,1],[2,1]],
+				material:{},
+				nature:{
+					"スライドショット":{
+						exp:"敵を攻撃時、必ず攻撃力の25%以上のダメージを与える（攻撃対象が前方直線2マスにいる時、効果が40%に上昇する）"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:30},
+			{relocation:-4},
+			{cost:-1}
+		],
+		skill:{
+			"ファンシーショット":{
+				exp:"攻撃速度<span class='merit'>+@speed</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{atkadd:8},
+					{atkadd:9},
+					{atkadd:10},
+					{atkadd:12},
+					{atkadd:13},
+					{atkadd:14},
+					{atkadd:16},
+					{atkadd:19},
+					{atkadd:22},
+					{atkadd:25}
+				]
+			},
+			"ダブルトリガー":{
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、通常攻撃が<span class='merit'>2連撃</span>になる",
+				recover:"auto",activate:"manual",
+				effect:[
+					{need:30,pers:20,atkadd:130},
+					{need:30,pers:20,atkadd:135},
+					{need:30,pers:20,atkadd:140},
+					{need:30,pers:25,atkadd:145},
+					{need:30,pers:25,atkadd:150},
+					{need:30,pers:25,atkadd:155},
+					{need:30,pers:30,atkadd:160},
+					{need:30,pers:31,atkadd:180},
+					{need:30,pers:32,atkadd:200},
+					{need:30,pers:35,atkadd:220}
 				]
 			}
 		}
@@ -11298,7 +11634,7 @@ const operator = {
 				]
 			}
 		},
-		outfit:["witch"]
+		outfit:["witch","summer"]
 	},
 	"イーサン":{
 		en:"Ethan",
