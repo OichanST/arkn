@@ -11,7 +11,7 @@ const conn =
 "postgres://rosndqtazwwzac:a066047b5ec4f8537219912347a5ef2155dc555c6475210d00593086a0800dde@ec2-184-72-235-80.compute-1.amazonaws.com:5432/d3ku61oage2jn9"
 const pool = new pg.Pool({
 	connectionString:conn,
-	ssl:true
+	ssl:{rejectUnauthorized: false}
 /*
 	user:"rosndqtazwwzac",
 	password:"a066047b5ec4f8537219912347a5ef2155dc555c6475210d00593086a0800dde",
