@@ -920,6 +920,102 @@ const operator = {
 			}
 		}
 	},
+	"スルト":{
+		en:"Surtr",
+		rare:6,job:"前衛",relocation:70,speed:1.5,trust:{atk:100},tag:["近距離","火力"],
+		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える",
+		stat:[
+			{
+				min:{hp:1442,atk:415,def:116},
+				max:{hp:2060,atk:611,def:167},
+				res:0,cost:17,block:1,range:[[1,0]],
+				nature:{}
+			},
+			{
+				hp:2785,atk:774,def:220,res:0,cost:19,block:1,range:[[1,0]],
+				material:{},
+				nature:{
+					"劫火":{
+						exp:"敵の術耐性を20%無視して攻撃",
+						base:7,
+						pexp:"(+@padd%)",
+						padd:2
+					}
+				}
+			},
+			{
+				hp:3665,atk:933,def:263,res:0,cost:19,block:1,range:[[1,0]],
+				material:{},
+				nature:{
+					"劫火":{
+						exp:"敵の術耐性を20%無視して攻撃",
+						base:14,
+						pexp:"(+@padd%)",
+						padd:2
+					},
+					"余燼":{exp:"致命的なダメージを受けてもHPが1残る<br/>効果発動から8秒後強制退場"}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{nature:2},
+			{atk:28},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"レーヴァテイン":{
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇し、敵を倒すとSPを全回復する",
+				recover:"attack",activate:"auto",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"災厄の巨焔":{
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>+1</span>マス、敵<span class='merit'>2</span>体を同時攻撃可能<br/>攻撃対象が1対のみの場合、攻撃力が<span class='merit'>@atk%</span>まで上昇",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"ラグナロク":{
+				exp:"自身のHPを最大まで回復<br/>攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>+2</span>マス、敵<span class='merit'>3</span>体を同時攻撃可能、最大HP<span class='merit'>+5000</span>、HPが徐々に減少（減少割合は時間と共に増加し、<span class='merit'>60</span>秒後に最大HPの20%/秒になる）<br/><span class='charge'>退場まで効果継続</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		},
+		outfit:["summer"]
+	},
 	"ホシグマ":{
 		en:"Hoshiguma",
 		rare:6,job:"重装",relocation:70,speed:1.2,trust:{atk:60,def:60},tag:["近距離","防御","火力"],
@@ -6233,6 +6329,79 @@ const operator = {
 			}
 		}
 	},
+	"エイプリル":{
+		en:"April",
+		rare:5,job:"狙撃",relocation:70,speed:1.0,trust:{atk:75},tag:["遠距離","火力"],
+		characteristic:"飛行ユニットを優先して攻撃",
+		stat:[
+			{
+				min:{hp:667,atk:173,def:53},
+				max:{hp:954,atk:289,def:89},
+				res:0,cost:11,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
+				nature:{}
+			},
+			{
+				hp:1224,atk:420,def:128,
+				res:0,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				nature:{
+					"ベテランハンター":{
+						exp:"自身の再配置時間-20秒、コスト-1"
+					}
+				}
+			},
+			{
+				hp:1493,atk:513,def:152,
+				res:0,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				nature:{
+					"ベテランハンター":{
+						exp:"自身の再配置時間-20秒、コスト-1"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:23},
+			{relocation:-6},
+			{cost:-1}
+		],
+		skill:{
+			"精密射撃":{
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇",
+				recover:"attack",activate:"auto",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"コンシールメント":{
+				exp:"配置後攻撃力<span class='merit'>+@atkadd%</span>、【迷彩】（未ブロック時的の遠距離攻撃の対象にならない、範囲ダメージを受ける）状態になる",
+				passive:true,
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		},
+		outfit:[""]
+	},
 	"アーミヤ":{
 		en:"Amiya",
 		rare:5,job:"術師",relocation:70,speed:1.6,trust:{hp:200,atk:70},tag:["遠距離","火力"],
@@ -6893,6 +7062,78 @@ const operator = {
 					{need:100,pers:25,atk:50,cnt:8},
 					{need:100,pers:25,atk:55,cnt:8},
 					{need:100,pers:25,atk:60,cnt:8}
+				]
+			}
+		}
+	},
+	"ミント":{
+		en:"Mint",
+		rare:5,job:"術師",relocation:80,speed:2,trust:{atk:70,def:20},tag:["遠距離","範囲攻撃","牽制"],
+		characteristic:"通常時<span class='merit'>攻撃しない</span>、防御力と術耐性大幅<span class='merit'>上昇</span><br/>スキル発動中、通常攻撃が攻撃範囲内の敵全員に<span class='merit'>範囲術ダメージ</span>を与える",
+		stat:[
+			{
+				min:{hp:1052,atk:378,def:131},
+				max:{hp:1315,atk:505,def:153},
+				res:15,cost:21,block:1,range:[[-1,-1],[0,1],[1,-1],[-1,0],[1,0],[-1,1],[0,1],[1,1]],
+				nature:{}
+			},
+			{
+				hp:1644,atk:632,def:178,res:15,cost:23,block:1,range:[[-2,0],[-1,-1],[0,1],[1,-1],[-2,0],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,0]],
+				material:{},
+				nature:{
+					"地質学者":{
+						exp:"スキル未発動時、隣接4マス内の味方全員の防御力+12%<br/>スキル発動中、敵に狙われにくくなる"
+					}
+				}
+			},
+			{
+				hp:2005,atk:735,def:205,res:15,cost:23,block:1,range:[[-2,0],[-1,-1],[0,1],[1,-1],[-2,0],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,0]],
+				material:{},
+				nature:{
+					"地質学者":{
+						exp:"スキル未発動時、隣接4マス内の味方全員の防御力+12%<br/>スキル発動中、敵に狙われにくくなる"
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-10},
+			{cost:-1},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"風のささやき":{
+				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃時、敵に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与える",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"スパイラルバースト":{
+				exp:"攻撃時、敵を<span class='merit'>普通の力で</span>引き寄せ、攻撃力の<span class='merit'>@atk%</span>の術ダメージを与える<br/>スキル効果時間終了時、攻撃範囲内の敵全員に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与える",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
 				]
 			}
 		}
@@ -9604,6 +9845,127 @@ const operator = {
 					{start:3,need:14,target:6,atk:400},
 					{start:4,need:13,target:6,atk:420},
 					{start:5,need:12,target:6,atk:450}
+				]
+			}
+		}
+	},
+	"アレーン":{
+		en:"Arene",
+		rare:4,job:"前衛",relocation:70,speed:1.3,trust:{def:55},tag:["近距離","火力"],
+		recruitment:true,
+		characteristic:"８０％の攻撃力で<span class='merit'>遠距離攻撃</span>も行える",
+		stat:[
+			{
+				min:{hp: 949,atk:272,def:154},
+				max:{hp:1356,atk:400,def:211},
+				res: 5,cost:16,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[0,1],[1,1]],
+				nature:{}
+			},
+			{
+				hp:1785,atk:534,def:268,res:10,cost:18,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[3,0],[0,1],[1,1]]
+			},
+			{
+				hp:2260,atk:660,def:323,res:10,cost:18,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[3,0],[0,1],[1,1]],
+				nature:{
+					"構造分解":{exp:"【ドローン】を優先して攻撃。【ドローン】を攻撃時攻撃力+40%"}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:18},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"いたずら":{
+				exp:"ブロック数が0になり、通常攻撃が敵に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与える2連撃になる",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"フェイタルトリック":{
+				exp:"攻撃範囲拡大、特性による遠距離攻撃時の攻撃力低下が無効化される<br/>攻撃時、敵に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、敵2体を同時に攻撃",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		}
+	},
+	"コンビクション":{
+		en:"Conviction",
+		rare:4,job:"前衛",relocation:70,speed:1.3,trust:{def:55},tag:["近距離","火力","生存","牽制","爆発力"],
+		characteristic:"敵を1体までブロック",
+		stat:[
+			{
+				min:{hp: 949,atk:272,def:154},
+				max:{hp:1356,atk:400,def:211},
+				res: 5,cost:16,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[0,1],[1,1]],
+				nature:{}
+			},
+			{
+				hp:1785,atk:534,def:268,res:10,cost:18,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[3,0],[0,1],[1,1]]
+			},
+			{
+				hp:2260,atk:660,def:323,res:10,cost:18,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[3,0],[0,1],[1,1]],
+				nature:{
+					"備えなき降臨":{exp:"自身のコスト-4、再配置時間-15秒、配置後10秒スタンする"}
+				}
+			}
+		],
+		potential:[],
+		skill:{
+			"断罪":{
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇（<span class='merit'>5%</span>の確率で攻撃力が<span class='merit'>600%</span>まで上昇）<br/><span class='charge'>3回チャージ可能</span>",
+				recover:"auto",activate:"auto",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"創世記":{
+				exp:"周囲一定範囲内の敵全員に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、攻撃対象の一部の特殊能力を<span class='merit'>2</span>秒間無効化する<br/><span class='charge'>50%の確率で発動失敗になる。失敗時、効果範囲内の味方全員を5秒間スタンさせる</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
 				]
 			}
 		}
