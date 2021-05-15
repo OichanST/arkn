@@ -4834,7 +4834,6 @@ const operator = {
 	"フリント":{
 		en:"Flint",
 		rare:5,job:"前衛",relocation:70,speed:0.78,trust:{atk:75},tag:["近距離","火力"],
-		recruitment:true,
 		characteristic:"敵を１体までブロック",
 		stat:[
 			{
@@ -10804,7 +10803,7 @@ const operator = {
 		characteristic:"高威力の中距離射撃",
 		stat:[
 			{
-				min:{hp: 617,atk:313,def: 79},
+				min:{hp: 671,atk:313,def: 79},
 				max:{hp: 933,atk:429,def:114},
 				res:0,cost:14,block:1,range:[[0,-1],[1,-1],[1,0],[2,0],[0,1],[1,1]],
 				nature:{}
