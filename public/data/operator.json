@@ -3472,7 +3472,8 @@ const operator = {
 					{pow:"普通の力で",atk:300,time:4.5}
 				]
 			}
-		}
+		},
+		outfit:["ghost"]
 	},
 	"ウィーディ":{
 		en:"Weedy",
@@ -5188,6 +5189,91 @@ const operator = {
 			},
 		}
 		
+	},
+	"ウィスラッシュ":{
+		en:"Whislash",
+		rare:5,job:"前衛",relocation:70,speed:1.05,trust:{atk:30,def:40},tag:["近距離","火力","支援"],
+		characteristic:"攻撃距離が<span class='merit'>やや長い</span>",
+		stat:[
+			{
+				min:{hp: 703,atk:261,def:193},
+				max:{hp: 964,atk:373,def:273},
+				res:0,cost:14,block:2,range:[[1,0],[2,0]],
+				material:{},
+				nature:{
+					"叱責":{
+						exp:"",
+						base:3,
+						pexp:"(+@padd%)",
+						padd:2
+					}
+				}
+			},
+			{
+				hp:1252,atk:498,def:346,res:0,cost:16,block:2,range:[[1,0],[2,0]],
+				material:{},
+				nature:{
+					"叱責":{
+						exp:"配置中、ブロック数が3以上の味方近距離ユニットの攻撃速度+8、防御力+14%",
+						base:6,
+						pexp:"(+@padd%)",
+						padd:2
+					}
+				}
+			},
+			{
+				hp:1740,atk:593,def:413,res:0,cost:16,block:2,range:[[1,0],[2,0]],
+				nature:{
+					"叱責":{
+						exp:"配置中、ブロック数が3以上の味方近距離ユニットの攻撃速度+8、防御力+14%",
+						base:10,
+						pexp:"(+@padd%)",
+						padd:2
+					}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-10},
+			{cost:-1},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"激励の美学":{
+				exp:"素質の効果が<span class='merit'>2.5</span>倍まで上昇、ブロック数が2以下の近距離ユニットにも半分の効果を与える",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"鞭刃解放":{
+				exp:"素質の効果が<span class='merit'>1.5</span>倍まで上昇<br/>攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>+1</span>マス、ブロック数<span class='merit'>+1</span>、ブロック中の敵全員を同時に攻撃",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		}
 	},
 	"リスカム":{
 		en:"Liskarm",
