@@ -10818,6 +10818,73 @@ const operator = {
 			}
 		}
 	},
+	"バブル":{
+		en:"Bubble",
+		rare:4,job:"重装",
+		recruitment:true,
+		characteristic:"敵を３体までブロック",relocation:70,speed:1.2,trust:{def:75},tag:["近距離","防御"],
+		stat:[
+			{
+				min:{hp:1221,atk:193,def:249},
+				max:{hp:1629,atk:248,def:372},
+				res:0,cost:17,block:3,range:[],
+				nature:{}
+			},
+			{
+				hp:2173,atk:310,def:503,res:0,cost:19,block:3,range:[],
+				nature:{
+					"トゲトゲシールド":{exp:"バブルを攻撃した敵の攻撃力が5秒間-8%"}
+				}
+			},
+			{
+				hp:3105,atk:365,def:690,res:0,cost:21,block:3,range:[],
+				nature:{
+					"トゲトゲシールド":{exp:"バブルを攻撃した敵の攻撃力が5秒間-8%"}
+				}
+			}
+		],
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{def:25},
+			{relocation:-6},
+			{cost:-1}
+		],
+		skill:{
+			"防御力強化β":{
+				exp:"防御力<span class='merit'>+@defadd%</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{start: 0,need:45,pers:35,defadd:20},
+					{start: 0,need:45,pers:35,defadd:25},
+					{start: 0,need:45,pers:35,defadd:30},
+					{start: 5,need:40,pers:35,defadd:35},
+					{start: 5,need:40,pers:35,defadd:40},
+					{start: 5,need:40,pers:35,defadd:45},
+					{start: 5,need:38,pers:35,defadd:50},
+					{start: 5,need:37,pers:35,defadd:60},
+					{start: 5,need:36,pers:35,defadd:70},
+					{start:10,need:35,pers:35,defadd:80}
+				]
+			},
+			"「かかってこい！」":{
+				exp:"攻撃しなくなり、防御力<span class='merit'>+@defadd%</span>、敵に攻撃されやすくなる。攻撃される度自身の防御力の<span class='merit'>@reflect%</span>の物理ダメージで敵に反撃する",
+				recover:"auto",activate:"manual",
+				effect:[
+					{need:40,pers:30,defadd:55,heal:1},
+					{need:40,pers:30,defadd:60,heal:1},
+					{need:40,pers:30,defadd:65,heal:1},
+					{need:40,pers:30,defadd:75,heal:1},
+					{need:40,pers:30,defadd:80,heal:1},
+					{need:40,pers:30,defadd:85,heal:1},
+					{need:40,pers:30,defadd:95,heal:2},
+					{need:40,pers:30,defadd:105,heal:2},
+					{need:40,pers:30,defadd:115,heal:2},
+					{need:40,pers:30,defadd:130,heal:3}
+				]
+			}
+		}
+	},
 	"ジェシカ":{
 		en:"Jessica",
 		rare:4,job:"狙撃",relocation:70,speed:1.0,trust:{atk:65},tag:["遠距離","火力","生存"],
