@@ -3237,7 +3237,8 @@ const operator = {
 					{start:50,need:70,pers:35,nature:2,heal:20}
 				]
 			}
-		}
+		},
+		outfit:["wild"]
 	},
 	"ア":{
 		en:"Aak",
