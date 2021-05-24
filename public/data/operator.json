@@ -6766,6 +6766,90 @@ const operator = {
 		},
 		outfit:["wild"]
 	},
+	"アオスタ":{
+		en:"Aosta",
+		rare:5,job:"狙撃",relocation:70,speed:2.3,trust:{atk:65},tag:["遠距離","範囲攻撃"],
+		characteristic:"攻撃範囲内の<span class='merit'>敵全員</span>を同時に攻撃し、自身の正面横3マスにいる敵を攻撃時攻撃力が150%まで上昇",
+		stat:[
+			{
+				min:{hp:1035,atk:327,def:100},
+				max:{hp:1380,atk:468,def:131},
+				res:0,cost:28,block:1,range:[[1,-1],[1,0],[2,0],[1,1]],
+				material:{},
+				nature:{}
+			},
+			{
+				hp:1747,atk:604,def:166,
+				res:0,cost:31,block:1,range:[[1,-1],[2,-1],[1,0],[2,0],[1,1],[2,1]],
+				material:{},
+				nature:{
+					"釘刺創":{
+						exp:"",
+						base:80,
+						pexp:"(+@padd)",
+						padd:15
+					}
+				}
+			},
+			{
+				hp:2330,atk:720,def:185,
+				res:0,cost:31,block:1,range:[[1,-1],[2,-1],[1,0],[2,0],[1,1],[2,1]],
+				nature:{
+					"釘刺創":{
+						exp:"ブロックされていない敵を攻撃時、攻撃対象を3秒間、1秒ごとにアオスタの攻撃力の18%の術ダメージ（特性に影響されない）を受ける流血状態にする",
+						base:160,
+						pexp:"(+@padd)",
+						padd:15
+					}
+				}
+			}
+		],
+		target:function(arg){
+			return arg.eneCnt;
+		},
+		potential:[
+			{cost:-1},
+			{relocation:-4},
+			{atk:26},
+			{nature:1},
+			{cost:-1}
+		],
+		skill:{
+			"迅速攻撃γ":{
+				exp:"攻撃力<span class='merit'>+29%</span>、攻撃速度<span class='merit'>+@speed</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"影縫い釘":{
+				exp:"通常攻撃の間隔が<span class='merit'>延長</span>し、攻撃力<span class='merit'>+40%</span>、攻撃対象に<span class='merit'>1</span>秒の【バインド】を付与、素質のダメージ計算係数倍増",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
+		},
+		outfit:["boc"]
+	},
 	"アーミヤ":{
 		en:"Amiya",
 		rare:5,job:"術師",relocation:70,speed:1.6,trust:{hp:200,atk:70},tag:["遠距離","火力"],
