@@ -1618,7 +1618,7 @@ const operator = {
 			{nature:1},
 			{cost:-1}
 		],
-		skill:[
+		skill:{
 			"防御力強化γ":{
 				exp:"防御力<span class='merit'>+@defadd%</span>",
 				recover:"auto",activate:"manual",
@@ -1667,7 +1667,7 @@ const operator = {
 					{}
 				]
 			}
-		]
+		}
 	},
 	"エクシア":{
 		en:"Exusiai",
