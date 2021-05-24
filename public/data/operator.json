@@ -1514,7 +1514,7 @@ const operator = {
 					"憐憫":{
 						exp:"【眠り】状態の時を攻撃でき、優先して攻撃する<br/>【眠り】状態の敵を攻撃時、攻撃力が@base@pexp%まで上昇",
 						base:120,
-						pexp;"(+@padd)",
+						pexp:"(+@padd)",
 						padd:4
 					}
 				}
@@ -1529,7 +1529,7 @@ const operator = {
 					"憐憫":{
 						exp:"【眠り】状態の時を攻撃でき、優先して攻撃する<br/>【眠り】状態の敵を攻撃時、攻撃力が@base@pexp%まで上昇",
 						base:140,
-						pexp;"(+@padd)",
+						pexp:"(+@padd)",
 						padd:4
 					}
 				}
