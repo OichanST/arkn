@@ -164,6 +164,9 @@ const operator = {
 				}
 			}
 		],
+		cond:function(arg){
+			return "確率";
+		},
 		dmgUp:function(arg){
 			if(arg.promotion == 1){
 				if(!arg.enhanceNature1){
