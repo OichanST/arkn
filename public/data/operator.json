@@ -6764,7 +6764,7 @@ const operator = {
 				]
 			}
 		},
-		outfit:[""]
+		outfit:["wild"]
 	},
 	"アーミヤ":{
 		en:"Amiya",
@@ -8390,7 +8390,8 @@ const operator = {
 					{start:20,need:30,atk:400,bind:6}
 				]
 			}
-		}
+		},
+		outfit:["ghost"]
 	},
 	"ツキノギ":{
 		en:"Tsukinogi",
@@ -9992,7 +9993,8 @@ const operator = {
 					{start:40,need:70,pers:25,atkadd:80,nature:3}
 				]
 			}
-		}
+		},
+		outfit:["epoque"]
 	},
 	"フロストリーフ":{
 		en:"Frostleaf",
