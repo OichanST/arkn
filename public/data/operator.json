@@ -164,9 +164,6 @@ const operator = {
 				}
 			}
 		],
-		cond:function(arg){
-			return "確率";
-		},
 		dmgUp:function(arg){
 			if(arg.promotion == 1){
 				if(!arg.enhanceNature1){
@@ -899,14 +896,14 @@ const operator = {
 					{start:10,need:32,pers:33,atkadd:30,defadd:55,target:4,time:0.8},
 					{start:10,need:32,pers:34,atkadd:30,defadd:60,target:4,time:0.8},
 					{start:10,need:30,pers:35,atkadd:30,defadd:65,target:4,time:0.8},
-					{start:10,need:29,pers:36,atkadd:40,defadd:70,target:4,time:0.75},
+					{start:10,need:29,pers:36,atkadd:40,defadd:70,target:4,time:0.8},
 					{start:10,need:28,pers:37,atkadd:45,defadd:80,target:4,time:0.7},
 					{start:10,need:27,pers:38,atkadd:50,defadd:90,target:4,time:0.65},
 					{start:10,need:25,pers:40,atkadd:60,defadd:110,target:4,time:0.6}
 				]
 			},
 			"デストレッツァ":{
-				exp:"攻撃範囲内<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>、攻撃力の100%で遠距離攻撃を行う<br/><span class='charge'>2回目以降スキル使用時、攻撃力と攻撃速度のスキル効果が1回目の2倍になり、退場まで効果継続</span>",
+				exp:"攻撃範囲内<span class='merit'>拡大</span>、攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>、特性による遠距離攻撃時の攻撃力低下が無効化される<br/><span class='charge'>2回目以降スキル使用時、攻撃力と攻撃速度のスキル効果が1回目の2倍になり、退場まで効果継続</span>",
 				recover:"attack",activate:"manual",
 				effect:[
 					{start:0,need:15,pers:30,atkadd:26,speed:12},
@@ -925,38 +922,49 @@ const operator = {
 	},
 	"スルト":{
 		en:"Surtr",
-		rare:6,job:"前衛",relocation:70,speed:1.5,trust:{atk:100},tag:["近距離","火力"],
+		rare:6,job:"前衛",relocation:70,speed:1.25,trust:{atk:100},tag:["近距離","火力"],
 		characteristic:"敵に<span class='merit'>術ダメージ</span>を与える",
 		stat:[
 			{
-				min:{hp:1442,atk:415,def:116},
-				max:{hp:2060,atk:611,def:167},
-				res:0,cost:17,block:1,range:[[1,0]],
+				min:{hp:1330,atk:288,def:186},
+				max:{hp:1750,atk:418,def:267},
+				res:0,cost:19,block:1,range:[[1,0]],
 				nature:{}
 			},
 			{
-				hp:2785,atk:774,def:220,res:0,cost:19,block:1,range:[[1,0]],
+				hp:2216,atk:544,def:343,res:10,cost:21,block:1,range:[[1,0]],
 				material:{},
 				nature:{
 					"劫火":{
-						exp:"敵の術耐性を20%無視して攻撃",
-						base:7,
-						pexp:"(+@padd%)",
+						exp:"敵の術耐性を@base@pexp%無視して攻撃",
+						base:12,
+						pexp:"(+@padd)",
 						padd:2
+					},
+					"余燼":{
+						exp:"致命的なダメージを受けてもHPが1残る<br/>効果発動から@base@pexp秒後強制退場",
+						base:4,
+						pexp:"(+@padd)",
+						padd:1
 					}
 				}
 			},
 			{
-				hp:3665,atk:933,def:263,res:0,cost:19,block:1,range:[[1,0]],
+				hp:2916,atk:672,def:414,res:15,cost:21,block:1,range:[[1,0]],
 				material:{},
 				nature:{
 					"劫火":{
-						exp:"敵の術耐性を20%無視して攻撃",
-						base:14,
-						pexp:"(+@padd%)",
+						exp:"敵の術耐性を@base@pexp%無視して攻撃",
+						base:20,
+						pexp:"(+@padd)",
 						padd:2
 					},
-					"余燼":{exp:"致命的なダメージを受けてもHPが1残る<br/>効果発動から8秒後強制退場"}
+					"余燼":{
+						exp:"致命的なダメージを受けてもHPが1残る<br/>効果発動から@base@pexp秒後強制退場",
+						base:8,
+						pexp:"(+@padd)",
+						padd:1
+					}
 				}
 			}
 		],
@@ -972,52 +980,51 @@ const operator = {
 				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇し、敵を倒すとSPを全回復する",
 				recover:"attack",activate:"auto",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:4,atk:200},
+					{start:0,need:4,atk:205},
+					{start:0,need:4,atk:210},
+					{start:0,need:3,atk:220},
+					{start:0,need:3,atk:225},
+					{start:0,need:3,atk:230},
+					{start:0,need:3,atk:240},
+					{start:0,need:3,atk:260},
+					{start:0,need:3,atk:280},
+					{start:0,need:2,atk:300}
 				]
 			},
 			"災厄の巨焔":{
-				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>+1</span>マス、敵<span class='merit'>2</span>体を同時攻撃可能<br/>攻撃対象が1対のみの場合、攻撃力が<span class='merit'>@atk%</span>まで上昇",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>+@range</span>マス、敵<span class='merit'>2</span>体を同時攻撃可能<br/>攻撃対象が1体のみの場合、攻撃力が<span class='merit'>@atk%</span>まで上昇",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:7,need:28,atkadd:50,range:1,atk:140},
+					{start:7,need:27,atkadd:55,range:1,atk:140},
+					{start:7,need:26,atkadd:60,range:1,atk:140},
+					{start:8,need:25,atkadd:65,range:1,atk:140},
+					{start:8,need:24,atkadd:70,range:1,atk:140},
+					{start:8,need:23,atkadd:75,range:1,atk:140},
+					{start:9,need:22,atkadd:80,range:1,atk:150},
+					{start:10,need:21,atkadd:90,range:1,atk:150},
+					{start:11,need:20,atkadd:100,range:1,atk:150},
+					{start:12,need:18,atkadd:120,range:1,atk:160}
 				]
 			},
 			"ラグナロク":{
-				exp:"自身のHPを最大まで回復<br/>攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>+2</span>マス、敵<span class='merit'>3</span>体を同時攻撃可能、最大HP<span class='merit'>+5000</span>、HPが徐々に減少（減少割合は時間と共に増加し、<span class='merit'>60</span>秒後に最大HPの20%/秒になる）<br/><span class='charge'>退場まで効果継続</span>",
+				exp:"自身のHPを最大まで回復<br/>攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>+2</span>マス、敵<span class='merit'>@target</span>体を同時攻撃可能、最大HP<span class='merit'>+5000</span>、HPが徐々に減少（減少割合は時間と共に増加し、<span class='merit'>60</span>秒後に最大HPの20%/秒になる）<br/><span class='charge'>退場まで効果継続</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:10,atkadd:180,target:2},
+					{start:0,need:10,atkadd:190,target:2},
+					{start:0,need:10,atkadd:200,target:2},
+					{start:0,need: 9,atkadd:210,target:2},
+					{start:0,need: 9,atkadd:220,target:2},
+					{start:0,need: 9,atkadd:230,target:2},
+					{start:0,need: 8,atkadd:240,target:2},
+					{start:0,need: 7,atkadd:270,target:2},
+					{start:0,need: 6,atkadd:300,target:2},
+					{start:0,need: 5,atkadd:330,target:3}
 				]
 			}
-		},
-		outfit:["summer"]
+		}
 	},
 	"ホシグマ":{
 		en:"Hoshiguma",
