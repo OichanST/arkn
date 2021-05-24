@@ -996,16 +996,16 @@ const operator = {
 				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>+@range</span>マス、敵<span class='merit'>2</span>体を同時攻撃可能<br/>攻撃対象が1体のみの場合、攻撃力が<span class='merit'>@atk%</span>まで上昇",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 7,need:28,res:15,atkadd:50,range:1,atk:140},
-					{start: 7,need:27,res:15,atkadd:55,range:1,atk:140},
-					{start: 7,need:26,res:15,atkadd:60,range:1,atk:140},
-					{start: 8,need:25,res:16,atkadd:65,range:1,atk:140},
-					{start: 8,need:24,res:16,atkadd:70,range:1,atk:140},
-					{start: 8,need:23,res:16,atkadd:75,range:1,atk:140},
-					{start: 9,need:22,res:17,atkadd:80,range:1,atk:150},
-					{start:10,need:21,res:17,atkadd:90,range:1,atk:150},
-					{start:11,need:20,res:17,atkadd:100,range:1,atk:150},
-					{start:12,need:18,res:18,atkadd:120,range:1,atk:160}
+					{start: 7,need:28,pers:15,atkadd:50,range:1,atk:140},
+					{start: 7,need:27,pers:15,atkadd:55,range:1,atk:140},
+					{start: 7,need:26,pers:15,atkadd:60,range:1,atk:140},
+					{start: 8,need:25,pers:16,atkadd:65,range:1,atk:140},
+					{start: 8,need:24,pers:16,atkadd:70,range:1,atk:140},
+					{start: 8,need:23,pers:16,atkadd:75,range:1,atk:140},
+					{start: 9,need:22,pers:17,atkadd:80,range:1,atk:150},
+					{start:10,need:21,pers:17,atkadd:90,range:1,atk:150},
+					{start:11,need:20,pers:17,atkadd:100,range:1,atk:150},
+					{start:12,need:18,pers:18,atkadd:120,range:1,atk:160}
 				]
 			},
 			"ラグナロク":{
