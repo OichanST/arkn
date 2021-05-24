@@ -996,16 +996,16 @@ const operator = {
 				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃範囲<span class='merit'>+@range</span>マス、敵<span class='merit'>2</span>体を同時攻撃可能<br/>攻撃対象が1体のみの場合、攻撃力が<span class='merit'>@atk%</span>まで上昇",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start:7,need:28,atkadd:50,range:1,atk:140},
-					{start:7,need:27,atkadd:55,range:1,atk:140},
-					{start:7,need:26,atkadd:60,range:1,atk:140},
-					{start:8,need:25,atkadd:65,range:1,atk:140},
-					{start:8,need:24,atkadd:70,range:1,atk:140},
-					{start:8,need:23,atkadd:75,range:1,atk:140},
-					{start:9,need:22,atkadd:80,range:1,atk:150},
-					{start:10,need:21,atkadd:90,range:1,atk:150},
-					{start:11,need:20,atkadd:100,range:1,atk:150},
-					{start:12,need:18,atkadd:120,range:1,atk:160}
+					{start: 7,need:28,res:15,atkadd:50,range:1,atk:140},
+					{start: 7,need:27,res:15,atkadd:55,range:1,atk:140},
+					{start: 7,need:26,res:15,atkadd:60,range:1,atk:140},
+					{start: 8,need:25,res:16,atkadd:65,range:1,atk:140},
+					{start: 8,need:24,res:16,atkadd:70,range:1,atk:140},
+					{start: 8,need:23,res:16,atkadd:75,range:1,atk:140},
+					{start: 9,need:22,res:17,atkadd:80,range:1,atk:150},
+					{start:10,need:21,res:17,atkadd:90,range:1,atk:150},
+					{start:11,need:20,res:17,atkadd:100,range:1,atk:150},
+					{start:12,need:18,res:18,atkadd:120,range:1,atk:160}
 				]
 			},
 			"ラグナロク":{
@@ -1495,32 +1495,43 @@ const operator = {
 	},
 	"ブレミシャイン":{
 		en:"Blemishine",
-		rare:6,job:"重装",relocation:70,speed:1.2,trust:{atk:50,def:60},tag:["近距離","防御","治療","火力"],
+		rare:6,job:"重装",relocation:70,speed:1.2,trust:{atk:90,def:20},tag:["近距離","防御","治療","火力"],
 		characteristic:"HP回復スキルを所持",
 		stat:[
 			{
-				min:{hp:1309,atk:200,def:248},
-				max:{hp:1769,atk:287,def:365},
-				res:10,cost:18,block:2,range:[],
+				min:{hp:1346,atk:207,def:242},
+				max:{hp:1820,atk:357,def:357},
+				res:10,cost:18,block:2,range:[[1,0]],
 				nature:{}
 			},
 			{
-				hp:2268,atk:388,def:487,res:10,cost:20,block:3,range:[],
-				material:{},
-				nature:{
-					"盾剣騎士":{
-						exp:"配置中、味方全員の被撃回復系のスキルは、攻撃時にもSPを1回復できる"
-					}
-				}
-			},
-			{
-				hp:3150,atk:485,def:595,res:10,cost:22,block:3,range:[],
+				hp:2334,atk:402,def:476,res:10,cost:20,block:3,range:[[1,0]],
 				material:{},
 				nature:{
 					"盾剣騎士":{
 						exp:"配置中、味方全員の被撃回復系のスキルは、攻撃時にもSPを1回復できる"
 					},
-					"憐憫":{exp:"【眠り】状態の時を攻撃でき、優先して攻撃する<br/>【眠り】状態の敵を攻撃時、攻撃力が140%まで上昇"}
+					"憐憫":{
+						exp:"【眠り】状態の時を攻撃でき、優先して攻撃する<br/>【眠り】状態の敵を攻撃時、攻撃力が@base@pexp%まで上昇",
+						base:120,
+						pexp;"(+@padd)",
+						padd:4
+					}
+				}
+			},
+			{
+				hp:3242,atk:491,def:581,res:10,cost:22,block:3,range:[[1,0]],
+				material:{},
+				nature:{
+					"盾剣騎士":{
+						exp:"配置中、味方全員の被撃回復系のスキルは、攻撃時にもSPを1回復できる"
+					},
+					"憐憫":{
+						exp:"【眠り】状態の時を攻撃でき、優先して攻撃する<br/>【眠り】状態の敵を攻撃時、攻撃力が@base@pexp%まで上昇",
+						base:140,
+						pexp;"(+@padd)",
+						padd:4
+					}
 				}
 			}
 		],
@@ -1533,51 +1544,51 @@ const operator = {
 		],
 		skill:{
 			"光芒奔溢":{
-				exp:"次の通常攻撃時、敵に攻撃力の<span class='merit'>220%</span>の物理ダメージを与え、周囲一定範囲内にいる味方1人のHPを攻撃力の<span class='merit'>120%回復</span><br/><span class='charge'>2回チャージ可能</span>",
+				exp:"次の通常攻撃時、敵に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、周囲一定範囲内にいる味方1人のHPを攻撃力の<span class='merit'>@heal%回復</span><br/><span class='charge'>@charge回チャージ可能</span>",
 				recover:"auto",activate:"auto",heal:true,
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:6,atk:180,heal:100,charge:1},
+					{start:0,need:6,atk:185,heal:100,charge:1},
+					{start:0,need:6,atk:190,heal:100,charge:1},
+					{start:0,need:5,atk:200,heal:110,charge:1},
+					{start:0,need:5,atk:205,heal:110,charge:1},
+					{start:0,need:5,atk:210,heal:110,charge:1},
+					{start:0,need:5,atk:220,heal:120,charge:2},
+					{start:0,need:4,atk:230,heal:130,charge:2},
+					{start:0,need:4,atk:240,heal:140,charge:2},
+					{start:0,need:4,atk:260,heal:150,charge:3}
 				]
 			},
 			"破邪輝光":{
-				exp:"攻撃力<span class='merit'>+70%</span>、自身と同じマス内にいる地面上の敵全員に<span class='merit'>【眠り】</span><span class='charge'>(無敵+行動不能)</span>を付与する、周囲一定範囲内の味方全員のHPを1秒ごとに攻撃力の<span class='merit'>17%</span>回復",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、自身と同じマス内にいる地面上の敵全員に<span class='merit'>【眠り】</span><span class='charge'>(無敵+行動不能)</span>を付与する、周囲一定範囲内の味方全員のHPを1秒ごとに攻撃力の<span class='merit'>@heal%</span>回復",
 				recover:"damage",activate:"manual",heal:true,
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:20,pers:10,atkadd:40,heal:15},
+					{start:0,need:20,pers:10,atkadd:45,heal:15},
+					{start:0,need:20,pers:10,atkadd:50,heal:15},
+					{start:0,need:18,pers:10,atkadd:55,heal:16},
+					{start:0,need:18,pers:10,atkadd:60,heal:16},
+					{start:0,need:18,pers:10,atkadd:65,heal:16},
+					{start:0,need:16,pers:10,atkadd:70,heal:17},
+					{start:0,need:15,pers:10,atkadd:80,heal:18},
+					{start:0,need:14,pers:10,atkadd:90,heal:19},
+					{start:0,need:12,pers:10,atkadd:110,heal:20}
 				]
 			},
 			"英霊顕現":{
 				exp:"攻撃力<span class='merit'>+@atkadd%</span>、防御力<span class='merit'>+@defadd%</span>、攻撃時追加で対象に攻撃力の<span class='merit'>@res%</span>の術ダメージを与え、周囲一定範囲内の<span class='charge'>自身以外</span>の味方1体のHPを攻撃力の<span class='merit'>@heal%</span>回復",
 				recover:"damage",activate:"manual",heal:true,
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:15,need:30,pers:20,atkadd:50,defadd:20,res:50,heal:60},
+					{start:15,need:30,pers:21,atkadd:55,defadd:20,res:50,heal:60},
+					{start:15,need:30,pers:22,atkadd:60,defadd:20,res:50,heal:60},
+					{start:15,need:29,pers:23,atkadd:65,defadd:25,res:60,heal:70},
+					{start:15,need:29,pers:24,atkadd:70,defadd:25,res:60,heal:70},
+					{start:15,need:29,pers:25,atkadd:75,defadd:25,res:60,heal:70},
+					{start:15,need:28,pers:26,atkadd:80,defadd:30,res:70,heal:80},
+					{start:15,need:27,pers:27,atkadd:90,defadd:40,res:80,heal:90},
+					{start:15,need:26,pers:28,atkadd:100,defadd:50,res:90,heal:90},
+					{start:15,need:25,pers:30,atkadd:110,defadd:60,res:00,heal:100}
 				]
 			}
 		}
