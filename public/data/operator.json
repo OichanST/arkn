@@ -1619,9 +1619,54 @@ const operator = {
 			{cost:-1}
 		],
 		skill:[
-			"":{},
-			"":{},
-			"":{}
+			"防御力強化γ":{
+				exp:"防御力<span class='merit'>+@defadd%</span>",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"岩崩し":{
+				exp:"次の通常攻撃時、自身のHPが最大値の<span class='merit'>@cnt%</span>回復、周囲一定範囲内の地面にいる敵全員に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>@stan%</span>の確率で<span class='merit'></span>秒間スタンさせる",
+				recover:"damage",activate:"auto",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			},
+			"悪土の血脈":{
+				exp:"スキル発動時から<span class='merit'>10</span>秒間行動しなくなり、ダメージを受けない状態に入り、周囲一定範囲内の敵を敵全員の移動速度<span class='merit'>@slow%</span>。その後、範囲内の地面にいる敵全員を<span class='merit'>@stan</span>秒間スタンさせ、通常攻撃の間隔が<span class='merit'>短縮</span>し、攻撃力<span class='merit'>+@atkadd%</span>、防御力<span class='merit'>+@defadd%</span>、ブロック中の敵全員を同時に攻撃",
+				recover:"auto",activate:"manual",
+				effect:[
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{}
+				]
+			}
 		]
 	},
 	"エクシア":{
