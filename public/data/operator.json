@@ -4081,13 +4081,13 @@ const operator = {
 		characteristic:"敵を１体までブロック",
 		stat:[
 			{
-				min:{hp:1071,atk:206,def:151},
-				max:{hp:1448,atk:303,def:217},
+				min:{hp:1213,atk:218,def:151},
+				max:{hp:1640,atk:321,def:217},
 				res:0,cost: 8,block:1,range:[[1,0]],
 				nature:{}
 			},
 			{
-				hp:1857,atk:405,def:294,res:0,cost:10,block:1,range:[[1,0]],
+				hp:2103,atk:429,def:294,res:0,cost:10,block:1,range:[[1,0]],
 				material:{"初級アケトン":4,"初級装置":2},
 				nature:{
 					"迅虎拳":{
@@ -4099,7 +4099,7 @@ const operator = {
 				}
 			},
 			{
-				hp:2265,atk:500,def:350,res:0,cost:10,block:1,range:[[1,0]],
+				hp:2565,atk:530,def:350,res:0,cost:10,block:1,range:[[1,0]],
 				material:{"上級アケトン":7,"中級エステル":16},
 				nature:{
 					"迅虎拳":{
