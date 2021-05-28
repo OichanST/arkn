@@ -1366,16 +1366,16 @@ const operator = {
 				exp:"<span class='demerit'>攻撃しなくなる</span>。防御力<span class='merit'>+@defadd%</span>、ブロック数<span class='merit'>+1</span>、攻撃される度自身の攻撃力の<span class='merit'>@reflect%</span>の術ダメージで敵に反撃し、対象の一部の特殊能力を<span class='merit'>@seal</span>秒間無効化する",
 				recover:"auto",activate:"manual",noAttack:true,res:true,
 				effect:[
-					{start:25,eed:50,pers:30,defadd: 60,reflect: 50,seal:3},
-					{start:26,eed:50,pers:30,defadd: 65,reflect: 50,seal:3},
-					{start:27,eed:50,pers:30,defadd: 70,reflect: 50,seal:3},
-					{start:28,eed:50,pers:31,defadd: 80,reflect: 60,seal:3},
-					{start:29,eed:50,pers:31,defadd: 85,reflect: 60,seal:3},
-					{start:30,eed:50,pers:31,defadd: 90,reflect: 60,seal:3},
-					{start:31,eed:50,pers:32,defadd:100,reflect: 70,seal:3},
-					{start:32,eed:50,pers:33,defadd:110,reflect: 70,seal:4},
-					{start:33,eed:50,pers:34,defadd:120,reflect: 80,seal:4},
-					{start:35,eed:50,pers:35,defadd:130,reflect: 90,seal:5}
+					{start:25,need:50,pers:30,defadd: 60,reflect: 50,seal:3},
+					{start:26,need:50,pers:30,defadd: 65,reflect: 50,seal:3},
+					{start:27,need:50,pers:30,defadd: 70,reflect: 50,seal:3},
+					{start:28,need:50,pers:31,defadd: 80,reflect: 60,seal:3},
+					{start:29,need:50,pers:31,defadd: 85,reflect: 60,seal:3},
+					{start:30,need:50,pers:31,defadd: 90,reflect: 60,seal:3},
+					{start:31,need:50,pers:32,defadd:100,reflect: 70,seal:3},
+					{start:32,need:50,pers:33,defadd:110,reflect: 70,seal:4},
+					{start:33,need:50,pers:34,defadd:120,reflect: 80,seal:4},
+					{start:35,need:50,pers:35,defadd:130,reflect: 90,seal:5}
 				]
 			},
 			"鉄御":{
@@ -1595,36 +1595,43 @@ const operator = {
 	},
 	"マドロック":{
 		en:"Mudrock",
-		rare:6,job:"重装",relocation:70,speed:1.2,trust:{hp:500,def:60},tag:["近距離","生存","防御","火力"],
+		rare:6,job:"重装",relocation:70,speed:1.6,trust:{hp:500,def:60},tag:["近距離","生存","防御","火力"],
 		characteristic:"味方からの治療効果を<span class='merit'>受けない</span>",
 		stat:[
 			{
-				min:{hp: 711,atk:183,def: 57},
-				max:{hp:1016,atk:305,def: 95},
-				res:0,cost:12,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
-				nature:{}
-			},
-			{
-				hp:1338,atk:437,def:136,res:0,cost:14,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
-				material:{},
+				min:{hp:1677,atk:370,def:229},
+				max:{hp:2207,atk:515,def:347},
+				res:10,cost:32,block:2,range:[[1,0]],
 				nature:{
 					"沃土を我が身に":{
-						exp:"攻撃速度+@base@pexp",
-						base:6,
-						pexp:"(+@padd)",
-						padd:3
+						exp:"9秒ごとにシールドを1枚形成する（ダメージを1回ガード可能）（最大2枚まで重複でき、配置後シールドを1枚形成する）。シールドが1枚消耗されるとき、自身のHPが最大値の@base%@pexp回復",
+						base:15,
+						pexp:"(+@padd%)",
+						padd:2
 					}
 				}
 			},
 			{
-				hp:1673,atk:540,def:161,res:0,cost:14,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
+				hp:2867,atk:687,def:463,res:10,cost:34,block:3,range:[[1,0]],
 				material:{},
 				nature:{
 					"沃土を我が身に":{
-						exp:"9秒ごとにシールドを1枚形成する（ダメージを1回ガード可能）（最大3枚まで重複でき、配置後シールドを1枚形成する）。シールドが1枚消耗されるとき、自身のHPが最大値の20%回復",
-						base:12,
-						pexp:"(+@padd)",
-						padd:3
+						exp:"9秒ごとにシールドを1枚形成する（ダメージを1回ガード可能）（最大2枚まで重複でき、配置後シールドを1枚形成する）。シールドが1枚消耗されるとき、自身のHPが最大値の@base%@pexp回復",
+						base:20,
+						pexp:"(+@padd%)",
+						padd:2
+					}
+				}
+			},
+			{
+				hp:3928,atk:882,def:602,res:10,cost:36,block:3,range:[[1,0]],
+				material:{},
+				nature:{
+					"沃土を我が身に":{
+						exp:"9秒ごとにシールドを1枚形成する（ダメージを1回ガード可能）（最大3枚まで重複でき、配置後シールドを1枚形成する）。シールドが1枚消耗されるとき、自身のHPが最大値の@base%@pexp回復",
+						base:20,
+						pexp:"(+@padd%)",
+						padd:2
 					},
 					"同胞の情け":{
 						exp:"【サルカズ】からの被ダメージ-30%"
@@ -1644,48 +1651,48 @@ const operator = {
 				exp:"防御力<span class='merit'>+@defadd%</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:45,pers:40,defadd:30},
+					{start:0,need:45,pers:40,defadd:35},
+					{start:0,need:45,pers:40,defadd:40},
+					{start:5,need:40,pers:40,defadd:45},
+					{start:5,need:40,pers:40,defadd:50},
+					{start:5,need:40,pers:40,defadd:55},
+					{start:10,need:35,pers:40,defadd:60},
+					{start:10,need:34,pers:40,defadd:75},
+					{start:10,need:33,pers:40,defadd:90},
+					{start:15,need:30,pers:40,defadd:100}
 				]
 			},
 			"岩崩し":{
-				exp:"次の通常攻撃時、自身のHPが最大値の<span class='merit'>@cnt%</span>回復、周囲一定範囲内の地面にいる敵全員に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>@stan%</span>の確率で<span class='merit'></span>秒間スタンさせる",
+				exp:"次の通常攻撃時、自身のHPが最大値の<span class='merit'>@heal%</span>回復、周囲一定範囲内の地面にいる敵全員に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与え、<span class='merit'>@stan%</span>の確率で<span class='merit'>@time</span>秒間スタンさせる",
 				recover:"damage",activate:"auto",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:6,heal:4,atk:170,stan:30,time:0.4},
+					{start:0,need:6,heal:4,atk:175,stan:30,time:0.4},
+					{start:0,need:6,heal:4,atk:180,stan:30,time:0.4},
+					{start:0,need:5,heal:4,atk:190,stan:30,time:0.5},
+					{start:0,need:5,heal:4,atk:195,stan:30,time:0.5},
+					{start:0,need:5,heal:4,atk:200,stan:30,time:0.5},
+					{start:0,need:5,heal:5,atk:210,stan:30,time:0.6},
+					{start:0,need:5,heal:5,atk:230,stan:30,time:0.8},
+					{start:0,need:5,heal:5,atk:250,stan:30,time:1},
+					{start:0,need:4,heal:6,atk:270,stan:30,time:1.2}
 				]
 			},
 			"悪土の血脈":{
 				exp:"スキル発動時から<span class='merit'>10</span>秒間行動しなくなり、ダメージを受けない状態に入り、周囲一定範囲内の敵を敵全員の移動速度<span class='merit'>@slow%</span>。その後、範囲内の地面にいる敵全員を<span class='merit'>@stan</span>秒間スタンさせ、通常攻撃の間隔が<span class='merit'>短縮</span>し、攻撃力<span class='merit'>+@atkadd%</span>、防御力<span class='merit'>+@defadd%</span>、ブロック中の敵全員を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:10,need:35,pers:30,slow:-60,stan:3,interval:0.7,atkadd:70,defadd:30},
+					{start:10,need:34,pers:30,slow:-60,stan:3,interval:0.7,atkadd:75,defadd:30},
+					{start:10,need:33,pers:30,slow:-60,stan:3,interval:0.7,atkadd:80,defadd:30},
+					{start:11,need:32,pers:30,slow:-60,stan:3,interval:0.7,atkadd:85,defadd:40},
+					{start:11,need:31,pers:30,slow:-60,stan:3,interval:0.7,atkadd:90,defadd:40},
+					{start:11,need:30,pers:30,slow:-60,stan:3,interval:0.7,atkadd:95,defadd:40},
+					{start:12,need:29,pers:30,slow:-60,stan:3.5,interval:0.7,atkadd:100,defadd:50},
+					{start:13,need:28,pers:30,slow:-60,stan:4,interval:0.7,atkadd:110,defadd:60},
+					{start:14,need:27,pers:30,slow:-60,stan:4.5,interval:0.7,atkadd:120,defadd:70},
+					{start:15,need:25,pers:30,slow:-60,stan:5,interval:0.7,atkadd:140,defadd:80}
 				]
 			}
 		}
