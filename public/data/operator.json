@@ -6806,34 +6806,34 @@ const operator = {
 		characteristic:"攻撃範囲内の<span class='merit'>敵全員</span>を同時に攻撃し、自身の正面横3マスにいる敵を攻撃時攻撃力が150%まで上昇",
 		stat:[
 			{
-				min:{hp:1035,atk:327,def:100},
-				max:{hp:1380,atk:468,def:131},
+				min:{hp:1055,atk:314,def:103},
+				max:{hp:1407,atk:449,def:135},
 				res:0,cost:28,block:1,range:[[1,-1],[1,0],[2,0],[1,1]],
 				material:{},
 				nature:{}
 			},
 			{
-				hp:1747,atk:604,def:166,
+				hp:1782,atk:580,def:172,
 				res:0,cost:31,block:1,range:[[1,-1],[2,-1],[1,0],[2,0],[1,1],[2,1]],
 				material:{},
 				nature:{
 					"釘刺創":{
-						exp:"",
-						base:80,
-						pexp:"(+@padd)",
-						padd:15
+						exp:"ブロックされていない敵を攻撃時、攻撃対象を3秒間、1秒ごとにアオスタの攻撃力の@base%@paexpの術ダメージ（特性に影響されない）を受ける流血状態にする",
+						base:12,
+						pexp:"(+@padd%)",
+						padd:2
 					}
 				}
 			},
 			{
-				hp:2330,atk:720,def:185,
+				hp:2376,atk:691,def:192,
 				res:0,cost:31,block:1,range:[[1,-1],[2,-1],[1,0],[2,0],[1,1],[2,1]],
 				nature:{
 					"釘刺創":{
 						exp:"ブロックされていない敵を攻撃時、攻撃対象を3秒間、1秒ごとにアオスタの攻撃力の18%の術ダメージ（特性に影響されない）を受ける流血状態にする",
-						base:160,
-						pexp:"(+@padd)",
-						padd:15
+						base:18,
+						pexp:"(+@padd%)",
+						padd:2
 					}
 				}
 			}
@@ -6850,35 +6850,35 @@ const operator = {
 		],
 		skill:{
 			"迅速攻撃γ":{
-				exp:"攻撃力<span class='merit'>+29%</span>、攻撃速度<span class='merit'>+@speed</span>",
+				exp:"攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:45,pers:35,atkadd:20,speed:20},
+					{start:0,need:44,pers:35,atkadd:22,speed:20},
+					{start:0,need:43,pers:35,atkadd:24,speed:20},
+					{start:5,need:42,pers:35,atkadd:27,speed:25},
+					{start:5,need:41,pers:35,atkadd:29,speed:25},
+					{start:5,need:40,pers:35,atkadd:31,speed:25},
+					{start:10,need:39,pers:35,atkadd:34,speed:35},
+					{start:10,need:38,pers:35,atkadd:37,speed:35},
+					{start:10,need:37,pers:35,atkadd:40,speed:35},
+					{start:15,need:35,pers:35,atkadd:45,speed:45}
 				]
 			},
 			"影縫い釘":{
-				exp:"通常攻撃の間隔が<span class='merit'>延長</span>し、攻撃力<span class='merit'>+40%</span>、攻撃対象に<span class='merit'>1</span>秒の【バインド】を付与、素質のダメージ計算係数倍増",
+				exp:"通常攻撃の間隔が<span class='merit'>延長</span>し、攻撃力<span class='merit'>+@atkadd%</span>、攻撃対象に<span class='merit'>@bind</span>秒の【バインド】を付与、素質のダメージ計算係数倍増",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:11,need:60,pers:20,interval:1.5,atkadd:20,bind:0.8},
+					{start:12,need:59,pers:20,interval:1.5,atkadd:25,bind:0.8},
+					{start:13,need:58,pers:20,interval:1.5,atkadd:30,bind:0.8},
+					{start:15,need:57,pers:21,interval:1.5,atkadd:35,bind:1},
+					{start:16,need:56,pers:21,interval:1.5,atkadd:40,bind:1},
+					{start:17,need:55,pers:21,interval:1.5,atkadd:45,bind:1},
+					{start:19,need:54,pers:22,interval:1.5,atkadd:50,bind:1.2},
+					{start:21,need:53,pers:23,interval:1.5,atkadd:55,bind:1.2},
+					{start:23,need:52,pers:24,interval:1.5,atkadd:60,bind:1.2},
+					{start:25,need:50,pers:25,interval:1.5,atkadd:70,bind:1.5}
 				]
 			}
 		}
