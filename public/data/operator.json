@@ -5190,35 +5190,35 @@ const operator = {
 		],
 		skill:{
 			"ストマックブロー":{
-				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇し、敵を攻撃方向に<span class='merit'>@pow</span>突き飛ばし、1秒足止めする",
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇し、敵を攻撃方向に<span class='merit'>普通の力で</span>突き飛ばし、1秒足止めする",
 				recover:"attack",activate:"auto",
 				effect:[
-					{need:4,atkadd: 50,penetrate:35},
-					{need:4,atkadd: 60,penetrate:35},
-					{need:4,atkadd: 70,penetrate:35},
-					{need:4,atkadd: 80,penetrate:40},
-					{need:4,atkadd: 90,penetrate:40},
-					{need:4,atkadd:100,penetrate:40},
-					{need:4,atkadd:110,penetrate:45},
-					{need:4,atkadd:120,penetrate:50},
-					{need:4,atkadd:130,penetrate:55},
-					{need:4,atkadd:140,penetrate:60}
+					{start:0,need:4,atk:130},
+					{start:0,need:4,atk:140},
+					{start:0,need:4,atk:150},
+					{start:0,need:4,atk:160},
+					{start:0,need:4,atk:170},
+					{start:0,need:4,atk:180},
+					{start:0,need:4,atk:190},
+					{start:0,need:4,atk:200},
+					{start:0,need:4,atk:210},
+					{start:0,need:4,atk:230}
 				]
 			},
 			"鳥舞蜂刺":{
 				exp:"ブロック数が0になり、攻撃力<span class='merit'>+@atkadd%</span>、攻撃速度<span class='merit'>+@speed</span>、攻撃対象を0.3秒足止めする",
 				recover:"auto",activate:"manual",
 				effect:[
-					{start: 0,need:50,pers:25,atkadd: 45,heal:10},
-					{start: 0,need:50,pers:25,atkadd: 50,heal:10},
-					{start: 0,need:50,pers:25,atkadd: 55,heal:10},
-					{start: 5,need:50,pers:25,atkadd: 60,heal:15},
-					{start: 5,need:50,pers:25,atkadd: 65,heal:15},
-					{start: 5,need:50,pers:25,atkadd: 70,heal:15},
-					{start:10,need:50,pers:25,atkadd: 75,heal:20},
-					{start:15,need:50,pers:25,atkadd: 90,heal:20},
-					{start:20,need:50,pers:25,atkadd:105,heal:20},
-					{start:25,need:50,pers:25,atkadd:120,heal:25}
+					{start:20,need:35,pers:20,atkadd: 10,speed:10},
+					{start:20,need:35,pers:20,atkadd: 15,speed:15},
+					{start:20,need:35,pers:20,atkadd: 20,speed:20},
+					{start:20,need:35,pers:20,atkadd: 25,speed:25},
+					{start:20,need:35,pers:20,atkadd: 30,speed:30},
+					{start:20,need:35,pers:20,atkadd: 35,speed:35},
+					{start:21,need:35,pers:20,atkadd: 40,speed:40},
+					{start:22,need:35,pers:20,atkadd: 45,speed:45},
+					{start:23,need:35,pers:20,atkadd: 50,speed:50},
+					{start:25,need:35,pers:20,atkadd: 55,speed:55}
 				]
 			},
 		}
