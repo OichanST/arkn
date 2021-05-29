@@ -7530,19 +7530,19 @@ const operator = {
 				]
 			},
 			"ガヴィル保護プラン":{
-				exp:"攻撃時<span class='merit'>@atk%</span>での確率で次の効果からランダムで一つ発動する：攻撃対象を<span class='merit'>@stan</span>秒間スタンさせる/その攻撃のみ攻撃力が<span class='merit'>@atk%</span>まで上昇/その攻撃のみ範囲ダメージを与える",
+				exp:"攻撃時<span class='merit'>@random%</span>での確率で次の効果からランダムで一つ発動する：攻撃対象を<span class='merit'>@stan</span>秒間スタンさせる/その攻撃のみ攻撃力が<span class='merit'>@atk%</span>まで上昇/その攻撃のみ範囲ダメージを与える",
 				recover:"auto",activate:"manual",
 				effect:[
-					{need:100,pers:25,atk:33,cnt:6},
-					{need:100,pers:25,atk:35,cnt:6},
-					{need:100,pers:25,atk:37,cnt:6},
-					{need:100,pers:25,atk:39,cnt:7},
-					{need:100,pers:25,atk:41,cnt:7},
-					{need:100,pers:25,atk:43,cnt:7},
-					{need:100,pers:25,atk:45,cnt:7},
-					{need:100,pers:25,atk:50,cnt:8},
-					{need:100,pers:25,atk:55,cnt:8},
-					{need:100,pers:25,atk:60,cnt:8}
+					{start:11,need:40,pers:25,random:50,stan:0.6,atk:170},
+					{start:12,need:39,pers:25,random:50,stan:0.6,atk:170},
+					{start:13,need:38,pers:25,random:50,stan:0.6,atk:170},
+					{start:15,need:37,pers:26,random:60,stan:0.9,atk:180},
+					{start:16,need:36,pers:26,random:60,stan:0.9,atk:180},
+					{start:17,need:35,pers:26,random:60,stan:0.9,atk:180},
+					{start:18,need:34,pers:27,random:70,stan:1.2,atk:190},
+					{start:18,need:33,pers:28,random:80,stan:1.2,atk:205},
+					{start:18,need:32,pers:29,random:90,stan:1.2,atk:220},
+					{start:20,need:30,pers:30,random:100,stan:1.6,atk:220}
 				]
 			}
 		}
