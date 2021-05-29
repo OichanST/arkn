@@ -6381,7 +6381,7 @@ const operator = {
 	"イグゼキューター":{
 		en:"Executor",
 		rare:5,job:"狙撃",relocation:70,speed:2.3,trust:{atk:65},tag:["遠距離","範囲攻撃"],
-		characteristic:"攻撃範囲内の<span class='merit'>敵全てにダメージ</span>を与える<br/>自身の前方横一列の敵に対し攻撃力１５０％",
+		characteristic:"攻撃範囲内の<span class='merit'>敵全員</span>を同時に攻撃し、自身の正面横3マスにいる敵を攻撃時攻撃力が150%まで上昇",
 		stat:[
 			{
 				min:{hp:1035,atk:327,def:100},
@@ -6733,22 +6733,22 @@ const operator = {
 		characteristic:"飛行ユニットを優先して攻撃",
 		stat:[
 			{
-				min:{hp:667,atk:173,def:53},
-				max:{hp:954,atk:289,def:89},
+				min:{hp:572,atk:178,def:56},
+				max:{hp:818,atk:298,def:94},
 				res:0,cost:11,block:1,range:[[0,-1],[1,-1],[2,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1]],
 				nature:{}
 			},
 			{
-				hp:1224,atk:420,def:128,
+				hp:1049,atk:432,def:135,
 				res:0,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
 					"ベテランハンター":{
-						exp:"自身の再配置時間-20秒、コスト-1"
+						exp:"自身の再配置時間-15秒"
 					}
 				}
 			},
 			{
-				hp:1493,atk:513,def:152,
+				hp:1280,atk:528,def:160,
 				res:0,cost:13,block:1,range:[[0,-1],[1,-1],[2,-1],[3,-1],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]],
 				nature:{
 					"ベテランハンター":{
@@ -6769,32 +6769,32 @@ const operator = {
 				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇",
 				recover:"attack",activate:"auto",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:5,atk:170},
+					{start:0,need:5,atk:175},
+					{start:0,need:5,atk:180},
+					{start:0,need:4,atk:185},
+					{start:0,need:4,atk:190},
+					{start:0,need:4,atk:195},
+					{start:0,need:4,atk:200},
+					{start:0,need:3,atk:210},
+					{start:0,need:3,atk:220},
+					{start:0,need:3,atk:230}
 				]
 			},
 			"コンシールメント":{
 				exp:"配置後攻撃力<span class='merit'>+@atkadd%</span>、【迷彩】（未ブロック時的の遠距離攻撃の対象にならない、範囲ダメージを受ける）状態になる",
 				passive:true,
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{pers:18,atkadd:20},
+					{pers:18,atkadd:25},
+					{pers:18,atkadd:30},
+					{pers:19,atkadd:40},
+					{pers:19,atkadd:50},
+					{pers:19,atkadd:60},
+					{pers:20,atkadd:70},
+					{pers:22,atkadd:80},
+					{pers:24,atkadd:90},
+					{pers:26,atkadd:100}
 				]
 			}
 		},
