@@ -7553,26 +7553,32 @@ const operator = {
 		characteristic:"通常時<span class='merit'>攻撃しない</span>、防御力と術耐性大幅<span class='merit'>上昇</span><br/>スキル発動中、通常攻撃が攻撃範囲内の敵全員に<span class='merit'>範囲術ダメージ</span>を与える",
 		stat:[
 			{
-				min:{hp:1052,atk:378,def:131},
-				max:{hp:1315,atk:505,def:153},
-				res:15,cost:21,block:1,range:[[-1,-1],[0,1],[1,-1],[-1,0],[1,0],[-1,1],[0,1],[1,1]],
+				min:{hp:1020,atk:377,def:125},
+				max:{hp:1275,atk:503,def:146},
+				res:15,cost:23,block:1,range:[[-1,-1],[0,1],[1,-1],[-1,0],[1,0],[-1,1],[0,1],[1,1]],
 				nature:{}
 			},
 			{
-				hp:1644,atk:632,def:178,res:15,cost:23,block:1,range:[[-2,0],[-1,-1],[0,1],[1,-1],[-2,0],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,0]],
+				hp:1594,atk:629,def:170,res:15,cost:25,block:1,range:[[-2,0],[-1,-1],[0,1],[1,-1],[-2,0],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,0]],
 				material:{},
 				nature:{
 					"地質学者":{
-						exp:"スキル未発動時、隣接4マス内の味方全員の防御力+12%<br/>スキル発動中、敵に狙われにくくなる"
+						exp:"スキル未発動時、隣接4マス内の味方全員の防御力+@base%@pexp<br/>スキル発動中、敵に狙われにくくなる",
+						base:5,
+						pexp:"(+@padd%)",
+						padd:2
 					}
 				}
 			},
 			{
-				hp:2005,atk:735,def:205,res:15,cost:23,block:1,range:[[-2,0],[-1,-1],[0,1],[1,-1],[-2,0],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,0]],
+				hp:1945,atk:732,def:196,res:15,cost:25,block:1,range:[[-2,0],[-1,-1],[0,1],[1,-1],[-2,0],[-1,0],[1,0],[2,0],[-1,1],[0,1],[1,1],[2,0]],
 				material:{},
 				nature:{
 					"地質学者":{
-						exp:"スキル未発動時、隣接4マス内の味方全員の防御力+12%<br/>スキル発動中、敵に狙われにくくなる"
+						exp:"スキル未発動時、隣接4マス内の味方全員の防御力+@base%@pexp<br/>スキル発動中、敵に狙われにくくなる",
+						base:10,
+						pexp:"(+@padd%)",
+						padd:2
 					}
 				}
 			}
@@ -7589,32 +7595,32 @@ const operator = {
 				exp:"攻撃範囲<span class='merit'>拡大</span>、攻撃時、敵に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与える",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:6,need:30,pers:15,atk:110},
+					{start:6,need:30,pers:15,atk:115},
+					{start:6,need:30,pers:15,atk:120},
+					{start:6,need:28,pers:16,atk:125},
+					{start:6,need:28,pers:16,atk:130},
+					{start:6,need:28,pers:16,atk:135},
+					{start:8,need:26,pers:17,atk:140},
+					{start:8,need:24,pers:18,atk:145},
+					{start:8,need:22,pers:19,atk:150},
+					{start:8,need:20,pers:20,atk:160}
 				]
 			},
 			"スパイラルバースト":{
-				exp:"攻撃時、敵を<span class='merit'>普通の力で</span>引き寄せ、攻撃力の<span class='merit'>@atk%</span>の術ダメージを与える<br/>スキル効果時間終了時、攻撃範囲内の敵全員に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与える",
+				exp:"攻撃時、敵を<span class='merit'@pow</span>引き寄せ、攻撃力の<span class='merit'>@atk%</span>の術ダメージを与える<br/>スキル効果時間終了時、攻撃範囲内の敵全員に攻撃力の<span class='merit'>@res%</span>の術ダメージを与える",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:10,need:35,pers:20,pow:"普通の力で",atk:105,res:180},
+					{start:10,need:35,pers:20,pow:"普通の力で",atk:105,res:190},
+					{start:10,need:35,pers:20,pow:"普通の力で",atk:105,res:200},
+					{start:10,need:33,pers:20,pow:"普通の力で",atk:110,res:210},
+					{start:10,need:33,pers:20,pow:"普通の力で",atk:110,res:220},
+					{start:10,need:33,pers:20,pow:"普通の力で",atk:110,res:230},
+					{start:12,need:31,pers:20,pow:"普通の力で",atk:115,res:240},
+					{start:13,need:29,pers:20,pow:"普通の力で",atk:120,res:260},
+					{start:14,need:27,pers:20,pow:"普通の力で",atk:125,res:280},
+					{start:15,need:25,pers:20,pow:"相当の力で",atk:130,res:300}
 				]
 			}
 		}
