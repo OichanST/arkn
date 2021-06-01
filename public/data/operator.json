@@ -10561,30 +10561,30 @@ const operator = {
 		characteristic:"敵を１体までブロック",
 		stat:[
 			{
-				min:{hp:1010,atk:201,def:131},
-				max:{hp:1365,atk:296,def:191},
+				min:{hp:1124,atk:218,def:129},
+				max:{hp:1520,atk:321,def:188},
 				res:0,cost:7,block:1,range:[[1,0]],
 				nature:{}
 			},
 			{
-				hp:1750,atk:395,def:262,res:0,cost:9,block:1,range:[[1,0]],
+				hp:1949,atk:428,def:258,res:0,cost:9,block:1,range:[[1,0]],
 				nature:{
 					"ブーストドッジ":{
-						exp:"物理回避+33%、回避後5秒間攻撃速度+12（重複不可）",
-						base:3,
+						exp:"物理回避+@base%@pexp、回避後5秒間攻撃速度+6（重複不可）",
+						base:15,
 						pexp:"(+@padd%)",
-						padd:1
+						padd:3
 					}
 				}
 			},
 			{
-				hp:2135,atk:488,def:312,res:0,cost:9,block:1,range:[[1,0]],
+				hp:2378,atk:529,def:308,res:0,cost:9,block:1,range:[[1,0]],
 				nature:{
 					"ブーストドッジ":{
-						exp:"物理回避+33%、回避後5秒間攻撃速度+12（重複不可）",
-						base:5,
+						exp:"物理回避+@base%@pexp、回避後5秒間攻撃速度+12（重複不可）",
+						base:30,
 						pexp:"(+@padd%)",
-						padd:1
+						padd:3
 					}
 				}
 			}
@@ -10601,32 +10601,32 @@ const operator = {
 				recover:"attack",activate:"auto",
 				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:5,atk:150},
+					{start:0,need:5,atk:160},
+					{start:0,need:5,atk:170},
+					{start:0,need:4,atk:180},
+					{start:0,need:4,atk:190},
+					{start:0,need:4,atk:200},
+					{start:0,need:3,atk:210},
+					{start:0,need:3,atk:220},
+					{start:0,need:3,atk:230},
+					{start:0,need:3,atk:250}
 				]
 			},
 			"全神経集中！":{
-				exp:"攻撃しなくなる。物理回避<span class='merit'>+50%</span>、回避発動する度に自身の攻撃力の<span class='merit'>135%</span>の物理ダメージで敵1体に反撃する（反撃の発動最短間隔が攻撃間隔の<span class='merit'>80%</span>）",
-				recover:"auto",activate:"manual",
+				exp:"攻撃しなくなる。物理回避<span class='merit'>+@dodge%</span>、回避発動する度に自身の攻撃力の<span class='merit'>@atk%</span>の物理ダメージで敵1体に反撃する（反撃の発動最短間隔が攻撃間隔の<span class='merit'>@revi%</span>）",
+				recover:"auto",activate:"manual",noAttack:true,
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:40,pers:10,dodge:40,atk:120,revi:100},
+					{start:0,need:40,pers:10,dodge:40,atk:125,revi:100},
+					{start:0,need:40,pers:10,dodge:40,atk:130,revi:100},
+					{start:10,need:38,pers:10,dodge:50,atk:135,revi:80},
+					{start:10,need:38,pers:10,dodge:50,atk:140,revi:80},
+					{start:10,need:38,pers:10,dodge:50,atk:145,revi:80},
+					{start:15,need:35,pers:15,dodge:60,atk:150,revi:60},
+					{start:15,need:30,pers:16,dodge:60,atk:155,revi:60},
+					{start:15,need:30,pers:17,dodge:60,atk:160,revi:60},
+					{start:15,need:30,pers:18,dodge:70,atk:160,revi:50}
 				]
 			}
 		}
