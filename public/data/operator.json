@@ -10497,20 +10497,23 @@ const operator = {
 	},
 	"コンビクション":{
 		en:"Conviction",
-		rare:4,job:"前衛",relocation:70,speed:1.3,trust:{def:55},tag:["近距離","火力","生存","牽制","爆発力"],
+		rare:4,job:"前衛",relocation:70,speed:1.5,trust:{hp:222,atk:22,def:22},tag:["近距離","火力","生存","牽制","爆発力"],
 		characteristic:"敵を1体までブロック",
 		stat:[
 			{
-				min:{hp: 949,atk:272,def:154},
-				max:{hp:1356,atk:400,def:211},
-				res: 5,cost:16,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[0,1],[1,1]],
+				min:{hp:1386,atk:375,def: 74},
+				max:{hp:1849,atk:560,def:107},
+				res: 0,cost:14,block:1,range:[[0,1]],
 				nature:{}
 			},
 			{
-				hp:1785,atk:534,def:268,res:10,cost:18,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[3,0],[0,1],[1,1]]
+				hp:2466,atk:718,def:139,res:0,cost:16,block:1,range:[[0,1]],
+				nature:{
+					"備えなき降臨":{exp:"自身のコスト-2、再配置時間-8秒、配置後10秒スタンする"}
+				}
 			},
 			{
-				hp:2260,atk:660,def:323,res:10,cost:18,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[3,0],[0,1],[1,1]],
+				hp:3333,atk:866,def:166,res:0,cost:16,block:1,range:[[0,1]],
 				nature:{
 					"備えなき降臨":{exp:"自身のコスト-4、再配置時間-15秒、配置後10秒スタンする"}
 				}
@@ -10519,35 +10522,35 @@ const operator = {
 		potential:[],
 		skill:{
 			"断罪":{
-				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇（<span class='merit'>5%</span>の確率で攻撃力が<span class='merit'>600%</span>まで上昇）<br/><span class='charge'>3回チャージ可能</span>",
+				exp:"次の通常攻撃時、攻撃力が<span class='merit'>@atk%</span>まで上昇（<span class='merit'>5%</span>の確率で攻撃力が<span class='merit'>@max%</span>まで上昇）<br/><span class='charge'>3回チャージ可能</span>",
 				recover:"auto",activate:"auto",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:7,atk:140,max:560},
+					{start:0,need:7,atk:145,max:580},
+					{start:0,need:7,atk:150,max:600},
+					{start:0,need:6,atk:155,max:620},
+					{start:0,need:6,atk:160,max:640},
+					{start:0,need:6,atk:165,max:660},
+					{start:0,need:5,atk:170,max:680},
+					{start:0,need:5,atk:180,max:720},
+					{start:0,need:5,atk:190,max:760},
+					{start:0,need:4,atk:200,max:800}
 				]
 			},
 			"創世記":{
-				exp:"周囲一定範囲内の敵全員に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、攻撃対象の一部の特殊能力を<span class='merit'>2</span>秒間無効化する<br/><span class='charge'>50%の確率で発動失敗になる。失敗時、効果範囲内の味方全員を5秒間スタンさせる</span>",
+				exp:"周囲一定範囲内の敵全員に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、攻撃対象の一部の特殊能力を<span class='merit'>@seal</span>秒間無効化する<br/><span class='charge'>50%の確率で発動失敗になる。失敗時、効果範囲内の味方全員を5秒間スタンさせる</span>",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:19,atk:180,seal:2},
+					{start:0,need:19,atk:190,seal:2},
+					{start:0,need:19,atk:200,seal:2},
+					{start:1,need:18,atk:220,seal:2.5},
+					{start:1,need:18,atk:230,seal:2.5},
+					{start:1,need:18,atk:240,seal:2.5},
+					{start:2,need:17,atk:260,seal:3},
+					{start:3,need:16,atk:290,seal:3},
+					{start:4,need:15,atk:320,seal:4},
+					{start:5,need:12,atk:350,seal:5}
 				]
 			}
 		}
