@@ -10966,19 +10966,19 @@ const operator = {
 		characteristic:"敵を３体までブロック",relocation:70,speed:1.2,trust:{def:75},tag:["近距離","防御"],
 		stat:[
 			{
-				min:{hp:1221,atk:193,def:249},
-				max:{hp:1629,atk:248,def:372},
+				min:{hp:1344,atk:195,def:232},
+				max:{hp:1793,atk:251,def:347},
 				res:0,cost:17,block:3,range:[],
 				nature:{}
 			},
 			{
-				hp:2173,atk:310,def:503,res:0,cost:19,block:3,range:[],
+				hp:2391,atk:314,def:470,res:0,cost:19,block:3,range:[],
 				nature:{
-					"トゲトゲシールド":{exp:"バブルを攻撃した敵の攻撃力が5秒間-8%"}
+					"トゲトゲシールド":{exp:"バブルを攻撃した敵の攻撃力が5秒間-5%"}
 				}
 			},
 			{
-				hp:3105,atk:365,def:690,res:0,cost:21,block:3,range:[],
+				hp:3416,atk:370,def:645,res:0,cost:21,block:3,range:[],
 				nature:{
 					"トゲトゲシールド":{exp:"バブルを攻撃した敵の攻撃力が5秒間-8%"}
 				}
@@ -11010,18 +11010,18 @@ const operator = {
 			},
 			"「かかってこい！」":{
 				exp:"攻撃しなくなり、防御力<span class='merit'>+@defadd%</span>、敵に攻撃されやすくなる。攻撃される度自身の防御力の<span class='merit'>@reflect%</span>の物理ダメージで敵に反撃する",
-				recover:"auto",activate:"manual",
+				recover:"auto",activate:"manual",noAttack:true,
 				effect:[
-					{need:40,pers:30,defadd:55,heal:1},
-					{need:40,pers:30,defadd:60,heal:1},
-					{need:40,pers:30,defadd:65,heal:1},
-					{need:40,pers:30,defadd:75,heal:1},
-					{need:40,pers:30,defadd:80,heal:1},
-					{need:40,pers:30,defadd:85,heal:1},
-					{need:40,pers:30,defadd:95,heal:2},
-					{need:40,pers:30,defadd:105,heal:2},
-					{need:40,pers:30,defadd:115,heal:2},
-					{need:40,pers:30,defadd:130,heal:3}
+					{need:50,pers:25,defadd:45,reflect:30},
+					{need:50,pers:25,defadd:50,reflect:30},
+					{need:50,pers:25,defadd:55,reflect:30},
+					{need:50,pers:25,defadd:65,reflect:40},
+					{need:50,pers:25,defadd:70,reflect:40},
+					{need:50,pers:25,defadd:75,reflect:40},
+					{need:49,pers:25,defadd:85,reflect:40},
+					{need:48,pers:25,defadd:95,reflect:50},
+					{need:47,pers:25,defadd:105,reflect:50},
+					{need:45,pers:25,defadd:120,reflect:50}
 				]
 			}
 		}
