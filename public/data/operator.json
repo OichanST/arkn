@@ -9783,13 +9783,13 @@ const operator = {
 		characteristic:"敵を１体までブロック",
 		stat:[
 			{
-				min:{hp:1010,atk:201,def:131},
-				max:{hp:1365,atk:296,def:191},
+				min:{hp:1151,atk:211,def:131},
+				max:{hp:1556,atk:311,def:191},
 				res:0,cost:7,block:1,range:[[1,0]],
 				nature:{}
 			},
 			{
-				hp:1750,atk:395,def:262,res:0,cost:9,block:1,range:[[1,0]],
+				hp:1996,atk:415,def:262,res:0,cost:9,block:1,range:[[1,0]],
 				nature:{
 					"一騎打ち":{
 						exp:"同じ敵を攻撃する度攻撃力+@base%@pexp、最大5回まで。攻撃対象が変わるとリセット",
@@ -9800,7 +9800,7 @@ const operator = {
 				}
 			},
 			{
-				hp:2135,atk:488,def:312,res:0,cost:9,block:1,range:[[1,0]],
+				hp:2435,atk:513,def:312,res:0,cost:9,block:1,range:[[1,0]],
 				nature:{
 					"一騎打ち":{
 						exp:"同じ敵を攻撃する度攻撃力+@base%@pexp、最大5回まで。攻撃対象が変わるとリセット",
