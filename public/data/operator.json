@@ -10420,21 +10420,36 @@ const operator = {
 		en:"Arene",
 		rare:4,job:"前衛",relocation:70,speed:1.3,trust:{def:55},tag:["近距離","火力"],
 		recruitment:true,
-		characteristic:"８０％の攻撃力で<span class='merit'>遠距離攻撃</span>も行える",
+		characteristic:"80%の攻撃力で<span class='merit'>遠距離攻撃</span>も行える",
 		stat:[
 			{
-				min:{hp: 949,atk:272,def:154},
-				max:{hp:1356,atk:400,def:211},
+				min:{hp: 945,atk:263,def:162},
+				max:{hp:1350,atk:388,def:222},
 				res: 5,cost:16,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[0,1],[1,1]],
-				nature:{}
-			},
-			{
-				hp:1785,atk:534,def:268,res:10,cost:18,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[3,0],[0,1],[1,1]]
-			},
-			{
-				hp:2260,atk:660,def:323,res:10,cost:18,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[3,0],[0,1],[1,1]],
 				nature:{
-					"構造分解":{exp:"【ドローン】を優先して攻撃。【ドローン】を攻撃時攻撃力+40%"}
+					"構造分解":{exp:"【ドローン】を優先して攻撃。"}
+				}
+			},
+			{
+				hp:1777,atk:518,def:282,res:10,cost:18,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[3,0],[0,1],[1,1]],
+				nature:{
+					"構造分解":{
+						exp:"【ドローン】を優先して攻撃。【ドローン】を攻撃時攻撃力+@base%@pexp",
+						base:20,
+						pexp:"(+@padd%)",
+						padd:3
+					}
+				}
+			},
+			{
+				hp:2250,atk:640,def:340,res:10,cost:18,block:2,range:[[0,-1],[1,-1],[1,0],[2,0],[3,0],[0,1],[1,1]],
+				nature:{
+					"構造分解":{
+						exp:"【ドローン】を優先して攻撃。【ドローン】を攻撃時攻撃力+@base%@pexp",
+						base:40,
+						pexp:"(+@padd%)",
+						padd:3
+					}
 				}
 			}
 		],
@@ -10450,32 +10465,32 @@ const operator = {
 				exp:"ブロック数が0になり、通常攻撃が敵に攻撃力の<span class='merit'>@atk%</span>の物理ダメージを与える2連撃になる",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:37,pers:15,atk:100,cnt:2},
+					{start:1,need:36,pers:15,atk:105,cnt:2},
+					{start:2,need:35,pers:15,atk:110,cnt:2},
+					{start:4,need:34,pers:15,atk:115,cnt:2},
+					{start:6,need:33,pers:15,atk:120,cnt:2},
+					{start:8,need:32,pers:15,atk:125,cnt:2},
+					{start:10,need:31,pers:15,atk:130,cnt:2},
+					{start:11,need:29,pers:15,atk:135,cnt:2},
+					{start:12,need:27,pers:15,atk:140,cnt:2},
+					{start:15,need:25,pers:15,atk:150,cnt:2}
 				]
 			},
 			"フェイタルトリック":{
 				exp:"攻撃範囲拡大、特性による遠距離攻撃時の攻撃力低下が無効化される<br/>攻撃時、敵に攻撃力の<span class='merit'>@atk%</span>の術ダメージを与え、敵2体を同時に攻撃",
 				recover:"auto",activate:"manual",
 				effect:[
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{}
+					{start:0,need:40,pers:15,atk:110,target:2},
+					{start:0,need:40,pers:15,atk:115,target:2},
+					{start:0,need:40,pers:15,atk:120,target:2},
+					{start:5,need:38,pers:17,atk:125,target:2},
+					{start:5,need:38,pers:17,atk:130,target:2},
+					{start:5,need:38,pers:17,atk:135,target:2},
+					{start:10,need:35,pers:20,atk:140,target:2},
+					{start:10,need:34,pers:20,atk:145,target:2},
+					{start:10,need:32,pers:20,atk:150,target:2},
+					{start:15,need:30,pers:20,atk:160,target:2}
 				]
 			}
 		}
